@@ -19,7 +19,7 @@
         <property name="exceptionMappings">
             <props>
                 <!--<prop key="com.quick.frame.exception.GuideTestException">../../exception/error-interface</prop>-->
-                <prop key="java.lang.Exception">error</prop>
+                <prop key="java.lang.Exception">error   </prop>
             </props>
         </property>
         <property name="statusCodes">
