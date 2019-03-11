@@ -1,0 +1,374 @@
+div.qpanel{margin:5px;height:calc(100% - 10px);}
+.tradePortrayalP1,.tradePortrayalP2,.tradePortrayalP3{
+    height:870px;
+    margin:0 0 10px 0;
+}
+
+.tradePortrayalP1,.monthTradeInfo,.factoryTradeInfo,.tradeUpWaterInfo,.tradeUpWaterInfoChart{
+    width:498px;
+}
+
+.tradePortrayalP2,.tradeAreaInfo,.tradeMarketInfo,.tradeAmountOrderInfo,.tradeAreaInfoChart{
+    width:100%;
+}
+
+.tradePortrayalP2{
+    margin:0 30px 0 30px;
+}
+
+.tradePortrayalP3,.tradeTopInfo,.tradeInfoMonth,.tradeInfoMonthChart{
+    width:700px;
+}
+
+.monthTradeInfo,.tradeAreaInfo{
+    height:278px;
+}
+
+.monthTradeInfoFonts{
+    width:45%;
+}
+
+.monthTradeInfoFont{
+    width:80%;
+    height:50%;
+    padding: 5px 0 0 10px
+}
+
+.monthTradeInfoFontBlod{
+    font-size:25px;
+    color:#dcd522;
+    height:30px;
+    margin:10px 0 0 0;
+}
+
+.monthTradeInfoChart{
+    width:55%;
+    height:100%;
+    float: left;
+}
+
+.monthTradeInfoFonts{
+    height:100%;
+    float: left;
+    color:white;
+}
+
+.factoryTradeInfo,.tradeMarketInfo{
+    height:289px;
+    margin:18px 0 18px 0;
+}
+
+.tradeUpWaterInfo,.tradeAmountOrderInfo,.tradeInfoMonth{
+    height:266px;
+}
+
+.tradeTopInfo{
+    height:585px;
+}
+
+.tradeInfoMonth{
+    margin:18px 0 0 0;
+}
+
+.trade-modal-background{
+    width:100%;
+    height:100%;
+    position: absolute;
+    z-index: 20086;
+}
+
+.trade-modal-hidden{
+    display: none;
+
+}
+
+.trade-modal{
+    position: absolute;
+    z-index: 10086;
+    top:260px;
+    width:1720px;
+    /*width:100%;*/
+    margin:0 20px 0 20px;
+    height:700px;
+    /*height:100%;*/
+    box-shadow:0px 0px 200px rgba(0,0,0,100);
+    background-color: #000F2C;
+}
+
+.trade-modal-checked{
+    display: block !important;
+}
+
+.factoryTradeBarChart,.factoryTradePieChart{
+    width:50%;
+    height:100%;
+    float:left;
+}
+
+.tradeUpWaterInfoChart{
+    height:229px;
+}
+
+.tradeAreaInfoChart{
+    height:calc(100% - 22px);
+}
+
+.tradeAmountOrderBarChart,.tradeAmountOrderPieChart{
+    height:100%;
+    width:45%;
+    float:left;
+}
+
+.marketFtPriceChartArea{
+    width:100%;
+    height:209px;
+    float:left;
+}
+
+.marketFtPriceChartLngPng{
+    height:22px;
+    padding-right: 20px;
+    text-align: right;
+    color:white;
+}
+
+.marketFtPriceChartLngPng>span{
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.marketFtPriceChartLngPngChecked{
+    font-weight:bold;
+    color:#30A7A9;
+}
+
+.marketFtPriceChart{
+    width:100%;
+    height:100%;
+}
+
+.tradeAmountOrderInfoBar{
+    width:50%;
+    height:100%;
+    float:left;
+}
+
+.xName{
+    width:20px;
+    height:248px;
+    margin-top:230px;
+    color:white;
+    font-size:12px;
+}
+
+.tradeTopInfoChart{
+    width:100%;
+    height:100%;
+}
+
+.tradeInfoMonthChart{
+    height:229px;
+}
+
+.div-hidden{
+    display: none;
+}
+
+.trade-modal-title{
+    width:1600px;
+    margin:0 0 0 40px;
+    height:98px;
+    border-bottom: 1px dashed blue;
+    float:left;
+}
+
+.trade-modal-contents{
+    width:1560px;
+    margin:0 80px 40px 80px;
+    height:560px;
+}
+
+.trade-modal-charts{
+    width:780px;
+    height:280px;
+    overflow: auto;
+}
+
+.trade-modal-charts-left{
+    float:left;
+}
+
+.trade-modal-charts-right{
+    float:right;
+}
+
+.trade-modal-charts-title{
+    width:700px;
+    height:30px;
+    line-height: 30px;
+    color:white;
+    margin-top:10px;
+    position:relative;
+}
+
+.trade-modal-charts-title>span{
+    margin-left:20px;
+}
+
+.trade-modal-charts-title:before{
+    content: "";
+    width:8px;
+    height: 30px;
+    background-color:#38A9E1;
+    position: absolute;
+    margin:0 20px 0 0;
+}
+
+.trade-modal-charts-echart-group{
+    width:780px;
+    height:230px;
+}
+
+.month-trade-echart{
+    width:350px;
+    height:230px;
+    float: left;
+}
+
+.month-trade-change-title,.month-trade-change-value{
+    width:330px;
+    height:55px;
+    margin:0 0 0 20px;
+}
+
+.month-trade-change-title{
+    line-height: 60px;
+    color:white;
+}
+
+
+.month-trade-change-value{
+    line-height: 55px;
+    color:yellow;
+    font-size:30px;
+}
+
+.title-area{
+    display: table-cell;
+    height:98px;
+    width:400px;
+    float: none;
+    color:white;
+    vertical-align: middle;
+    position:relative;
+}
+
+.close-modal{
+    width: 70px;
+    height: 40px;
+    background-color: #55F8CB;
+    border-radius: 5px;
+    color: white;
+    float: right;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+}
+
+.trade-modal-title-area,.trade-modal-title-date{
+    width: 130px;
+    margin: 5px 0 0 180px;
+}
+
+.trade-modal-title-area{
+    height: 20px;
+    line-height: 20px;
+}
+
+.trade-modal-title-date{
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.trade-modal-title-deal-name{
+    width: 250px;
+    margin: 5px 0 0 60px;
+    height: 20px;
+    line-height: 20px;
+    color:white;
+}
+
+.trade-modal-title-deal{
+    width: 300px;
+    margin: 5px 0 0 60px;
+    color:yellow;
+    font-size:30px;
+}
+
+.trade-modal-deal-point{
+    color:white;
+    font-size:15px;
+}
+
+.trade-modal-table{
+    width:100%;
+    height:100%;
+    color:white;
+    text-align: left;
+}
+
+.trade-modal-table td{
+    text-align: left;
+}
+
+.trade-modal-table-title{
+    font-size:20px;
+}
+
+.check_btn_grp{
+    height:22px;
+    font-size:12px;
+    color:white;
+    margin:5px 0 0 10px;
+    /*padding-top:10px;*/
+}
+
+.check_btn_grp_float_left{
+    width:100%;
+    text-align: left;
+    float: left;
+}
+
+.check_btn_option_status_l,.check_btn_option_status_r{
+    float:left;
+    /*width:100px;*/
+    height:20px;
+    font-size:10px !important;
+    padding:0 10px 0 10px;
+    line-height: 20px;
+    border:0px solid blue;
+    background-color: #242727;
+    text-align: center;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.check_btn_option_status_l{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.check_btn_option_status_r{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+
+.check_btn_option_checked{
+    background-color: #40A3D5;
+}

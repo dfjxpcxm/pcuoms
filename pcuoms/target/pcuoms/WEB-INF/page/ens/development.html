@@ -1,0 +1,370 @@
+<#include "/WEB-INF/include/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
+    <script src="${host}/static/lib/echarts/echarts-wordcloud.js"></script>
+     <script src="${host}/static/lib/echarts/echarts-wordcloud.min.js"></script>
+    <script src="${host}/static/data/public/country.json"></script>
+    <script src="${host}/static/js/ens/development.js"></script>
+    
+ <script type="text/javascript" src="${host}/static/js/glChart/ag-charts.js"></script>
+<script type="text/javascript" src="c${host}/static/js/glChart/columns.js"></script>
+<script type="text/javascript" src="c${host}/static/js/glChart/positive-negative.js"></script>
+
+<script type="text/javascript" src="${host}/static/js/glChart/earth/earth.js"></script>
+
+<link rel="stylesheet" href="${host}/static/font/font-awesome/css/font-awesome.min.css">
+</#macro>
+<style>
+.qs_header{
+line-height: 36px;
+margin-top: 0px;
+}
+select option{
+background-color: #111328;
+}
+.box{position:relative;}
+ .tabbtn{position:absolute;z-index:11;top:-4%;right:26px;}
+  #chart0{
+ width:98%;
+ margin-bottom: 30px;
+ margin-left: 10px;
+ margin-right: 10px;
+ height: 100%;
+ }
+ 
+  body, html,#map_demo, #tab, #mapfrm {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+  
+ /* .qheader{
+ background: url('../static/theme/default/header-investment.png') no-repeat center center;background-size:100% 100%;
+ } */
+ .title{
+ font-size: 18px;
+ color:#fff;
+ line-height:80px;
+ text-align: left;
+ margin-left: 7%;
+ }
+ .value{
+ font-size: 24px;
+ color:#09FCFF;
+ line-height:80px;
+ text-align: center;
+ }
+ 
+ #bottom2{
+  background: url('../static/theme/default/cyfz/bottom2.png') no-repeat center center;background-size:100% 100%;
+ } 
+ 
+ #chart21{
+  background: url('../static/theme/default/cyfz/ciyun.png') no-repeat center center;background-size:120% 100%;
+ }
+ 
+ #qiye1{
+ background: url('../static/theme/default/cyfz/dayu.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye2{
+ background: url('../static/theme/default/cyfz/ali.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye3{
+ background: url('../static/theme/default/cyfz/mengniu.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye4{
+ background: url('../static/theme/default/cyfz/hella.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye5{
+ background: url('../static/theme/default/cyfz/dangdang.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye6{
+ background: url('../static/theme/default/cyfz/dushi.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye7{
+ background: url('../static/theme/default/cyfz/baoguang.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye8{
+ background: url('../static/theme/default/cyfz/weimeng.png') no-repeat center center;background-size:99% 99%;
+ }
+ 
+ #fang1{
+ background: url('../static/theme/default/fang/fang1.png') no-repeat center center;background-size:99% 99%;
+ }
+ #fang2{
+ background: url('../static/theme/default/fang/fang2.png') no-repeat center center;background-size:99% 99%;
+ }
+ #fang3{
+ background: url('../static/theme/default/fang/fang3.png') no-repeat center center;background-size:99% 99%;
+ }
+ #fang4{
+ background: url('../static/theme/default/fang/fang4.png') no-repeat center center;background-size:99% 99%;
+ }
+ #fang5{
+ background: url('../static/theme/default/fang/fang5.png') no-repeat center center;background-size:99% 99%;
+ }
+ 
+ .h21{
+ height: 15%
+ } 
+ 
+  .h22{
+ height: 7%
+ } 
+ 
+ .qk{
+ height:80px;
+ background: url('../static/theme/default/cyfz/qk.png') no-repeat center center;background-size:99% 99%;
+ }  
+ 
+ .f_img{
+ margin-left: 50%;
+ margin-top: 78%;
+ } 
+ 
+ @media screen and (max-width: 600px) {
+    .qs_title2 {
+        color:red;
+    }
+}
+#guanli .w31{
+ width:20%;
+ }
+ #guanli_image .w31{
+ width:20%;
+ }
+.top-title{
+    color:#38B8FF;
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: center;
+    cursor:pointer
+    }
+    
+    .top-title:hover{
+    color:#03EAFF;
+    }
+    
+    #top-title{
+    color:#03EAFF;
+    }
+#bottom-img{
+     background: url('../static/theme/default/bottom-img.png') no-repeat center center;
+     background-size:100% 100%;
+    }
+  
+ .w31{
+ width:20%;
+ float: left;
+ }   
+</style>
+<#macro body>
+    <@topbar title="产业发展">
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="gc row qpage">
+    	<div class="gi-left x0 w3 h8" style="border: 2px rgba(8, 235, 255, 0.5) solid;top:1%;left: 0.6%;height:65%;width:22%">
+            <div class="qpanel" style="margin:0px 0px 0px 0px;border:0px;height:100%;width:100%">
+            		<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">产业与招商情况 (2018年)</span></div>
+            		</div>
+					<div class="qs_body">
+						<div class = "w12 h12" id = "chart0-left1">
+		                	<div class = "w12 h21" style="margin-top: 40px;">
+		                		<div class = "qk">
+		                			<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">工业产值</div>
+									<div class = "w6 h12 value">37.4 亿元</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">累计工业产值</div>
+									<div class = "w6 h12 value">627.03亿元</div>
+								</div>	
+							</div>
+							
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">引资到位额</div>
+									<div class = "w6 h12 value">26.8亿元</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">累计引资到位额</div>
+									<div class = "w6 h12 value">430.15亿元</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f3.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">引入项目</div>
+									<div class = "w6 h12 value">1747个</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f3.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">累计引入项目</div>
+									<div class = "w6 h12 value">5000个</div>
+								</div>
+							</div>
+	                	</div>
+					</div>
+                </div>
+        </div>
+        <div class="gi-left x00 y0 w3 h12">
+            <div class="w12 h12">
+                <div class="qpanel">
+                	<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">园区企业</span></div>
+            		</div>
+                    <div class="qs_body">
+                    	<div class = "h8 w12" id="chart2"></div>
+                    	<div class = "h4 w12"  style="height:32.4%;margin-top: 2%;">
+                    		<div class="qs_header" style = "line-height: 50px;">
+		            			<div class="w2 h12 qs-header-img" ></div>
+				                 <div class="w8 h12 qs-header-title"><span class="qs_title2">园区重点企业</span></div>
+		            		</div>
+		            		<div class="qs_body qiye" id="qiye1" style="height:86%;margin-top: 3%;">
+                    		</div>	
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w12 h12">
+            <div id="main" class="w12 h10 qpanel0"></div>
+        </div>
+        <div class="gi-right x0 y00 w9 h4" style="width:75%">
+        	 <div class="w6 h12">
+                <div class="qpanel">
+                	<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">工业产值分析</span></div>
+            		</div>
+                    <div id="chart4" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w6 h12">
+                <div class="qpanel">
+					<div class="qs_header" style = "line-height: 50px;">
+						<div class="w2 h12 qs-header-img" style="margin-top: 13px;"></div>
+		                 <div class="w2 h12 qs-header-title"><span class="qs_title2">产业方向</span></div>
+		                 <div class="w9 h12 "  style="float: right;width:77%;height:47px;margin-top: -6px;">
+		                 	<div class="w12 h9" id= "guanli">
+		                 		<div class="w31 h12 top-title top-title1" id = "top-title" onclick = "return change(0)">智能机器人</div>
+		                 		<div class="w31 h12 top-title top-title2" onclick = "return change(1)">智慧物流</div>
+		                 		<div class="w31 h12 top-title top-title3" onclick = "return change(2)">智能精密制造</div>
+		                 		<div class="w31 h12 top-title top-title4" onclick = "return change(3)">智能能源装备</div>
+		                 		<div class="w31 h12 top-title top-title5" onclick = "return change(4)">智能环保</div>
+		                 	</div>
+		                 	<div class="w12 h3" style="height: 19%"  id= "guanli_image">
+		                 		<div class="w31 h12 bottom-img bottom-img1" id = "bottom-img"></div>
+		                 		<div class="w31 h12 bottom-img bottom-img2"></div>
+		                 		<div class="w31 h12 bottom-img bottom-img3"></div>
+		                 		<div class="w31 h12 bottom-img bottom-img4"></div>
+		                 		<div class="w31 h12 bottom-img bottom-img5"></div>
+		                 	</div>
+		                 </div> 
+					</div>
+					<div id="chart4" class="qs_body" style="height: 85%;margin-top: 15px">
+						<div class="w5 h12">
+							<div id = "text" style="line-height: 45px;color:#fff;font-size: 18px;margin: 9px 15px 15px 10px;text-align: center">
+								地平线机器人<br/>凌天世纪机器人<br/>智通机器人<br/>驰疆科技<br/>智造宝3D打印
+							</div>
+						</div>
+						<div class="w7 h12 fang" id = "fang1" style="height: 90%;"></div>
+					</div>
+				</div>
+            </div> 
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+var id = ['qiye1','qiye2','qiye3','qiye4','qiye5','qiye6','qiye7','qiye8'];
+var fang = ['fang1','fang2','fang3','fang4','fang5'];
+var fang_text = ['地平线机器人<br/>凌天世纪机器人<br/>智通机器人<br/>驰疆科技<br/>智造宝3D打印',
+                 '博斯特能源装备产业园<br/>贝特尔流体控制设备<br/>绿清管道<br/>莫泰克石油装备',
+                 '大禹节水<br/>华贸环保<br/>汉威机电<br/>新奥泛能网',
+                 '阿里巴巴智慧电商物流<br/>京东商城<br/>聚美优品<br/>当当网',
+                 '厦门钨业高端数控刀具<br/>菲索玛特<br/>海拉车灯<br/>北斗金刚石<br/>北京内燃机'];
+var i = 0;
+var j = 0;
+$(document).ready(function() {
+	getdata('/statecn/trade/development/earth.json',main);
+	points(0);
+	setInterval(function() {
+		points(i);
+		i++;
+	  }, 3000);
+	setInterval(function() {
+		change(j);
+		j++;
+	  }, 4000);
+	setInterval(function() {
+		window.location.href="${host}/ens/innovate";
+	  }, 50000);
+	})
+	
+function points(value){
+	i = value;
+	if (i==id.length) {
+		i = 0;
+	}
+	$('.qiye').attr('id',id[i]);
+}
+
+function fangs(value){
+	j = value;
+	if (j==fang.length) {
+		j = 0;
+	}
+	$('.fang').attr('id',fang[j]);
+	$('#fang_text').html(fang_text[j]);
+}
+
+var text = ['地平线机器人<br/>凌天世纪机器人<br/>智通机器人<br/>驰疆科技<br/>智造宝3D打印',
+            '阿里巴巴智慧电商物流<br/>京东商城<br/>聚美优品<br/>当当网',
+            '厦门钨业高端数控刀具<br/>菲索玛特<br/>海拉车灯<br/>北斗金刚石<br/>北京内燃机',
+            '博斯特能源装备产业园<br/>贝特尔流体控制设备<br/>绿清管道<br/>莫泰克石油装备',
+            '大禹节水<br/>华贸环保<br/>汉威机电<br/>新奥泛能网'];
+var title = ['.top-title1','.top-title2','.top-title3','.top-title4','.top-title5'];
+var image = ['.bottom-img1','.bottom-img2','.bottom-img3','.bottom-img4','.bottom-img5'];
+var imgid = ['fang1','fang4','fang5','fang2','fang3'];
+function change(value){
+	j = value;
+	if (j==title.length) {
+		j = 0;
+	}
+	$('.bottom-img').attr('id','');
+	$('.top-title').attr('id','');
+	$(image[j]).attr('id','bottom-img');
+	$(title[j]).attr('id','top-title');
+	$('.fang').attr('id',imgid[j]);
+	$("#text").html(text[j]);
+}
+
+
+	
+function main(data){
+		 echarts.registerMap('world', data.mapData);
+		 var value = data.content;
+		  agChart.earth.gl.init('#main', '', value); 
+	 }
+</script>
+</#macro>

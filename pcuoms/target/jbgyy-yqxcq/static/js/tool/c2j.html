@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CVS to Json</title>
+    <script src="../../lib/jquery.min.js" type="text/javascript"></script>
+    <script src="../../lib/common.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div style="float:left;"><div>CSV:</div><textarea id="t1" style="height:400px;width:200px;" onpaste="convert();return true;"></textarea></div>
+    <div style="float:left;width:210px;height:400px;">
+        <p></p>
+        <div style="vertical-align: middle;text-align: left;">
+            <div style="text-align: left;width:260px;">
+                <label><input id="r1" name="r" type="radio" value="map" checked="checked" />pie:[{name:'aa',value:33}]</label><br />
+                <label><input id="r2" name="r" type="radio" value="data" />scatter:[[12, 34,23]]</label><br />
+                <label><input id="r3" name="r" type="radio" value="dataframe" />bar按行:[{col},{ind},{dat}]</label><br />
+                <label><input id="r4" name="r" type="radio" value="dataframeX" />bar按列:[{col},{ind},{dat}]</label><br />
+                <label><input id="r5" name="r" type="radio" value="list" />table:[{"aa":33}]</label><br />
+                <label><input id="r6" name="r" type="radio" value="array" />array:[['aa','bb'],[11,2]]</label>
+            </div><br />
+            <div style="height:50px;width:200px;text-align:center;"><button onclick="convert();">转换</button></div>
+            <div style="height:50px;width:200px;text-align:center;">
+                <button onclick="save();">保存</button>
+            </div>
+        </div>
+    </div>
+    <div style="float:left;"><div>JSON:</div><textarea id="t2" style="height:400px;width:400px;"></textarea></div>
+</body>
+</html>
+<script type="text/javascript">
+    var regNum = /^(\-)?\d+(\.\d+)?$/, varMap = {};
+    function save(){
+        convert();
+        var v2 = $("#t2").val();
+        var fname = 'test.json';
+        if (isIE()){
+            var winname = window.open('', '_blank', 'top=10000');
+            winname.document.open('text/html', 'replace');
+            winname.document.writeln(v2);
+            winname.document.execCommand('saveas','',fname);
+            winname.close();}
+        else{
+            saveByBrowse($("#t2")[0],fname);
+        }
+    }
+    function saveByBrowse(obj,filename){
+        var a=document.createElement('a');
+        a.setAttribute('href','data:text/html;utf-8,'+obj.value);
+        a.setAttribute('download',filename);
+        a.setAttribute('target','_blank');
+        a.style.display="none";
+        obj.parentNode.appendChild(a);
+        a.click();
+    }
+    function isIE(){
+        if(!!window.ActiveXObject || "ActiveXObject" in window)
+            return true;
+        else
+            return false;
+    }
+    function convert(){
+        var v1 = $("#t1").val(), tp = get_type(), v2 = '';
+        if(v1 == '' || tp == '')
+            return;
+        var d = csv_arr(v1);
+        var s = ['['];
+        window['cv_'+tp](d, s);
+        s.push(']');
+        v2 = s.join('');
+        $("#t2").text(v2);
+    }
+    function get_type(){
+        var rs = document.getElementsByName("r");
+        for(var i = 0; i < rs.length;  i++){
+            if(rs[i].checked)
+                return rs[i].value;
+        }
+        return '';
+    }
+    function to_arrstr(o){
+        if(o.length <= 0)
+            return '[\"\"]';
+        var ss = '';
+        for(var i =0; i < o.length; i++){
+            ss += "," + to_var(o[i],i);
+        }
+        return '[' + ss.substr(1) + ']';
+    }
+    function to_valstr(o){
+        if(o.length <= 0)
+            return '\"\"';
+        if(o.length == 2)
+            return to_var(o[1], 1);
+        else{
+            var ss = '';
+            for(var i =1; i < o.length; i++){
+                ss += ",\"" + o[i] + "\"";
+            }
+            return '[' + ss.substr(1) + ']';
+        }
+    }
+    function to_var(v, i){
+        /*if(varMap[i]){
+            if(varMap[i]=='n')
+                return v;
+            else
+                return "\"" + v + "\"";
+        }*/
+        if(v==null&&v!==0){
+            return "\"\"";
+        }
+        if(regNum.test(v.trim())){
+            //varMap[i] = 'n';
+            return v.trim();
+        }else{
+            //varMap[i] = 's';
+            return "\"" + v + "\"";
+        }
+    }
+    function cv_data(a, s){
+        var j = 0;
+        a.forEach(function(o,i){
+            if(!o[0])
+                return false;
+            if(j>0)
+                s.push(',\n');
+            s.push(to_valstr(o));
+            j++;
+        });
+    }
+    function cv_map(a, s){
+        var j = 0;
+        a.forEach(function(o,i){
+            if(!o[0])
+                return false;
+            if(j>0)
+                s.push(',\n');
+            s.push('{\"name\":\"', o[0], '\",\"value\":', to_valstr(o), '}');
+            j++;
+        });
+    }
+    function cv_array(a, s){
+        var j = 0;
+        a.forEach(function(o,i){
+            if(j>0)
+                s.push(',\n');
+            s.push(to_arrstr(o));
+            j++;
+        });
+    }
+    function cv_dataframe(a,s){
+        if(a[0].length == 2){
+            return cv_dataframe2(a, s);
+        }
+        var ld = a[0].length, ii=[],aa = [];
+        for(var i = 1, l = a.length; i < l; i++){
+            var o = a[i];
+            if(!o || (!o[0] && !o[1]))
+                continue;
+            aa[i-1]=[];
+            ii.push(a[i][0]);
+            for(var j = 1;j< o.length; j++)
+                aa[i-1].push(o[j]);
+        }
+        a[0].splice(0,1);
+        s.push(to_arrstr(a[0]));//column
+        s.push(",\n",to_arrstr(ii));//index
+        //data
+        for(var x = 0; x < aa.length; x++){
+            s.push(',\n', to_arrstr(aa[x]));
+        }
+    }
+    function cv_dataframe2(a, s){
+        var ld = a[0].length, ii=[],aa = [];
+        for(var i = 1, l = a.length; i < l; i++){
+            var o = a[i];
+            if(!o || (!o[0] && !o[1]))
+                continue;
+            ii.push(a[i][0]);
+            for(var j = 1;j< o.length; j++)
+                aa.push(o[j]);
+        }
+        a[0].splice(0,1);
+        s.push(to_arrstr(a[0]));//column
+        s.push(",\n",to_arrstr(ii));//index
+        s.push(',\n',to_arrstr(aa));//data
+        return true;
+    }
+    function cv_dataframeX(a,s){
+        if(a[0].length == 2){
+            return cv_dataframe2(a, s);
+        }
+        var ld = a[0].length, ln = a.length, aa = [];
+        for(var p = 0; p < ld; p++)
+            aa[p]=[];//if(a[0][p])
+
+        ld = aa.length;
+        for(var i = 1; i < ln; i++){
+            var o = a[i];
+            if(!o || (!o[0] && !o[1]))
+                continue;
+            for(var j = 0;j< ld; j++)
+                aa[j].push(o[j]);
+        }
+        a[0].splice(0,1);
+        s.push(to_arrstr(a[0]));//column
+        //index//data
+        for(var x = 0; x < aa.length; x++){
+            s.push(',\n', to_arrstr(aa[x]));
+        }
+    }
+    function cv_list(a,s){
+        for(var i = 1, l = a.length; i < l; i++){
+            var o = a[i];
+            if(!o[0] && !o[1])
+                continue;
+            if(i>1)
+                s.push(',\n');
+            s.push('{');
+            for(var j =0; j < o.length; j++){
+                if(j>0)
+                    s.push(',');
+                s.push("\"" + a[0][j] + "\":" + "\"" + o[j] + "\"");
+            }
+            s.push('}');
+        }
+    }
+    function csv_arr(v, spt){
+        var arr = [], spt = spt || /\t/;
+        var ds = v.split("\n");
+        for(var i=0;i< ds.length;i++){
+            var a = ds[i].split(spt);
+            arr.push(a);
+        }
+        return arr;
+    }
+</script>

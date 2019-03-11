@@ -1,0 +1,264 @@
+<#include "/WEB-INF/include/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
+    <script src="${host}/static/lib/echarts/echarts-wordcloud.js"></script>
+     <script src="${host}/static/lib/echarts/echarts-wordcloud.min.js"></script>
+    <script src="${host}/static/data/public/country.json"></script>
+    <script src="${host}/static/js/ens/development.js"></script>
+    
+ <script type="text/javascript" src="${host}/static/js/glChart/ag-charts.js"></script>
+<script type="text/javascript" src="c${host}/static/js/glChart/columns.js"></script>
+<script type="text/javascript" src="c${host}/static/js/glChart/positive-negative.js"></script>
+
+<script type="text/javascript" src="${host}/static/js/glChart/earth/earth.js"></script>
+
+<link rel="stylesheet" href="${host}/static/font/font-awesome/css/font-awesome.min.css">
+</#macro>
+<style>
+.qs_header{
+line-height: 36px;
+margin-top: 0px;
+}
+select option{
+background-color: #111328;
+}
+.box{position:relative;}
+ .tabbtn{position:absolute;z-index:11;top:-4%;right:26px;}
+  #chart0{
+ width:98%;
+ margin-bottom: 30px;
+ margin-left: 10px;
+ margin-right: 10px;
+ height: 100%;
+ }
+ 
+  body, html,#map_demo, #tab, #mapfrm {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+  
+ /* .qheader{
+ background: url('../static/theme/default/header-investment.png') no-repeat center center;background-size:100% 100%;
+ } */
+ .title{
+ font-size: 18px;
+ color:#fff;
+ line-height:63px;
+ text-align: left;
+ margin-left: 7%;
+ }
+ .value{
+ font-size: 24px;
+ color:#09FCFF;
+ line-height:63px;
+ text-align: center;
+ }
+ 
+ #bottom2{
+  background: url('../static/theme/default/cyfz/bottom2.png') no-repeat center center;background-size:100% 100%;
+ } 
+ 
+ #chart21{
+  background: url('../static/theme/default/cyfz/ciyun.png') no-repeat center center;background-size:120% 100%;
+ }
+ 
+ #qiye1{
+ background: url('../static/theme/default/cyfz/dayu.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye2{
+ background: url('../static/theme/default/cyfz/ali.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye3{
+ background: url('../static/theme/default/cyfz/mengniu.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye4{
+ background: url('../static/theme/default/cyfz/hella.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye5{
+ background: url('../static/theme/default/cyfz/dangdang.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye6{
+ background: url('../static/theme/default/cyfz/dushi.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye7{
+ background: url('../static/theme/default/cyfz/baoguang.png') no-repeat center center;background-size:99% 99%;
+ }
+ #qiye8{
+ background: url('../static/theme/default/cyfz/weimeng.png') no-repeat center center;background-size:99% 99%;
+ }
+ 
+ .h21{
+ height: 13%
+ } 
+ 
+  .h22{
+ height: 7%
+ } 
+ 
+ .qk{
+ height:63px;
+ background: url('../static/theme/default/cyfz/qk.png') no-repeat center center;background-size:99% 99%;
+ }  
+ 
+ .f_img{
+ margin-left: 50%;
+ margin-top: 53%;
+ } 
+    
+</style>
+<#macro body>
+    <@topbar title="产业发展情况">
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="gc row qpage">
+    	<div class="gi-left x0 w3 h8" style="border: 2px rgba(8, 235, 255, 0.5) solid;top:1%;left: 0.6%;height:65%;width:22%">
+            <div class="qpanel" style="margin:0px 0px 0px 0px;border:0px;height:100%;width:100%">
+            		<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">产业与招商情况 (2017年)</span></div>
+            		</div>
+					<div class="qs_body">
+						<div class = "w12 h12" id = "chart0-left1">
+		                	<div class = "w12 h21" style="margin-top: 40px;">
+		                		<div class = "qk">
+		                			<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">工业产值</div>
+									<div class = "w6 h12 value">46.7 亿元</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">累计工业产值</div>
+									<div class = "w6 h12 value">589.63亿元</div>
+								</div>	
+							</div>
+							
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">引资到位额</div>
+									<div class = "w6 h12 value">72亿元</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f1.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">累计引资到位额</div>
+									<div class = "w6 h12 value">403.35亿元</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f3.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">引进入项目</div>
+									<div class = "w6 h12 value">1747个</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f3.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">累计引入项目</div>
+									<div class = "w6 h12 value">3400个</div>
+								</div>
+							</div>
+							<div class = "w12 h21">
+								<div class = "qk">
+									<div class = "w1 h12">
+										<img class = "f_img" src="../static/theme/default/yqgk/f2.png" height="26" width="26"/>
+									</div>
+									<div class = "w4 h12 title">累计引入企业</div>
+									<div class = "w6 h12 value">5000家</div>
+								</div>
+							</div>
+	                	</div>
+					</div>
+                </div>
+        </div>
+        <div class="gi-left x00 y0 w3 h12">
+            <div class="w12 h12">
+                <div class="qpanel">
+                	<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">园区企业</span></div>
+            		</div>
+                    <div class="qs_body">
+                    	<div class = "h8 w12" id="chart2"></div>
+                    	<div class = "h4 w12"  style="height:32.4%;margin-top: 2%;">
+                    		<div class="qs_header" style = "line-height: 50px;">
+		            			<div class="w2 h12 qs-header-img" ></div>
+				                 <div class="w8 h12 qs-header-title"><span class="qs_title2">园区重点企业</span></div>
+		            		</div>
+		            		<div class="qs_body qiye" id="qiye1" style="height:86%;margin-top: 3%;">
+                    		</div>	
+                    	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w12 h12">
+            <div id="main" class="w12 h10 qpanel0"></div>
+        </div>
+        <div class="gi-right x0 y00 w9 h4" style="width:75%">
+        	 <div class="w6 h12">
+                <div class="qpanel">
+                	<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">工业产值分析</span></div>
+            		</div>
+                    <div id="chart4" class="qs_body"></div>
+                </div>
+            </div>
+            <div class="w6 h12">
+                <div class="qpanel">
+                	<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">产业结构分析</span></div>
+            		</div>
+                    <div id="bottom21" class="qs_body" style = "height:100%;margin-top: -3.4%"></div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+var id = ['qiye1','qiye2','qiye3','qiye4','qiye5','qiye6','qiye7','qiye8'];
+var i = 0;
+$(document).ready(function() {
+	getdata('/statecn/trade/development/earth.json',main);
+	points(0);
+	setInterval(function() {
+		points(i);
+		i++;
+	  }, 3000);
+	setInterval(function() {
+		window.location.href="${host}/ens/innovate";
+	  }, 50000);
+	})
+	
+function points(value){
+	i = value;
+	if (i==id.length) {
+		i = 0;
+	}
+	$('.qiye').attr('id',id[i]);
+}
+
+
+	
+function main(data){
+		 echarts.registerMap('world', data.mapData);
+		 var value = data.content;
+		  agChart.earth.gl.init('#main', '', value); 
+	 }
+</script>
+</#macro>

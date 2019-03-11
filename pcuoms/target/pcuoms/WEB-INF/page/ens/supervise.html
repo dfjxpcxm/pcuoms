@@ -1,0 +1,257 @@
+<#include "/WEB-INF/include/base.html" />
+<#macro head>
+    <script src="${host}/static/lib/echarts/echarts-gl.js"></script>
+    <script src="${host}/static/data/public/country.json"></script>
+   <!--  <script src="${host}/static/js/ens/enterprise.js"></script> -->
+       
+  <script type="text/javascript" src="${host}/static/js/glChart/ag-charts.js"></script>
+  <script type="text/javascript" src="${host}/static/js/glChart/tianjin.js"></script>
+</#macro>
+<style>
+.qs_header{
+line-height: 36px;
+margin-top: 0px;
+}
+select option{
+background-color: #111328;
+}
+.box{position:relative;}
+ .tabbtn{position:absolute;z-index:11;top:-4%;right:26px;}
+  #chart0{
+ width:98%;
+ margin-bottom: 30px;
+ margin-left: 10px;
+ margin-right: 10px;
+ height: 100%;
+ }
+ 
+  body, html,#map_demo, #tab, #mapfrm {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+  
+ /* .qheader{
+ background: url('../static/theme/default/header-enterprise.png') no-repeat center center;background-size:100% 100%;
+ } */
+ 
+    
+   .title{
+ font-size: 15px;
+ color:#fff;
+ line-height:42px;
+ text-align: center;
+ }
+ .value{
+ font-size: 24px;
+ color:#09FCFF;
+ line-height:39px;
+ text-align: center;
+ }
+ .value-title{
+  font-size: 22px;
+ color:#09FCFF;
+ line-height:74px;
+ text-align: center;
+ }
+ .tab{
+  background: url('../static/theme/default/tab-normal.png') no-repeat center center;background-size:100% 100%;
+ }
+ .tab:hover{
+  background: url('../static/theme/default/tab-hover.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #tab{
+  background: url('../static/theme/default/tab-hover.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ .value-but{
+ color:#09FCFF;
+ line-height:30px;
+ text-align: center;
+ font-weight: bold;
+ }
+ 
+ #center1{
+ background: url('../static/theme/default/zhgl/zhihui1.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #center2{
+ background: url('../static/theme/default/zhgl/zhihui2.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #center3{
+ background: url('../static/theme/default/zhgl/zhihui3.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #center4{
+ background: url('../static/theme/default/zhgl/zhihui4.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #nengyuan{
+ background: url('../static/theme/default/zhgl/nengyuan.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #ka{
+ background: url('../static/theme/default/zhgl/ka.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #hj{
+ background: url('../static/theme/default/zhgl/hj.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #aq{
+ background: url('../static/theme/default/zhgl/aq.png') no-repeat center center;background-size:100% 100%;
+ }
+ 
+ #jianshe{
+ margin-top:-2%;
+ background: url('../static/theme/default/zhgl/jianshe.png') no-repeat center center;background-size:93% 100%;
+ }
+ 
+ .point{
+ border: 2px #fff solid; width:15px;height:15px;border-radius: 50%;float: left;margin-left: 15%;background-color: #8197ae;
+ }
+ #point{
+	background-color: #f8b354;
+ }
+ 
+</style>
+<#macro body>
+    <@topbar title="智慧管理">
+</@topbar>
+<div class="qmain container-fluid animated fadeInRight">
+    <div id="page" class="row qpage" >
+     	<div class="w12 h8">
+     		<div class="w3 h12">
+            	<div class="qpanel">
+	                <div class="qs_header" style = "line-height: 50px;">
+		                <div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">智慧园区建设</span></div>
+		            </div>
+	                <div class="qs_body">
+	                	<div class = "w12 h5">
+	                		<div style="line-height: 47px;color:#fff;font-size: 18px;margin: 30px 15px 15px 10px;">
+								<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;智慧园区建设是一个系统性的工程，分阶段、分步骤的渐进实施，现阶段搭建园区大数据平台，整合园区数据，实现智慧视频监控、智慧一卡通、智慧能源管理、智慧环境管理，推动推动园区管慧化管理。</span>
+								</div>
+	                	</div>
+	                	<div class = "w12 h7" id = "jianshe"></div>
+               		 </div>
+                </div>
+            </div>
+           <div class="w6 h12">
+            	<div class="qpanel">
+	                <div class="qs_header" style = "line-height: 50px;">
+	                	<!-- <div class="w8 h12 qs-header-title" style="float: right;margin-right: 27px;"><span class="qs_title2" style="float: right;">园区重点企业发展分析</span></div>
+		                 <div class="w2 h12 qs-header-img"  style="float: right;margin-left: 585px"></div> -->
+	                </div>
+	               <div class="qs_body  qs_center" style="height:100%;margin-top: -3.1%"  id = "center1">
+	                	<div class = "h11 w12"></div>
+		                	<div class = "h1 w12" style="margin-top: 2%;">
+								<div class = "h12 w5" style="width:42.5%"></div>
+								<div class = "h12 w2" style="width:15%">
+								<div class = "point point1" onclick = "return points(0);" id = "point" style="margin-left: 8%;"></div>
+								<div class = "point point2" onclick = "return points(1);"></div>
+								<div class = "point point3" onclick = "return points(2);"></div>
+								<div class = "point point4" onclick = "return points(3);"></div>
+								</div>
+							</div>
+	                </div>
+                </div>
+            </div>
+            <div class="w3 h12">
+            	<div class="qpanel">
+	                <div class="qs_header" style = "line-height: 50px;">
+	                	 <div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">智慧视频监控</span></div>
+	                </div>
+	                <div class="qs_body" style="height:95%">
+	                	<div class = "w12 h5">
+	                		<div style="line-height: 47px;color:#fff;font-size: 18px;margin: 30px 15px 15px 10px;">
+								<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;园区建立了集视频监控、处理和分析于一体的视频大数据管理体系，实现了园区主要道路和重点企业的安全监管和服务。</span>
+								</div>
+	                	</div>
+	                	<div class = "w12 h7 aq" id = "aq"></div>
+	                </div>
+                </div>
+            </div>
+        </div>
+		<div class="w12 h4">
+			 <div class="w4 h12">
+            	<div class="qpanel">
+            		<div class="qs_header" style = "line-height: 50px;">
+            			<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">智慧能源管理</span></div>
+            		</div>
+					<div class="qs_body nengyuan" id = "nengyuan" style="height:87%;margin-top: 2%;"></div>
+                </div>
+            </div>
+			<div class="w4 h12">
+				<div class="qpanel">
+					<div class="qs_header" style = "line-height: 50px;">
+						<div class="w2 h12 qs-header-img"></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">智慧一卡通管理</span></div>
+					</div>
+					<div id="ka" class="qs_body ka" style="height:87%;margin-top: 2%;">
+						
+					</div>
+				</div>
+			</div>
+			<div class="w4 h12">
+				<div class="qpanel">
+					<div class="qs_header" style = "line-height: 50px;">
+						<div class="w2 h12 qs-header-img" ></div>
+		                 <div class="w8 h12 qs-header-title"><span class="qs_title2">智慧环境管理</span></div>
+					</div>
+					<div id="hj" class="qs_body hj" style="height:87%;margin-top: 2%;">
+						
+					</div>
+				</div>
+			</div>
+        </div>  
+    </div>
+</div>
+<script>
+var id = ['center1','center2','center3','center4'];
+var point = ['.point1','.point2','.point3','.point4'];
+var i = 0;
+$(document).ready(function() {
+	setInterval(function() {
+		points(i);
+		i++;
+	  }, 3000);
+	setInterval(function() {
+		window.location.href="${host}/ens/index";
+	  }, 50000); 
+	})
+	
+function points(value){
+	$('.point').attr('id','');
+	i = value;
+	if (i==id.length) {
+		i = 0;
+	}
+	$('.qs_center').attr('id',id[i]);
+	$(point[i]).attr('id','point');
+}
+
+/* var ka = ['ka1','ka2','ka3'];
+function oneka(value){
+	j = value;
+	if (j==ka.length) {
+		j = 0;
+	}
+	$('.ka').attr('id',ka[j]);
+}
+
+var hj = ['hj1','hj2','hj3','hj4','hj5'];
+function huan(value){
+	k = value;
+	if (k==hj.length) {
+		k = 0;
+	}
+	$('.hj').attr('id',hj[k]);
+}
+
+var aq = ['aq1','aq2','aq3','aq4','aq5','aq6'];
+function anquan(value){
+	$('.aq').attr('id',aq[i]);
+} */
+  </script>
+</#macro>

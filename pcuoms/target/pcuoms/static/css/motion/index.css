@@ -1,0 +1,226 @@
+
+/*
+总宽width1840px
+总高height865px
+*/
+
+.base_float{
+    float:left;
+}
+
+.callActionContentsP1,.callActionContentsP2,.callActionContentsP3{
+    height:833px;
+}
+
+.callActionContentsP1,.callActionScreen,.callActionSubAmount,.callActionTradCount,.callActionChart{
+   width:100%;
+}
+
+.callActionContentsP2,.basic_info_fonts{
+    width:100%;
+}
+
+.callActionContentsP2{
+    /*margin:0 20px 0 20px;*/
+}
+
+.callActionContentsP3,.callActionFlowRecord,.callActionCompanyLst{
+    width:440px;
+}
+
+.callActionTitle{
+    width:260px;
+    height:40px;
+    font-size:21px;
+    color:#73D3FD;
+
+    line-height: 35px;
+    /*line-height: 50px;*/
+}
+
+.callActionTitle_left{
+    text-align: left;
+    padding-left:25px;
+    background-size: 100% 100%;
+    background: url(../../image/echar_title_left.png) no-repeat;
+    font-weight: bold;
+}
+
+.callActionTitle_right{
+    text-align: right;
+    padding-right:25px;
+    background-size: 100% 100%;
+    background: url(../../image/echar_title_right.png) no-repeat right center;
+    font-weight: bold;
+    float:right;
+}
+
+.callActionCheckBtnGrp{
+    width:100%;
+    height:35px;
+    color:white;
+    text-align: left;
+    margin:0 0 0 10px;
+    padding-top:10px;
+}
+
+.callActionScreen {
+    height:278px;
+}
+
+.callActionScreenCharts,.callActionScreenChart{
+    height:100%;
+}
+
+.callActionScreenChart{
+    width:calc(50% - 10px);
+    margin:0 5px 0 5px;
+}
+
+.callActionSubAmount {
+    height:289px;
+}
+
+.callActionSubAmountChart,.callActionTradCountChart{
+    width:100%;
+    height:100%;
+}
+
+.callActionTradCount {
+    height:266px;
+}
+
+.basic_info_fonts{
+    color:white;
+    margin-top:60px;
+    height:105px;
+    color:#73D3FD;
+    /*font-weight: bold;*/
+}
+
+.basic_info_font_values{
+    margin-top:20px !important;
+}
+
+.basic_info_fonts>div{
+    width:calc(100% - 50px);
+    margin:0 25px 0 25px;
+    text-align: left;
+    float:left;
+}
+
+.basic_info_fonts>div>div{
+    width:24%;
+    font-size:20px;
+    text-align: left;
+    float:left;
+}
+
+
+.basic_info_font_title{
+    font-size:24px;
+    color:blue;
+    float:left;
+}
+
+.basic_info_font_value{
+    font-size:24px;
+    color:yellow;
+    margin:0 15px 0 0;
+    padding:0;
+}
+
+.map_chart{
+    width:calc(100% - 60px);
+    height:calc(100% - 105px);
+    margin:0 30px 0 30px;
+}
+
+.callActionFlowRecord{
+    height:525px;
+}
+
+.callActionCompanyLst{
+    height:272px;
+    margin:30px 0 0 0;
+}
+
+.callActionFlowRecordCharts{
+    height:420px;
+    margin:20px 0 0 0;
+}
+
+.callActionFlowRecordChart{
+    width:calc(100% - 35px);
+    height:calc(100% - 65px);
+}
+
+.callActionFlowRecordChartP1{
+    width:100%;
+    height:40%;
+}
+
+.callActionFlowRecordChartP2{
+    width:100%;
+    height:60%;
+}
+
+.callActionCompanyLstTable{
+    color:#46BDBC;
+    font-size:10px;
+    font-weight: bold;
+    height:calc(100% - 10px);
+    overflow: auto;
+}
+
+.callActionCompanyLstTable>table{
+    width:100%;
+    /*height:230px;*/
+}
+
+.callActionCompanyLstTable td{
+    height:20px;
+}
+.callActionCompanyLstTable tbody td{
+    white-space: nowrap;text-overflow: ellipsis;overflow: hidden;
+}
+
+td{
+    text-align: center;
+}
+
+.check_btn_grp{
+    height:29px;
+    font-size:14px;
+    color:white;
+    margin:17px 0 0 10px;
+    /*padding-top:10px;*/
+}
+
+.check_btn_option_status_l,.check_btn_option_status_r{
+    float:left;
+    /*width:100px;*/
+    height:25px;
+    font-size:10px !important;
+    padding:0 10px 0 10px;
+    line-height: 25px;
+    border:0px solid blue;
+    background-color: #242727;
+    text-align: center;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.check_btn_option_status_l{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.check_btn_option_status_r{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.check_btn_option_checked{
+    background-color: #40A3D5;
+}

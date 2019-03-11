@@ -1,0 +1,23 @@
+.qheader-title1{
+    background-image: -webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#2874ff));
+}
+.qs_header{
+    height:30px;line-height: 63px;
+}
+.qheader-icon2 .ico2{
+    background-color:#38b8ff;
+}
+.qs_title1{
+    background-color: #2874ff; margin:0 10px 0 10px; font-size: 1.4em;font-weight: bold;
+}
+
+.qs_title2{
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #38b8ff;
+    font-family: "Microsoft YaHei" !important;
+}
+.qs_body{
+    height:calc(100% - 30px);
+}
+/******bootstrap theme******/

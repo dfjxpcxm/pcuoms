@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pcuoms:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>pcuoms</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="pcuoms.war">
+      <element id="artifact" artifact-name="pcuoms:war exploded" />
+    </root>
+  </artifact>
+</component>
