@@ -1,0 +1,57 @@
+.sec1{
+    background: url('../img/dmpc-banner.png') no-repeat;
+    background-size:  100% 100%;
+}
+.sec12{position: absolute;top:80%;left:15%;height:calc(100% + 125px);width:70%;margin:0 auto; z-index:1;background:#fff;color:#212233;}
+.sec3{
+    background: url('../img/dmpc-bg3.png') no-repeat;
+    background-size: 100% 100%;
+    color:#212233;
+}
+
+.caption1{text-align:center;height:calc(100% - 125px);padding-top:15px;}
+.movice{position: absolute;bottom:140px;right:15%;z-index:1;}
+.movice .play{position: absolute;top:35px;right:45px;font-size:2rem;color:#026aff;cursor: pointer;}
+.dashboard{text-align:center;}
+.dashboard li{float:left; width:25%;}
+.dashboard .top{height:75px;width:12.5%;display:table-cell;vertical-align: bottom;}
+.dashboard .btm{height:50px;line-height: 50px;}
+.news{height:250px;}
+.news p{font-size:1rem;}
+.newstab li{width:100px; color:#c5c5c4;font-size:1.4rem;height:35px;line-height:35px;}
+.newstab li.active a{color:#026aff;}
+.newstab li a{color:#c5c5c4;}
+
+.goods{text-align: center;}
+.goods-content .rowl,.goods-content .rowr{width:60%;margin:0 auto;margin-bottom:20px;}
+.goods-content .rowl{justify-content:flex-start;}
+.goods-content .rowr{justify-content:flex-end;}
+.goods-content .item{display:inline-block;background:#808080;position: relative;}
+.goods-content .item p{width:120px;height:100px;line-height:100px;color:#fff;vertical-align: middle;text-align: center;background-size:100% 100%;margin:0;}
+.goods-content .rowl .item p{margin-left:10px;}
+.goods-content .rowr .item p{margin-right:10px;}
+.goods-content .rowl .item:first-child{background:#000;padding-left:50px;}
+.goods-content .rowr .item:last-child{background:#000;padding-right:50px;}
+.goods-content .tail{width:inherit;height:100px;background: url('../img/dmpc-brand.png') no-repeat;}
+.goods-content .rowl .tail{-webkit-transform:rotateY(180deg);transform:rotateY(180deg);}
+.goods-content .item .mask{background:#026aff;position: absolute;top:0;left:0;width:120px;height:100px;}
+.travels{height:calc(100% - 120px);}
+
+.slider-nav{display: flex;flex-direction: column;justify-content: center;height:90%;padding-top:15px;}
+.slider-nav li{text-align: left;height:20%;}
+.slider-nav li a{cursor: pointer;color:#aaa;font-size:1.8rem;}
+.slider-nav li a div{display: inline-block;}
+.slider-nav li a .tag{padding-left:5px;}
+.slider-nav li a .line{height:2px;line-height: 1px;}
+.slider-nav li.active a,.slider-nav li a:hover{color:#000;}
+.slider-nav li.active a .tag,.slider-nav li a:hover .tag{display:inline;}
+.slider-inner{height:100%;}
+.slider-inner .item{position: relative;height:100%;}
+.slider-content .head{height:40%;text-align: right;font-size:2rem;color:#d7e7ff;}
+.slider-content .body{height:calc(100% - 120px);font-size:1rem;padding:0 10px;}
+.slider-content .foot{height:40px;padding:0 10px;text-align:right;}
+
+.navbtm{height:50px;text-align:center;background: url('../img/dmpc-navbtm.png') no-repeat;background-size: 100% 100%;}
+.navbtm ul li{float:left;color:#fff;width:11%;line-height:50px;}
+.aboutus{background:#191924;color:#fff;}
+

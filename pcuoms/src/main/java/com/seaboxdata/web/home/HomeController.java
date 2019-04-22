@@ -18,6 +18,6 @@ public class HomeController {
      */
     @RequestMapping(value = "/")
     public String index(){
-        return "redirect:ens/index";
+       return "redirect:mainframe/index";
     }
 }
