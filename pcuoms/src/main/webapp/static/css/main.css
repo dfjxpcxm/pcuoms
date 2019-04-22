@@ -13,7 +13,7 @@ a:hover,a:active{color:#026aff;}
 .center{display: flex;justify-content:center;align-items:Center;}
 .hide{display:none;}
 .flex{display:flex;justify-content:center;align-items:center;}
-.clearfix{overflow:auto;_height:1%}
+.clearfix{overflow:hidden;_height:1%}
 .clear {clear: both;}
 .blue{color:#026aff;}.red{color:red}.green{color:green}.gray{color:gray}.yellow{color:yellow;}
 .textl{text-align: left;} .textr{text-align: right;} .textc{text-align: center;}
@@ -35,7 +35,7 @@ a:hover,a:active{color:#026aff;}
 .font20{font-size:2rem;}
 
 /***dui***/
-.d-navtip{position:relative; width:100%;}
+.d-navtip{position:relative; width:100%;overflow-x: hidden;}
 .d-navtip .msg{ width:inherit;height:0; background: rgba(0,0,0,0.6); position:absolute; left: 0; bottom: 0; color: #fff;overflow: hidden;}
 .d-navtip .msg h3 {  color:#fff; padding:0; font-size: 18px; font-weight: 100; height: 45px; line-height: 45px; text-align: center; }
 .d-navtip .msg p { font-size: 14px; text-align: center; }

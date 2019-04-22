@@ -13,10 +13,10 @@
             <a class="logo" href="#">城市运营管理系统</a>
             <nav class="nav">
                 <ul class="tabl">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="dmpc.html">大美浦城</a></li>
-                    <li><a href="pccg.html">浦城成果</a></li>
-                    <li><a href="pcwl.html">浦城未来</a></li>
+                    <li><a href="${host}/mainframe/index">首页</a></li>
+                    <li><a href="${host}/mainframe/goBeautiful">大美浦城</a></li>
+                    <li><a href="${host}/mainframe/goAchievement">浦城成果</a></li>
+                    <li><a href="${host}/mainframe/goFuture">浦城未来</a></li>
                     <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
                 </ul>
             </nav>
@@ -72,7 +72,7 @@
                     <li>
                         <div><img src="${host}/static/img/gdp.png" /></div>
                         <div><h3>浦城GDP</h3></div>
-                        <div class="msg"><p>生产总值（GDP）增长9.0%第一产业增加值占地区生产总值的比重为28.6%，第二产业为36.0%,第三产业为35.4%。</p></div>
+                        <div class="msg"><p>生产总值增长9.0%。第一产业占地区生产总值的比重为28.6%，第二产业为36.0%,第三产业为35.4%。</p></div>
                     </li>
                     <li>
                         <div><img src="${host}/static/img/eco.png" /></div>
@@ -82,7 +82,7 @@
                     <li>
                         <div><img src="${host}/static/img/sec.png" /></div>
                         <div><h3>社会保障</h3></div>
-                        <div class="msg"><p>农村居民人均可支配收入，比上年增长9.3%农民人均生活消费支出增长8.9%。城镇居民比上年增长8.7%；城镇居民增长3.6%。</p></div>
+                        <div class="msg"><p>居民人均可支配收入，比上年增长9.3%。人均消费支出增长8.9%。城镇居民比上年增长8.7%。</p></div>
                     </li>
                 </ul>
             </div>
@@ -132,13 +132,13 @@ function render_culture(d){
             '<div class="msg">',
             '<h3 class="clearfix">',
             '<span class="left"><a class="line">查看详情</a></span>',
-            '<span class="right">"'+d[i].createTime+'"</span>',
+            '<span class="right">'+d[i].createTime+'</span>',
             '</h3>',
             '</div>',
             '</div>',
             ' </li>');
     }
-    let  str = arr.join('');
+    var  str = arr.join('');
     $(".cultures").html(str).dui();
 }
 
