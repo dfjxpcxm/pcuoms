@@ -6,18 +6,55 @@
     <link rel="stylesheet" type="text/css" href="${host}/static/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="${host}/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="${host}/static/css/index.css">
+    <script type="text/javascript" src="${host}/static/lib/jquery.min.js" ></script>
+	<script type="text/javascript" src="${host}/static/lib/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="${host}/static/lib/domi.app.js" ></script>
+	<script type="text/javascript" src="${host}/static/lib/plugin/particles.min.js" ></script>
+	<script type="text/javascript" src="${host}/static/lib/jquery.mousewheel.js" ></script>
+    <style>
+        .s_title{
+            animation: bounceInLeft 1s  cubic-bezier(0.215, 0.610, 0.355, 1.000)
+        }
+        .slider-content{
+            animation: bounceInLeft 1.2s  cubic-bezier(0.215, 0.610, 0.355, 1.000)
+        }
+        .z_img{
+            animation: bounceInLeft1 1s  cubic-bezier(0.215, 0.610, 0.355, 1.000)
+        }
+        @keyframes bounceInLeft1 {
+            0% {
+                opacity: 0;
+                transform: translate3d(-5000px, 0, 0);
+            }
+
+            100% {
+                transform: none;
+            }
+        }
+        @keyframes bounceInLeft {
+            0% {
+                opacity: 0;
+                transform: translate3d(5000px, 0, 0);
+            }
+
+            100% {
+                transform: none;
+            }
+        }
+
+    </style>
 </head>
 <body>
     <header class="headerpan fixed clearfix">
         <div class="header">
             <div class="logo"><a href="#">城市运营管理系统</a></div>
-            <div class="nav" style="text-align: right;">
+            <div class="nav" style="text-align: right;z-index:10">
                 <a class="nav-menu"><span></span></a>
             </div>
         </div>
     </header>
     <section class="sec sec1">
-        <div class="caption light animated wow fadeInDown clearfix">
+        <div class="caption light animated wow fadeInDown clearfix" style="z-index:0">
             <p style="font-size:3rem;">PU CHENG</p>
             <p>闽北重镇浦城，位于福建省最北端，踞八闽上游，界闽浙赣三省</p>
 			<p style="font-size:4rem;">境内面积<span class="blue">3383.02</span>平方公里。为福建省第三大县</p>
@@ -30,7 +67,7 @@
         <div id="bg1" class="bg"></div>
     </section>
     <section class="sec sec2">
-        <div id="lunbo" class="caption carousel slide light animated wow fadeInDown clearfix">
+        <div id="lunbo" class="caption carousel slide light animated wow fadeInDown clearfix"  style="z-index:0">
             <div class="col-md-2 h24" style="position: relative;">
                 <ol class="slider-nav"></ol>
             </div>
@@ -41,7 +78,7 @@
         </div>
     </section>
     <section class="sec sec3">
-        <div class="caption light animated wow fadeInDown clearfix">
+        <div class="caption light animated wow fadeInDown clearfix" style="z-index:0">
             <div class="col-md-2"></div>
             <div class="col-md-4 h24" style="text-align: left;">
                 <h1 class="blue" style="font-size:3.5rem;">重点项目</h1>
@@ -99,14 +136,14 @@
                 <div class="col-md-3">
                     <ul>
                         <li>
-                            <a class="active" href="index.html"><img src="${host}/static/img/ico-home.png" /><span>主页</span></a>
+                            <a class="active" href="${host}/mainframe/index"><img src="${host}/static/img/ico-home.png" /><span>主页</span></a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <ul>
                         <li>
-                            <a class="active" href="dmpc.html"><img src="${host}/static/img/ico-city.png" /><span>大美浦城</span></a>
+                            <a class="active" href="${host}/mainframe/goBeautiful"><img src="${host}/static/img/ico-city.png" /><span>大美浦城</span></a>
                         </li>
                         <li><a><span>人文地理</span></a></li>
                         <li><a><span>历史文化</span></a></li>
@@ -121,7 +158,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li>
-                            <a class="active" href="pccg.html"><img src="${host}/static/img/ico-pc.png" /><span>浦城成果</span></a>
+                            <a class="active" href="${host}/mainframe/goAchievement"><img src="${host}/static/img/ico-pc.png" /><span>浦城成果</span></a>
                         </li>
                         <li><a><span>重点项目</span></a></li>
                         <li><a><span>重点产业</span></a></li>
@@ -135,7 +172,7 @@
                 <div class="col-md-3">
                     <ul>
                         <li>
-                            <a class="active" href="pcwl.html"><img src="${host}/static/img/ico-futrue.png" /><span>浦城未来</span></a>
+                            <a class="active" href="${host}/mainframe/goFuture"><img src="${host}/static/img/ico-futrue.png" /><span>浦城未来</span></a>
                         </li>
                         <li><a><span>指挥城市</span></a></li>
                         <li><a><span>产业经济</span></a></li>
@@ -147,10 +184,6 @@
     </scetion>
 </body>
 </html>
-<script type="text/javascript" src="${host}/static/lib/jquery.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/bootstrap.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/domi.app.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/plugin/particles.min.js" ></script>
 <script>
 $(document).ready(function(){
     init_bg();
@@ -383,6 +416,44 @@ function render_lunbo(d) {
         $(this).siblings().removeClass("active");
         $(this).addClass("active");
     });
+    //鼠标滚轮事件
+    $('.slider-img').mousewheel(function(event, delta) {
+        //鼠标移入禁止滚动条
+        $(".slider-img").mouseover(function () {
+            var top = $(document).scrollTop();
+            $(document).on('scroll.unable',function (e) {
+                $(document).scrollTop(top);
+            })
+        }).mouseout(function () {
+            //移除恢复滚动
+            $(document).unbind("scroll.unable");
+        });
+
+        var cla = ".item0";
+        var lis = ".li0";
+        for (var j = 0; j < d.length; j++) {
+            var id = ".item"+j;
+            if($(id).attr("class").split(" ")[3] == 'active'){
+                if(delta<0){
+                    if(j<d.length-1){
+                        cla = ".item"+(j+1);
+                        lis = ".li"+(j+1);
+                    }
+                }else{
+                    if(j>0){
+                        cla = ".item"+(j-1);
+                        lis = ".li"+(j-1);
+                    } else{
+                        cla = ".item"+(d.length-1);
+                        lis = ".li"+(d.length-1);
+                    }
+                }
+            }
+        }
+        $(".lis").siblings().removeClass("active");
+        $(cla).addClass("active");
+        $(lis).addClass("active");
+        });
 }
 
 function get_lunbo1(d){
@@ -395,16 +466,16 @@ function get_lunbo1(d){
             its = '';
         }
         cnt = i+1;
-        arr.push('<div class="item '+its+'"> ',
+        arr.push('<div class="item item'+i+' lis '+its+'"> ',
             '<div class="col-md-6 slider-img">',
-            '<img src="'+d[i].img_url+'" />',
+            '<img class = "z_img"  src="'+d[i].img_url+'" />',
             '</div>',
             '<div class="col-md-6 slider-content">',
             '<div class="head"><span class="font20">'+cnt+'</span>/<span class="font14">4</span></div>',
             '<div class="body"><p>"'+d[i].content+'"</p></div>',
             '<div class="foot"><a href="javascript:void(0)" onclick="more()">------查看更多</a></div>',
             '</div>',
-            '<div class="slider-title">"'+d[i].title+'"</div>',
+            '<div class="slider-title"><div class = "s_title">'+d[i].title+'</div></div>',
             '</div>');
     }
     var  str = arr.join('');
@@ -420,8 +491,8 @@ function get_lunbo2(d){
         }else{
             iis = '';
         }
-        arrs.push(' <li data-target="#lunbo" data-slide-to="'+ii+'" class="'+iis+'">',
-            '<a><div class="line">&emsp;</div><div class="tag">"'+d[ii].tag+'"</div></a>',
+        arrs.push(' <li data-target="#lunbo" data-slide-to="'+ii+'" class="li'+ii+' lis '+iis+'">',
+            '<a><div class="line">&emsp;</div><div class="tag">'+d[ii].tag+'</div></a>',
             ' </li>');
     }
     var str2 = arrs.join('');
