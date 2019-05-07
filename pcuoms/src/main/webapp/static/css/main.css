@@ -74,10 +74,13 @@ a:hover,a:active{color:#026aff;}
     height: 270px;
     position: absolute;
     top: 0;
+}
+
+.poster-main .poster-btn span{
     cursor: pointer
 }
 
-.poster-main .glyphicon{
+.poster-main .glyphicon{.glyphicon .glyphicon-menu-right
     background:#fff;color:#026aff;border:1px solid #eee;width:32px;height:32px;line-height:32px;text-align: center; border-radius: 50%;
 }
 .poster-main .glyphicon:hover{color:#fff;background:#026aff;}

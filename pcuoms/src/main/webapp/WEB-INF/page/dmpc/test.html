@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5焦点图片波浪切换动画特效 - 站长素材</title>
+<link rel="stylesheet" type="text/css" href="${host}/static/css/dmpc/slick.css">
+<script type="text/javascript" src="${host}/static/js/dmpc/jquery.min.js"></script>
+<script type="text/javascript" src="${host}/static/js/dmpc/slick.min.js"></script>
+<style>
+#disqus_thread{margin-top:20px;}
+*{-moz-box-sizing:border-box;box-sizing:border-box;}
+.blue{background:#3498db;color:#fff;}
+.blue h3{background:#fff;color:#3498db;font-size:36px;line-height:100px;margin:10px;padding:2%;position:relative;text-align:center;}
+
+.center .slick-center h3{-moz-transform:scale(1.08);-ms-transform:scale(1.08);-o-transform:scale(1.08);-webkit-transform:scale(1.08);color:#e67e22;opacity:1;transform:scale(1.08);}
+.center h3{opacity:0.8;transition:all 300ms ease;}
+.content{margin:auto;padding:20px;width:600px;}
+.content:after,.buttons::after{clear:both;content:"";display:table;}
+
+.slick-slide .image{padding:10px;}
+.slick-slide img{border:5px solid #FFF;display:block;width:100%;}
+.slick-slide img.slick-loading{border:0 }
+.slick-slider{margin:30px auto 50px;}
+</style>
+</head>
+<body>
+<section id="features" class="blue">
+			<div class="content">
+			
+				<div class="slider center">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+				</div>
+		</section>
+<script>
+$(document).ready(function() {
+    $('.center').slick({
+        centerMode: true,
+        centerPadding: '60px',
+        slidesToShow: 3,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+            }
+        }, {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+            }
+        }]
+    });
+
+});
+</script>
+</body>
+</html>
+

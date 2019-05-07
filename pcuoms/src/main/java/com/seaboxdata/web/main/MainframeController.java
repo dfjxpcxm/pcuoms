@@ -48,7 +48,5 @@ public class MainframeController extends BaseController {
     public String  goFuture(ModelMap map){
         return "page/pcwl/pcwl";
     }
-
-    
    
 }

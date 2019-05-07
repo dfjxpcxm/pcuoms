@@ -1,28 +1,26 @@
-.sec{
-	height: 46%;
-}
+
 .sec1{color:#212233;}
 .sec2{text-align: center;}
 .caption1{
     width:100%;
-    height:100%;
+    height:45%;
     background: url('../img/pcwl-banner.png') no-repeat;
     background-size: cover;
 }
-.caption23{text-align:center;color: black;height: 100%;}
+.caption2{text-align:center;}
 .caption3{
     width:100%;
+    height:80vh;
+    background: url('../img/pcwl-bg3.png') no-repeat;
+    background-size: 100% 100%;
 }
 .caption4{
     width:90%;
     height:calc(100% - 280px);
     margin:0 auto;
     color:#212233;
-    height: 56vh;
 }
 .cultures{text-align:center;}
-#cultures2 li{text-align:center;height:33vh;}
-.cultures2{display: none;}
 .cultures li{float:left; width:25%;padding:0 10px;}
 .cultures li img{width:auto;height:auto;}
 .d-navtip .msg h3 {padding:0 5px;margin:0; }
@@ -46,11 +44,3 @@
 .navbtm ul li{float:left;color:#fff;width:11%;line-height:50px;}
 .aboutus{background:#191924;color:#fff;}
 
-
-
-.cap31{
-	height: 80vh;
-	 background: url('../img/pcwl-bg3.png') no-repeat;
-    background-size: 100% 100%;
-    margin-top: 2vh;
-}

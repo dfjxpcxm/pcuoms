@@ -24,11 +24,7 @@
     </header>
     <section class="sec sec1">
         <section class="caption1"></section>
-       
-    </section>
-    <section class="sec sec2">
-        <section class="caption3 light animated wow fadeInDown">
-         <div class="caption23 light animated wow fadeInDown clearfix" style="width:85%;margin:0 auto;">
+        <div class="caption2 light animated wow fadeInDown clearfix" style="width:85%;margin:0 auto;">
             <div>
                 <h2>民生文化</h2>
                 <h4>culture</h4>
@@ -37,15 +33,13 @@
                 <ul class="cultures clearfix">
                 </ul>
             </div>
-            <div>
-                <ul id = "cultures2" class="cultures clearfix cultures2">
-                </ul>
-            </div>
             <div class="right" style="padding:20px 15px 0 0;">
-                <a id= "gray1" class="gray" onclick = "cultureMore();">查看更多 ></a>
+                <a class="gray">查看更多 ></a>
             </div>
         </div>
-        <div class = "cap31">
+    </section>
+    <section class="sec sec2">
+        <section class="caption3 light animated wow fadeInDown">
             <div class="title">
                 <h3>智慧城市</h3>
                 <h5 class="gray">city</h5>
@@ -67,7 +61,6 @@
                     <div class="line2" style="top:53vh;left:48vw;background-image:url('${host}/static/img/智慧城市云.png')"><span>智慧城市云</span></div>
                 </div>
             </div>
-           </div> 
         </section>
         <div class="caption4 light animated wow fadeInDown clearfix">
             <div style="padding:0 0 0 25px">
@@ -126,76 +119,27 @@ function init_culture(){
         {img_url:'${host}/static/upload/201904/民生文化1.png',createTime:'2019-04-22',title:'民生文化1'},
         {img_url:'${host}/static/upload/201904/民生文化2.png',createTime:'2019-04-22',title:'民生文化2'},
         {img_url:'${host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化3'},
-        {img_url:'${host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化4'},
-        {img_url:'${host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化5'},
-        {img_url:'${host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化6'},
-        {img_url:'${host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化3'},
-        {img_url:'${host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化4'},
-        {img_url:'${host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化5'},
-        {img_url:'${host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化6'}
+        {img_url:'${host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化4'}
     ];
     render_culture(dat);
 }
 function render_culture(d){
     var arr = [];
-    var arr2 = [];
-    if (d.length>4) {
-    	for (var a = 0; a < 4; a++) {
-            arr.push('<li>',
-                ' <div dui="navtip" class="d-navtip">',
-                '<img src="'+d[a].img_url+'" alt="" /> ',
-                '<div class="msg">',
-                '<h3 class="clearfix">',
-                '<span class="left"><a class="line">查看详情</a></span>',
-                '<span class="right">'+d[a].createTime+'</span>',
-                '</h3>',
-                '</div>',
-                '</div>',
-                ' </li>');
-        }
-    	for (var b = 4; b < d.length; b++) {
-            arr2.push('<li>',
-                ' <div dui="navtip" class="d-navtip">',
-                '<img src="'+d[b].img_url+'" alt="" /> ',
-                '<div class="msg">',
-                '<h3 class="clearfix">',
-                '<span class="left"><a class="line">查看详情</a></span>',
-                '<span class="right">'+d[b].createTime+'</span>',
-                '</h3>',
-                '</div>',
-                '</div>',
-                ' </li>');
-        }
-	}else{
-		for (var i = 0; i < d.length; i++) {
-	        arr.push('<li>',
-	            ' <div dui="navtip" class="d-navtip">',
-	            '<img src="'+d[i].img_url+'" alt="" /> ',
-	            '<div class="msg">',
-	            '<h3 class="clearfix">',
-	            '<span class="left"><a class="line">查看详情</a></span>',
-	            '<span class="right">'+d[i].createTime+'</span>',
-	            '</h3>',
-	            '</div>',
-	            '</div>',
-	            ' </li>');
-	    }	
-	}
+    for (var i = 0; i < d.length; i++) {
+        arr.push('<li>',
+            ' <div dui="navtip" class="d-navtip">',
+            '<img src="'+d[i].img_url+'" alt="" /> ',
+            '<div class="msg">',
+            '<h3 class="clearfix">',
+            '<span class="left"><a class="line">查看详情</a></span>',
+            '<span class="right">'+d[i].createTime+'</span>',
+            '</h3>',
+            '</div>',
+            '</div>',
+            ' </li>');
+    }
     var  str = arr.join('');
-    var  str2 = arr2.join('');
     $(".cultures").html(str).dui();
-    $("#cultures2").html(str2).dui();
-}
-
-function cultureMore(){
-	var id = $('#cultures2').attr('class').split(" ");
-	if(id[2] == 'cultures2'){
-		$("#gray1").html("收起");
-		$("#cultures2").removeClass("cultures2");
-	}else{
-		$("#gray1").html("查看详情");
-		$("#cultures2").addClass("cultures2");
-	}
 }
 
 function init_city(){
