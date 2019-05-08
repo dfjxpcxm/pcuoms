@@ -1,6 +1,6 @@
 package com.seaboxdata.web.main;
 
-import com.seaboxdata.core.base.BaseController;
+import com.seaboxdata.core.base.SysBaseController;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @Scope("prototype")
 @RequestMapping(value = "/mainframe")
-public class MainframeController extends BaseController {
+public class MainframeController extends SysBaseController {
 	
     /**
      * 首页

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/dmpc.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/lib/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/dmpc/slick.css">
+    <script type="text/javascript" src="${G.host}/static/lib/jquery.min.js" ></script>
+	<script type="text/javascript" src="${G.host}/static/lib/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="${G.host}/static/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" ></script>
+	<script type="text/javascript" src="${G.host}/static/lib/domi.app.js" ></script>
+	<script type="text/javascript" src="${G.host}/static/js/dmpc/slick.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="${G.host}/static/css/dmpc/style.css">
+	<style>
+	.poster-main {
+    width: 640px;
+    height: 270px;
+    position: relative
+	}
+	
+	.poster-btn {
+	    width: 100px;
+	    height: 270px;
+	    position: absolute;
+	    top: 0;
+	}
+	.poster-btn span{
+	 cursor: pointer
+	}
+	
+	.glyphicon1{
+	   background:#fff;color:#026aff;border:1px solid #eee;width:32px;height:32px;line-height:32px;text-align: center; border-radius: 50%;
+	   position: absolute;top:26%;
+	}
+	
+	.glyphicon-menu{
+	    background:#fff;color:#026aff;border:1px solid #eee;width:32px;height:32px;line-height:32px;text-align: center; border-radius: 50%;
+	}
+	.glyphicon-menu:hover{color:#fff;background:#026aff;}
+	.poster-prev-btn {
+	    left: 0;justify-content:flex-start;
+	}
+	
+	.poster-next-btn {
+	    right: 0;justify-content:flex-end;
+	}
+	
+	.poster-main .poster-list .list-item {
+	    position: absolute;
+	    top: 0;
+	    left: 0
+	}
+	.glyphicon-menu-left{
+	margin-left: 20%;
+	}
+	.glyphicon-menu-right{
+	margin-right: 20%;
+	}
+	
+	
+	
+
+	</style>
+</head>
+<body>
+    <header class="headerpan clearfix" style="position: absolute;top:0;">
+        <div class="header">
+            <a class="logo" href="#">城市运营管理系统</a>
+            <nav class="nav">
+                <ul class="tabl">
+                    <li><a href="${G.host}/mainframe/index">首页</a></li>
+                    <li><a href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
+                    <li><a href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
+                    <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
+                    <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section style="position: relative;" class="sec sec1">
+        <div class="movice"><video src="${G.host}/static/upload/201904/test.mp4" type="video/mp4" width="120px" height="90px">抱歉，你的浏览器不支持video标签。。</video><span class="play glyphicon glyphicon-play-circle"></span></div>
+    </section>
+    <section class="sec12">
+        <ul class="dashboard clearfix">
+            <li>
+                <div>
+                    <p class="top">No<span class="blue font20">.</span><span class="blue font20 cc">3</span></p>
+                    <p class="btm">福建省占地面积排名</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p class="top"><span class="blue font20 cc">407.9</span>万亩</p>
+                    <p class="btm">林业用地面积</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p class="top"><span class="blue font20 cc">981</span>万立方米</p>
+                    <p class="btm">林业蓄积量</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p class="top"><span class="blue font20 cc">43</span>万人</p>
+                    <p class="btm">全县年末户籍总人口</p>
+                </div>
+            </li>
+        </ul>
+        <div class="news light animated wow fadeInDown">
+            <div class="col-md-3 center1 h24" style="padding:0;">
+                <img class="imgfit" style="object-position:top;" src="${G.host}/static/upload/201904/rwdl.png" />
+            </div>
+            <div class="col-md-9">
+                <ul class="newstab tabl clearfix">
+                    <li href="#rw" data-toggle="tab" class="active"><a href="#">人文地理</a></li>
+                    <li href="#ls" data-toggle="tab"><a href="#">历史文化</a></li>
+                </ul>
+                <div class="tab-content" style="height:135px;">
+                    <div id="rw" class="tab-pane fade in active">
+                        <p>
+                            &emsp;&emsp;浦城县（古属建宁府浦城县）福建省南平市辖县，中国丹桂之乡。位于福建省最北端、闽浙赣三省交界处，是福建的“北大门”，自古为中原入闽第一关，分别与浙江省的江山市、龙泉市、遂昌县和江西省的广丰县接壤，与福建省的建阳市、武夷山市、松溪县毗邻。
+                            全县辖2个街道、9个镇、8个乡、296个村（居）。2006年末，户籍人口40.7万人，其中非农业人口7.16万人。
+                            <br />&emsp;&emsp;全县区域面积3383平方公里，为福建省第三大县，其中山地面积437.4万亩，耕地面积55.47万亩，河流水域面积15万亩，是中国、福建省最早的商品粮基地县。中国十大香樟基地之一。林业用地面积407.9万亩，森林覆盖率达73.1%······
+                        </p>
+                    </div>
+                    <div id="ls" class="tab-pane fade">
+                        <p>
+                            介绍。。。
+                        </p>
+                    </div>
+                </div>
+                <div class="textr">
+                    <button type="button" class="btn btn-default">查看详情</button>
+                </div>
+            </div>
+        </div>
+        <div class="goods light animated wow fadeInDown">
+            <!-- <div>
+                <h2>品牌特色</h2>
+                <h4>brand</h4>
+            </div>
+            <div class="goods-content">
+                <div class="rowl center clearfix">
+                    <div class="item"><p style="background:url('${G.host}/static/upload/201904/丹桂.png')">丹桂</p></div>
+                    <div class="item"><p style="background:url('${G.host}/static/upload/201904/剪纸.png')">剪纸</p></div>
+                    <div class="item"><p style="background:url('${G.host}/static/upload/201904/薏米.png')">薏米</p></div>
+                    <div class="tail"></div>
+                </div>
+                <div class="rowr center clearfix">
+                    <div class="tail"></div>
+                    <div class="item"><p style="background:url('${G.host}/static/upload/201904/灵芝.png')">灵芝</p></div>
+                    <div class="item"><p style="background:url('${G.host}/static/upload/201904/剪纸.png')">剪纸</p></div>
+                    <div class="item"><p style="background:url('${G.host}/static/upload/201904/丹桂.png')">丹桂</p></div>
+                </div>
+            </div> -->
+            
+        </div>
+    </section>
+    <section class="sec11 light animated wow fadeInDown">
+        <div class="toolbar">
+            <ul>
+                <li>
+                    <a>
+                        <i class="di di-muluxiangmu"></i>
+                        <span>重点项目</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="di di-chanyetupu"></i>
+                        <span>重点产业</span>
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="di di-zhihuitiaodu"></i>
+                        <span>指挥中心</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="features" class="blue_s">
+		<div class="content content_s">
+		<h2 id = "ban_h2" style="text-align: center;color: black;margin-top: -19px;">品牌特色</h2>
+		<h4  id = "ban_h4">brand</h4>
+			 <div id = "slider_s" class="slider center slider_s">
+			 </div>			
+		</div>
+	</section>
+    <section class="sec"></section>
+    <section class="sec sec3">
+        <div class="caption1 light animated wow fadeInDown clearfix" style="width:70%;margin:0 auto;">
+            <div>
+                <h2>乡村旅游</h2>
+                <h4>travel</h4>
+            </div>
+            <div id="lunbo" class="travels carousel slide">
+                <div class="col-md-5 h24">
+                    <div class="carousel-inner h24">
+                    </div>
+                </div>
+                <div class="col-md-7 h24">
+                    <ul class="slider-nav">
+                    </ul>
+                </div>
+            </div>
+            <div  class = "lunbo1_info" style="display: none">
+            	<button type="button" id='right' class='bttn right' name="button">
+
+			       <svg version="1.1" id="Capa_1" width='40px' height='40px ' x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
+			       <g>
+			        <path style='fill: #9d9d9d;' d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5
+			          c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z
+			          ">
+			       </g>
+			
+			       </svg>
+			
+			       </button>
+			        <button type="button" id='left' class='bttn left' name="button">
+			       <svg version="1.1" id="Capa_2"  x="0px" y="0px"
+			         viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">
+			       <g>
+			        <path style='fill: #9d9d9d;' d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
+			          c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z">
+			       </g>
+			       </svg>
+			       </button>
+			        <svg id='svg2' class='up2' >
+			      <circle id='circle1' class='circle1 steap' cx="34px" cy="49%" r="20"  />
+			      <circle id='circle2' class='circle2 steap' cx="34px" cy="49%" r="100"  />
+			      <circle id='circle3' class='circle3 steap' cx="34px" cy="49%" r="180"  />
+			      <circle id='circle4' class='circle4 steap' cx="34px" cy="49%" r="260"  />
+			      <circle id='circle5' class='circle5 steap' cx="34px" cy="49%" r="340"  />
+			      <circle id='circle6' class='circle6 steap' cx="34px" cy="49%" r="420"  />
+			      <circle id='circle7' class='circle7 steap' cx="34px" cy="49%" r="500"  />
+			      <circle id='circle8' class='circle8 steap' cx="34px" cy="49%" r="580"  />
+			      <circle id='circle9' class='circle9 steap' cx="34px" cy="49%" r="660"  />
+			    </svg>
+			        <svg id='svg1' class='up2' >
+			      <circle id='circle10' class='circle10 steap' cx="648px" cy="49%" r="20"  />
+			      <circle id='circle11' class='circle11 steap' cx="648px" cy="49%" r="100"  />
+			      <circle id='circle12' class='circle12 steap' cx="648px" cy="49%" r="180"  />
+			      <circle id='circle13' class='circle13 steap' cx="648px" cy="49%" r="260"  />
+			      <circle id='circle14' class='circle14 steap' cx="648px" cy="49%" r="340"  />
+			      <circle id='circle15' class='circle15 steap' cx="648px" cy="49%" r="420"  />
+			      <circle id='circle16' class='circle16 steap' cx="648px" cy="49%" r="500"  />
+			      <circle id='circle17' class='circle17 steap' cx="648px" cy="49%" r="580"  />
+			      <circle id='circle18' class='circle18 steap' cx="648px" cy="49%" r="660"  />
+			    </svg>
+			    <div class=""><div id = "d_ti"></div><i class = "d_close fa fa-times fa-lg"  aria-hidden="true"></i></div>
+			    <div id = "lunbo1_info" class = "parent">
+			    
+			    </div>
+			    <div id = "d_info"></div>
+            </div>
+        </div>
+        <!-- <div class="navbtm">
+            <div style="width:80%;margin:0 auto;">
+                <ul class="clearfix">
+                    <li><a>人文地理</a></li>
+                    <li><a>历史文化</a></li>
+                    <li><a>乡村旅游</a></li>
+                    <li><a>品牌特色</a></li>
+                    <li><a>国民经济</a></li>
+                    <li><a>产业经济</a></li>
+                    <li><a>产业情况</a></li>
+                    <li><a>项目建设</a></li>
+                </ul>
+            </div>
+        </div> -->
+        <div class="clearfix" style="position:relative;height:100px;">
+            <div class="aboutus center2">
+                <div class="col-md-1"></div>
+                <div class="col-md-8">
+                    <p>
+                        主办方：浦城县人民政府&emsp;&emsp;承办单位：浦城县人民政府办公室&emsp;&emsp;联系电话：0599-282231&emsp;&emsp;邮箱：pcxzf@163.com
+                    </p>
+                    <p>
+                        ICP备案编号：闽ICP备07048190号&emsp;&emsp;网站标识码：3507220001&emsp;&emsp;闽公网安备：35072202010025号&emsp;&emsp;技术支持：东方金信
+                    </p>
+                </div>
+                <div class="col-md-3 clearifx">
+                    <div class="center"><a href="http://bszs.conac.cn/sitename?method=show&amp;id=0895EA7FF08B55BAE053012819ACDF52" target="_blank"><img vspace="0" hspace="0" border="0" src="${G.host}/static/img/red.png"></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script>
+var _h = $(window).height();
+$(document).ready(function(){
+    $(".cc").countTo();
+    init_play($("video")[0]);
+    init_lunbo();
+    brand();
+
+});
+
+function brand(){
+	var dat = [{img_url:'${G.host}/static/upload/201904/g5.jpg',title:'丹桂',content:'&emsp;&emsp;福建浦城匡山国家森林公园，公园总面积达2009.27公顷。林覆盖率高达92.6%，漫山碧透，弥漫入青云······'},
+	           {img_url:'${G.host}/static/upload/201904/g2.jpg',title:'薏米',content:'&emsp;&emsp;三江源水利风景区······'},
+	           {img_url:'${G.host}/static/upload/201904/g3.jpg',title:'灵芝',content:'&emsp;&emsp;高坊水利风景区······'},
+	           {img_url:'${G.host}/static/upload/201904/g4.jpg',title:'剪纸',content:'&emsp;&emsp;南平西岩山······'}
+	           ];
+	var arr = [];
+	for (var i = 0; i < dat.length; i++) {
+		var st = '';
+		if(i == 0){
+			st = 'b_titl';
+		}
+		arr.push(
+				'<div id = "slick-sli'+i+'" class = "slick-sli"><img src = "'+dat[i].img_url+'">',
+				'<div id = "fg_top'+i+'" class = "fg_top"><p style = "font-size:1.1em;">'+dat[i].content+'</p></div>',
+					'<div id = "ban_title'+i+'" class = "ban_title '+st+'">'+dat[i].title+'</div>',
+				'</div>');
+	}
+	var str = arr.join('');
+	 $("#slider_s").html(str);
+	$('.center').slick({
+        centerMode: true,//中心模式
+        centerPadding: '60px',
+        slidesToShow: 3,//图片显示个数
+        touchMove:false,
+        responsive: [{ //断点触发设置
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+            }
+        }, {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+            }
+        }]
+    });
+	
+	var left =  '<svg version="1.1" class = "Capa" id="Capa_21"  x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">'+
+    '<g>'+
+     '<path style="fill: #fff;" d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z">'+
+    '</g>'+
+   ' </svg>';
+	var right =  '<svg version="1.1" class = "Capa" id="Capa_11" width="40px" height="40px " x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">'+
+    '<g>'+
+    '<path style="fill: #fff;" d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z">'+
+  ' </g>'+
+   '</svg>';
+   $('.slick-prev').html(left);
+   $('.slick-next').html(right);
+   var capa_id ='';
+   $('.Capa').click(function(){
+	   capa_id = $(this).attr('id');
+   });
+   $('.center').on('beforeChange',function(){
+	   $('.fg_top').removeClass("b_tl");
+   });
+   $('.center').on('afterChange',function(){
+	   $('.fg_top').removeClass("b_tl");
+	   var a = $('.slick-center').attr('data-slick-index');
+	   var asd = '';
+	   if(capa_id=='Capa_11'){
+		   if(a == -1){
+				 asd = '#ban_title'+(dat.length-1); 
+			   }else{
+				 asd = '#ban_title'+a;  
+			 } 
+		   
+	   }else{
+		   if(a == -1){
+				 asd = '#ban_title'+(dat.length-1);  
+			   }else {
+				 asd = '#ban_title'+a;  
+			   }
+	   }
+	   $('.ban_title').removeClass("b_titl");
+	   $('.ban_title').val("");
+       $(asd).addClass("b_titl");
+       $(asd).val("b_titl");
+
+	});
+   $('.slick-sli').mouseover(function(){
+	   var ide =$(this).attr('id');
+	   var s = '#fg_top'+ide.charAt(ide.length-1);
+	   var bas = '#ban_title'+ide.charAt(ide.length-1);
+	   if($(bas).attr('class').split(' ')[1] == 'b_titl'){
+	       $(s).addClass("b_tl");
+	   }
+  }
+  );
+  $('.slick-sli').mouseout(function(){
+	  $('.fg_top').removeClass("b_tl");
+    }
+  );
+}
+
+var da = [];
+function init_lunbo(){
+    var dat = [
+        {img_url:'${G.host}/static/upload/201904/g5.jpg',tag:'匡山国家森林公园',title:'国家森林公园',content:'&emsp;&emsp;福建浦城匡山国家森林公园，公园总面积达2009.27公顷。林覆盖率高达92.6%，漫山碧透，弥漫入青云······'},
+        {img_url:'${G.host}/static/upload/201904/g2.jpg',tag:'浦城县三江源水利风景区',title:'三江源水利风景区',content:'&emsp;&emsp;三江源水利风景区······'},
+        {img_url:'${G.host}/static/upload/201904/g3.jpg',tag:'浦城县高坊水利风景区',title:'高坊水利风景区',content:'&emsp;&emsp;高坊水利风景区······'},
+        {img_url:'${G.host}/static/upload/201904/g4.jpg',tag:'南平西岩山',title:'南平西岩山',content:'&emsp;&emsp;南平西岩山······'},
+        {img_url:'${G.host}/static/upload/201904/g1.png',tag:'南平印象小密 · 中国包酒文化博览园',title:'包酒文化博览园',content:'&emsp;&emsp;南平印象小密 · 中国包酒文化博览园······'}
+    ];
+    da = dat;
+    render_lunbo(dat);
+}
+function render_lunbo(dat){
+    let str =get_lunbo1(dat);
+    let str2 = get_lunbo2(dat);;
+    $(".carousel-inner").html(str);
+    $(".slider-nav").html(str2);
+    $(".slider-nav li").click(function(){
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
+    });
+}
+function lunbo1_img(d){
+	$('.lunbo1_info').css("display","");
+	curpage = d+1;
+	var arr = [];
+	for (var i = 0; i < da.length; i++) {
+		var dd = i+1;
+		var cl = '';
+		if (i == d) {
+			cl = 'up1';
+		}
+		arr.push(
+				'<img src = "'+da[i].img_url+'" id="slide'+dd+'" class="slide'+dd+' '+cl+' slides"></div>');
+	}
+	var str = arr.join('');
+	 $("#lunbo1_info").html(str);
+	 lunbo1_info(d);
+	 $(".d_close").click(function(){
+		 $('.lunbo1_info').css("display","none");
+	    });
+	 
+}
+function lunbo1_info(d){
+	$("#d_ti").html('<span id = "spa" class = "spa" >'+da[d].title)+'</span>';
+	 $("#d_info").html('<p class = "d_info">'+da[d].content+'</p>');
+}
+
+function get_lunbo1(d){
+    var arr = [];
+    var its,str ;
+    for (var i = 0; i < d.length; i++) {
+        if(i == 0){
+            its = 'active';
+        }else{
+            its = '';
+        }
+        arr.push(' <div class="ibox slider-content h24 item '+its+'"> ',
+            ' <div class="h12"><img width="100%" height="100%" src="'+d[i].img_url+'" /></div>',
+            '<div class="h12"><h3>'+d[i].title+'</h3> <p class="body">'+d[i].content+'</p><div class="foot"> <button type="button" class="btn btn-default" onclick="lunbo1_img('+i+')">查看详情</button></div></div> />',
+            '</div>');
+    }
+    str = arr.join('');
+    return str;
+}
+
+function get_lunbo2(d){
+    var arrs = [];
+    var iis,str2 ;
+    for (var ii = 0; ii < d.length; ii++) {
+        if(ii == 0){
+            iis = 'active';
+        }else{
+            iis = '';
+        }
+        arrs.push(' <li data-target="#lunbo" data-slide-to="'+ii+'" class="'+iis+'">',
+            '<a><div class="line">··········</div><div class="tag">'+d[ii].tag+'</div></a>',
+            ' </li>');
+    }
+    str2 = arrs.join('');
+    return str2;
+}
+
+
+function init_play(v){
+    var o = $(v).next();
+    o[0].onclick = v.onclick = function() {
+        if (v.paused) {
+          v.play();
+          o.hide();
+        } else {
+          v.pause();
+          o.show();
+        }
+    };
+    if(window.isiOS){
+        v.addEventListener('ended', function (e) {
+            // 播放结束时触发的时候使播放图标显示，同时播放完之后重新加载video的src
+            o.show();
+            v.src=v.src;
+        });
+    }
+}
+
+
+
+
+
+var curpage = 1;
+var sliding = false;
+var click = true;
+var left = document.getElementById('left');
+var right = document.getElementById('right');
+var pagePrefix = 'slide';
+var pageShift = 500;
+var transitionPrefix = 'circle';
+var svg = true;
+
+function leftSlide() {
+  if (click) {
+    if (curpage <= 1) curpage = da.length+1;
+      console.log('woek');
+      sliding = true;
+      curpage--;
+      svg = true;
+      click = false;
+      for(k=1;k<=da.length;k++){
+        var a1 = document.getElementById(pagePrefix + k);
+        a1.className += ' tran';
+      }
+      lunbo1_info(curpage-1);
+      setTimeout(()=>{
+        move();
+      },200);
+      setTimeout(()=>{
+        for(k=1;k<=da.length;k++){
+          var a1 = document.getElementById(pagePrefix + k);
+          a1.classList.remove('tran');
+        };
+      },1000);
+    }
+}
+
+
+ function rightSlide() {
+  if (click) {
+    if (curpage >= da.length) curpage = 1;
+    console.log('woek');
+    sliding = true;
+    curpage++;
+    svg = false;
+    click = false;
+    for(k=1;k<=da.length;k++){
+      var a1 = document.getElementById(pagePrefix + k);
+      a1.className += ' tran';
+    }
+    lunbo1_info(curpage-1);
+    setTimeout(()=>{
+      move();
+    },200);
+    setTimeout(()=>{
+      for(k=1;k<=da.length;k++){
+        var a1 = document.getElementById(pagePrefix + k);
+        a1.classList.remove('tran');
+      };
+    },1000);
+  }
+}
+
+
+function move() {
+  if (sliding) {
+    sliding = false;
+    if (svg) {
+      for (j = 1; j <= 9; j++) {
+        var c = document.getElementById(transitionPrefix + j);
+        c.classList.remove("steap");
+        c.setAttribute("class", (transitionPrefix + j) + " streak")
+        console.log('streak');
+      }
+    } else {
+      for (j = 10; j <= 18; j++) {
+        var c = document.getElementById(transitionPrefix + j);
+        c.classList.remove("steap");
+        c.setAttribute("class", (transitionPrefix + j) + " streak")
+        console.log('streak');
+      }
+    }
+
+    // for(k=1;k<=4;k++){
+    //   var a1 = document.getElementById(pagePrefix + k);
+    //   a1.className += ' tran';
+    // }
+
+    setTimeout(() => {
+      for (i = 1; i <= da.length; i++) {
+        if (i == curpage) {
+          var a = document.getElementById(pagePrefix + i);
+          a.className += ' up1';
+        } else {
+          var b = document.getElementById(pagePrefix + i);
+          b.classList.remove("up1");
+        }
+      };
+      sliding = true;
+    }, 600);
+    /* setTimeout(() => {
+      click = true;
+    }, 1700); */
+
+
+
+    setTimeout(() => {
+      if (svg) {
+        for (j = 1; j <= 9; j++) {
+          var c = document.getElementById(transitionPrefix + j);
+          c.classList.remove("streak");
+          c.setAttribute("class", (transitionPrefix + j) + " steap");
+        }
+      } else {
+        for (j = 10; j <= 18; j++) {
+          var c = document.getElementById(transitionPrefix + j);
+          c.classList.remove("streak");
+          c.setAttribute("class", (transitionPrefix + j) + " steap");
+        }
+        sliding = true;
+      }
+    }, 850);
+    setTimeout(() => {
+      click = true;
+    }, 1700);
+  }
+
+}
+
+left.onmousedown=()=>{
+  leftSlide();
+}
+
+right.onmousedown=()=>{
+  rightSlide();
+}
+
+document.onkeydown=(e)=>{
+  if(e.keyCode==37){
+    leftSlide();
+
+  }
+  else if (e.keyCode==39) {
+    rightSlide();
+
+  }
+}
+
+	//for codepen header
+	/* setTimeout(()=>{
+		      rightSlide();
+
+	},500) */
+</script>
