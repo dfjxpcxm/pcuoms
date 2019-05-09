@@ -85,7 +85,7 @@ public class GotoPuChengMngController extends SysBaseController<GotoPuChengMngDO
 
     @RequestMapping
     public String edit(ModelMap model) {
-        return "page/gotopc/mainframe";
+        return "page/gotopc/edit";
     }
 
 
