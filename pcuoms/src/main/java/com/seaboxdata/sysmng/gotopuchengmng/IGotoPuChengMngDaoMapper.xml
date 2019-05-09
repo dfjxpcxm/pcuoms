@@ -69,10 +69,9 @@
 	</update>
 
 	<!-- 删除 -->
-	<delete id="delete" parameterType="int">
+	<delete id="delete" parameterType="String">
 		update t01_beatiful_info
-		   set
-			  module_state=0
+		   set module_state=0
 			  ,pub_state=0
 			  ,cre_time=now()
 			  ,upd_time=now()

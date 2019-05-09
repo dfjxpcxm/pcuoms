@@ -218,13 +218,11 @@ public abstract class SysBaseController<T> {
         if (modelAndView == null)
             return;
         String viewName = modelAndView.getViewName();
-
         if (QCommon.isNullOrEmpty(viewName)) {
             modelAndView.clear();
         } else if (viewName.startsWith("redirect:")) {
             // modelAndView.addAllObjects(_ASSIGN_);
         } else {
-
             String url = request.getScheme() + "://" + request.getServerName()
                     + ":" + request.getServerPort() + request.getContextPath();
             String actionUrl = urlPathHelper.getLookupPathForRequest(request);
@@ -235,16 +233,12 @@ public abstract class SysBaseController<T> {
             G.put("year", new Date().getYear() + 1900);
             G.put("serverUrl", url + actionUrl);
             G.put("editUrl", url + actionUrl + "/edit");
-/*
-            G.put("objName", getBaseService().getBaseComment());
-            G.put("idField", getBaseService().getPrimaryKey());
-*/
             modelAndView.addObject("G", G);
-
-
         }
-
     }
+
+
+
 
 
     public ISysBaseService<T> getBaseService() {
@@ -302,7 +296,6 @@ public abstract class SysBaseController<T> {
     }
 
     public DataStore delete(String sysid) {
-
         return getBaseService().delete(sysid);
     }
 
@@ -361,10 +354,9 @@ public abstract class SysBaseController<T> {
         return rstr("filter");
     }
 
-    @RequestMapping(value = "/getObj", method = RequestMethod.POST)
+    @RequestMapping(value = "/getObj")
     @ResponseBody
     public Map<String, Object> getObj() throws Exception {
-
         String sysid = QRequest.getString(request, getBaseService()
                 .getPrimaryKey());
         Map<String, Object> obj = getBaseService().selectMap(sysid);

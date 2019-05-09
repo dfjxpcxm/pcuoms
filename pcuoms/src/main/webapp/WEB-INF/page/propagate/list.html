@@ -28,9 +28,10 @@
 			   toolbar:"#formSearch",
 			   columns: [
 				   {  checkbox: true },
-				   { field: 'module_name', title: '模块名称', width: 100  },
 				   { field: 'function_name', title: '功能名称', width: 100  },
-				   { field: 'module_state', title: '功能状态', width: 100 ,
+				   { field: 'index_title', title: '标题名称', width: 100  },
+				   { field: 'index_content', title: '标题内容', width: 100  },
+				   { field: 'index_state', title: '标题状态', width: 100 ,
 		   				  formatter: function (value, row, index) {
 							  if (value == 1) {
 								  return "启用";
@@ -57,8 +58,8 @@
 
 
 				   { field: 'CZ',  title: '操作',width: '15%', formatter:function(value,row,index){
-					   return "<button type='button' class='btn_el' onclick='edit(\""+row.module_id+"\",\""+row.module_name+"\")'>编辑</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.module_id+"\",\""+row.module_name+"\")'>删除</button>";
+					   return "<button type='button' class='btn_el' onclick='edit(\""+row.propagate_id+"\",\""+row.function_name+"\")'>编辑</button>| "
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.propagate_id+"\",\""+row.function_name+"\")'>删除</button>";
 					   ;
 				   }}
 			   ],onPageChange:function(number, size){
@@ -88,7 +89,7 @@
 		   function(){
 			   $.ajax({
 				   type: "post",
-				   url: quick.serverUrl + '/delete?module_id=' + node,
+				   url: quick.serverUrl + '/delete?propagate_id=' + node,
 				   dataType: "json",
 				   data:{ID:node},
 				   success: function(data){
@@ -106,7 +107,7 @@
 	//查看详细信息
 	function edit(id){
         navAppend("编辑集成系统");/*获取父页面元素并动态赋值父页面title*/
-	    window.location.href=quick.editUrl + "?module_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
+	    window.location.href=quick.editUrl + "?propagate_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
 	}
 	function add(){
 		menuGoto(quick.editUrl);
@@ -115,7 +116,7 @@
 	function goDetail(obj){
 		var value = $(obj).attr("id");
 		navAppend("详情信息");/*获取父页面元素并动态赋值父页面title*/
-		window.location.href=quick.editUrl + "?mode=browse&module_id="+id + getDetailParm();
+		window.location.href=quick.editUrl + "?mode=browse&propagate_id="+id + getDetailParm();
 	}
     function query(){
        _gd['list'].refresh();
