@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/main.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/pccg.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/pccg.css">
     <style type="text/css">
 .card_bo img{
 	 animation: bounceInLeft1 0.8s;
@@ -61,10 +61,10 @@ animation: bounceInLeft_t 0.7s;
             <a class="logo" href="#">城市运营管理系统</a>
             <nav class="nav">
                 <ul class="tabl">
-                    <li><a href="${host}/mainframe/index">首页</a></li>
-                    <li><a href="${host}/mainframe/goBeautiful">大美浦城</a></li>
-                    <li><a href="${host}/mainframe/goAchievement">浦城成果</a></li>
-                    <li><a href="${host}/mainframe/goFuture">浦城未来</a></li>
+                    <li><a href="${G.host}/mainframe/index">首页</a></li>
+                    <li><a href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
+                    <li><a href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
+                    <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
                     <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
                 </ul>
             </nav>
@@ -144,7 +144,7 @@ animation: bounceInLeft_t 0.7s;
         </ul>
         <div class="news light animated wow fadeInDown">
             <div class="col-md-3 center h24 imgbox" style="padding:0;">
-                <img class="imgfit" style="object-position:top;" src="${host}/static/upload/201904/zdxm.png" />
+                <img class="imgfit" style="object-position:top;" src="${G.host}/static/upload/201904/zdxm.png" />
                 <div class="imgtext"><h3 style="text-align: center;color:#fff;">重点项目</h3></div>
             </div>
             <div class="col-md-9">
@@ -192,7 +192,7 @@ animation: bounceInLeft_t 0.7s;
         </ul>
         <div class="news light animated wow fadeInDown" style="margin-top: 6%;">
             <div class="col-md-3 center h24 imgbox" style="padding:0;">
-                <img class="imgfit" style="object-position:top;" src="${host}/static/upload/201904/zdxm.png" />
+                <img class="imgfit" style="object-position:top;" src="${G.host}/static/upload/201904/zdxm.png" />
                 <div class="imgtext"><h3 style="text-align: center;color:#fff;">重点项目</h3></div>
             </div>
             <div class="col-md-9">
@@ -232,18 +232,18 @@ animation: bounceInLeft_t 0.7s;
                     </p>
                 </div>
                 <div class="col-md-3 clearifx">
-                    <div class="center"><a href="http://bszs.conac.cn/sitename?method=show&amp;id=0895EA7FF08B55BAE053012819ACDF52" target="_blank"><img vspace="0" hspace="0" border="0" src="${host}/static/img/red.png"></a></div>
+                    <div class="center"><a href="http://bszs.conac.cn/sitename?method=show&amp;id=0895EA7FF08B55BAE053012819ACDF52" target="_blank"><img vspace="0" hspace="0" border="0" src="${G.host}/static/img/red.png"></a></div>
                 </div>
             </div>
         </div>
     </section>
 </body>
 </html>
-<script type="text/javascript" src="${host}/static/lib/jquery.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/bootstrap.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/domi.app.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/plugin/carousel.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/jquery.mousewheel.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/jquery.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/bootstrap.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/domi.app.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/plugin/carousel.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/jquery.mousewheel.js" ></script>
 <script>
 var _h = $(window).height();
 $(document).ready(function(){
@@ -254,13 +254,13 @@ $(document).ready(function(){
 function brand(d){
 	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
 	var inf2 = '&emsp;&emsp;食品加工、轻纺轻工、生物制药三大产业继续在浦城县经济持续、快速发展中领跑,发挥着重要的主导和支撑作用。';
-	var dat1 = [{img_url:'${host}/static/upload/201904/p01.png',title:'五馆一中心',content:'&emsp;&emsp; 位于浦城县南环路体育场内，总建筑面积8181.16平方'},
-	           {img_url:'${host}/static/upload/201904/p02.png',title:'上浦高速项目',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
-	           {img_url:'${host}/static/upload/201904/g3.jpg',title:'最大光伏发电+农业模式项目',content:'&emsp;&emsp;该项目总投资约15亿元'}
+	var dat1 = [{img_url:'${G.host}/static/upload/201904/p01.png',title:'五馆一中心',content:'&emsp;&emsp; 位于浦城县南环路体育场内，总建筑面积8181.16平方'},
+	           {img_url:'${G.host}/static/upload/201904/p02.png',title:'上浦高速项目',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
+	           {img_url:'${G.host}/static/upload/201904/g3.jpg',title:'最大光伏发电+农业模式项目',content:'&emsp;&emsp;该项目总投资约15亿元'}
 	           ];
-	var dat2 = [{img_url:'${host}/static/upload/zdcy/spjg.png',title:'食品加工',content:'&emsp;&emsp; 食品加工产业园规划用地2000亩。产业园内包括食品加工、交易、卫生检疫等区域。拟重点引进灵芝、丹桂、薏米、山茶油、包酒、系列保健品、肉类提取物等研发、加工、生产企业入驻。'},
-	           {img_url:'${host}/static/upload/zdcy/qfqg.png',title:'轻纺轻工',content:'&emsp;&emsp;新型轻纺轻工在美丽浦城荣华山脚下的轻纺专业园发展已成集聚效益。'},
-	           {img_url:'${host}/static/upload/zdcy/swzy.png',title:'生物制药',content:'&emsp;&emsp;浦城县人民政府与 蒙正公司签约的项目为总投资约22亿元。'}
+	var dat2 = [{img_url:'${G.host}/static/upload/zdcy/spjg.png',title:'食品加工',content:'&emsp;&emsp; 食品加工产业园规划用地2000亩。产业园内包括食品加工、交易、卫生检疫等区域。拟重点引进灵芝、丹桂、薏米、山茶油、包酒、系列保健品、肉类提取物等研发、加工、生产企业入驻。'},
+	           {img_url:'${G.host}/static/upload/zdcy/qfqg.png',title:'轻纺轻工',content:'&emsp;&emsp;新型轻纺轻工在美丽浦城荣华山脚下的轻纺专业园发展已成集聚效益。'},
+	           {img_url:'${G.host}/static/upload/zdcy/swzy.png',title:'生物制药',content:'&emsp;&emsp;浦城县人民政府与 蒙正公司签约的项目为总投资约22亿元。'}
 	           ];
 	var das1 = [{title:'包装重点建设项目',value:'102',unit:'个'},
 	           {title:'关注度高的大项目',value:'31',unit:'个'},
@@ -317,11 +317,11 @@ function brand(d){
 function brand2(i){
 	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
 	var inf2 = '&emsp;&emsp;食品加工、轻纺轻工、生物制药三大产业继续在浦城县经济持续、快速发展中领跑,发挥着重要的主导和支撑作用。';
-	var dat1 = [{img_url:'${host}/static/upload/201904/p01.png',content:'&emsp;&emsp; 位于浦城县南环路体育场内，总建筑面积8181.16平方'},
-	           {img_url:'${host}/static/upload/201904/p02.png',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
-	           {img_url:'${host}/static/upload/201904/g3.jpg',content:'&emsp;&emsp;该项目总投资约15亿元'},
-	           {img_url:'${host}/static/upload/201904/p02.png',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
-	           {img_url:'${host}/static/upload/201904/g3.jpg',content:'&emsp;&emsp;该项目总投资约15亿元'}
+	var dat1 = [{img_url:'${G.host}/static/upload/201904/p01.png',content:'&emsp;&emsp; 位于浦城县南环路体育场内，总建筑面积8181.16平方'},
+	           {img_url:'${G.host}/static/upload/201904/p02.png',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
+	           {img_url:'${G.host}/static/upload/201904/g3.jpg',content:'&emsp;&emsp;该项目总投资约15亿元'},
+	           {img_url:'${G.host}/static/upload/201904/p02.png',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
+	           {img_url:'${G.host}/static/upload/201904/g3.jpg',content:'&emsp;&emsp;该项目总投资约15亿元'}
 	           ];
 
 	var dat = dat1;
