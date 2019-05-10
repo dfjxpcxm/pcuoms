@@ -33,6 +33,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -90,6 +91,14 @@ public class PropagateMngController extends SysBaseController<PropagateMngDO> {
         return propagateMngService.getModuleInfo();
     }
 
+
+    @RequestMapping(value ="/pubPropagateInfo")
+    @ResponseBody
+    public DataStore pubPropagateInfo(@RequestParam String  propagate_id) {
+        propagateMngService.pubPropagateInfoById(propagate_id);
+        DataStore  ds =  new DataStore ();
+        return ds.setOk("操作成功");
+    }
 
     @Override
     public DataStore save(PropagateMngDO model) {

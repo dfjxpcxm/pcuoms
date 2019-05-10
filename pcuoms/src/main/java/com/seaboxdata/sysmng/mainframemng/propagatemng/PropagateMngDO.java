@@ -37,6 +37,7 @@ public class PropagateMngDO implements java.io.Serializable {
         setIndex_content(u.getIndex_content());
         setImg_path(u.getImg_path());
         setIndex_state(u.getIndex_state());
+        setIndex_tag(u.getIndex_tag());
         setPub_state(u.getPub_state());
         setOrder_by(u.getOrder_by());
         setCre_time(u.getCre_time());
@@ -63,6 +64,9 @@ public class PropagateMngDO implements java.io.Serializable {
      *路径
      */
     private String  img_path;
+
+
+    private String  index_tag;
 
     /**
      *状态
@@ -174,5 +178,13 @@ public class PropagateMngDO implements java.io.Serializable {
 
     public void setOrder_by(Integer order_by) {
         this.order_by = order_by;
+    }
+
+    public String getIndex_tag() {
+        return index_tag;
+    }
+
+    public void setIndex_tag(String index_tag) {
+        this.index_tag = index_tag;
     }
 }

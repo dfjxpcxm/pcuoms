@@ -122,4 +122,26 @@
 		select e.module_id,o.function_name from t01_beatiful_info o inner join t01_propagate e  on e.module_id = o.module_id
 	</select>
 
+
+	<select id="getMainframePropagateInfo" parameterType="map" resultType="map">
+		select img_path as img_url, index_tag as tag,index_title as title,
+		 index_content as content from  t01_propagate   where pub_state=1 and index_state=1 order by order_by
+	</select>
+
+
+
+
+
+
+
+
+	<update id="pubPropagateInfoById" parameterType="String">
+		update t01_propagate
+		   set index_state=1
+			  ,pub_state=1
+			  ,cre_time=now()
+			  ,upd_time=now()
+		 where propagate_id = #{propagate_id}
+	</update>
+
 </mapper>

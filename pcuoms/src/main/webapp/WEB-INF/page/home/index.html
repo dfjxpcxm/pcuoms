@@ -114,16 +114,18 @@
             <div class="col-md-3">
                 <ul>
                     <li>
-                        <a class="active" href="${G.host}/mainframe/goBeautiful"><img src="${G.host}/static/img/ico-city.png" /><span>大美浦城</span></a>
+                        <a class="active" href="${G.host}/mainframe/goBeautiful"><img src="${G.host}/static/img/ico-city.png" /><span>走进浦城</span></a>
                     </li>
-                    <li><a><span>人文地理</span></a></li>
+                    <!--<li><a><span>人文地理</span></a></li>
                     <li><a><span>历史文化</span></a></li>
                     <li><a><span>乡村旅游</span></a></li>
                     <li><a><span>品牌特色</span></a></li>
                     <li><a><span>国民经济</span></a></li>
                     <li><a><span>产业经济</span></a></li>
                     <li><a><span>产业情况</span></a></li>
-                    <li><a><span>项目建设</span></a></li>
+                    <li><a><span>项目建设</span></a></li>-->
+                    <li><a><span>大美浦城</span></a></li>
+                    <li><a><span>活力浦城</span></a></li>
                 </ul>
             </div>
             <div class="col-md-3">
@@ -131,13 +133,16 @@
                     <li>
                         <a class="active" href="${G.host}/mainframe/goAchievement"><img src="${G.host}/static/img/ico-pc.png" /><span>浦城成果</span></a>
                     </li>
-                    <li><a><span>重点项目</span></a></li>
+                   <!-- <li><a><span>重点项目</span></a></li>
                     <li><a><span>重点产业</span></a></li>
                     <li><a><span>指挥中心</span></a></li>
                     <li><a><span>超级大脑</span></a></li>
                     <li><a><span>数字农村</span></a></li>
                     <li><a><span>智慧城管</span></a></li>
-                    <li><a><span>便民服务</span></a></li>
+                    <li><a><span>便民服务</span></a></li>-->
+                    <li><a><span>产业成果</span></a></li>
+                    <li><a><span>项目成果</span></a></li>
+
                 </ul>
             </div>
             <div class="col-md-3">
@@ -156,6 +161,8 @@
 </body>
 </html>
 <script>
+    var dt = '${data}';
+    dt = JSON.parse(dt);
     $(document).ready(function(){
         init_bg();
         init_menu();
@@ -370,13 +377,14 @@
         });
     }
     function init_lunbo(){
-        var dat = [
+      /*  var dat = [
             {img_url:'${G.host}/static/upload/201904/g1.png',tag:'旅游',title:'乡村旅游',content:'城县境内旅游资源主要以浮盖山、匡山、九石渡等为著名名胜古迹<br/>有宋大口窑遗址、南宋真德故居······'},
             {img_url:'${G.host}/static/upload/201904/g2.jpg',tag:'地理',title:'人文地理',content:'城县境内旅游资源主要以浮盖山、匡山、九石渡等为著名名胜古迹<br/>有宋大口窑遗址、南宋真德故居······'},
             {img_url:'${G.host}/static/upload/201904/g3.jpg',tag:'历史',title:'历史文化',content:'城县境内旅游资源主要以浮盖山、匡山、九石渡等为著名名胜古迹<br/>有宋大口窑遗址、南宋真德故居······'},
             {img_url:'${G.host}/static/upload/201904/g4.jpg',tag:'品牌',title:'品牌特色',content:'城县境内旅游资源主要以浮盖山、匡山、九石渡等为著名名胜古迹<br/>有宋大口窑遗址、南宋真德故居······'}
-        ];
-        render_lunbo(dat);
+        ];*/
+
+        render_lunbo(dt);
     }
     function render_lunbo(d) {
         var str = get_lunbo1(d);

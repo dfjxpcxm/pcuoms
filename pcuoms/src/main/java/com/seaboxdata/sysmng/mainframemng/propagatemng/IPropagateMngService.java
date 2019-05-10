@@ -30,8 +30,21 @@ import java.util.Map;
  */
 public interface IPropagateMngService extends ISysBaseService<PropagateMngDO> {
 
-
+   /*
+       查询模块信息
+    */
     public List<Map<String,Object>> getModuleInfo();
+
+    /*
+       发布
+     */
+    public void pubPropagateInfoById(String sysid);
+
+
+    /*
+      获取首页宣传信息
+     */
+    public String  getMainframePropagateInfo();
 
 
 

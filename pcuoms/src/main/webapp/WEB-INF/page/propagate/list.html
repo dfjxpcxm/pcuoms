@@ -59,6 +59,7 @@
 
 				   { field: 'CZ',  title: '操作',width: '15%', formatter:function(value,row,index){
 					   return "<button type='button' class='btn_el' onclick='edit(\""+row.propagate_id+"\",\""+row.function_name+"\")'>编辑</button>| "
+							   +"<button type='button' class='btn_el' onclick='pub(\""+row.propagate_id+"\",\""+row.function_name+"\")'>发布</button>"
 							   +"<button type='button' class='btn_el' onclick='del(\""+row.propagate_id+"\",\""+row.function_name+"\")'>删除</button>";
 					   ;
 				   }}
@@ -91,7 +92,6 @@
 				   type: "post",
 				   url: quick.serverUrl + '/delete?propagate_id=' + node,
 				   dataType: "json",
-				   data:{ID:node},
 				   success: function(data){
 					   layer.msg('删除记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
                        _gd["list"].refresh();
@@ -103,6 +103,29 @@
 		   }
        );
     }
+
+	   function pub(node,name){
+		   layer.confirm(
+				   "确认将发布【"+name+"】吗？<br/>",
+				   {icon:3,title:"发布记录",skin: 'layer-ext-moon'},
+				   function(){
+					   $.ajax({
+						   type: "post",
+						   url: quick.serverUrl + '/pubPropagateInfo?propagate_id=' + node,
+						   dataType: "json",
+						   success: function(data){
+							   layer.msg('发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
+							   _gd["list"].refresh();
+						   },
+						   error:function(err){
+							   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
+						   }
+					   });
+				   }
+		   );
+	   }
+
+
     
 	//查看详细信息
 	function edit(id){
@@ -148,6 +171,10 @@
 		var s= queryParm + "&IpageNum="+pageNum+"&IpageSize="+pageSize;
 		return s;
 	}
+ function prevw(){
+		   queryParm=getParm();
+	 window.location.href=quick.editUrl + "?mode=browse&propagate_id="+id + getDetailParm();
+ }
   </script>
   <body class="gray-bg">
   <div class="wrapper wrapper-content wrapper-content-x animated fadeInRight">
@@ -163,6 +190,7 @@
 								  </div>
 
 								  <span class="input-group-btn" style="display:inline-block;"><button class="btn btn-primary " type="button" onclick="query();"> 查询</button> </span>
+								  <span class="input-group-btn" style="display:inline-block;"><button class="btn btn-primary " type="button" onclick="prevw();"> 查询</button> </span>
 							  </form>
 						</div>
 					  <div style ="margin:5px;">

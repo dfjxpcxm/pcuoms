@@ -22,6 +22,7 @@ package com.seaboxdata.sysmng.mainframemng.propagatemng;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
+import com.seaboxdata.core.util.common.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -61,5 +62,20 @@ public class PropagateMngServiceImpl extends SysBaseService<PropagateMngDO> impl
     @Override
     public List<Map<String, Object>> getModuleInfo() {
         return dao.getModuleInfo();
+    }
+
+    @Override
+    public void pubPropagateInfoById(String sysid) {
+        dao.pubPropagateInfoById(sysid);
+    }
+
+    @Override
+    public String getMainframePropagateInfo() {
+        String retStr = "" ;
+        List<Map<String, Object>>  retList  = dao.getMainframePropagateInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = JsonUtil.serialize(retList);
+        }
+        return  retStr;
     }
 }

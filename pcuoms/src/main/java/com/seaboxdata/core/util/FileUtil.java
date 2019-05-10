@@ -67,8 +67,10 @@ public class FileUtil {
         //将request变成多部分request
         MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
         //创建文件夹
-        String baseDir = PropertiesUtil.getPropery("file.dir");
+ //       String baseDir = PropertiesUtil.getPropery("file.dir");
+        String baseDir  = request.getSession().getServletContext().getRealPath("/static/upload/");
         File dirPath = new File(baseDir + SRC_UPLOAD_PATH);
+
         if (!dirPath.exists()) {
             dirPath.mkdirs();
         }
@@ -100,7 +102,8 @@ public class FileUtil {
 
 
 
-    private final static String TARGE_UPLOAD_PATH = "upload/files/pc/";
+//    private final static String TARGE_UPLOAD_PATH = "upload/files/pc/";
+    private final static String TARGE_UPLOAD_PATH = "/pcuoms/static/upload/201904/";
 
-    private final static String SRC_UPLOAD_PATH = "/pc";
+    private final static String SRC_UPLOAD_PATH = "/201904/";
 }
