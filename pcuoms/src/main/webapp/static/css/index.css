@@ -93,9 +93,9 @@ transform: translateX(4px) translateY(2px) rotate(-45deg);
 .slider-img img{display: table-cell;vertical-align: middle;width:100%;height:90%;padding-top:20px;}
 .slider-content{height:90%;text-align:left;}
 .slider-content .head{height:40%;text-align: right;font-size:2rem;color:#d7e7ff;}
-.slider-content .body{height:35%;}
+.slider-content .body{height:63%;}
 .slider-content .foot{height:25%;}
-.slider-content .foot a{color:gray;}
+.slider-content .foot p{color:gray;cursor:pointer;}
 .slider-title{position: absolute;font-size:3rem;left:42%;top:15%;color:#5899ff;}
 
 .caption3{height:60vh;}
