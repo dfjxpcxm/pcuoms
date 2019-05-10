@@ -223,7 +223,7 @@ circle {
 
 #disqus_thread{margin-top:20px;}
 *{-moz-box-sizing:border-box;box-sizing:border-box;}
-.blue_s{background:#fff;color:#fff;position: absolute;top:calc(162vh - 125px);width: 100%;height: 56%;border: 0px red solid;}
+.blue_s{background:#fff;color:#fff;position: absolute;top:142vh;width: 100%;height: 56%;border: 0px red solid;}
 .blue_s img{background:#fff;color:#3498db;font-size:36px;line-height:100px;margin:10px;padding:2%;position:relative;text-align:center;}
 
 .center .slick-center img{-moz-transform:scale(1.2);-ms-transform:scale(1.2);-o-transform:scale(1.2);-webkit-transform:scale(1.2);color:#e67e22;opacity:1;transform:scale(1.2);}
@@ -248,7 +248,7 @@ circle {
   display: inline-flex;
   overflow: hidden;
   left:5%;
-  top:10.5%;
+  top:12%;
 }
 .slick-track{
 height: 95%;
