@@ -7,9 +7,14 @@
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
-		<div class="col-sm-12">
-            <div class="pull-right ibox-toolbars hidefield">
-                <button type="button" class="btn btn-primary" onclick="cancel();">返回</button>
+        <div class="col-sm-12">
+            <div class="col-sm-10">
+                <label id="pagename" class="col-xs-8" style="text-align:center;font-size: 22px;color:blue;margin-left: 180px"></label>
+            </div>
+            <div class="col-sm-12">
+                <div class="pull-right ibox-toolbars hidefield">
+                    <button type="button" class="btn btn-primary" onclick="cancel();">返回</button>
+                </div>
             </div>
 			<div class="ibox">
 				<div class="ibox-content ibox-content-ad" style="margin-top: 25px;">
@@ -17,22 +22,16 @@
 				    <div class="row">
                         <div class="col-sm-6 form_ipt_botm">
                             <div class="form-group">
-                                <label class="col-xs-3 lable_top"><span></span>模块名称</label>
-                                <div class="col-xs-9"><input type="text" id="module_name" name="module_name" class="form-control" /></div>
+                                <label class="col-xs-3 lable_top"><span class="span_require">*</span>指标名称</label>
+                                <div class="col-xs-9"><input type="text" id="index_title" name="index_title" class="form-control required" /></div>
                             </div>
                         </div>
 
 
                         <div class="col-sm-6 form_ipt_botm">
                             <div class="form-group">
-                                <label class="col-xs-3 lable_top"><span class="span_require">*</span>功能名称</label>
-                                <div class="col-xs-9"><input type="text" id="function_name" name="function_name" class="form-control" /></div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 form_ipt_botm">
-                            <div class="form-group">
-                                <label class="col-xs-3 lable_top"><span class="span_require">*</span>重定向地址</label>
-                                <div class="col-xs-9"><input type="text" id="url_address" name="url_address" class="form-control" /></div>
+                                <label class="col-xs-3 lable_top"><span class="span_require">*</span>指标内容</label>
+                                <div class="col-xs-9"><input type="text" id="index_content" name="index_content" class="form-control required" /></div>
                             </div>
                         </div>
 
@@ -41,7 +40,7 @@
                             <div class="form-group">
                                 <label class="col-xs-3 lable_top"><span class="span_require">*</span>功能状态</label>
                                 <div class="col-xs-9">
-                                    <select name="module_state" class="form-control required" id="module_state">
+                                    <select name="index_state" class="form-control required" id="index_state">
                                         <option value="1">启用</option>
                                         <option value="0">禁用</option>
                                     </select>
@@ -64,7 +63,7 @@
 						    <div class="form-group">
 							    <label class="col-xs-3 lable_top"></label>
 							    <div class="col-xs-9">
-                    		        <input type="hidden" id="module_id" name="module_id" />
+                    		        <input type="hidden" id="function_id" name="function_id" />
                                     <input id="submit-form" type="button" class="btn btn-primary" value="保存" onclick="return thingOver();">
 							    </div>
 						    </div>
@@ -74,9 +73,10 @@
 			</div>
 			</div>
 		</div>
-
 	</div>
+
 </div>
+
 
 </body>
 <script>
@@ -97,22 +97,20 @@
 		});
         /*加载数据*/
         var mode = $.request.queryString["mode"];
-        var sysid=$.request.queryString["module_id"];
+        var sysid=$.request.queryString["function_id"];
+        $("#pagename").text(sysid?'编辑指标':'新增指标');
         if(sysid){
-            $.post(quick.serverUrl + '/getObj?module_id=' + sysid + "&i=" + Math.random(), function(data){
+            $.post(quick.serverUrl + '/getObj?function_id=' + sysid + "&i=" + Math.random(), function(data){
                 setForm(data);
-                $("#module_name").val(data.module_name);
-                $("#function_name").val(data.function_name);
-                $("#module_state").val(data.module_state);
+                $("#index_content").val(data.index_content);
+                $("#index_title").val(data.index_title);
+                $("#index_state").val(data.index_state);
                 $("#pub_state").val(data.pub_state);
 				if(mode == "browse"){
                     viewRead();
                 }
             });
         }
-
-
-
     }
     /*完成*/
     var isdone = true;
@@ -122,6 +120,7 @@
         }
         isdone = false;
         if(!$("#form").valid()){
+            isdone = true;
             return false;
         }
         clearPlaceHodler();
@@ -132,7 +131,7 @@
         });
     }
 	function cancel(){
-		var url = quick.listUrl + urlDel(location.search, 'mode','module_id') + '&RFlag=1';
+		var url = quick.listUrl + urlDel(location.search, 'mode','function_id') + '&RFlag=1';
 		window.location.href = url;
 	}
 

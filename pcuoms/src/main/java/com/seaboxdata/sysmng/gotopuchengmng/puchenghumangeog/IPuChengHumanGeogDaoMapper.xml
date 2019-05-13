@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.seaboxdata.sysmng.mainframemng.propagatemng.IPropagateMngDao">
+<mapper namespace="com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog.IPuChengHumanGeogDao">
 	<!--查询条件-->
 	<sql id="where">
 		1=1
-		<if test="propagate_id != null "><![CDATA[
-	       and propagate_id = #{propagate_id}
+		<if test="geograph_id != null "><![CDATA[
+	       and geograph_id = #{geograph_id}
 	    ]]></if>
-		<if test="module_id != null "><![CDATA[
-	       and module_id = #{module_id}
-	    ]]></if>
+
 
 		<if test="index_title != null and index_title != '' and !'null'.equals(index_title)"><![CDATA[
 	       and index_title  like CONCAT('%',#{index_title},'%')
@@ -23,17 +21,12 @@
 	       and img_path  like CONCAT('%',#{img_path},'%')
 	    ]]></if>
 
-
 		<if test="index_state != null"><![CDATA[
 	       and index_state = #{index_state}
 	    ]]></if>
 
 		<if test="pub_state != null"><![CDATA[
 	       and pub_state = #{pub_state}
-	    ]]></if>
-
-		<if test="order_by != null"><![CDATA[
-	       and pub_state = #{order_by}
 	    ]]></if>
 
 		<if test="upd_time != null"><![CDATA[
@@ -50,58 +43,51 @@
 	</sql>
 
 	<!-- 新增sys_sign_info -->
-	<insert id="insert" parameterType="com.seaboxdata.sysmng.mainframemng.propagatemng.PropagateMngDO">
-		insert into t01_propagate (
-			  module_id
+	<insert id="insert" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog.PuChengHumanGeogDO">
+		insert into t02_cult_geograph (
+			  geograph_id,
+			  module_id,
     		  index_title,
     		  index_content,
     		  img_path,
     		  index_state,
     		  pub_state,
-    		  order_by,
     		  cre_time,
     		  upd_time
 		)values(
-			 #{module_id},
+			#{geograph_id},
+			 2,
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
-			 #{order_by},
 			 now(),
 			 now()
 			)
 	</insert>
 
 	<!-- 修改app_class -->
-	<update id="update" parameterType="com.seaboxdata.sysmng.mainframemng.propagatemng.PropagateMngDO">
-		update t01_propagate
-		   set module_id=#{module_id}
-			  ,index_title=#{index_title}
+	<update id="update" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog.PuChengHumanGeogDO">
+		update t02_cult_geograph
+		   set index_title=#{index_title}
 			  ,index_content=#{index_content}
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
-			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
-		 where propagate_id = #{propagate_id}
+		 where geograph_id = #{geograph_id}
 	</update>
 
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
-		update t01_propagate
-		   set index_state=0
-			  ,pub_state=0
-			  ,cre_time=now()
-			  ,upd_time=now()
-		 where propagate_id = #{propagate_id}
+		delete from t02_cult_geograph where geograph_id = #{geograph_id};
 	</delete>
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		select e.*,o.function_name from t01_propagate e left join t01_function_info o on e.module_id = o.module_id
+		select * from t02_cult_geograph
 		<where>
 			<include refid="where" />
 		</where>
@@ -112,36 +98,9 @@
 
 	<!-- 查询总记录数 -->
 	<select id="count" parameterType="map" resultType="int">
-		select count(*) from t01_propagate
+		select count(*) from t02_cult_geograph
 		<where>
 			<include refid="where" />
 		</where>
 	</select>
-
-	<select id="getModuleInfo" parameterType="map" resultType="map">
-		select e.module_id,o.function_name from t01_function_info o inner join t01_propagate e  on e.module_id = o.module_id
-	</select>
-
-
-	<select id="getMainframePropagateInfo" parameterType="map" resultType="map">
-		select img_path as img_url, index_tag as tag,index_title as title,
-		 index_content as content from  t01_propagate   where pub_state=1 and index_state=1 order by order_by
-	</select>
-
-
-
-
-
-
-
-
-	<update id="pubPropagateInfoById" parameterType="String">
-		update t01_propagate
-		   set index_state=1
-			  ,pub_state=1
-			  ,cre_time=now()
-			  ,upd_time=now()
-		 where propagate_id = #{propagate_id}
-	</update>
-
 </mapper>

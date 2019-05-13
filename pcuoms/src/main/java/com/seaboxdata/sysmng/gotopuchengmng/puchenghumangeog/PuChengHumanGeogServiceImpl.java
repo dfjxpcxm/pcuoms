@@ -17,54 +17,50 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.gotopuchengmng;
+package com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog;
 
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
+import com.seaboxdata.core.base.model.DataStore;
+import com.seaboxdata.core.util.common.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.seaboxdata.sysmng.gotopuchengmng.IGotoPuChengMngDao;
-import com.seaboxdata.sysmng.gotopuchengmng.IGotoPuChengMngService;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 
 /**
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("gotoPuChengMngService")
-public class GotoPuChengMngServiceImpl extends SysBaseService<GotoPuChengMngDO> implements IGotoPuChengMngService {
-
-
+@Service("puChenHumanGeogService")
+public class PuChengHumanGeogServiceImpl extends SysBaseService<PuChengHumanGeogDO> implements IPuChengHumanGeogService {
 
     @Autowired
-    public GotoPuChengMngServiceImpl(IGotoPuChengMngDao<GotoPuChengMngDO> dao) {
-        BaseTable = "t01_function_info";
-        BaseComment = "t01_function_info";
-        PrimaryKey = "module_id";
-        NameKey = "module_id";
+    public PuChengHumanGeogServiceImpl() {
+        BaseTable = "t02_basic_facts";
+        BaseComment = "t02_basic_facts";
+        PrimaryKey = "geograph_id";
+        NameKey = "geograph_id";
     }
 
 
-
-
-
    @Autowired
-    private IGotoPuChengMngDao<GotoPuChengMngDO> dao;
+    private IPuChengHumanGeogDao<PuChengHumanGeogDO> dao;
 
     @Override
     public ISysBaseDao getDao(){
         return dao;
     }
 
-
     @Override
     public List<Map<String, Object>> getBeautifulPCInfo() {
         return null;
     }
+
+
 }

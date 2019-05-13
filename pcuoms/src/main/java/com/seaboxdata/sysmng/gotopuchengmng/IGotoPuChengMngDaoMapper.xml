@@ -39,11 +39,12 @@
 
 	<!-- 新增sys_sign_info -->
 	<insert id="insert" parameterType="com.seaboxdata.sysmng.gotopuchengmng.GotoPuChengMngDO">
-		insert into t01_beatiful_info (
+		insert into t01_function_info (
     		  module_name,
     		  function_name,
     		  module_state,
     		  pub_state,
+    		  url_address,
     		  cre_time,
     		  upd_time
 		)values(
@@ -51,6 +52,7 @@
 			 #{function_name},
 			 #{module_state},
 			 #{pub_state},
+			 #{url_address},
 			 now(),
 			 now()
 			)
@@ -58,11 +60,12 @@
 
 	<!-- 修改app_class -->
 	<update id="update" parameterType="com.seaboxdata.sysmng.gotopuchengmng.GotoPuChengMngDO">
-		update t01_beatiful_info
+		update t01_function_info
 		   set module_name=#{module_name}
 			  ,function_name=#{function_name}
 			  ,module_state=#{module_state}
 			  ,pub_state=#{pub_state}
+			  ,url_address=#{url_address}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where module_id = #{module_id}
@@ -70,7 +73,7 @@
 
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
-		update t01_beatiful_info
+		update t01_function_info
 		   set module_state=0
 			  ,pub_state=0
 			  ,cre_time=now()
@@ -80,7 +83,7 @@
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		select * from t01_beatiful_info
+		select * from t01_function_info
 		<where>
 			<include refid="where" />
 		</where>
@@ -91,7 +94,7 @@
 
 	<!-- 查询总记录数 -->
 	<select id="count" parameterType="map" resultType="int">
-		select count(*) from t01_beatiful_info
+		select count(*) from t01_function_info
 		<where>
 			<include refid="where" />
 		</where>

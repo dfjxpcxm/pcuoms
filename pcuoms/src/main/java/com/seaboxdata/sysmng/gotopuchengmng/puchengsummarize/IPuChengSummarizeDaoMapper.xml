@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeDao">
+	<!--查询条件-->
+	<sql id="where">
+		1=1
+		<if test="function_id != null "><![CDATA[
+	       and function_id = #{function_id}
+	    ]]></if>
+		<if test="index_content != null and index_content != '' and !'null'.equals(index_content)"><![CDATA[
+	       and index_content  like CONCAT('%',#{index_content},'%')
+	    ]]></if>
+
+		<if test="index_title != null and index_title != '' and !'null'.equals(index_title)"><![CDATA[
+	       and index_title  like CONCAT('%',#{index_title},'%')
+	    ]]></if>
+
+		<if test="index_state != null"><![CDATA[
+	       and index_state = #{index_state}
+	    ]]></if>
+
+		<if test="pub_state != null"><![CDATA[
+	       and pub_state = #{pub_state}
+	    ]]></if>
+
+		<if test="upd_time != null"><![CDATA[
+	       and upd_time >= #{upd_time}
+	    ]]></if>
+
+		<if test="cre_time != null"><![CDATA[
+	       and cre_time >= #{cre_time}
+	    ]]></if>
+
+		<if test="_sql_where != null and _sql_where != ''"> <![CDATA[
+            and ${_sql_where}
+        ]]> </if>
+	</sql>
+
+	<!-- 新增sys_sign_info -->
+	<insert id="insert" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO">
+		insert into t02_basic_facts (
+			  module_id,
+    		  index_content,
+    		  index_title,
+    		  index_state,
+    		  pub_state,
+    		  cre_time,
+    		  upd_time
+		)values(
+			 1,
+			 #{index_content},
+			 #{index_title},
+			 #{index_state},
+			 #{pub_state},
+			 now(),
+			 now()
+			)
+	</insert>
+
+	<!-- 修改app_class -->
+	<update id="update" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO">
+		update t02_basic_facts
+		   set index_content=#{index_content}
+			  ,index_title=#{index_title}
+			  ,index_state=#{index_state}
+			  ,pub_state=#{pub_state}
+			  ,cre_time=now()
+			  ,upd_time=now()
+		 where function_id = #{function_id}
+	</update>
+
+	<!-- 删除 -->
+	<delete id="delete" parameterType="String">
+		delete from t02_basic_facts where function_id = #{function_id};
+	</delete>
+
+	<!--查询-->
+	<select id="select" parameterType="map" resultType="map">
+		select * from t02_basic_facts
+		<where>
+			<include refid="where" />
+		</where>
+		<if test="_sql_order != null and _sql_order != ''">
+			order by ${_sql_order}
+		</if>
+	</select>
+
+	<!-- 查询总记录数 -->
+	<select id="count" parameterType="map" resultType="int">
+		select count(*) from t02_basic_facts
+		<where>
+			<include refid="where" />
+		</where>
+	</select>
+</mapper>

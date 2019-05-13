@@ -34,6 +34,7 @@ public class GotoPuChengMngDO implements java.io.Serializable {
         setModule_id(u.getModule_id());
         setModule_name(u.getModule_name());
         setFunction_name(u.getFunction_name());
+        setUrl_address(u.getUrl_address());
         setModule_state(u.getModule_state());
         setCre_time(u.getCre_time());
         setUpd_time(u.getUpd_time());
@@ -62,7 +63,7 @@ public class GotoPuChengMngDO implements java.io.Serializable {
     private Integer pub_state;
 
 
-
+    private String url_address;
     /**
      *cre_time
      */
@@ -130,5 +131,13 @@ public class GotoPuChengMngDO implements java.io.Serializable {
 
     public void setPub_state(Integer pub_state) {
         this.pub_state = pub_state;
+    }
+
+    public String getUrl_address() {
+        return url_address;
+    }
+
+    public void setUrl_address(String url_address) {
+        this.url_address = url_address;
     }
 }

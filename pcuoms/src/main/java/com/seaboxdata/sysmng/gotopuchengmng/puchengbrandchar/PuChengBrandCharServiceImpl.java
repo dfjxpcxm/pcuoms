@@ -17,54 +17,54 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.gotopuchengmng;
+package com.seaboxdata.sysmng.gotopuchengmng.puchengbrandchar;
 
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
+import com.seaboxdata.core.base.model.DataStore;
+import com.seaboxdata.core.util.FileUtil;
+import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeDao;
+import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
+import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.seaboxdata.sysmng.gotopuchengmng.IGotoPuChengMngDao;
-import com.seaboxdata.sysmng.gotopuchengmng.IGotoPuChengMngService;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 
 /**
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("gotoPuChengMngService")
-public class GotoPuChengMngServiceImpl extends SysBaseService<GotoPuChengMngDO> implements IGotoPuChengMngService {
-
-
+@Service("puChenBrandCharService")
+public class PuChengBrandCharServiceImpl extends SysBaseService<PuChengBrandCharDO> implements IPuChengBrandCharService {
 
     @Autowired
-    public GotoPuChengMngServiceImpl(IGotoPuChengMngDao<GotoPuChengMngDO> dao) {
-        BaseTable = "t01_function_info";
-        BaseComment = "t01_function_info";
-        PrimaryKey = "module_id";
-        NameKey = "module_id";
+    public PuChengBrandCharServiceImpl() {
+        BaseTable = "t02_brand_feature";
+        BaseComment = "t02_brand_feature";
+        PrimaryKey = "feature_id";
+        NameKey = "feature_id";
     }
 
 
-
-
-
    @Autowired
-    private IGotoPuChengMngDao<GotoPuChengMngDO> dao;
+    private IPuChengBrandCharDao<PuChengBrandCharDO> dao;
 
     @Override
     public ISysBaseDao getDao(){
         return dao;
     }
 
-
     @Override
     public List<Map<String, Object>> getBeautifulPCInfo() {
         return null;
     }
+
+
 }

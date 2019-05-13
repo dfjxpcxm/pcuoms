@@ -17,54 +17,56 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.gotopuchengmng;
+package com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism;
 
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
+import com.seaboxdata.core.base.model.DataStore;
+import com.seaboxdata.core.util.FileUtil;
+import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeDao;
+import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
+import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.seaboxdata.sysmng.gotopuchengmng.IGotoPuChengMngDao;
-import com.seaboxdata.sysmng.gotopuchengmng.IGotoPuChengMngService;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 
 /**
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("gotoPuChengMngService")
-public class GotoPuChengMngServiceImpl extends SysBaseService<GotoPuChengMngDO> implements IGotoPuChengMngService {
-
-
+@Service("puChenRuralTourismService")
+public class PuChengRuralTourismServiceImpl extends SysBaseService<PuChengRuralTourismDO> implements IPuChengRuralTourismService {
 
     @Autowired
-    public GotoPuChengMngServiceImpl(IGotoPuChengMngDao<GotoPuChengMngDO> dao) {
-        BaseTable = "t01_function_info";
-        BaseComment = "t01_function_info";
-        PrimaryKey = "module_id";
-        NameKey = "module_id";
+    public PuChengRuralTourismServiceImpl() {
+        BaseTable = "t02_rural_tourism";
+        BaseComment = "t02_rural_tourism";
+        PrimaryKey = "tourism_id";
+        NameKey = "tourism_id";
     }
 
 
-
-
-
    @Autowired
-    private IGotoPuChengMngDao<GotoPuChengMngDO> dao;
+    private IPuChengRuralTourismDao<PuChengRuralTourismDO> dao;
 
     @Override
     public ISysBaseDao getDao(){
         return dao;
     }
 
-
     @Override
     public List<Map<String, Object>> getBeautifulPCInfo() {
         return null;
     }
+
+
+
+
 }
