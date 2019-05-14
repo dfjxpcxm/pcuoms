@@ -17,16 +17,13 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism;
+package com.seaboxdata.sysmng.puchengachievement.puchengindustinvest;
 
 
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.core.util.common.DateTime;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -35,43 +32,39 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
- * 乡村旅游
+ * 品牌特色
  *
  * @author 你自己的姓名
  */
 @Controller
 @Scope("prototype")
-@RequestMapping(value = "/puChengRuralTourism")
-public class PuChengRuralTourismController extends SysBaseController<PuChengRuralTourismDO> {
+@RequestMapping(value = "/puChengIndustInvest")
+public class PuChengIndustInvestController extends SysBaseController<PuChengIndustInvestDO> {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource(name = "puChengRuralTourismService")
-    private IPuChengRuralTourismService puChenRuralTourismService;
+    @Resource(name = "puChengIndustInvestService")
+    private IPuChengIndustInvestService puChengIndustInvestService;
 
     @Override
-    public ISysBaseService<PuChengRuralTourismDO> getBaseService() {
-        return puChenRuralTourismService;
+    public ISysBaseService<PuChengIndustInvestDO> getBaseService() {
+        return puChengIndustInvestService;
     }
 
     @RequestMapping
     public String list(ModelMap model) {
-        return "page/gotopc/ruraltourism/list";
+        return "page/achievement/industinvest/list";
     }
 
     @RequestMapping
     public String edit(ModelMap model) {
-        return "page/gotopc/ruraltourism/edit";
+        return "page/achievement/industinvest/edit";
     }
 
-
     @Override
-    public DataStore save(PuChengRuralTourismDO entity) {
+    public DataStore save(PuChengIndustInvestDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
         if (imgPath.length() > 0)
             entity.setImg_path(imgPath);
@@ -81,5 +74,4 @@ public class PuChengRuralTourismController extends SysBaseController<PuChengRura
 
         return ActionMsg;
     }
-
 }

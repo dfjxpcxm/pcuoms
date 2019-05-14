@@ -37,7 +37,7 @@ import java.util.Map;
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("puChenHistoricCultureService")
+@Service("puChengHistoricCultureService")
 public class PuChengHistoricCultureServiceImpl extends SysBaseService<PuChengHistoricCultureDO> implements IPuChengHistoricCultureService {
 
     @Autowired

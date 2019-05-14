@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeDao">
+<mapper namespace="com.seaboxdata.sysmng.puchengfuture.puchengsmartcity.IPuChengSmartCityDao">
 	<!--查询条件-->
 	<sql id="where">
 		1=1
-		<if test="function_id != null "><![CDATA[
-	       and function_id = #{function_id}
-	    ]]></if>
-		<if test="index_content != null and index_content != '' and !'null'.equals(index_content)"><![CDATA[
-	       and index_content  like CONCAT('%',#{index_content},'%')
+		<if test="live_id != null "><![CDATA[
+	       and live_id = #{live_id}
 	    ]]></if>
 
 		<if test="index_title != null and index_title != '' and !'null'.equals(index_title)"><![CDATA[
 	       and index_title  like CONCAT('%',#{index_title},'%')
+	    ]]></if>
+
+		<if test="index_content != null and index_content != '' and !'null'.equals(index_content)"><![CDATA[
+	       and index_content  like CONCAT('%',#{index_content},'%')
 	    ]]></if>
 
 		<if test="index_state != null"><![CDATA[
@@ -32,24 +33,29 @@
 	    ]]></if>
 
 		<if test="_sql_where != null and _sql_where != ''"> <![CDATA[
-            and ${_sql_where}
+            and ${_sql_where}``
         ]]> </if>
 	</sql>
 
 	<!-- 新增sys_sign_info -->
-	<insert id="insert" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO">
-		insert into t02_basic_facts (
+	<insert id="insert" parameterType="com.seaboxdata.sysmng.puchengfuture.puchengsmartcity.PuChengSmartCityDO">
+		insert into t04_live_culture (
+			  live_id,
 			  module_id,
-    		  index_content,
     		  index_title,
+
+    		  index_content,
+    		  img_path,
     		  index_state,
     		  pub_state,
     		  cre_time,
     		  upd_time
 		)values(
-			 #{module_id},
-			 #{index_content},
+			#{live_id},
+			 34,
 			 #{index_title},
+			 #{index_content},
+			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
 			 now(),
@@ -58,25 +64,26 @@
 	</insert>
 
 	<!-- 修改app_class -->
-	<update id="update" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO">
-		update t02_basic_facts
-		   set index_content=#{index_content}
-			  ,index_title=#{index_title}
+	<update id="update" parameterType="com.seaboxdata.sysmng.puchengfuture.puchengsmartcity.PuChengSmartCityDO">
+		update t04_live_culture
+		   set index_title=#{index_title}
+			  ,index_content=#{index_content}
+			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
-		 where function_id = #{function_id}
+		 where live_id = #{live_id}
 	</update>
 
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
-		delete from t02_basic_facts where function_id = #{function_id};
+		delete from t04_live_culture where live_id = #{live_id};
 	</delete>
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		SELECT *,concat(index_content,unit_title) as content from t02_basic_facts
+		select * from t04_live_culture
 		<where>
 			<include refid="where" />
 		</where>
@@ -87,7 +94,7 @@
 
 	<!-- 查询总记录数 -->
 	<select id="count" parameterType="map" resultType="int">
-		select count(*) from t02_basic_facts
+		select count(*) from t04_live_culture
 		<where>
 			<include refid="where" />
 		</where>

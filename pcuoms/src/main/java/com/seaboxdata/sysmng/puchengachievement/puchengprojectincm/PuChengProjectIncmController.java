@@ -17,14 +17,11 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog;
+package com.seaboxdata.sysmng.puchengachievement.puchengprojectincm;
 
 
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
-import com.seaboxdata.core.base.model.DataStore;
-import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism.PuChengRuralTourismDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -35,45 +32,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.annotation.Resource;
 
 /**
- * 人文地理
+ * 品牌特色
  *
- * @author
+ * @author 你自己的姓名
  */
 @Controller
 @Scope("prototype")
-@RequestMapping(value = "/puChengHumanGeog")
-public class PuChengHumanGeogController extends SysBaseController<PuChengHumanGeogDO> {
+@RequestMapping(value = "/puChengProjectIncm")
+public class PuChengProjectIncmController extends SysBaseController<PuChengProjectIncmDO> {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource(name = "puChengHumanGeogService")
-    private IPuChengHumanGeogService puChenHumanGeogService;
+    @Resource(name = "puChengProjectIncmService")
+    private IPuChengProjectIncmService puChengProjectIncmService;
 
     @Override
-    public ISysBaseService<PuChengHumanGeogDO> getBaseService() {
-        return puChenHumanGeogService;
+    public ISysBaseService<PuChengProjectIncmDO> getBaseService() {
+        return puChengProjectIncmService;
     }
 
     @RequestMapping
     public String list(ModelMap model) {
-        return "page/gotopc/humangeog/list";
+        return "page/achievement/projectincm/list";
     }
 
     @RequestMapping
     public String edit(ModelMap model) {
-        return "page/gotopc/humangeog/edit";
-    }
-
-    @Override
-    public DataStore save(PuChengHumanGeogDO entity) {
-        String imgPath = FileUtil.getImgUploadPath(request);
-        if (imgPath.length() > 0)
-            entity.setImg_path(imgPath);
-        ActionMsg = getBaseService().save(entity);
-        if (ActionMsg.isError())
-            return ActionMsg;
-
-        return ActionMsg;
+        return "page/achievement/projectincm/edit";
     }
 
 

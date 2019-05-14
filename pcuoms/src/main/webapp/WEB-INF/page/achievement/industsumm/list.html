@@ -4,6 +4,7 @@
 	  <#include "/WEB-INF/include/reslist.html" />
   </head>
    <script>
+	   //乡村旅游
        var pageNum=1;
        var pageSize=10;
        var queryParm = '';
@@ -29,7 +30,9 @@
 			   columns: [
 				   {  checkbox: true },
 				   { field: 'index_title', title: '指标名称', width: 100  },
-				   { field: 'content', title: '指标内容', width: 100  },
+				   { field: 'index_name', title: '指标名字', width: 100  },
+				   { field: 'index_content', title: '指标内容', width: 100  },
+				   { field: 'img_path', title: '图片路径', width: 100  },
 				   { field: 'index_state', title: '功能状态', width: 100 ,
 		   				  formatter: function (value, row, index) {
 							  if (value == 1) {
@@ -56,9 +59,9 @@
 				   },
 
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
-					   return "<button type='button' class='btn_el' onclick='edit(\""+row.function_id+"\")'>编辑</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.function_id+"\",\""+row.index_content+"\")'>删除</button>| "
-							   +"<button type='button' class='btn_el' onclick='pre(\""+row.function_id+"\")'>预览</button>";
+					   return "<button type='button' class='btn_el' onclick='edit(\""+row.summary_id+"\")'>编辑</button>| "
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.summary_id+"\",\""+row.index_title+"\")'>删除</button>| "
+							   +"<button type='button' class='btn_el' onclick='pre(\""+row.summary_id+"\")'>预览</button>";
 				   }}
 			   ],onPageChange:function(number, size){
                    $("#IDS_PAGESIZE").val(size);
@@ -87,7 +90,7 @@
 		   function(){
 			   $.ajax({
 				   type: "post",
-				   url: quick.serverUrl + '/delete?function_id=' + node,
+				   url: quick.serverUrl + '/delete?summary_id=' + node,
 				   dataType: "json",
 				   data:{ID:node},
 				   success: function(data){
@@ -101,20 +104,12 @@
 		   }
        );
     }
-    function issue(id){
 
-	 }
-	 function dis(id){
-
-	 }
-	 function pre(id){
-
-	   }
 	//查看详细信息
 	function edit(id){
 	   	//debugger;
         navAppend("编辑集成系统");/*获取父页面元素并动态赋值父页面title*/
-	    window.location.href=quick.editUrl + "?function_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
+	    window.location.href=quick.editUrl + "?summary_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
 	}
 	function add(){
 		menuGoto(quick.editUrl);
@@ -156,7 +151,7 @@
 		return s;
 	}
 	function cancel(){
-		   window.location.href="${G.host}/gotoPuChengMng/list";
+		window.location.href="${G.host}/gotoPuChengMng/list";
 	}
   </script>
   <body class="gray-bg">
@@ -168,13 +163,11 @@
 					  <div class="panel-mar">
 							  <form id="formSearch" class="form-inline">
                                   <div class="form-group" style="padding: 0px;width:180px;">
-									  <input maxlength="20" id="index_content" name="index_content" class="input-sm form-control"
+									  <input maxlength="20" id="index_title" name="index_title" class="input-sm form-control"
 											 type="text" placeholder="指标名称"/>
 								  </div>
 
 								  <span class="input-group-btn" style="display:inline-block;"><button class="btn btn-primary " type="button" onclick="query();"> 查询</button> </span>
-
-
 								  <div class="form-group" style="width:100px;float:right;">
 									  <button type="button" class="btn btn-primary" onclick="location.href='edit';"> 新增指标
 									  </button>

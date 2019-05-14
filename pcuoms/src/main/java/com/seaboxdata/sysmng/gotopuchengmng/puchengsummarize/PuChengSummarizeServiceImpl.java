@@ -38,7 +38,7 @@ import java.util.Map;
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("puChenSummarizeService")
+@Service("puChengSummarizeService")
 public class PuChengSummarizeServiceImpl extends SysBaseService<PuChengSummarizeDO> implements IPuChengSummarizeService {
 
     @Autowired

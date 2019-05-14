@@ -41,7 +41,7 @@ import java.util.Map;
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("puChenRuralTourismService")
+@Service("puChengRuralTourismService")
 public class PuChengRuralTourismServiceImpl extends SysBaseService<PuChengRuralTourismDO> implements IPuChengRuralTourismService {
 
     @Autowired

@@ -44,12 +44,12 @@ import java.util.Map;
  */
 @Controller
 @Scope("prototype")
-@RequestMapping(value = "/puChenHistoricCulture")
+@RequestMapping(value = "/puChengHistoricCulture")
 public class PuChengHistoricCultureController extends SysBaseController<PuChengHistoricCultureDO> {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource(name = "puChenHistoricCultureService")
+    @Resource(name = "puChengHistoricCultureService")
     private IPuChengHistoricCultureService puChenHistoricCultureService;
 
     @Override

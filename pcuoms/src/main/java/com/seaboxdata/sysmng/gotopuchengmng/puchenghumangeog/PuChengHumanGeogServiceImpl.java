@@ -37,7 +37,7 @@ import java.util.Map;
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("puChenHumanGeogService")
+@Service("puChengHumanGeogService")
 public class PuChengHumanGeogServiceImpl extends SysBaseService<PuChengHumanGeogDO> implements IPuChengHumanGeogService {
 
     @Autowired

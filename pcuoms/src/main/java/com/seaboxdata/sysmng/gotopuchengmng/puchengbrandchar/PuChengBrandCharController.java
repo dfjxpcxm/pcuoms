@@ -47,12 +47,12 @@ import java.util.Map;
  */
 @Controller
 @Scope("prototype")
-@RequestMapping(value = "/puChenBrandChar")
+@RequestMapping(value = "/puChengBrandChar")
 public class PuChengBrandCharController extends SysBaseController<PuChengBrandCharDO> {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource(name = "puChenBrandCharService")
+    @Resource(name = "puChengBrandCharService")
     private IPuChengBrandCharService puChenBrandCharService;
 
     @Override

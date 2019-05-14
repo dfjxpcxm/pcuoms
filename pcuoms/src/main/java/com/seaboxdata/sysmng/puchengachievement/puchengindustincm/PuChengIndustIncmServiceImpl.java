@@ -17,22 +17,15 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.gotopuchengmng.puchengbrandchar;
+package com.seaboxdata.sysmng.puchengachievement.puchengindustincm;
 
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
-import com.seaboxdata.core.base.model.DataStore;
-import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.core.util.common.DateTime;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeDao;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -41,20 +34,20 @@ import java.util.Map;
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("puChengBrandCharService")
-public class PuChengBrandCharServiceImpl extends SysBaseService<PuChengBrandCharDO> implements IPuChengBrandCharService {
+@Service("puChengIndustIncmService")
+public class PuChengIndustIncmServiceImpl extends SysBaseService<PuChengIndustIncmDO> implements IPuChengIndustIncmService {
 
     @Autowired
-    public PuChengBrandCharServiceImpl() {
-        BaseTable = "t02_brand_feature";
-        BaseComment = "t02_brand_feature";
-        PrimaryKey = "feature_id";
-        NameKey = "feature_id";
+    public PuChengIndustIncmServiceImpl() {
+        BaseTable = "t03_indust_incm";
+        BaseComment = "t03_indust_incm";
+        PrimaryKey = "imcome_id";
+        NameKey = "imcome_id";
     }
 
 
    @Autowired
-    private IPuChengBrandCharDao<PuChengBrandCharDO> dao;
+    private IPuChengIndustIncmDao<PuChengIndustIncmDO> dao;
 
     @Override
     public ISysBaseDao getDao(){
