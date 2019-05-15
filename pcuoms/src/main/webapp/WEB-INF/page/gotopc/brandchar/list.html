@@ -29,6 +29,7 @@
 			   toolbar:"#formSearch",
 			   columns: [
 				   {  checkbox: true },
+				   { field: 'function_name', title: '功能名称', width: 100  },
 				   { field: 'index_title', title: '指标名称', width: 100  },
 				   { field: 'index_content', title: '指标内容', width: 100  },
 				   { field: 'img_path', title: '图片路径', width: 100  },
@@ -152,6 +153,11 @@
 	function cancel(){
 		window.location.href="${G.host}/gotoPuChengMng/list";
 	}
+
+   function prevw(){
+	   var targetUrl = "${G.host}/mainframe/goBeautiful";
+	   window.open(targetUrl,'_blank');
+   }
   </script>
   <body class="gray-bg">
   <div class="wrapper wrapper-content wrapper-content-x animated fadeInRight">
@@ -173,6 +179,10 @@
 								  </div>
 								  <div class="form-group" style="width:100px;float:right;">
 									  <button type="button" class="btn btn-primary" onclick="cancel();"> 返回模块
+									  </button>
+								  </div>
+								  <div class="form-group" style="width:100px;float:right;">
+									  <button type="button" class="btn btn-primary" onclick="prevw();"> 预览
 									  </button>
 								  </div>
 							  </form>

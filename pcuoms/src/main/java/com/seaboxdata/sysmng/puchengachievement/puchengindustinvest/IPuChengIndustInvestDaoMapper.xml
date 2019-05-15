@@ -88,7 +88,7 @@
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		select * from t03_indust_invest
+		select e.*,o.function_name from t03_indust_invest  e left join t01_function_info o on e.module_id = o.module_id
 		<where>
 			<include refid="where" />
 		</where>

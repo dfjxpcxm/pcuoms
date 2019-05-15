@@ -55,12 +55,12 @@ public class PuChengSmartCityController extends SysBaseController<PuChengSmartCi
 
     @RequestMapping
     public String list(ModelMap model) {
-        return "page/achievement/smartcity/list";
+        return "page/future/smartcity/list";
     }
 
     @RequestMapping
     public String edit(ModelMap model) {
-        return "page/achievement/smartcity/edit";
+        return "page/future/smartcity/edit";
     }
 
     @Override

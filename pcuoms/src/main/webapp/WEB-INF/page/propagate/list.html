@@ -4,6 +4,7 @@
 	  <#include "/WEB-INF/include/reslist.html" />
   </head>
    <script>
+	   var mid=$.request.queryString["mid"];
        var pageNum=1;
        var pageSize=10;
        var queryParm = '';
@@ -122,6 +123,8 @@
 	   }
 
 
+
+
     
 	//查看详细信息
 	function edit(id){
@@ -168,9 +171,12 @@
 		return s;
 	}
  function prevw(){
-		   queryParm=getParm();
-	 window.location.href=quick.editUrl + "?mode=browse&propagate_id="+id + getDetailParm();
+	 var targetUrl = "${G.host}/mainframe/index";
+	 window.open(targetUrl,'_blank');
  }
+function cancel(){
+   window.location.href="${G.host}/gotoPuChengMng/list";
+}
   </script>
   <body class="gray-bg">
   <div class="wrapper wrapper-content wrapper-content-x animated fadeInRight">
@@ -186,7 +192,18 @@
 								  </div>
 
 								  <span class="input-group-btn" style="display:inline-block;"><button class="btn btn-primary " type="button" onclick="query();"> 查询</button> </span>
-								  <span class="input-group-btn" style="display:inline-block;"><button class="btn btn-primary " type="button" onclick="prevw();"> 查询</button> </span>
+								  <div class="form-group" style="width:100px;float:right;">
+									  <button type="button" class="btn btn-primary" onclick="location.href='edit';"> 新增指标
+									  </button>
+								  </div>
+								  <div class="form-group" style="width:100px;float:right;">
+									  <button type="button" class="btn btn-primary" onclick="cancel();"> 返回模块
+									  </button>
+								  </div>
+								  <div class="form-group" style="width:100px;float:right;">
+									  <button type="button" class="btn btn-primary" onclick="prevw();"> 预览
+									  </button>
+								  </div>
 							  </form>
 						</div>
 					  <div style ="margin:5px;">

@@ -76,7 +76,8 @@
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		SELECT *,concat(index_content,index_unit) as content from t02_basic_facts
+		SELECT s.*,concat(s.index_content,s.index_unit) as content,o.function_name from t02_basic_facts s left join t01_function_info o on s.module_id = o.module_id
+
 		<where>
 			<include refid="where" />
 		</where>

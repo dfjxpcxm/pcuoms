@@ -29,6 +29,7 @@
 			   toolbar:"#formSearch",
 			   columns: [
 				   {  checkbox: true },
+				   { field: 'function_name', title: '功能名称', width: 100  },
 				   { field: 'index_title', title: '指标名称', width: 100  },
 				   { field: 'index_content', title: '指标内容', width: 100  },
 				   { field: 'index_state', title: '功能状态', width: 100 ,
@@ -151,7 +152,13 @@
 	function cancel(){
 		window.location.href="${G.host}/gotoPuChengMng/list";
 	}
-  </script>
+   function prevw(){
+	   var targetUrl = "${G.host}/mainframe/goAchievement";
+	   window.open(targetUrl,'_blank');
+   }
+
+
+   </script>
   <body class="gray-bg">
   <div class="wrapper wrapper-content wrapper-content-x animated fadeInRight">
 	  <div class="row">
