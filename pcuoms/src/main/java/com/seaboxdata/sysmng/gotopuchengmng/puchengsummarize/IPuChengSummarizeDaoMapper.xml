@@ -39,17 +39,21 @@
 	<!-- 新增sys_sign_info -->
 	<insert id="insert" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO">
 		insert into t02_basic_facts (
+			  function_id,
 			  module_id,
+			  index_title,
     		  index_content,
-    		  index_title,
+    		  index_unit,
     		  index_state,
     		  pub_state,
     		  cre_time,
     		  upd_time
 		)values(
+			 #{function_id},
 			 #{module_id},
-			 #{index_content},
 			 #{index_title},
+			 #{index_content},
+			 #{index_unit},
 			 #{index_state},
 			 #{pub_state},
 			 now(),
@@ -62,6 +66,7 @@
 		update t02_basic_facts
 		   set index_content=#{index_content}
 			  ,index_title=#{index_title}
+			  ,index_unit=#{index_unit}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
 			  ,cre_time=now()

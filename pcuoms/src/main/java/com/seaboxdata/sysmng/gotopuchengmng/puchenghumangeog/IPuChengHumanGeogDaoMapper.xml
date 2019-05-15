@@ -56,7 +56,7 @@
     		  upd_time
 		)values(
 			#{geograph_id},
-			 2,
+			#{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},

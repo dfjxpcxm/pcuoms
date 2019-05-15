@@ -24,6 +24,7 @@ import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
+import com.seaboxdata.sysmng.ModuleId;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism.PuChengRuralTourismDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,6 +68,7 @@ public class PuChengHumanGeogController extends SysBaseController<PuChengHumanGe
     @Override
     public DataStore save(PuChengHumanGeogDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
+        entity.setModule_id(ModuleId.HumanGeog);
         if (imgPath.length() > 0)
             entity.setImg_path(imgPath);
         ActionMsg = getBaseService().save(entity);

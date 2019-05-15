@@ -54,6 +54,7 @@ public class PuChengSummarizeDO implements java.io.Serializable {
     private String index_content;
 
     private String  index_title;
+    private String  index_unit;
     /**
      *状态
      */
@@ -101,6 +102,14 @@ public class PuChengSummarizeDO implements java.io.Serializable {
 
     public void setIndex_title(String index_title) {
         this.index_title = index_title;
+    }
+
+    public String getIndex_unit() {
+        return index_unit;
+    }
+
+    public void setIndex_unit(String index_unit) {
+        this.index_unit = index_unit;
     }
 
     public Integer getIndex_state() {

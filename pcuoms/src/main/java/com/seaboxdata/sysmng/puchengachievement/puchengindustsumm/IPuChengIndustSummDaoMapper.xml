@@ -52,7 +52,7 @@
     		  upd_time
 		)values(
 			#{summary_id},
-			 31,
+			#{module_id},
 			 #{index_title},
 			 #{index_name},
 			 #{index_content},

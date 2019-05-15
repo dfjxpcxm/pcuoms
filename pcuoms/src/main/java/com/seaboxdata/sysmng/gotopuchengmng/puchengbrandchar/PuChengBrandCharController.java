@@ -25,6 +25,7 @@ import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
 import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.sysmng.ModuleId;
 import com.seaboxdata.sysmng.gotopuchengmng.puchenghistoricculture.PuChengHistoricCultureDO;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
@@ -73,6 +74,7 @@ public class PuChengBrandCharController extends SysBaseController<PuChengBrandCh
     @Override
     public DataStore save(PuChengBrandCharDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
+        entity.setModule_id(ModuleId.BrandChar);
         if (imgPath.length() > 0)
             entity.setImg_path(imgPath);
         ActionMsg = getBaseService().save(entity);

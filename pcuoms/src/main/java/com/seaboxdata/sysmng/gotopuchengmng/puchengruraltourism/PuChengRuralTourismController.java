@@ -25,6 +25,7 @@ import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
 import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.sysmng.ModuleId;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
 import org.slf4j.Logger;
@@ -73,7 +74,9 @@ public class PuChengRuralTourismController extends SysBaseController<PuChengRura
     @Override
     public DataStore save(PuChengRuralTourismDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
+        entity.setModule_id(ModuleId.RuralTourism);
         if (imgPath.length() > 0)
+
             entity.setImg_path(imgPath);
         ActionMsg = getBaseService().save(entity);
         if (ActionMsg.isError())

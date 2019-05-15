@@ -24,6 +24,7 @@ import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
+import com.seaboxdata.sysmng.ModuleId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -66,7 +67,9 @@ public class PuChengIndustSummController extends SysBaseController<PuChengIndust
     @Override
     public DataStore save(PuChengIndustSummDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
+        entity.setModule_id(ModuleId.IndustSumm);
         if (imgPath.length() > 0)
+
             entity.setImg_path(imgPath);
         ActionMsg = getBaseService().save(entity);
         if (ActionMsg.isError())

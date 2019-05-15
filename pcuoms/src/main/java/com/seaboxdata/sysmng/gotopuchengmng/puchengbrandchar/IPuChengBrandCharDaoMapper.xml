@@ -55,7 +55,7 @@
     		  upd_time
 		)values(
 			#{feature_id},
-			 4,
+			#{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},

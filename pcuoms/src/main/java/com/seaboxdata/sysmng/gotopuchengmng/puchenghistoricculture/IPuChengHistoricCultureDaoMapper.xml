@@ -55,7 +55,7 @@
     		  upd_time
 		)values(
 			#{his_id},
-			 3,
+			#{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},

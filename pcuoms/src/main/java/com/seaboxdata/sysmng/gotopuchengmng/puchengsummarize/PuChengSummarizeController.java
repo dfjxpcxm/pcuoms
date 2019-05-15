@@ -23,7 +23,10 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize;
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
+import com.seaboxdata.core.util.FileUtil;
 import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.sysmng.ModuleId;
+import com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism.PuChengRuralTourismDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -66,7 +69,15 @@ public class PuChengSummarizeController extends SysBaseController<PuChengSummari
         return "page/gotopc/summarize/edit";
     }
 
+    @Override
+    public DataStore save(PuChengSummarizeDO entity) {
+            entity.setModule_id(ModuleId.Summarize);
+        ActionMsg = getBaseService().save(entity);
+        if (ActionMsg.isError())
+            return ActionMsg;
 
+        return ActionMsg;
+    }
 
 
 }

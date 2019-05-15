@@ -22,6 +22,11 @@ package com.seaboxdata.sysmng.puchengachievement.puchengprojectincm;
 
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
+import com.seaboxdata.core.base.model.DataStore;
+import com.seaboxdata.core.util.FileUtil;
+import com.seaboxdata.sysmng.ModuleId;
+import com.seaboxdata.sysmng.puchengachievement.puchengindustsumm.PuChengIndustSummDO;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -61,5 +66,13 @@ public class PuChengProjectIncmController extends SysBaseController<PuChengProje
         return "page/achievement/projectincm/edit";
     }
 
+    @Override
+    public DataStore save(PuChengProjectIncmDO entity) {
+            entity.setModule_id(ModuleId.ProjectIncm);
+        ActionMsg = getBaseService().save(entity);
+        if (ActionMsg.isError())
+            return ActionMsg;
 
+        return ActionMsg;
+    }
 }

@@ -50,7 +50,7 @@
     		  upd_time
 		)values(
 			#{imcome_id},
-			 31,
+			#{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{index_state},

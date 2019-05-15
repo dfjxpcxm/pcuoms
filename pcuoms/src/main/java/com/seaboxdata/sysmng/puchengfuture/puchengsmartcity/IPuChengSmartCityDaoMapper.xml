@@ -43,7 +43,6 @@
 			  live_id,
 			  module_id,
     		  index_title,
-
     		  index_content,
     		  img_path,
     		  index_state,
@@ -52,7 +51,7 @@
     		  upd_time
 		)values(
 			#{live_id},
-			 34,
+			#{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},
