@@ -101,4 +101,9 @@
 			<include refid="where" />
 		</where>
 	</select>
+
+
+	<select id="getPuChengRuralTourismInfo" parameterType="map" resultType="map">
+		select index_title as tag,index_title as title,index_content as content,img_path as img_url from t02_rural_tourism where index_state=1 and pub_state=1 order by order_by
+	</select>
 </mapper>

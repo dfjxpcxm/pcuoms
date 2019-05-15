@@ -117,12 +117,16 @@
 <script type="text/javascript" src="${G.host}/static/lib/bootstrap.min.js" ></script>
 <script type="text/javascript" src="${G.host}/static/lib/domi.app.js" ></script>
 <script>
+    var is = '${is}';
+    alert("is="+is)
+    dat = JSON.parse(is);
+
 $(document).ready(function(){
     init_culture();
     init_city();
 });
 function init_culture(){
-    var dat = [
+/*    var dat = [
         {img_url:'${G.host}/static/upload/201904/民生文化1.png',createTime:'2019-04-22',title:'民生文化1'},
         {img_url:'${G.host}/static/upload/201904/民生文化2.png',createTime:'2019-04-22',title:'民生文化2'},
         {img_url:'${G.host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化3'},
@@ -133,7 +137,7 @@ function init_culture(){
         {img_url:'${G.host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化4'},
         {img_url:'${G.host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化5'},
         {img_url:'${G.host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化6'}
-    ];
+    ];*/
     render_culture(dat);
 }
 function render_culture(d){

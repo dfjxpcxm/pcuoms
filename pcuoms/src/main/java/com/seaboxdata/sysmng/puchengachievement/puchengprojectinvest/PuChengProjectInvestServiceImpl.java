@@ -22,6 +22,7 @@ package com.seaboxdata.sysmng.puchengachievement.puchengprojectinvest;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
+import com.seaboxdata.core.util.common.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,9 +56,24 @@ public class PuChengProjectInvestServiceImpl extends SysBaseService<PuChengProje
     }
 
     @Override
-    public List<Map<String, Object>> getBeautifulPCInfo() {
-        return null;
+    public String getPCProjectInvestIndexInfo() {
+        String retStr = "" ;
+        List<Map<String, Object>> retList = dao.getPCProjectInvestIndexInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = JsonUtil.serialize(retList);
+        }
+        return  retStr;
     }
 
+
+    @Override
+    public String getPCProjectInvestImgInfo() {
+        String retStr = "" ;
+        List<Map<String, Object>> retList = dao.getPCProjectInvestImgInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = JsonUtil.serialize(retList);
+        }
+        return  retStr;
+    }
 
 }

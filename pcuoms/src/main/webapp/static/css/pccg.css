@@ -17,6 +17,11 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .dashboard li{float:left; width:33%;}
 .dashboard .top{height:75px;width:12.5%;display:table-cell;}
 .dashboard .btm{height:50px;line-height: 50px;margin-bottom:0;}
+
+.dashboard1{text-align:center;}
+.dashboard1 li{float:left; width:33%;}
+.dashboard1 .top{height:75px;width:12.5%;display:table-cell;}
+.dashboard1 .btm{height:50px;line-height: 50px;margin-bottom:0;}
 .news{height:115px;}
 
 .proj{height:calc(100vh - 250px);position: relative;margin-top:18px;}
@@ -94,9 +99,9 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
       transform:translateY(0px);
         }
 @keyframes bounceInLeft2 {
-            0% {
-                opacity: 1;
-                transform: translateY(-800px);
-            } 
-            
+    0% {
+        opacity: 1;
+        transform: translateY(-800px);
+    }
+}
               

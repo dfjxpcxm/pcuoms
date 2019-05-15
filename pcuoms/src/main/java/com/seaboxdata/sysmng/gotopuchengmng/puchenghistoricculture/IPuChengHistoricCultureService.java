@@ -30,7 +30,7 @@ import java.util.Map;
  * 服务接口
  */
 public interface IPuChengHistoricCultureService extends ISysBaseService<PuChengHistoricCultureDO> {
-    public List<Map<String, Object>> getBeautifulPCInfo();
+    public String getPuChengHistoricCultureInfo();
 
 
 }

@@ -22,10 +22,15 @@ package com.seaboxdata.sysmng.puchengachievement.puchengindustinvest;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 数据访问接口
  */
 public interface IPuChengIndustInvestDao<PuChengIndustryOverviewDO> extends ISysBaseDao<PuChengIndustryOverviewDO> {
 
+    public List<Map<String, Object>> getPCIndustInvestIndexInfo();
 
+    public List<Map<String, Object>> getPCIndustInvestImgInfo();
 }

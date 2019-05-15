@@ -29,7 +29,12 @@ import java.util.Map;
  * 服务接口
  */
 public interface IPuChengIndustInvestService extends ISysBaseService<PuChengIndustInvestDO> {
-    public List<Map<String, Object>> getBeautifulPCInfo();
+    public String getPCIndustInvestIndexInfo();
+
+    public String getPCIndustInvestImgInfo();
+
+
+
 
 
 }

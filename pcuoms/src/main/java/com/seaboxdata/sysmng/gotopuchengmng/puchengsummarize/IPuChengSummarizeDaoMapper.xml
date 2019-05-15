@@ -76,7 +76,7 @@
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		SELECT *,concat(index_content,unit_title) as content from t02_basic_facts
+		SELECT *,concat(index_content,index_unit) as content from t02_basic_facts
 		<where>
 			<include refid="where" />
 		</where>
@@ -92,4 +92,10 @@
 			<include refid="where" />
 		</where>
 	</select>
+
+	<select id="getPuChengSummarizeInfo" parameterType="map" resultType="map">
+		select index_title,index_content,index_unit from t02_basic_facts
+		where pub_state=1 and index_state=1 order by order_by
+	</select>
+
 </mapper>

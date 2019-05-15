@@ -24,6 +24,7 @@ import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.core.util.common.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,9 +59,21 @@ public class PuChengHistoricCultureServiceImpl extends SysBaseService<PuChengHis
     }
 
     @Override
-    public List<Map<String, Object>> getBeautifulPCInfo() {
-        return null;
+    public String getPuChengHistoricCultureInfo() {
+        String retStr = "" ;
+        List<Map<String, Object>> retList = dao.getPuChengHistoricCultureInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = JsonUtil.serialize(retList);
+        }
+        retStr = PREFIX_CHAR.concat(retStr).concat(SUFFIX_CHAR);
+        return  retStr;
     }
+
+
+    private final static String  PREFIX_CHAR = "[";
+
+    private final static String  SUFFIX_CHAR = "]";
+
 
 
 }

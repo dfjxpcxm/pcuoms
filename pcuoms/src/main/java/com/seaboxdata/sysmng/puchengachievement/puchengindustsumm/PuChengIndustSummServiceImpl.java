@@ -54,10 +54,35 @@ public class PuChengIndustSummServiceImpl extends SysBaseService<PuChengIndustSu
         return dao;
     }
 
+
+
     @Override
-    public List<Map<String, Object>> getBeautifulPCInfo() {
-        return null;
+    public String getPCIndustSummyInfo() {
+        String retStr ="";
+        List<Map<String, Object>> retList = dao.getPCIndustSummyInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = getPCIndustSummyInfoString(retList);
+        }
+        return  retStr;
     }
 
 
+
+
+    /*
+     * 返回产业概述内容
+     */
+    public String getPCIndustSummyInfoString(List<Map<String,Object>> retList){
+        String titile = "";
+        String content = "";
+        String utitile = "";
+        StringBuffer sb = new StringBuffer();
+        for(Map<String,Object> mp :retList){
+            content  = mp.get("index_content").toString();
+            sb.append(""+content+"");
+
+        }
+        String retStr = sb.toString();
+        return retStr;
+    }
 }

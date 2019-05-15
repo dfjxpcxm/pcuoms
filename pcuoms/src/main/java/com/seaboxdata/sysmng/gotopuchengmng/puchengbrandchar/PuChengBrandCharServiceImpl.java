@@ -25,6 +25,7 @@ import com.seaboxdata.core.base.SysBaseService;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
 import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.core.util.common.JsonUtil;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeDao;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
@@ -61,10 +62,15 @@ public class PuChengBrandCharServiceImpl extends SysBaseService<PuChengBrandChar
         return dao;
     }
 
-    @Override
-    public List<Map<String, Object>> getBeautifulPCInfo() {
-        return null;
-    }
 
+    @Override
+    public String getPuChengBrandCharInfo() {
+        String retStr = "" ;
+        List<Map<String, Object>>  retList  = dao.getPuChengBrandCharInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = JsonUtil.serialize(retList);
+        }
+        return  retStr;
+    }
 
 }

@@ -102,4 +102,13 @@
 			<include refid="where" />
 		</where>
 	</select>
+
+	<select id="getPuChengHistoricCultureInfo" parameterType="map" resultType="map">
+		select index_title as title,index_content as content,img_path as img_url,order_by from t02_his_cult where index_state=1 and pub_state=1 and order_by =1
+		union all
+		select index_title as title,index_content as content,img_path as img_url,order_by from t02_cult_geograph where index_state=1 and pub_state=1 order by order_by
+
+	</select>
+
+
 </mapper>

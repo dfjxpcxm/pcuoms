@@ -54,10 +54,39 @@ public class PuChengProjectIncmServiceImpl extends SysBaseService<PuChengProject
         return dao;
     }
 
+
+
     @Override
-    public List<Map<String, Object>> getBeautifulPCInfo() {
-        return null;
+    public String getPCProjectIncomeInfo() {
+        String retStr = "";
+        List<Map<String,Object>> retList = dao.getPCProjectIncomeInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = getPCProjectIncomeString(retList);
+        }
+        return  retStr;
     }
 
 
+    /*
+     * 返回项目成果概述内容
+     */
+    public String getPCProjectIncomeString(List<Map<String,Object>> retList){
+        String titile = "";
+        String content = "";
+        String utitile = "";
+        StringBuffer sb = new StringBuffer();
+        for(Map<String,Object> mp :retList){
+            titile = mp.get("index_title").toString();
+            content  = mp.get("index_content").toString();
+            utitile  = mp.get("index_unit").toString();
+            sb.append(" <li>");
+            sb.append(" <div>");
+            sb.append("  <p class=\"btm\">"+titile+"</p>");
+            sb.append("  <p class=\"top\"><span class=\"blue font5 cc\">"+content+"</span><span class=\"blue font1\">"+utitile+"</span></p>");
+            sb.append(" </div>");
+            sb.append(" </li>");
+        }
+        String retStr = sb.toString();
+        return retStr;
+    }
 }

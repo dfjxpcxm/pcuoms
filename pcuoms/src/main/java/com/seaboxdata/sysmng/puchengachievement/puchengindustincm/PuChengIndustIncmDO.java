@@ -34,6 +34,7 @@ public class PuChengIndustIncmDO implements java.io.Serializable {
     private Integer module_id;
     private String index_title;
     private String index_content;
+    private String index_unit;
 
     private Integer index_state;
     private Integer pub_state;
@@ -111,5 +112,14 @@ public class PuChengIndustIncmDO implements java.io.Serializable {
 
     public void setCre_time(Date cre_time) {
         this.cre_time = cre_time;
+    }
+
+
+    public String getIndex_unit() {
+        return index_unit;
+    }
+
+    public void setIndex_unit(String index_unit) {
+        this.index_unit = index_unit;
     }
 }

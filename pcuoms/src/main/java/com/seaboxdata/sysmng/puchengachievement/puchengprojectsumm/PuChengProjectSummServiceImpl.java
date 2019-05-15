@@ -55,8 +55,33 @@ public class PuChengProjectSummServiceImpl extends SysBaseService<PuChengProject
     }
 
     @Override
-    public List<Map<String, Object>> getBeautifulPCInfo() {
-        return null;
+    public String getPCProjectSummyInfo() {
+        String retStr ="";
+        List<Map<String, Object>> retList = dao.getPCProjectSummyInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = getPCProjectSummyInfoString(retList);
+        }
+        return  retStr;
+    }
+
+
+
+
+    /*
+     * 返回项目概述内容
+     */
+    public String getPCProjectSummyInfoString(List<Map<String,Object>> retList){
+        String titile = "";
+        String content = "";
+        String utitile = "";
+        StringBuffer sb = new StringBuffer();
+        for(Map<String,Object> mp :retList){
+            content  = mp.get("index_content").toString();
+            sb.append(""+content+"");
+
+        }
+        String retStr = sb.toString();
+        return retStr;
     }
 
 

@@ -29,7 +29,8 @@ import java.util.Map;
  * 服务接口
  */
 public interface IPuChengSummarizeService extends ISysBaseService<PuChengSummarizeDO> {
-    public List<Map<String, Object>> getBeautifulPCInfo();
+
+    public String  getPuChengSummarizeInfo();
 
 
 }

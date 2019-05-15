@@ -22,10 +22,14 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 数据访问接口
  */
 public interface IPuChengSummarizeDao<PuChengSummarizeDO> extends ISysBaseDao<PuChengSummarizeDO> {
 
+    public List<Map<String,Object>> getPuChengSummarizeInfo();
 
 }

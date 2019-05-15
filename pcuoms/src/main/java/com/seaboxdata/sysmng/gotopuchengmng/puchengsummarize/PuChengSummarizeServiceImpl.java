@@ -25,6 +25,7 @@ import com.seaboxdata.core.base.SysBaseService;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
 import com.seaboxdata.core.util.common.DateTime;
+import com.seaboxdata.core.util.common.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,10 +59,6 @@ public class PuChengSummarizeServiceImpl extends SysBaseService<PuChengSummarize
         return dao;
     }
 
-    @Override
-    public List<Map<String, Object>> getBeautifulPCInfo() {
-        return null;
-    }
 
     @Override
     public DataStore save(PuChengSummarizeDO entity) {
@@ -88,5 +85,43 @@ public class PuChengSummarizeServiceImpl extends SysBaseService<PuChengSummarize
             return ActionMsg.setError("操作失败");
         ActionMsg.setValue(entity);
         return ActionMsg.setOk("操作成功");
+    }
+
+    @Override
+    public String getPuChengSummarizeInfo() {
+        String retStr = "";
+        List<Map<String,Object>> retList = dao.getPuChengSummarizeInfo();
+        if(null != retList && !retList.isEmpty()){
+            retStr = getSummarizeInfoString(retList);
+        }
+        return  retStr;
+    }
+
+
+    /*
+     * 返回大美浦城概述内容
+     */
+    public String getSummarizeInfoString(List<Map<String,Object>> retList){
+        String titile = "";
+        String content = "";
+        String utitile = "";
+        StringBuffer sb = new StringBuffer();
+        for(Map<String,Object> mp :retList){
+             titile = mp.get("index_title").toString();
+             content  = mp.get("index_content").toString();
+             utitile  = mp.get("index_unit").toString();
+             sb.append(" <li>");
+             sb.append(" <div>");
+             if(content.endsWith("No")){
+                 sb.append(" <p class=\"top\">"+content+"<span class=\"blue font20\">.</span><span class=\"blue font20 cc\">"+utitile+"</span></p>");
+             }else {
+                 sb.append("  <p class=\"top\"><span class=\"blue font20 cc\">" + content + "</span>" + utitile + "</p>");
+             }
+             sb.append("  <p class=\"btm\">" + titile + "</p>");
+             sb.append(" </div>");
+             sb.append(" </li>");
+        }
+        String retStr = sb.toString();
+        return retStr;
     }
 }

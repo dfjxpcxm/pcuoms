@@ -22,10 +22,14 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 数据访问接口
  */
 public interface IPuChengRuralTourismDao<PuChengRuralTourismDO> extends ISysBaseDao<PuChengRuralTourismDO> {
 
+    public List<Map<String, Object>> getPuChengRuralTourismInfo();
 
 }

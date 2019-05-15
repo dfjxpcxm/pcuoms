@@ -22,10 +22,13 @@ package com.seaboxdata.sysmng.puchengachievement.puchengprojectsumm;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 数据访问接口
  */
 public interface IPuChengProjectSummDao<PuChengIndustryOverviewDO> extends ISysBaseDao<PuChengIndustryOverviewDO> {
 
-
+    public List<Map<String, Object>> getPCProjectSummyInfo();
 }

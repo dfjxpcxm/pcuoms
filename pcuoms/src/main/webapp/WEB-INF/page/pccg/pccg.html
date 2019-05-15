@@ -123,7 +123,7 @@ animation: bounceInLeft_t 0.7s;
     </section>
     <section class="sec12 scc1">
         <ul class="dashboard clearfix">
-            <li>
+            <!--<li>
                 <div>
                     <p class="btm">产业增长值</p>
                     <p class="top"><span class="blue font5 cc">431911</span><span class="blue font1">万元</span></p>
@@ -140,7 +140,7 @@ animation: bounceInLeft_t 0.7s;
                     <p class="btm">旅游总收入</p>
                     <p class="top"><span class="blue font5 cc">31.69</span><span class="blue font1">亿元</span></p>
                 </div>
-            </li>
+            </li>-->
         </ul>
         <div class="news light animated wow fadeInDown">
             <div class="col-md-3 center h24 imgbox" style="padding:0;">
@@ -187,7 +187,7 @@ animation: bounceInLeft_t 0.7s;
     </section>
     
      <section class="sec12 scc2 scs">
-        <ul class="dashboard clearfix">
+        <ul class="dashboard1 clearfix">
            
         </ul>
         <div class="news light animated wow fadeInDown" style="margin-top: 6%;">
@@ -246,13 +246,43 @@ animation: bounceInLeft_t 0.7s;
 <script type="text/javascript" src="${G.host}/static/lib/jquery.mousewheel.js" ></script>
 <script>
 var _h = $(window).height();
+
+var is = '${is}';
+$(".dashboard").html(is);
+
+var ps = '${ps}';
+$(".dashboard1").html(ps);
+
+var iy = '${iy}';
+var inf1 = iy;
+
+var py = '${py}';
+var inf2 = py;
+
+var ii = '${ii}';
+ii = JSON.parse(ii);
+var das1 =ii;
+var ig = '${ig}';
+ig = JSON.parse(ig);
+var dat1 =ig;
+
+
+var pi = '${pi}';
+pi = JSON.parse(pi);
+var das2 =pi;
+
+var pg = '${pg}';
+pg = JSON.parse(pg);
+var dat2 =pg;
+
+
 $(document).ready(function(){
     $(".cc").countTo({sec:1500,ts:100});
     brand(1);
     //init_lunbo();
 });
 function brand(d){
-	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
+/*	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
 	var inf2 = '&emsp;&emsp;食品加工、轻纺轻工、生物制药三大产业继续在浦城县经济持续、快速发展中领跑,发挥着重要的主导和支撑作用。';
 	var dat1 = [{img_url:'${G.host}/static/upload/201904/p01.png',title:'五馆一中心',content:'&emsp;&emsp; 位于浦城县南环路体育场内，总建筑面积8181.16平方'},
 	           {img_url:'${G.host}/static/upload/201904/p02.png',title:'上浦高速项目',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
@@ -274,7 +304,7 @@ function brand(d){
 	           {title:'三大主导产业工业总产值',value:'83.4',unit:'亿元'},
 	           {title:'同比增长',value:'29.8',unit:'%'},
 	           {title:'占规模工业总产值',value:'78.6',unit:'%'}
-	           ];
+	           ];*/
 	var inf = inf1;
 	var dat = dat1;
 	var das = das1;
@@ -315,8 +345,8 @@ function brand(d){
 }	
 
 function brand2(i){
-	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
-	var inf2 = '&emsp;&emsp;食品加工、轻纺轻工、生物制药三大产业继续在浦城县经济持续、快速发展中领跑,发挥着重要的主导和支撑作用。';
+//	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
+//	var inf2 = '&emsp;&emsp;食品加工、轻纺轻工、生物制药三大产业继续在浦城县经济持续、快速发展中领跑,发挥着重要的主导和支撑作用。';
 	var dat1 = [{img_url:'${G.host}/static/upload/201904/p01.png',content:'&emsp;&emsp; 位于浦城县南环路体育场内，总建筑面积8181.16平方'},
 	           {img_url:'${G.host}/static/upload/201904/p02.png',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
 	           {img_url:'${G.host}/static/upload/201904/g3.jpg',content:'&emsp;&emsp;该项目总投资约15亿元'},

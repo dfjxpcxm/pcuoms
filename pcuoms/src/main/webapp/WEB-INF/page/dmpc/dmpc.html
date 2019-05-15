@@ -46,7 +46,7 @@
     </section>
     <section class="sec12">
         <ul class="dashboard clearfix">
-            <li>
+            <!--<li>
                 <div>
                     <p class="top">No<span class="blue font20">.</span><span class="blue font20 cc">3</span></p>
                     <p class="btm">福建省占地面积排名</p>
@@ -69,7 +69,7 @@
                     <p class="top"><span class="blue font20 cc">43</span>万人</p>
                     <p class="btm">全县年末户籍总人口</p>
                 </div>
-            </li>
+            </li>-->
         </ul>
         <div class="news light animated wow fadeInDown">
             <div class="col-md-3 center1 h24" style="padding:0;">
@@ -238,12 +238,21 @@
 <script>
 var _h = $(window).height();
 
-var data2 = [[{title:'人文',img_url:'${G.host}/static/upload/201904/g5.jpg',content:'&emsp;&emsp;浦城县（古属建宁府浦城县）福建省南平市辖县，中国丹桂之乡。位于福建省最北端、闽浙赣三省交界处，是福建的“北大门”，自古为中原入闽第一关，分别与浙江省的江山市、龙泉市、遂昌县和江西省的广丰县接壤，与福建省的建阳市、武夷山市、松溪县毗邻。全县辖2个街道、9个镇、8个乡、296个村（居）。2006年末，户籍人口40.7万人，其中非农业人口7.16万人。<br/>&emsp;&emsp;全县区域面积3383平方公里，为福建省第三大县，其中山地面积437.4万亩，耕地面积55.47万亩，河流水域面积15万亩，是中国、福建省最早的商品粮基地县。中国十大香樟基地之一。林业用地面积407.9万亩，森林覆盖率达73.1%······'},
+
+var ss = '${ss}';
+alert("ss="+ss)
+$(".dashboard").html(ss);
+
+var hs = '${hs}';
+//alert("hs="+hs)
+hs = JSON.parse(hs);
+var data2 =hs;
+/*var data2 = [[{title:'人文',img_url:'${G.host}/static/upload/201904/g5.jpg',content:'&emsp;&emsp;浦城县（古属建宁府浦城县）福建省南平市辖县，中国丹桂之乡。位于福建省最北端、闽浙赣三省交界处，是福建的“北大门”，自古为中原入闽第一关，分别与浙江省的江山市、龙泉市、遂昌县和江西省的广丰县接壤，与福建省的建阳市、武夷山市、松溪县毗邻。全县辖2个街道、9个镇、8个乡、296个村（居）。2006年末，户籍人口40.7万人，其中非农业人口7.16万人。<br/>&emsp;&emsp;全县区域面积3383平方公里，为福建省第三大县，其中山地面积437.4万亩，耕地面积55.47万亩，河流水域面积15万亩，是中国、福建省最早的商品粮基地县。中国十大香樟基地之一。林业用地面积407.9万亩，森林覆盖率达73.1%······'},
             {title:'历史',img_url:'${G.host}/static/upload/201904/g4.jpg',content:'&emsp;&emsp;介绍。。。'}],
             [{title:'人文22',img_url:'${G.host}/static/upload/201904/g3.jpg',content:'&emsp;&emsp;浦城县（古属建宁府浦城县）福建省南平市辖县，中国丹桂之乡。位于福建省最北端、闽浙赣三省交界处，是福建的“北大门”，自古为中原入闽第一关，分别与浙江省的江山市、龙泉市、遂昌县和江西省的广丰县接壤，与福建省的建阳市、武夷山市、松溪县毗邻。全县辖2个街道、9个镇、8个乡、296个村（居）。2006年末，户籍人口40.7万人，其中非农业人口7.16万人。'},
              {title:'历史33',img_url:'${G.host}/static/upload/201904/g2.jpg',content:'&emsp;&emsp;介绍333333.。'}],
              [{title:'人文22',img_url:'${G.host}/static/upload/201904/g3.jpg',content:'&emsp;&emsp;浦城县（古属建宁府浦城县）福建省南平市辖县，中国丹桂之乡。位于福建省最北端、闽浙赣三省交界处，是福建的“北大门”，自古为中原入闽第一关，分别与浙江省的江山市、龙泉市、遂昌县和江西省的广丰县接壤，与福建省的建阳市、武夷山市、松溪县毗邻。全县辖2个街道、9个镇、8个乡、296个村（居）。2006年末，户籍人口40.7万人，其中非农业人口7.16万人。'},
-              {title:'历史33',img_url:'${G.host}/static/upload/201904/g2.jpg',content:'&emsp;&emsp;介绍333333.。'}]];
+              {title:'历史33',img_url:'${G.host}/static/upload/201904/g2.jpg',content:'&emsp;&emsp;介绍333333.。'}]];*/
 $(document).ready(function(){
     $(".cc").countTo();
     newstab();
@@ -254,9 +263,13 @@ $(document).ready(function(){
 });
 
 
+
+var gs = '${gs}';
+gs = JSON.parse(gs);
 function newstab(){
-	var data = [{title:'人文地理',img_url:'${G.host}/static/upload/201904/rwdl.png',content:'&emsp;&emsp;浦城县（古属建宁府浦城县）福建省南平市辖县，中国丹桂之乡。位于福建省最北端、闽浙赣三省交界处，是福建的“北大门”，自古为中原入闽第一关，分别与浙江省的江山市、龙泉市、遂昌县和江西省的广丰县接壤，与福建省的建阳市、武夷山市、松溪县毗邻。全县辖2个街道、9个镇、8个乡、296个村（居）。2006年末，户籍人口40.7万人，其中非农业人口7.16万人。<br/>&emsp;&emsp;全县区域面积3383平方公里，为福建省第三大县，其中山地面积437.4万亩，耕地面积55.47万亩，河流水域面积15万亩，是中国、福建省最早的商品粮基地县。中国十大香樟基地之一。林业用地面积407.9万亩，森林覆盖率达73.1%······'},
-	            {title:'历史文化',img_url:'${G.host}/static/upload/201904/g1.png',content:'&emsp;&emsp;介绍。。。'}];
+    var data = gs;
+	/*var data = [{title:'人文地理',img_url:'${G.host}/static/upload/201904/rwdl.png',content:'&emsp;&emsp;浦城县（古属建宁府浦城县）福建省南平市辖县，中国丹桂之乡。位于福建省最北端、闽浙赣三省交界处，是福建的“北大门”，自古为中原入闽第一关，分别与浙江省的江山市、龙泉市、遂昌县和江西省的广丰县接壤，与福建省的建阳市、武夷山市、松溪县毗邻。全县辖2个街道、9个镇、8个乡、296个村（居）。2006年末，户籍人口40.7万人，其中非农业人口7.16万人。<br/>&emsp;&emsp;全县区域面积3383平方公里，为福建省第三大县，其中山地面积437.4万亩，耕地面积55.47万亩，河流水域面积15万亩，是中国、福建省最早的商品粮基地县。中国十大香樟基地之一。林业用地面积407.9万亩，森林覆盖率达73.1%······'},
+	            {title:'历史文化',img_url:'${G.host}/static/upload/201904/g1.png',content:'&emsp;&emsp;介绍。。。'}];*/
 	var til = '';
 	var imgs = '';
 	var inf = '';
@@ -327,14 +340,16 @@ function newsInfo(){
 		 //addInfo(data2);
 	    });
 }
-
+var ds = '${data}';
+ds = JSON.parse(ds);
 function brand(){
-	var dat = [{img_url:'${G.host}/static/upload/201904/g5.jpg',title:'丹桂',content:'&emsp;&emsp;福建浦城匡山国家森林公园，公园总面积达2009.27公顷。林覆盖率高达92.6%，漫山碧透，弥漫入青云······'},
+/*	var dat = [{img_url:'${G.host}/static/upload/201904/g5.jpg',title:'丹桂',content:'&emsp;&emsp;福建浦城匡山国家森林公园，公园总面积达2009.27公顷。林覆盖率高达92.6%，漫山碧透，弥漫入青云······'},
 	           {img_url:'${G.host}/static/upload/201904/g2.jpg',title:'薏米',content:'&emsp;&emsp;三江源水利风景区······'},
 	           {img_url:'${G.host}/static/upload/201904/g3.jpg',title:'灵芝',content:'&emsp;&emsp;高坊水利风景区······'},
 	           {img_url:'${G.host}/static/upload/201904/g4.jpg',title:'剪纸',content:'&emsp;&emsp;南平西岩山······'}
-	           ];
-	var arr = [];
+	           ];*/
+    var dat = ds;
+    var arr = [];
 	for (var i = 0; i < dat.length; i++) {
 		var st = '';
 		if(i == 0){
@@ -430,16 +445,18 @@ function brand(){
   );
 }
 
-var da = [];
+var dt = '${ts}';
+dat = JSON.parse(dt);
+
 function init_lunbo(){
-    var dat = [
+/*    var dat = [
         {img_url:'${G.host}/static/upload/201904/g5.jpg',tag:'匡山国家森林公园',title:'国家森林公园',content:'&emsp;&emsp;福建浦城匡山国家森林公园，公园总面积达2009.27公顷。林覆盖率高达92.6%，漫山碧透，弥漫入青云······'},
         {img_url:'${G.host}/static/upload/201904/g2.jpg',tag:'浦城县三江源水利风景区',title:'三江源水利风景区',content:'&emsp;&emsp;三江源水利风景区······'},
         {img_url:'${G.host}/static/upload/201904/g3.jpg',tag:'浦城县高坊水利风景区',title:'高坊水利风景区',content:'&emsp;&emsp;高坊水利风景区······'},
         {img_url:'${G.host}/static/upload/201904/g4.jpg',tag:'南平西岩山',title:'南平西岩山',content:'&emsp;&emsp;南平西岩山······'},
         {img_url:'${G.host}/static/upload/201904/g1.png',tag:'南平印象小密 · 中国包酒文化博览园',title:'包酒文化博览园',content:'&emsp;&emsp;南平印象小密 · 中国包酒文化博览园······'}
     ];
-    da = dat;
+    da = dat;*/
     render_lunbo(dat);
 }
 function render_lunbo(dat){

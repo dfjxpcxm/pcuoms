@@ -14,15 +14,11 @@
            var RFlag=$.request.queryString["RFlag"];
 		   quick.serverUrl = "${G.serverUrl}";
 		   quick.editUrl = "${G.editUrl}";
-		   quick.objName = "";
-		   quick.idField = "";
-           
+
 		   $("#list").bootstrapTable("destroy");
 		   _gd["list"]=new BGrid("#list");
 		   _gd["list"].config({
 			   url:quick.serverUrl+"/getList?i=" + Math.random(),
-			   idField: quick.idField,
-			   sortName: quick.idField,
                cache:false,
 			   height: $(document.body).height()-50,
 			   toolbar:"#formSearch",

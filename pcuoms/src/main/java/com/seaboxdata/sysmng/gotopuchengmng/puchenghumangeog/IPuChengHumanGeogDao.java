@@ -22,10 +22,13 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 数据访问接口
  */
 public interface IPuChengHumanGeogDao<PuChengHumanGeogDO> extends ISysBaseDao<PuChengHumanGeogDO> {
-
+    public List<Map<String, Object>> getPuChengHumanGeogInfo();
 
 }

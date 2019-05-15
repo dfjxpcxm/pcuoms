@@ -95,4 +95,12 @@
 			<include refid="where" />
 		</where>
 	</select>
+
+
+	<select id="getPCProjectIncomeInfo" parameterType="map" resultType="map">
+		select index_title,index_content,index_unit from t03_project_incm where module_id=31 and index_state=1 and pub_state=1
+		order by  order_by
+	</select>
+
+
 </mapper>

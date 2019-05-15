@@ -22,10 +22,13 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengbrandchar;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * 数据访问接口
  */
 public interface IPuChengBrandCharDao<PuChengSummarizeDO> extends ISysBaseDao<PuChengSummarizeDO> {
-
+    public   List<Map<String, Object>> getPuChengBrandCharInfo();
 
 }
