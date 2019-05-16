@@ -187,9 +187,9 @@ animation: bounceInLeft_t 0.7s;
     </section>
     
      <section class="sec12 scc2 scs">
-       <!-- <ul class="dashboard1 clearfix">
+        <ul class="dashboard1 clearfix">
            
-        </ul>-->
+        </ul>
         <div class="news light animated wow fadeInDown" style="margin-top: 6%;">
             <div class="col-md-3 center h24 imgbox" style="padding:0;">
                 <img class="imgfit" style="object-position:top;" src="${G.host}/static/upload/201904/zdxm.png" />
@@ -248,10 +248,10 @@ animation: bounceInLeft_t 0.7s;
 var _h = $(window).height();
 
 var is = '${is}';
-//$(".dashboard").html(is);
+$(".dashboard").html(is);
 
 var ps = '${ps}';
-$(".dashboard").html(ps);
+$(".dashboard1").html(ps);
 
 var iy = '${iy}';
 var inf1 = iy;
@@ -388,10 +388,8 @@ function init_toolbar(){
         	$('.scc1').addClass("scs");
         }
         if(this.id == 'l2'){
-            $(".dashboard").html(is);
         	brand(2);
         }else if(this.id == 'l1'){
-            $(".dashboard").html(ps);
         	brand(1);
         }else if(this.id == 'l3'){
         	brand2(0);

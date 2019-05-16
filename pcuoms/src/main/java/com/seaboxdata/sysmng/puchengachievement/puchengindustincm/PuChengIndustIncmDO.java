@@ -35,7 +35,6 @@ public class PuChengIndustIncmDO implements java.io.Serializable {
     private String index_title;
     private String index_content;
     private String index_unit;
-
     private Integer index_state;
     private Integer pub_state;
     private Integer order_by;

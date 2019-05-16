@@ -44,6 +44,7 @@
 			  module_id,
     		  index_title,
     		  index_content,
+    		  index_unit,
     		  index_state,
     		  pub_state,
     		  cre_time,
@@ -53,6 +54,7 @@
 			#{module_id},
 			 #{index_title},
 			 #{index_content},
+			 #{index_unit},
 			 #{index_state},
 			 #{pub_state},
 			 now(),
@@ -65,6 +67,7 @@
 		update t03_indust_incm
 		   set index_title=#{index_title}
 			  ,index_content=#{index_content}
+			  ,index_unit=#{index_unit}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
@@ -79,7 +82,7 @@
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		select e.*,o.function_name from t03_indust_incm  e left join t01_function_info o on e.module_id = o.module_id
+		select e.*,o.function_name,concat(e.index_content,e.index_unit) as con_content from t03_indust_incm  e left join t01_function_info o on e.module_id = o.module_id
 		<where>
 			<include refid="where" />
 		</where>

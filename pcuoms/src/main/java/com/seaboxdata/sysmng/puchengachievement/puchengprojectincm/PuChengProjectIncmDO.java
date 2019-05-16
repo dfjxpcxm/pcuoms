@@ -34,7 +34,7 @@ public class PuChengProjectIncmDO implements java.io.Serializable {
     private Integer module_id;
     private String index_title;
     private String index_content;
-
+    private String index_unit;
     private Integer index_state;
     private Integer pub_state;
     private Integer order_by;
@@ -47,6 +47,14 @@ public class PuChengProjectIncmDO implements java.io.Serializable {
 
     public void setImcome_id(Integer imcome_id) {
         this.imcome_id = imcome_id;
+    }
+
+    public String getIndex_unit() {
+        return index_unit;
+    }
+
+    public void setIndex_unit(String index_unit) {
+        this.index_unit = index_unit;
     }
 
     public Integer getModule_id() {
