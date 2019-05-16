@@ -23,8 +23,10 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchenghistoricculture;
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
 import com.seaboxdata.core.base.model.DataStore;
+import com.seaboxdata.core.base.model.JsonDataGrid;
 import com.seaboxdata.core.util.common.DateTime;
 import com.seaboxdata.core.util.common.JsonUtil;
+import com.seaboxdata.core.util.common.QRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -62,10 +64,14 @@ public class PuChengHistoricCultureServiceImpl extends SysBaseService<PuChengHis
     public String getPuChengHistoricCultureInfo() {
         String retStr = "" ;
         List<Map<String, Object>> retList = dao.getPuChengHistoricCultureInfo();
-        if(null != retList && !retList.isEmpty()){
-            retStr = JsonUtil.serialize(retList);
-        }
-        retStr = PREFIX_CHAR.concat(retStr).concat(SUFFIX_CHAR);
+//        if(null != retList && !retList.isEmpty()){
+//            retStr = JsonUtil.serialize(retList);
+//        }
+//        retStr = PREFIX_CHAR.concat("rows:").concat(retStr).concat(SUFFIX_CHAR);
+
+        String dateTimeFormat = "2019-05-16 09:18";
+
+        retStr = new JsonDataGrid(retList.size(), retList).toJson(dateTimeFormat);
         return  retStr;
     }
 

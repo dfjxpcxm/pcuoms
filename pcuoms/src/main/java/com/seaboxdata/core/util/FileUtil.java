@@ -84,8 +84,9 @@ public class FileUtil {
                     //上传
                     // 获取文件名后缀
                     String oldname = file.getOriginalFilename();
-                    String suffix = oldname.indexOf(".") != -1 ? oldname.substring(oldname.lastIndexOf(".")) : "";
-                    String fname = QCommon.getUUID() + suffix;
+//                    String suffix = oldname.indexOf(".") != -1 ? oldname.substring(oldname.lastIndexOf(".")) : "";
+//                    String fname = QCommon.getUUID() + suffix;
+                    String fname = oldname;
                     File uploadFile = new File(dirPath + File.separator + fname);
                     FileCopyUtils.copy(file.getBytes(), uploadFile);
                     String url = TARGE_UPLOAD_PATH + fname;
