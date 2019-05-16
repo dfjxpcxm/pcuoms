@@ -180,8 +180,7 @@ animation: bounceInLeft_t 0.7s;
                         <ul class='poster-list'>
                             
                         </ul>
-                        <div class='poster-btn poster-next-btn center'><span class="glyphicon glyphicon-menu-right"></span></div>
-                    </div>
+                        <div class='poster-btn poster-next-btn center'><span class="glyphicon glyphicon-menu-right"></span></div></div>
             </div>
         </div>
     </section>
@@ -246,12 +245,14 @@ animation: bounceInLeft_t 0.7s;
 <script type="text/javascript" src="${G.host}/static/lib/jquery.mousewheel.js" ></script>
 <script>
 var _h = $(window).height();
+var ps = '${ps}';
+alert(ps)
+$(".dashboard1").html(ps);
 
 var is = '${is}';
 $(".dashboard").html(is);
 
-var ps = '${ps}';
-$(".dashboard1").html(ps);
+
 
 var iy = '${iy}';
 var inf1 = iy;
@@ -268,6 +269,7 @@ var dat1 =ig;
 
 
 var pi = '${pi}';
+
 pi = JSON.parse(pi);
 var das2 =pi;
 
@@ -340,6 +342,7 @@ function brand(d){
 	 $(".poster-list").html(str);
 	 $("#rw").html('<p id = "rw_title">'+inf+'</p>');
 	 $(".msg_ul").html(arr2);
+
 	 init_card();
 	 init_toolbar();
 }	
@@ -384,12 +387,16 @@ function init_toolbar(){
         $('.sec12').removeClass("scs");
         if(this.id == 'l2'||this.id == 'l1'){
         	$('.scc2').addClass("scs");
+
+
         }else{
         	$('.scc1').addClass("scs");
         }
         if(this.id == 'l2'){
+            $(".dashboard").html(is);
         	brand(2);
         }else if(this.id == 'l1'){
+            $(".dashboard1").html(ps);
         	brand(1);
         }else if(this.id == 'l3'){
         	brand2(0);
