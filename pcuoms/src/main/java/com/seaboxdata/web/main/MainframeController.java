@@ -117,6 +117,15 @@ public class MainframeController extends SysBaseController {
         model.addAttribute("hs", hisStr);
         return "page/dmpc/dmpc";
     }
+    
+    /**
+     * 活力浦城
+     */
+    @RequestMapping
+    public String goVitality(ModelMap map){
+        return "page/dmpc/hlpc";
+    }
+   
    
     
   
