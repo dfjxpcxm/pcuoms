@@ -119,22 +119,16 @@
     <section class="sec11 light animated wow fadeInDown">
         <div class="toolbar">
             <ul>
-                <li>
-                    <a>
+                <li class = "i_blue">
+                    <a href="${G.host}/mainframe/goBeautiful">
                         <i class="di di-muluxiangmu"></i>
-                        <span>重点项目</span>
+                        <span>大美浦城</span>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="${G.host}/mainframe/goVitality">
                         <i class="di di-chanyetupu"></i>
-                        <span>重点产业</span>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <i class="di di-zhihuitiaodu"></i>
-                        <span>指挥中心</span>
+                        <span>活力浦城</span>
                     </a>
                 </li>
             </ul>
@@ -209,7 +203,7 @@
 			      <circle id='circle17' class='circle17 steap' cx="648px" cy="49%" r="580"  />
 			      <circle id='circle18' class='circle18 steap' cx="648px" cy="49%" r="660"  />
 			    </svg>
-			    <div class=""><div id = "d_ti"></div><i class = "d_close fa fa-times fa-lg"  aria-hidden="true"></i></div>
+			    <div class=""><div id = "d_ti"></div><i class = "d_close fa fa-times"  aria-hidden="true" style = "font-size: 26px;"></i></div>
 			    <div id = "lunbo1_info" class = "parent">
 			    
 			    </div>
@@ -448,7 +442,7 @@ function brand(){
 
 var dt = '${ts}';
 dat = JSON.parse(dt);
-
+var da = [];
 function init_lunbo(){
 /*    var dat = [
         {img_url:'${G.host}/static/upload/201904/g5.jpg',tag:'匡山国家森林公园',title:'国家森林公园',content:'&emsp;&emsp;福建浦城匡山国家森林公园，公园总面积达2009.27公顷。林覆盖率高达92.6%，漫山碧透，弥漫入青云······'},
@@ -458,6 +452,7 @@ function init_lunbo(){
         {img_url:'${G.host}/static/upload/201904/g1.png',tag:'南平印象小密 · 中国包酒文化博览园',title:'包酒文化博览园',content:'&emsp;&emsp;南平印象小密 · 中国包酒文化博览园······'}
     ];
     da = dat;*/
+    da = dat;
     render_lunbo(dat);
 }
 function render_lunbo(dat){
