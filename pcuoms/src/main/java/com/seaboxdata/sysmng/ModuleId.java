@@ -12,5 +12,6 @@ public class ModuleId {
     public static final Integer IndustIncm = 34; //产业经济
     public static final Integer IndustSumm = 35; //产业概述
     public static final Integer IndustInvest = 36; //产业投资
+    public static final Integer PingTaiAchieve = 37; //平台成果
     public static final Integer SmartCity = 41; //智慧城市
 }

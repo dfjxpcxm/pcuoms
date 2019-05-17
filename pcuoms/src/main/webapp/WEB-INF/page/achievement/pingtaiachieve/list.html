@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <#include "/WEB-INF/include/reslist.html" />
+  </head>
+   <script>
+	   //乡村旅游
+       var pageNum=1;
+       var pageSize=10;
+       var queryParm = '';
+       var flag=true;
+       var pageFlag=0;
+	   //初始化表格
+	   function  config(){
+           var RFlag=$.request.queryString["RFlag"];
+		   quick.serverUrl = "${G.serverUrl}";
+		   quick.editUrl = "${G.editUrl}";
+		   quick.objName = "";
+		   quick.idField = "";
+           
+		   $("#list").bootstrapTable("destroy");
+		   _gd["list"]=new BGrid("#list");
+		   _gd["list"].config({
+			   url:quick.serverUrl+"/getList?i=" + Math.random(),
+			   idField: quick.idField,
+			   sortName: quick.idField,
+               cache:false,
+			   height: $(document.body).height()-50,
+			   toolbar:"#formSearch",
+			   columns: [
+				   {  checkbox: true },
+				   { field: 'function_name', title: '功能名称', width: 100  },
+				   { field: 'index_title', title: '指标名称', width: 100  },
+				   { field: 'index_name', title: '指标名字', width: 100  },
+				   { field: 'index_content', title: '指标内容', width: 100  },
+				   { field: 'img_path', title: '图片路径', width: 100  },
+				   { field: 'index_state', title: '功能状态', width: 100 ,
+		   				  formatter: function (value, row, index) {
+							  if (value == 1) {
+								  return "启用";
+							  } else if (value == 0) {
+								  return "禁用";
+							  } else {
+								  return "-";
+
+							  }
+						  }
+				   },
+				   { field: 'pub_state', title: '发布状态', width: 100 ,
+					   formatter: function (value, row, index) {
+						   if (value == 1) {
+							   return "已发布";
+						   } else if (value == 0) {
+							   return "未发布";
+						   } else {
+							   return "-";
+
+						   }
+					   }
+				   },
+
+				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
+					   return "<button type='button' class='btn_el' onclick='edit(\""+row.achieve_id+"\")'>编辑</button>| "
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.achieve_id+"\",\""+row.index_title+"\")'>删除</button>| "
+							   +"<button type='button' class='btn_el' onclick='pre(\""+row.achieve_id+"\")'>预览</button>";
+				   }}
+			   ],onPageChange:function(number, size){
+                   $("#IDS_PAGESIZE").val(size);
+                   $("#IDS_PAGENUM").val(number);
+                   pageNum=number;
+                   pageSize=size;
+               },onPostBody:function(data){
+				   if(queryParm=='' &&　(data == null || data.length == 0)){
+					   $(".no-records-found td").html('您还没有添加相关信息，请点击<a onclick="add();" href="javascript:void(0);">添加</a>');
+                   }
+			   }
+		   });
+
+           if(RFlag==1){
+               requery();
+           }else{
+               _gd["list"].init();
+           }
+	   }
+
+    //删除记录
+    function del(node,name){
+       layer.confirm(
+		   "确认将删除【"+name+"】吗？<br/>删除后，所有关联数据将一并删除，且删除后不可恢复",
+		   {icon:3,title:"删除记录",skin: 'layer-ext-moon'},
+		   function(){
+			   $.ajax({
+				   type: "post",
+				   url: quick.serverUrl + '/delete?achieve_id=' + node,
+				   dataType: "json",
+				   data:{ID:node},
+				   success: function(data){
+					   layer.msg('删除记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
+                       _gd["list"].refresh();
+				   },
+				   error:function(err){
+					   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
+				   }
+			   });
+		   }
+       );
+    }
+
+	//查看详细信息
+	function edit(id){
+	   	//debugger;
+        navAppend("编辑集成系统");/*获取父页面元素并动态赋值父页面title*/
+	    window.location.href=quick.editUrl + "?achieve_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
+	}
+	function add(){
+		menuGoto(quick.editUrl);
+	}
+    //将url查询信息传至详细信息页面,返回时调用
+	function goDetail(obj){
+		var value = $(obj).attr("id");
+		navAppend("详情信息");/*获取父页面元素并动态赋值父页面title*/
+		window.location.href=quick.editUrl + "?mode=browse&module_id="+id + getDetailParm();
+	}
+    function query(){
+       _gd['list'].refresh();
+       queryParm=getParm();
+    }
+    //获取返回时传回的数据
+    function requery(){
+       var pn = Number($.request.queryString["IpageNum"]) || 1;
+       var ps =  $.request.queryString["IpageSize"] || 10;
+       
+       _gd["list"].config({
+           pageSize: ps
+           ,onLoadSuccess:function(){
+               if(pageFlag>0){
+                   return;
+               }
+               $('#list').bootstrapTable('selectPage', pn);
+               pageFlag++;
+           }
+       });
+       _gd["list"].init();
+    }
+    //获取查询框数据
+	function getParm(){
+		var s = '&I'+$("#formSearch").serialize().replace(/&/g, "&I");
+		return s;
+	}
+	function getDetailParm(){
+		var s= queryParm + "&IpageNum="+pageNum+"&IpageSize="+pageSize;
+		return s;
+	}
+	function cancel(){
+		window.location.href="${G.host}/gotoPuChengMng/list";
+	}
+   function prevw(){
+	   var targetUrl = "${G.host}/mainframe/goAchievement";
+	   window.open(targetUrl,'_blank');
+   }
+
+   </script>
+  <body class="gray-bg">
+  <div class="wrapper wrapper-content wrapper-content-x animated fadeInRight">
+	  <div class="row">
+		  <div class="col-sm-12">
+			  <div class="ibox ibox-x">
+				  <div class="ibox-content ibox-content-x">
+					  <div class="panel-mar">
+							  <form id="formSearch" class="form-inline">
+                                  <div class="form-group" style="padding: 0px;width:180px;">
+									  <input maxlength="20" id="index_title" name="index_title" class="input-sm form-control"
+											 type="text" placeholder="指标名称"/>
+								  </div>
+
+								  <span class="input-group-btn" style="display:inline-block;"><button class="btn btn-primary " type="button" onclick="query();"> 查询</button> </span>
+								  <div class="form-group" style="width:100px;float:right;">
+									  <button type="button" class="btn btn-primary" onclick="location.href='edit';"> 新增指标
+									  </button>
+								  </div>
+								  <div class="form-group" style="width:100px;float:right;">
+									  <button type="button" class="btn btn-primary" onclick="cancel();"> 返回模块
+									  </button>
+								  </div>
+								  <div class="form-group" style="width:100px;float:right;">
+									  <button type="button" class="btn btn-primary" onclick="prevw();"> 预览
+									  </button>
+								  </div>
+
+							  </form>
+						</div>
+					  <div style ="margin:5px;">
+						  <table id="list" class="table-striped" style="table-layout:fixed"></table>
+					  </div>
+				  </div>
+			  </div>
+		  </div>
+		  <input type="hidden"  id="IDS_PAGENUM" name="IDS_PAGENUM">
+		  <input type="hidden"  id="IDS_PAGESIZE" name="IDS_PAGENUM">
+	  </div>
+  </div>
+  </body>
+</html>
