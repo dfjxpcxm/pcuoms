@@ -449,8 +449,8 @@ function get_lunbo1(d){
         cnt = i+1;
         var dis = 'none';
         var tx = '&emsp;&emsp;'+d[i].content;
-        if(d[i].content.length>100){
-        	tx = tx.substring(0, 100)+' .....';
+        if(d[i].content.length>300){
+        	tx = tx.substring(0, 300)+' .....';
         	dis = 'block';
         }
         arr.push('<div class="item item'+i+' lis '+its+'"> ',
@@ -473,7 +473,7 @@ function more(p){
     var tx = '&emsp;&emsp;'+dt[p].content;
 	if($('.foot'+p).attr('class').split(" ").length<3){
 		st = '------查看更多'
-		tx = tx.substring(0, 100)+' .....';
+		tx = tx.substring(0, 300)+' .....';
 		$('.foot'+p).addClass("mo");
 	}else{
 		$('.foot'+p).removeClass("mo");

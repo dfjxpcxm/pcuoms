@@ -13,11 +13,11 @@
 .sec_info{
 	position: fixed;
 	height: 95vh;
-	width: 76%;
+	width: 64%;
 	font-size: 100px;
 	top: 3%;
 	z-index: 104;
-	left: 12%;
+	left: 18%;
 	background-color: #d8dddd;
 	display: none;
 	max-height: 95vh;
@@ -109,7 +109,7 @@
 .slider-inner{height:100%;}
 .slider-inner .item{position: relative;height:100%;}
 .slider-content .head{height:40%;text-align: right;font-size:2rem;color:#d7e7ff;}
-.slider-content .body{height:calc(100% - 120px);font-size:1rem;padding:0 10px;}
+.slider-content .body{height:calc(100% - 120px);font-size:1rem;padding:0 10px;text-align: left;}
 .slider-content .foot{height:40px;padding:0 10px;text-align:right;}
 
 .navbtm{height:50px;text-align:center;background: url('../img/dmpc-navbtm.png') no-repeat;background-size: 100% 100%;}
@@ -130,38 +130,34 @@
 	height: 45%;
 }
 .d_info{
-	height: 43%;
-	width:90%;
+	width:94%;
 	padding-left: 5%;
-	margin-top: 40%
-}
-
-.d_info p{
-	line-height: 20px;
-	line-height: 24px;
+	line-height: 26px;
 	font-size: 1.1em;
 	text-align: left;
 }
+
+
 #d_info{
-	padding-top: 3%;
+	overflow:auto;
+	height: 42%;
 }
 
 .lunbo1_info{
 	background-color:#d8dddd;
-	width: 60%;
+	width: 80%;
 	height:98%;
 	border: 0px blue solid;
 	position: fixed;
 	top:1%;
-	left: 18%;
+	left: 10%;
 	border-radius: 3%;
 }
 #lunbo1_info{
 	border: 0px blue solid;
-	width: 80%;
+	width: 56%;
 	height: 44%;
-	overflow: hidden;
-	margin-top: 8.5%;
+	margin-top: 6.5%;
 	}
 
 .d_close{

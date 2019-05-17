@@ -204,8 +204,10 @@
 			      <circle id='circle18' class='circle18 steap' cx="648px" cy="49%" r="660"  />
 			    </svg>
 			    <div class=""><div id = "d_ti"></div><i class = "d_close fa fa-times"  aria-hidden="true" style = "font-size: 26px;"></i></div>
-			    <div id = "lunbo1_info" class = "parent">
-			    
+			    <div style="height: 48%;width: 100%;">
+				    <div id = "lunbo1_info" class = "parent">
+				    
+				    </div>
 			    </div>
 			    <div id = "d_info"></div>
             </div>
@@ -269,17 +271,18 @@ function newstab(){
 	//var ddd = data[0].content.indexOf("<br/>")
 	//data[0].content.subStr(ddd-1,'123456');
 	for (var i = 0; i < data.length; i++) {
+		var cen =data[i].content.length>310?('&emsp;&emsp;'+(data[i].content).substring(0, 310)+' .....'):('&emsp;&emsp;'+data[i].content);
 		if (i == 0) {
 			til = til+'<li href="#rw'+i+'" data-toggle="tab" class="menu active"><a href="#">'+data[i].title+'</a></li>';
 			imgs = imgs+'<li class = "pic_img"><img src="'+data[i].img_url+'" alt="" /></li>';
 			inf = inf+'<div id="rw'+i+'" class="tab-pane fade in active">'+
-            	'<p>'+data[i].content+'</p>'+
+            	'<p>'+cen+'</p>'+
 		    '</div>';
 		}else{
 			til = til+'<li href="#rw'+i+'" data-toggle="tab" class="menu"><a href="#">'+data[i].title+'</a></li>';
 			imgs = imgs+'<li class = "pic_img hide"><img src="'+data[i].img_url+'" alt="" /></li>';
 			inf = inf+'<div id="rw'+i+'" class="tab-pane fade">'+
-            	'<p>'+data[i].content+'</p>'+
+            	'<p>'+cen+'</p>'+
 		    '</div>';
 		}
 	}
@@ -352,7 +355,7 @@ function brand(){
 		}
 		arr.push(
 				'<div id = "slick-sli'+i+'" class = "slick-sli"><img src = "'+dat[i].img_url+'">',
-				'<div id = "fg_top'+i+'" class = "fg_top"><p style = "font-size:1.1em;">'+dat[i].content+'</p></div>',
+				'<div id = "fg_top'+i+'" class = "fg_top"><p style = "font-size:1.1em;">'+'&emsp;&emsp;'+dat[i].content+'</p></div>',
 					'<div id = "ban_title'+i+'" class = "ban_title '+st+'">'+dat[i].title+'</div>',
 				'</div>');
 	}
@@ -488,13 +491,14 @@ function lunbo1_img(d){
 }
 function lunbo1_info(d){
 	$("#d_ti").html('<span id = "spa" class = "spa" >'+da[d].title)+'</span>';
-	 $("#d_info").html('<p class = "d_info">'+da[d].content+'</p>');
+	 $("#d_info").html('<p class = "d_info">'+'&emsp;&emsp;'+da[d].content+'</p>');
 }
 
 function get_lunbo1(d){
     var arr = [];
     var its,str ;
     for (var i = 0; i < d.length; i++) {
+    	var cen =d[i].content.length>90?('&emsp;&emsp;'+(d[i].content).substring(0, 90)+' .....'):('&emsp;&emsp;'+d[i].content);
         if(i == 0){
             its = 'active';
         }else{
@@ -502,7 +506,7 @@ function get_lunbo1(d){
         }
         arr.push(' <div class="ibox slider-content h24 item '+its+'"> ',
             ' <div class="h12"><img width="100%" height="100%" src="'+d[i].img_url+'" /></div>',
-            '<div class="h12"><h3>'+d[i].title+'</h3> <p class="body">'+d[i].content+'</p><div class="foot"> <button type="button" class="btn btn-default" onclick="lunbo1_img('+i+')">查看详情</button></div></div> />',
+            '<div class="h12"><h3>'+d[i].title+'</h3> <p class="body">'+cen+'</p><div class="foot"> <button type="button" class="btn btn-default" onclick="lunbo1_img('+i+')">查看详情</button></div></div> />',
             '</div>');
     }
     str = arr.join('');

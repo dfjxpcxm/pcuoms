@@ -105,11 +105,11 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .sec_info{
 	position: fixed;
 	height: 88vh;
-	width: 76%;
+	width: 64%;
 	font-size: 100px;
 	top: 10%;
 	z-index: 104;
-	left: 12%;
+	left: 18%;
 	background-color: #d8dddd;
 	display: none;
 	max-height: 88vh;

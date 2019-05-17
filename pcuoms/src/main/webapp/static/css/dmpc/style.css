@@ -22,9 +22,9 @@
 svg {
   position: absolute;
   z-index: 1;
-  width: 80%;
+  width: 56%;
   height: 44%;
-  left:10%;
+  left:22%;
   border: 0px red solid;
   top:10%;
 }
@@ -72,6 +72,7 @@ circle {
   position: absolute;
   width: 22px;
   height: 22px;
+  left: 1px;
   
 }
 
