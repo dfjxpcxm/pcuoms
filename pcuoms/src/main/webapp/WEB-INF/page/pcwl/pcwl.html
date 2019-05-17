@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="${G.host}/static/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="${G.host}/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="${G.host}/static/css/pcwl.css">
+     <link rel="stylesheet" type="text/css" href="${G.host}/static/lib/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     <header class="headerpan clearfix" style="position: absolute;top:0;">
@@ -111,11 +113,22 @@
             </div>
         </div>
     </section>
+     <section class="sec_info">
+     	<div class="">
+     		<div class = "carousel_title"></div><i class = "s_close fa fa-times"  aria-hidden="true" style="font-size: 38px;"></i>
+     	</div>
+	    <div class="info_img">
+	    	 <center class = "centrr_img"><div id="posterTvGrid86804"></div></center>
+	    	 <div class = "centrr_info"></div>
+	    </div>
+    </section>
 </body>
 </html>
 <script type="text/javascript" src="${G.host}/static/lib/jquery.min.js" ></script>
 <script type="text/javascript" src="${G.host}/static/lib/bootstrap.min.js" ></script>
 <script type="text/javascript" src="${G.host}/static/lib/domi.app.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/js/pcwl/posterTvGrid.js" ></script>
 <script>
     var is = '${is}';
     dat = JSON.parse(is);
@@ -139,7 +152,9 @@ function init_culture(){
     ];*/
     render_culture(dat);
 }
+var das = [];
 function render_culture(d){
+	das = d;
     var arr = [];
     var arr2 = [];
     if (d.length>4) {
@@ -149,7 +164,7 @@ function render_culture(d){
                 '<img src="'+d[a].img_url+'" alt="" /> ',
                 '<div class="msg">',
                 '<h3 class="clearfix">',
-                '<span class="left"><a class="line">查看详情</a></span>',
+                '<span class="left" onclick = "xmore('+a+')"><a class="line">查看详情</a></span>',
                 '<span class="right">'+d[a].createTime+'</span>',
                 '</h3>',
                 '</div>',
@@ -162,7 +177,7 @@ function render_culture(d){
                 '<img src="'+d[b].img_url+'" alt="" /> ',
                 '<div class="msg">',
                 '<h3 class="clearfix">',
-                '<span class="left"><a class="line">查看详情</a></span>',
+                '<span class="left" onclick = "xmore('+b+')"><a class="line">查看详情</a></span>',
                 '<span class="right">'+d[b].createTime+'</span>',
                 '</h3>',
                 '</div>',
@@ -176,7 +191,7 @@ function render_culture(d){
 	            '<img src="'+d[i].img_url+'" alt="" /> ',
 	            '<div class="msg">',
 	            '<h3 class="clearfix">',
-	            '<span class="left"><a class="line">查看详情</a></span>',
+	            '<span class="left" onclick = "xmore('+i+')"><a class="line">查看详情</a></span>',
 	            '<span class="right">'+d[i].createTime+'</span>',
 	            '</h3>',
 	            '</div>',
@@ -188,6 +203,25 @@ function render_culture(d){
     var  str2 = arr2.join('');
     $(".cultures").html(str).dui();
     $("#cultures2").html(str2).dui();
+}
+
+function xmore(d){
+	$('.sec_info').addClass("sec_open");
+	wInfo(das,d)
+	 $(".s_close").click(function(){
+		 $('.sec_info').removeClass("sec_open");
+		 //addInfo(data2);
+	    });
+}
+function wInfo(dat,i){
+	var str = '<p>'+'&emsp;&emsp;'+dat[i].title+'</p>';
+	$('.centrr_info').html(str);
+	$('.carousel_title').html('<p>'+dat[i].title+'</p>');
+	var posterTvGrid86804 = new posterTvGrid(
+    		'posterTvGrid86804',
+    		{className: "posterTvGrid"},
+    		dat
+    		);
 }
 
 function cultureMore(){
