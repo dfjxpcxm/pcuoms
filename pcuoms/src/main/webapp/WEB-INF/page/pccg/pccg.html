@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="${G.host}/static/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="${G.host}/static/css/main.css">
     <link rel="stylesheet" type="text/css" href="${G.host}/static/css/pccg.css">
+     <link rel="stylesheet" type="text/css" href="${G.host}/static/lib/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/font-awesome/css/font-awesome.min.css">
     <style type="text/css">
 .card_bo img{
 	 animation: bounceInLeft1 0.8s;
@@ -216,6 +218,26 @@ animation: bounceInLeft_t 0.7s;
             <button type="button" class="btn btn-primary btn-lg btn-block">进入系统</button>
           </div>
     </section>
+     <section class="sec_info">
+     	<div class="">
+     		<div class = "carousel_title"></div><i class = "s_close fa fa-times"  aria-hidden="true" style="font-size: 38px;"></i>
+     	</div>
+	    <div class="info_img">
+	    	<div id="carousel">
+				<div id="container" tcc-rotation="0">
+				</div>
+				
+				<nav class="tc-btn-container">
+					<div class="tc tc-next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+					<div class="tc tc-prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				</nav>
+				
+			</div>
+			<div class = "carousel_info">
+			
+			</div>
+	    </div>
+    </section>
     
     <section class="sec">
         <div class="empty"></div>
@@ -244,6 +266,7 @@ animation: bounceInLeft_t 0.7s;
 <script type="text/javascript" src="${G.host}/static/lib/domi.app.js" ></script>
 <script type="text/javascript" src="${G.host}/static/lib/plugin/carousel.js" ></script>
 <script type="text/javascript" src="${G.host}/static/lib/jquery.mousewheel.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" ></script>
 <script>
 var _h = $(window).height();
 
@@ -282,6 +305,7 @@ $(document).ready(function(){
     brand(1);
     //init_lunbo();
 });
+var dat = [];
 function brand(d){
 /*	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
 	var inf2 = '&emsp;&emsp;食品加工、轻纺轻工、生物制药三大产业继续在浦城县经济持续、快速发展中领跑,发挥着重要的主导和支撑作用。';
@@ -307,7 +331,7 @@ function brand(d){
 	           {title:'占规模工业总产值',value:'78.6',unit:'%'}
 	           ];*/
 	var inf = inf1;
-	var dat = dat1;
+	dat = dat1;
 	var das = das1;
 	if(d == 2){
 		inf = inf2;
@@ -317,14 +341,16 @@ function brand(d){
 	var arr = [];
 	for (var i = 0; i < dat.length; i++) {
 		//var st = '';
+		var cen = dat[i].content.length>90?(dat[i].content.substring(0, 90)+" ....."):dat[i].content;
 		arr.push(
 				'<li class="list-item">', 
                                 '<div class="ibox">',
                                     '<a>',
                                         '<img src="'+dat[i].img_url+'" alt="">',
                                         '<h5 class="b">'+dat[i].title+'</h5>',
-                                        '<p>'+dat[i].content+'</p>',
+                                        '<p>'+cen+'</p>',
                                     '</a>',
+                                    '<div class = "xxi" onclick = "xmore('+i+')">查看详情</div>',
                                 '</div>',
                             '</li>');
 	}
@@ -343,7 +369,27 @@ function brand(d){
 	 $(".msg_ul").html(arr2);
 	 init_card();
 	 init_toolbar();
+	 $(".sec_info").mouseover(function () {
+		 //禁止滚动
+         var top = $(document).scrollTop();
+         $(document).on('scroll.unable',function (e) {
+             $(document).scrollTop(top);
+         })
+     }).mouseout(function () {
+         //移除恢复滚动
+         $(document).unbind("scroll.unable");
+     });
 }	
+
+function xmore(d){
+	$('.sec_info').addClass("sec_open");
+	//$("#info_til").html(til);
+	 sec_info(dat,dat.length);
+	 $(".s_close").click(function(){
+		 $('.sec_info').removeClass("sec_open");
+		 //addInfo(data2);
+	    });
+}
 
 function brand2(i){
 //	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
@@ -421,6 +467,66 @@ function init_card(){
         "scale":0.9
     };
     Carousel.init($('.carousel'),opt);
+}
+function sec_info(data,s){
+	var str = "";
+	var v = 0;
+	for (var i = 0; i < data.length; i++) {
+		str = str + '<item item-img = "'+i+'"><img height="130px" width = "200px" src="'+data[i].img_url+'"></item>';
+	}
+	$('#container').html(str);
+	putInfo(data,v);
+	  var crotation;
+	    var rotateto = 0;
+	    var itemCount = $('item').length; // count of items in corousel
+	    var tcItemInitialRotation = 360/itemCount;
+	    var tcZDistance =  200+(s>4?(s-4):s)*23;
+	    
+	    $('item').each( function(index) {
+	                   
+	        $(this).css({
+	            'transform' : 'rotateY('+( tcItemInitialRotation * index )+'deg) translateZ('+tcZDistance+'px)'
+	        }).attr('tc-rotation', ( tcItemInitialRotation * index ) );
+
+	    });
+	    $('.tc').css('display','');
+	    if (data.length<2) {
+			$('.tc').css('display','none');
+		}
+	    
+	    function tcRotate(tcdeg){
+	        $('#container').css({
+	            'transform'         : 'rotateY('+ tcdeg +'deg)',
+	            '-ms-transform'     : 'rotateY('+ tcdeg +'deg)',
+	            '-webkit-transform' : 'rotateY('+ tcdeg +'deg)'
+	        });
+	    }
+	    $('item').on('click', function(){
+	        crotation = $('#container').attr('tcc-rotation');
+	        var rotation = $(this).attr('tc-rotation');
+	        rotateto = crotation - rotation;
+	        tcRotate(rotateto);
+	        crotation = rotateto;
+	        v =$(this).attr('item-img');
+	        putInfo(data,v)
+	    });
+	    
+	    $('.tc-next').on('click', function(){
+	    	v = (v*1 + 1)<(data.length)?(v*1 + 1):0;
+	        rotateto -= tcItemInitialRotation;
+	        tcRotate(rotateto);
+	        putInfo(data,v)
+	    });
+	    $('.tc-prev').on('click', function(){
+	    	v = (v*1 - 1)<0?(data.length-1):(v*1 - 1);
+	        rotateto += tcItemInitialRotation;
+	        tcRotate(rotateto);
+	        putInfo(data,v)
+	    });
+}
+function putInfo(data,i){
+	$('.carousel_info').html('<div><p>'+data[i].content+'</p></div>');
+	$('.carousel_title').html('<p>'+data[i].title+'</p>');
 }
 
 

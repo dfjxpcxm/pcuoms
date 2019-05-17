@@ -17,18 +17,13 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .dashboard li{float:left; width:33%;}
 .dashboard .top{height:75px;width:12.5%;display:table-cell;}
 .dashboard .btm{height:50px;line-height: 50px;margin-bottom:0;}
-
-.dashboard1{text-align:center;}
-.dashboard1 li{float:left; width:33%;}
-.dashboard1 .top{height:75px;width:12.5%;display:table-cell;}
-.dashboard1 .btm{height:50px;line-height: 50px;margin-bottom:0;}
 .news{height:115px;}
 
 .proj{height:calc(100vh - 250px);position: relative;margin-top:18px;}
 .proj .map{height:80%;background: url('../img/pccg-map.png') no-repeat;background-size: 100% 100%;}
 .proj .msg{height:100%;justify-content: flex-start;}
 .proj .msg ul{width:70%;padding-left:0;}
-.proj .msg ul li{width:100%;height:40px;line-height: 40px;}
+.proj .msg ul li{width:100%;height:50px;line-height: 50px;}
 .proj .btnrow{width:60%;padding:0 20px;}
 .proj .btnrow button{border-radius: 50px;}
 .proj .card{position: absolute;top:0;right:0;padding:0;}
@@ -36,6 +31,8 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .proj .ibox h5 {color:#000;}
 .proj .ibox p{font-size:0.8rem;color:#aaa;padding:2px 10px 2px 10px;}
 .proj .ibox{height:100%;-webkit-box-shadow:2px 7px 15px #333; box-shadow:2px 7px 15px #333;}
+.ibox .xxi{margin-top:-25px;margin-left:70%;cursor: pointer;}
+.ibox .xxi:hover{color:blue;}
 
 .toolbar .di{font-size:2.5rem;}
 .toolbar ul li{width:75px;height:75px;text-align: center;}
@@ -99,9 +96,140 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
       transform:translateY(0px);
         }
 @keyframes bounceInLeft2 {
-    0% {
-        opacity: 1;
-        transform: translateY(-800px);
-    }
+            0% {
+                opacity: 1;
+                transform: translateY(-800px);
+            } 
 }
-              
+/* ÏêÏ¸  µ¯³ö¿ò¿ªÊ¼ */
+.sec_info{
+	position: fixed;
+	height: 88vh;
+	width: 76%;
+	font-size: 100px;
+	top: 10%;
+	z-index: 104;
+	left: 12%;
+	background-color: #d8dddd;
+	display: none;
+	max-height: 88vh;
+	border-radius: 2%;
+} 
+.s_close{
+	position: absolute;
+	right: 10px;
+	top: 3px;
+	z-index: 11;
+	cursor: pointer;
+	color:#00c0ff;
+}
+.s_close:hover{
+	color:red;
+}
+.sec_open{
+	display: block;
+}  
+.carousel_info {
+	width: 94%;
+	margin-left: 4%;
+	overflow:auto;
+	height: 47vh;
+	max-height:48vh;
+	margin-top: -5px;
+}  
+.carousel_info p{
+	font-size: 1.1rem;
+	line-height: 25px;
+	color: #0f0e0e;
+} 
+.carousel_title{margin-top: 9px;}
+.carousel_title p{line-height: 30px;font-size: 22px;text-align: center;font-weight: bold;color: #0f0e0e;}         
+.carousel_info p{
+      animation: infoLeft2 1s;
+      transform:translateY(0px);
+        }
+@keyframes infoLeft2 {
+            0% {
+                opacity: 1;
+                transform: translateY(300px);
+            } 
+}
+#carousel {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    position: relative;
+    top: 8px;
+    width: 100%px 
+}
+
+
+
+#container {
+    display: block;
+    height: 200px;
+    margin: 0 auto;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform-origin: center bottom 0;
+    transform-origin: center bottom 0;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    width: 200px;
+    z-index: 1000;
+}
+
+item {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    -webkit-transform: translateZ(400px);
+    -ms-transform: translateZ(400px);
+    -o-transform: translateZ(400px);
+    transform: translateZ(400px);
+    position: absolute;
+}
+item img {
+    width: 100%;
+}
+
+.tc-btn-container {
+  display: block;
+  float: left;
+  height: 35px;
+  margin-top: -12.5px;
+  position: absolute;
+  top: 38%;
+  width: 80%;
+  left: 10%;
+}
+
+.tc-next {
+    color: white;
+    display: block;
+    float: right;
+    padding: 10px;
+    width: 35px;
+    cursor: pointer;
+}
+.tc{font-size: 28px;}
+.tc:hover{font-size: 35px;color:#026aff;}
+
+.tc-prev {
+    color: white;
+    display: block;
+    float: left;
+    padding: 10px;
+    width: 35px;
+    cursor: pointer;
+}
+
+
+/* ÏêÏ¸  µ¯³ö¿ò½áÊø*/
