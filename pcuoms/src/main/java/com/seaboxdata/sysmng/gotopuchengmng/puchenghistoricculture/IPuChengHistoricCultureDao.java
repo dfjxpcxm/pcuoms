@@ -31,4 +31,6 @@ import java.util.Map;
 public interface IPuChengHistoricCultureDao<PuChengSummarizeDO> extends ISysBaseDao<PuChengSummarizeDO> {
     List<Map<String, Object>> getPuChengHistoricCultureInfo();
 
+    List<Map<String, Object>> getPuChengGeographCultureInfo();
+
 }
