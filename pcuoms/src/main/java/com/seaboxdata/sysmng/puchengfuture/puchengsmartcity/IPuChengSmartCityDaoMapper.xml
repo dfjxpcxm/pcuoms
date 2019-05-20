@@ -103,7 +103,7 @@
 
 
 	<select id="getPCLivingCultInfo" parameterType="map" resultType="map">
-		select index_title as title,img_path as img_url, DATE_FORMAT(cre_time,'%Y-%m-%d') as createTime from t04_live_culture
+		select index_title as title,img_path as img_url, DATE_FORMAT(cre_time,'%Y-%m-%d') as createTime, index_content as content from t04_live_culture
 		where module_id=41 and index_state=1 and pub_state=1
 	</select>
 </mapper>

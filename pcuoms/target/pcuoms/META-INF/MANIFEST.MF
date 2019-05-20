@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+Implementation-Title: pcuoms
+Implementation-Version: 1.0-SNAPSHOT
 Built-By: Administrator
+Implementation-Vendor-Id: com.seaboxdata
 Created-By: IntelliJ IDEA
 Build-Jdk: 1.8
+TimeStamp: 2019-05-20T02:54:52Z
 

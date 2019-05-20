@@ -10,6 +10,10 @@
     <context:component-scan base-package="com.seaboxdata" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
     </context:component-scan>
+    <bean id="BeanUtil" class="com.seaboxdata.core.util.common.BeanUtil"/>
+    <bean id="sqlDao" class="com.seaboxdata.core.base.SysSqlDao">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 
     <!--统一异常处理 -->
     <bean name="exceptionResolver"  class="com.seaboxdata.core.spring.ControllerMappingExceptionResolver">
@@ -18,7 +22,7 @@
         <!--定义需要特殊处理的异常，用类名或完全路径名作为key，异常也页名作为值-->
         <property name="exceptionMappings">
             <props>
-                <!--<prop key="com.quick.frame.exception.GuideTestException">../../exception/error-interface</prop>-->
+                <!--<prop key="com.seaboxdata.frame.exception.GuideTestException">../../exception/error-interface</prop>-->
                 <prop key="java.lang.Exception">error</prop>
             </props>
         </property>
