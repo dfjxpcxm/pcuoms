@@ -57,7 +57,7 @@
 			#{invest_id},
 			#{module_id},
 			 #{index_title},
-			 #{index_name},
+			 #{index_title},
 			 #{index_content},
 			 #{img_path},
 			 #{index_state},
@@ -71,7 +71,7 @@
 	<update id="update" parameterType="com.seaboxdata.sysmng.puchengachievement.puchengindustinvest.PuChengIndustInvestDO">
 		update t03_indust_invest
 		   set index_title=#{index_title}
-			  ,index_name=#{index_name}
+			  ,index_name=#{index_title}
 			  ,index_content=#{index_content}
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
