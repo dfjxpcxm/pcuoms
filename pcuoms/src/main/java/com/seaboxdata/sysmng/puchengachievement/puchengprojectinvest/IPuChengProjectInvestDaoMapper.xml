@@ -108,7 +108,8 @@
 	<select id="getPCProjectInvestIndexInfo" parameterType="map" resultType="map">
 		select index_title as title,
 		 index_content as value,index_unit as unit from  t03_project_invest   where pub_state=1 and index_state=1 and module_id=33
-		 and img_path is null order by order_by
+		  and (img_path is null or img_path ='')
+		 order by order_by
 	</select>
 
 
