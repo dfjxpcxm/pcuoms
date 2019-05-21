@@ -58,8 +58,8 @@
 
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
 					   return "<button type='button' class='btn_el' onclick='edit(\""+row.function_id+"\")'>编辑</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.function_id+"\",\""+row.index_title+"\")'>删除</button>| "
-							   +"<button type='button' class='btn_el' onclick='pre(\""+row.function_id+"\")'>预览</button>";
+							   +"<button type='button' class='btn_el' onclick='pub(\""+row.function_id+"\",\""+row.index_title+"\")'>发布</button>| "
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.function_id+"\",\""+row.index_title+"\")'>删除</button>";
 				   }}
 			   ],onPageChange:function(number, size){
                    $("#IDS_PAGESIZE").val(size);
@@ -79,7 +79,27 @@
                _gd["list"].init();
            }
 	   }
-
+	   //发布
+	   function pub(node,name){
+		   layer.confirm(
+				   "确认将发布【"+name+"】吗？<br/>",
+				   {icon:3,title:"发布记录",skin: 'layer-ext-moon'},
+				   function(){
+					   $.ajax({
+						   type: "post",
+						   url: quick.serverUrl + '/pubPropagateInfo?propagate_id=' + node,
+						   dataType: "json",
+						   success: function(data){
+							   layer.msg('发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
+							   _gd["list"].refresh();
+						   },
+						   error:function(err){
+							   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
+						   }
+					   });
+				   }
+		   );
+	   }
     //删除记录
     function del(node,name){
        layer.confirm(

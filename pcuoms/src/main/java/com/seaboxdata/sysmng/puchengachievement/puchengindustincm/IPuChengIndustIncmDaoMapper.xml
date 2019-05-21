@@ -66,7 +66,7 @@
 	<update id="update" parameterType="com.seaboxdata.sysmng.puchengachievement.puchengindustincm.PuChengIndustIncmDO">
 		update t03_indust_incm
 		   set index_title=#{index_title}
-			  ,index_content=#{index_content}
+			  ,index_content=#{index_title}
 			  ,index_unit=#{index_unit}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
