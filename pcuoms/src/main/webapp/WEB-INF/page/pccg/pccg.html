@@ -67,7 +67,7 @@ animation: bounceInLeft_t 0.7s;
                     <li><a href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
                     <li><a href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
                     <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
-                    <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
+                    <li><div><button type="button" id ="btnlogin" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
                 </ul>
             </nav>
         </div>
@@ -286,7 +286,9 @@ pi = JSON.parse(pi);
 var das1 =pi;
 
 var pg = '${pg}';
+
 pg = JSON.parse(pg);
+
 var dat1 =pg;
 
 
@@ -519,5 +521,10 @@ function putInfo(data,i){
 	$('.carousel_title').html('<p>'+data[i].title+'</p>');
 }
 
+
+$('#btnlogin').click(function(){
+    var targetUrl  = "https://localhost:8443/cas/";
+    window.location.href = targetUrl;
+})
 
 </script>

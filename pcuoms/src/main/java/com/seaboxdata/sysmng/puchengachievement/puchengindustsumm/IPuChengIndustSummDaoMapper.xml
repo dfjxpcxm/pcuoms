@@ -104,7 +104,7 @@
 
 	<select id="getPCIndustSummyInfo" parameterType="map" resultType="map">
 		select index_title,index_name,index_content,img_path from t03_indust_sumy
-		where module_id=35 and index_state=1 and pub_state=1 and order_by=1
+		where index_state=1 and pub_state=1 and order_by=1
 	</select>
 
 </mapper>

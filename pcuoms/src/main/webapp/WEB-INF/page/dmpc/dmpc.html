@@ -36,7 +36,7 @@
                     <li><a href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
                     <li><a href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
                     <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
-                    <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
+                    <li><div><button type="button" id ="btnlogin" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
                 </ul>
             </nav>
         </div>
@@ -787,4 +787,11 @@ function info_img(ul_id,dats,vs){
    		 time:4//每帧图片时间间隔
    		});
 };
+
+$('#btnlogin').click(function(){
+    var targetUrl  = "https://localhost:8443/cas/";
+    window.location.href = targetUrl;
+})
+
+
 </script>

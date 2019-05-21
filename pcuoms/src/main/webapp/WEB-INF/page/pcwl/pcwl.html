@@ -19,7 +19,7 @@
                     <li><a href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
                     <li><a href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
                     <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
-                    <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
+                    <li><div><button type="button" id ="btnlogin" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
                 </ul>
             </nav>
         </div>
@@ -131,7 +131,8 @@
 <script type="text/javascript" src="${G.host}/static/js/pcwl/posterTvGrid.js" ></script>
 <script>
     var is = '${is}';
-    dat = JSON.parse(is);
+    var dat = eval('(' + is + ')');
+//    dat = JSON.parse(is);
 
 $(document).ready(function(){
     init_culture();
@@ -290,4 +291,9 @@ function init_city(){
     o[0].setImg = setImg;
     o[0].setActive = setActive;
 }
+
+    $('#btnlogin').click(function(){
+        var targetUrl  = "https://localhost:8443/cas/";
+        window.location.href = targetUrl;
+    })
 </script>

@@ -108,6 +108,6 @@
 
 	<select id="getPCProjectSummyInfo" parameterType="map" resultType="map">
 		select index_title,index_name,index_content,img_path from t03_pingtai_achieve
-		where module_id=32 and index_state=1 and pub_state=1 and order_by=1
+		where  index_state=1 and pub_state=1 and order_by=1
 	</select>
 </mapper>

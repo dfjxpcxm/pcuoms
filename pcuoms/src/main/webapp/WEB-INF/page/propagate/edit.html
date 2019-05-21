@@ -27,6 +27,15 @@
                                 </div>
                             </div>
 
+
+
+                            <div class="col-sm-6 form_ipt_botm">
+                                <div class="form-group">
+                                    <label class="col-xs-3 lable_top"><span class="span_require">*</span>标签名称</label>
+                                    <div class="col-xs-9"><input type="text" id="index_tag" name="index_tag" class="form-control" /></div>
+                                </div>
+                            </div>
+
                             <div class="col-sm-6 form_ipt_botm">
                                 <div class="form-group">
                                     <label class="col-xs-3 lable_top"><span class="span_require">*</span>标题名称</label>
@@ -134,6 +143,7 @@
                 setForm(data);
                 $("#module_name").val(data.module_name);
                 $("#index_title").val(data.index_title);
+                $("#index_tag").val(data.index_tag);
                 $("#index_content").val(data.index_content);
                 $("#img_path").val(data.img_path);
                 $("#index_state").val(data.index_state);
@@ -151,6 +161,7 @@
     /*完成*/
     var isdone = true;
     function thingOver(){
+        debugger
         if(!isdone) {
             return false;
         }
