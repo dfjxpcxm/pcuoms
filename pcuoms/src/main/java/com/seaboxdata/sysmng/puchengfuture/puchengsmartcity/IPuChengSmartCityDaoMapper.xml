@@ -4,8 +4,8 @@
 	<!--查询条件-->
 	<sql id="where">
 		1=1
-		<if test="live_id != null "><![CDATA[
-	       and live_id = #{live_id}
+		<if test="culture_id != null "><![CDATA[
+	       and culture_id = #{culture_id}
 	    ]]></if>
 
 		<if test="index_title != null and index_title != '' and !'null'.equals(index_title)"><![CDATA[
@@ -40,23 +40,25 @@
 	<!-- 新增sys_sign_info -->
 	<insert id="insert" parameterType="com.seaboxdata.sysmng.puchengfuture.puchengsmartcity.PuChengSmartCityDO">
 		insert into t04_live_culture (
-			  live_id,
+			  culture_id,
 			  module_id,
     		  index_title,
     		  index_content,
     		  img_path,
     		  index_state,
     		  pub_state,
+    		  order_by,
     		  cre_time,
     		  upd_time
 		)values(
-			#{live_id},
+			#{culture_id},
 			#{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
+			 #{order_by},
 			 now(),
 			 now()
 			)
@@ -70,14 +72,15 @@
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
-		 where live_id = #{live_id}
+		 where culture_id = #{culture_id}
 	</update>
 
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
-		delete from t04_live_culture where live_id = #{live_id};
+		delete from t04_live_culture where culture_id = #{culture_id};
 	</delete>
 
 	<!--查询-->
@@ -99,7 +102,14 @@
 		</where>
 	</select>
 
-
+	<update id="pubInfoById" parameterType="String">
+		update t04_live_culture
+		   set index_state=1
+			  ,pub_state=1
+			  ,cre_time=now()
+			  ,upd_time=now()
+		 where culture_id = #{culture_id}
+	</update>
 
 
 	<select id="getPCLivingCultInfo" parameterType="map" resultType="map">

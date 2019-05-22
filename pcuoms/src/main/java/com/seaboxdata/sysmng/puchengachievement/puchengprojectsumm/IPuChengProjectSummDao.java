@@ -31,4 +31,6 @@ import java.util.Map;
 public interface IPuChengProjectSummDao<PuChengIndustryOverviewDO> extends ISysBaseDao<PuChengIndustryOverviewDO> {
 
     public List<Map<String, Object>> getPCProjectSummyInfo();
+
+    public void pubInfoById(String sysid);
 }

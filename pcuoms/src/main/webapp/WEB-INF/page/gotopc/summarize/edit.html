@@ -44,6 +44,14 @@
 
                         <div class="col-sm-6 form_ipt_botm">
                             <div class="form-group">
+                                <label class="col-xs-3 lable_top"><span class="span_require">*</span>排序</label>
+                                <div class="col-xs-9">
+                                    <input type="number" min = "1" style="padding: 0px;width:70px;text-align:center;" id="order_by" name="order_by" data-options="min:0,precision:0" class="form-control required" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form_ipt_botm">
+                            <div class="form-group">
                                 <label class="col-xs-3 lable_top"><span class="span_require">*</span>功能状态</label>
                                 <div class="col-xs-9">
                                     <select name="index_state" class="form-control required" id="index_state">
@@ -113,6 +121,7 @@
                 $("#index_unit").val(data.index_unit);
                 $("#index_state").val(data.index_state);
                 $("#pub_state").val(data.pub_state);
+                $("#order_by").val(data.order_by);
 				if(mode == "browse"){
                     viewRead();
                 }

@@ -35,6 +35,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -71,6 +73,13 @@ public class PuChengBrandCharController extends SysBaseController<PuChengBrandCh
         return "page/gotopc/brandchar/edit";
     }
 
+    @RequestMapping(value ="/pubBrandCharInfoById")
+    @ResponseBody
+    public DataStore pubInfoById(@RequestParam String  feature_id) {
+        puChenBrandCharService.pubInfoById(feature_id);
+        DataStore  ds =  new DataStore ();
+        return ds.setOk("操作成功");
+    }
     @Override
     public DataStore save(PuChengBrandCharDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);

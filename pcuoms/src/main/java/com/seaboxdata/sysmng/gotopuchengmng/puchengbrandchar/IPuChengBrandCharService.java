@@ -33,5 +33,5 @@ public interface IPuChengBrandCharService extends ISysBaseService<PuChengBrandCh
 
 
     public String getPuChengBrandCharInfo();
-
+    public void pubInfoById(String sysid);
 }

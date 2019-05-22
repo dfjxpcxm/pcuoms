@@ -45,22 +45,24 @@
 	<insert id="insert" parameterType="com.seaboxdata.sysmng.gotopuchengmng.puchenghistoricculture.PuChengHistoricCultureDO">
 		insert into t02_his_cult (
 			  his_id,
-			 module_id,
+			  module_id,
     		  index_title,
     		  index_content,
     		  img_path,
     		  index_state,
     		  pub_state,
+    		  order_by,
     		  cre_time,
     		  upd_time
 		)values(
-			#{his_id},
-			#{module_id},
+			 #{his_id},
+			 #{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
+			 #{order_by},
 			 now(),
 			 now()
 			)
@@ -74,11 +76,19 @@
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where his_id = #{his_id}
 	</update>
-
+	<update id="pubInfoById" parameterType="String">
+		update t02_his_cult
+		   set index_state=1
+			  ,pub_state=1
+			  ,cre_time=now()
+			  ,upd_time=now()
+		 where his_id = #{his_id}
+	</update>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
 		delete from t02_his_cult where his_id = #{his_id};

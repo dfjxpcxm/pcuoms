@@ -32,5 +32,5 @@ import java.util.Map;
 public interface IPuChengHistoricCultureService extends ISysBaseService<PuChengHistoricCultureDO> {
     public String getPuChengHistoricCultureInfo();
 
-
+    public void pubInfoById(String sysid);
 }

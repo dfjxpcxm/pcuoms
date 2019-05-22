@@ -59,9 +59,9 @@
 				   },
 
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
-					   return "<button type='button' class='btn_el' onclick='edit(\""+row.live_id+"\")'>编辑</button>| "
-							   +"<button type='button' class='btn_el' onclick='pub(\""+row.live_id+"\",\""+row.index_title+"\")'>发布</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.live_id+"\",\""+row.index_title+"\")'>删除</button>";
+					   return "<button type='button' class='btn_el' onclick='edit(\""+row.culture_id+"\")'>编辑</button>| "
+							   +"<button type='button' class='btn_el' onclick='pub(\""+row.culture_id+"\",\""+row.index_title+"\")'>发布</button>| "
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.culture_id+"\",\""+row.index_title+"\")'>删除</button>";
 				   }}
 			   ],onPageChange:function(number, size){
                    $("#IDS_PAGESIZE").val(size);
@@ -89,7 +89,7 @@
 				   function(){
 					   $.ajax({
 						   type: "post",
-						   url: quick.serverUrl + '/pubPropagateInfo?propagate_id=' + node,
+						   url: quick.serverUrl + '/pubSmartCityInfoById?culture_id=' + node,
 						   dataType: "json",
 						   success: function(data){
 							   layer.msg('发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
@@ -110,7 +110,7 @@
 		   function(){
 			   $.ajax({
 				   type: "post",
-				   url: quick.serverUrl + '/delete?live_id=' + node,
+				   url: quick.serverUrl + '/delete?culture_id=' + node,
 				   dataType: "json",
 				   data:{ID:node},
 				   success: function(data){
@@ -129,7 +129,7 @@
 	function edit(id){
 	   	//debugger;
         navAppend("编辑集成系统");/*获取父页面元素并动态赋值父页面title*/
-	    window.location.href=quick.editUrl + "?live_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
+	    window.location.href=quick.editUrl + "?culture_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
 	}
 	function add(){
 		menuGoto(quick.editUrl);

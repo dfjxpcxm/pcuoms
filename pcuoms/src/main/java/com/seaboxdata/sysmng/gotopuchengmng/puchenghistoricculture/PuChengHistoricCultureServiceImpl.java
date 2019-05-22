@@ -59,6 +59,10 @@ public class PuChengHistoricCultureServiceImpl extends SysBaseService<PuChengHis
     }
 
     @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
+    @Override
     public String getPuChengHistoricCultureInfo() {
         String retStr = "" ;
         String hcStr = "";

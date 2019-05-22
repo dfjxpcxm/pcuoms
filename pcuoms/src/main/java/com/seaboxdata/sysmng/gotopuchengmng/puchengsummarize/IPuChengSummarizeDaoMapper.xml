@@ -46,6 +46,7 @@
     		  index_unit,
     		  index_state,
     		  pub_state,
+    		  order_by,
     		  cre_time,
     		  upd_time
 		)values(
@@ -56,6 +57,7 @@
 			 #{index_unit},
 			 #{index_state},
 			 #{pub_state},
+			 #{order_by},
 			 now(),
 			 now()
 			)
@@ -69,6 +71,7 @@
 			  ,index_unit=#{index_unit}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where function_id = #{function_id}
@@ -104,4 +107,12 @@
 		where pub_state=1 and index_state=1 order by order_by
 	</select>
 
+	<update id="pubInfoById" parameterType="String">
+		update t02_basic_facts
+		   set index_state=1
+			  ,pub_state=1
+			  ,cre_time=now()
+			  ,upd_time=now()
+		 where function_id = #{function_id}
+	</update>
 </mapper>

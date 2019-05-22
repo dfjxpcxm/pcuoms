@@ -62,7 +62,10 @@ public class PuChengBrandCharServiceImpl extends SysBaseService<PuChengBrandChar
         return dao;
     }
 
-
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
     @Override
     public String getPuChengBrandCharInfo() {
         String retStr = "" ;

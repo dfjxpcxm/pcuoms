@@ -56,6 +56,10 @@ public class PuChengProjectInvestServiceImpl extends SysBaseService<PuChengProje
     }
 
     @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
+    @Override
     public String getPCProjectInvestIndexInfo() {
         String retStr = "" ;
         List<Map<String, Object>> retList = dao.getPCProjectInvestIndexInfo();

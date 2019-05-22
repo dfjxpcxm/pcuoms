@@ -47,6 +47,7 @@
     		  index_unit,
     		  index_state,
     		  pub_state,
+    		  order_by,
     		  cre_time,
     		  upd_time
 		)values(
@@ -57,6 +58,7 @@
 			 #{index_unit},
 			 #{index_state},
 			 #{pub_state},
+			 #{order_by},
 			 now(),
 			 now()
 			)
@@ -70,11 +72,19 @@
 			  ,index_unit=#{index_unit}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where imcome_id = #{imcome_id}
 	</update>
-
+	<update id="pubInfoById" parameterType="String">
+		update t03_project_incm
+		   set index_state=1
+			  ,pub_state=1
+			  ,cre_time=now()
+			  ,upd_time=now()
+		 where imcome_id = #{imcome_id}
+	</update>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
 		delete from t03_project_incm where imcome_id = #{imcome_id};

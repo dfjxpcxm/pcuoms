@@ -97,6 +97,11 @@ public class PuChengSummarizeServiceImpl extends SysBaseService<PuChengSummarize
         return  retStr;
     }
 
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
+
 
     /*
      * 返回大美浦城概述内容

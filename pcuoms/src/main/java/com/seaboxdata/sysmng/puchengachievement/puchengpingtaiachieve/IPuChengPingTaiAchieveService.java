@@ -28,5 +28,5 @@ import com.seaboxdata.core.base.ISysBaseService;
 public interface IPuChengPingTaiAchieveService extends ISysBaseService<PuChengPingTaiAchieveDO> {
     public String getPCProjectSummyInfo();
 
-
+    public void pubInfoById(String sysid);
 }

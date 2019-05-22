@@ -34,6 +34,6 @@ public interface IPuChengProjectInvestService extends ISysBaseService<PuChengPro
 
     public String getPCProjectInvestImgInfo();
 
-
+    public void pubInfoById(String sysid);
 
 }

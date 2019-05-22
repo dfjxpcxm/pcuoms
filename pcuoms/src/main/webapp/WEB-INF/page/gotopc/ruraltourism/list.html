@@ -89,7 +89,7 @@
 				   function(){
 					   $.ajax({
 						   type: "post",
-						   url: quick.serverUrl + '/pubPropagateInfo?propagate_id=' + node,
+						   url: quick.serverUrl + '/pubRuralTourismInfoById?tourism_id=' + node,
 						   dataType: "json",
 						   success: function(data){
 							   layer.msg('发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});

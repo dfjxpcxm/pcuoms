@@ -54,7 +54,10 @@ public class PuChengProjectIncmServiceImpl extends SysBaseService<PuChengProject
         return dao;
     }
 
-
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
 
     @Override
     public String getPCProjectIncomeInfo() {

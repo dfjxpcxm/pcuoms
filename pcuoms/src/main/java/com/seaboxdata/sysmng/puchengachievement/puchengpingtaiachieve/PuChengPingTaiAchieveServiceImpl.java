@@ -55,6 +55,10 @@ public class PuChengPingTaiAchieveServiceImpl extends SysBaseService<PuChengPing
     }
 
     @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
+    @Override
     public String getPCProjectSummyInfo() {
         String retStr ="";
         List<Map<String, Object>> retList = dao.getPCProjectSummyInfo();

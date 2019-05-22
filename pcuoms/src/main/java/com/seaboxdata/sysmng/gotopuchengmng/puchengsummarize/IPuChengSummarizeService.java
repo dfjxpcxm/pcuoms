@@ -32,5 +32,9 @@ public interface IPuChengSummarizeService extends ISysBaseService<PuChengSummari
 
     public String  getPuChengSummarizeInfo();
 
-
+    /**
+     * 发布
+     * @param sysid
+     */
+    public void pubInfoById(String sysid);
 }

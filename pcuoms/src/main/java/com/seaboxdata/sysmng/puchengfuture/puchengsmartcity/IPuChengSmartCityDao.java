@@ -30,5 +30,5 @@ import java.util.Map;
  */
 public interface IPuChengSmartCityDao<PuChengSmartCityDO> extends ISysBaseDao<PuChengSmartCityDO> {
     public List<Map<String, Object>> getPCLivingCultInfo();
-
+    public void pubInfoById(String sysid);
 }

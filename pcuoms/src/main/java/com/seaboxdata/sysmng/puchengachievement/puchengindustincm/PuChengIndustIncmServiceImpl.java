@@ -54,6 +54,10 @@ public class PuChengIndustIncmServiceImpl extends SysBaseService<PuChengIndustIn
         return dao;
     }
 
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
 
 
     @Override

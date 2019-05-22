@@ -30,6 +30,6 @@ import java.util.Map;
  */
 public interface IPuChengProjectIncmService extends ISysBaseService<PuChengProjectIncmDO> {
     public String getPCProjectIncomeInfo();
-
+    public void pubInfoById(String sysid);
 
 }

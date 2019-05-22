@@ -31,6 +31,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -72,5 +74,12 @@ public class PuChengIndustIncmController extends SysBaseController<PuChengIndust
             return ActionMsg;
 
         return ActionMsg;
+    }
+    @RequestMapping(value ="/pubIndustIncmInfoById")
+    @ResponseBody
+    public DataStore pubInfoById(@RequestParam String  imcome_id) {
+        puChengIndustIncmService.pubInfoById(imcome_id);
+        DataStore  ds =  new DataStore ();
+        return ds.setOk("操作成功");
     }
 }

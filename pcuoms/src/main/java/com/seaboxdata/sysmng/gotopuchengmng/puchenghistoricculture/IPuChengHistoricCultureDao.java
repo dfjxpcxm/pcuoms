@@ -32,5 +32,5 @@ public interface IPuChengHistoricCultureDao<PuChengSummarizeDO> extends ISysBase
     List<Map<String, Object>> getPuChengHistoricCultureInfo();
 
     List<Map<String, Object>> getPuChengGeographCultureInfo();
-
+    public void pubInfoById(String sysid);
 }
