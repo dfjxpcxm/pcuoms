@@ -22,6 +22,7 @@ package com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
+import com.seaboxdata.core.util.common.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,34 +61,13 @@ public class PuChengPingTaiAchieveServiceImpl extends SysBaseService<PuChengPing
     }
 
     @Override
-    public String getPCProjectSummyInfo() {
+    public String getPCPlatAchieveInfo() {
         String retStr ="";
-        List<Map<String, Object>> retList = dao.getPCProjectSummyInfo();
+        List<Map<String, Object>> retList = dao.getPCPlatAchieveInfo();
         if(null != retList && !retList.isEmpty()){
-            retStr = getPCProjectSummyInfoString(retList);
+            retStr = JsonUtil.serialize(retList);
         }
         return  retStr;
     }
-
-
-
-
-    /*
-     * 返回项目概述内容
-     */
-    public String getPCProjectSummyInfoString(List<Map<String,Object>> retList){
-        String titile = "";
-        String content = "";
-        String utitile = "";
-        StringBuffer sb = new StringBuffer();
-        for(Map<String,Object> mp :retList){
-            content  = mp.get("index_content").toString();
-            sb.append(""+content+"");
-
-        }
-        String retStr = sb.toString();
-        return retStr;
-    }
-
 
 }

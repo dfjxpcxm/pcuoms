@@ -116,8 +116,8 @@
 	</select>
 
 
-	<select id="getPCProjectSummyInfo" parameterType="map" resultType="map">
-		select index_title,index_name,index_content,img_path from t03_pingtai_achieve
-		where  index_state=1 and pub_state=1 and order_by=1
+	<select id="getPCPlatAchieveInfo" parameterType="map" resultType="map">
+		select index_title,index_name,index_content as content,img_path as img_url from t03_pingtai_achieve
+		where  index_state=1 and pub_state=1  order by order_by
 	</select>
 </mapper>

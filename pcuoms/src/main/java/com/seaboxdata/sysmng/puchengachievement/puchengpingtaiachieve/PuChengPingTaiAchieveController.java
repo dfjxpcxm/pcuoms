@@ -24,9 +24,10 @@ import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.sysmng.ModuleId;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -69,7 +70,7 @@ public class PuChengPingTaiAchieveController extends SysBaseController<PuChengPi
     @Override
     public DataStore save(PuChengPingTaiAchieveDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
-        entity.setModule_id(ModuleId.PingTaiAchieve);
+        entity.setModule_id(ModuleInfoConstants.PingTaiAchieve);
         if (imgPath.length() > 0)
             entity.setImg_path(imgPath);
 
