@@ -24,7 +24,7 @@ import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.sysmng.ModuleId;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -69,7 +69,7 @@ public class PuChengSmartCityController extends SysBaseController<PuChengSmartCi
     @Override
     public DataStore save(PuChengSmartCityDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
-        entity.setModule_id(ModuleId.SmartCity);
+        entity.setModule_id(ModuleInfoConstants.SmartCity);
         if (imgPath.length() > 0)
             entity.setImg_path(imgPath);
 

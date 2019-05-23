@@ -23,8 +23,7 @@ package com.seaboxdata.sysmng.puchengachievement.puchengindustincm;
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
-import com.seaboxdata.sysmng.ModuleId;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -68,7 +67,7 @@ public class PuChengIndustIncmController extends SysBaseController<PuChengIndust
 
     @Override
     public DataStore save(PuChengIndustIncmDO entity) {
-        entity.setModule_id(ModuleId.IndustIncm);
+        entity.setModule_id(ModuleInfoConstants.IndustIncm);
         ActionMsg = getBaseService().save(entity);
         if (ActionMsg.isError())
             return ActionMsg;
