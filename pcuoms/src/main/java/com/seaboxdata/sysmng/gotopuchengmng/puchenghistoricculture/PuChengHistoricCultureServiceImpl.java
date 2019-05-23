@@ -77,7 +77,7 @@ public class PuChengHistoricCultureServiceImpl extends SysBaseService<PuChengHis
                 gcStr = getBeautifullPuChengStrInfo(gcDataMap);
             }
         }
-        retStr = PREFIX_CHAR.concat(PREFIX_CHAR).concat(hcStr).concat(SUFFIX_CHAR).concat(",").concat(PREFIX_CHAR).concat(gcStr).concat(SUFFIX_CHAR).concat(SUFFIX_CHAR);
+        retStr = PREFIX_CHAR.concat(PREFIX_CHAR).concat(gcStr).concat(SUFFIX_CHAR).concat(",").concat(PREFIX_CHAR).concat(hcStr).concat(SUFFIX_CHAR).concat(SUFFIX_CHAR);
         return  retStr;
     }
 

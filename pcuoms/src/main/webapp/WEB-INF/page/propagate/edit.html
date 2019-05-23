@@ -140,7 +140,7 @@
         var sysid=$.request.queryString["propagate_id"];
         if(sysid){
             $.post(quick.serverUrl + '/getObj?propagate_id=' + sysid + "&i=" + Math.random(), function(data){
-                setForm(data);
+  //              setForm(data);
                 $("#module_name").val(data.module_name);
                 $("#index_title").val(data.index_title);
                 $("#index_tag").val(data.index_tag);
@@ -149,6 +149,7 @@
                 $("#index_state").val(data.index_state);
                 $("#pub_state").val(data.pub_state);
                 $("#order_by").val(data.order_by);
+                $("#propagate_id").val(data.propagate_id);
                 if(mode == "browse"){
                     viewRead();
                 }

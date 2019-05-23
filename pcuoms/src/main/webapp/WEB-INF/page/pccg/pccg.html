@@ -67,7 +67,7 @@ animation: bounceInLeft_t 0.7s;
                     <li><a href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
                     <li><a href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
                     <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
-                    <li><div><button type="button" id ="btnlogin" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
+                    <li><div><button type="button" id ="btnlogin" style="padding: 2px 4px;" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>登录</button></div></li>
                 </ul>
             </nav>
         </div>
@@ -347,7 +347,6 @@ function brand(d){
                             '</li>');
 	}
 	var arr2 = '';
-    debugger
 	for (var j = 0; j < Math.ceil(das.length/2); j++) {
 		arr2 = arr2+'<li>'+
                     '<div class="left">'+das[j*2].title+'<span class="blue">（'+das[j*2].value+'）'+das[j*2].unit+'</span></div>';
@@ -356,12 +355,14 @@ function brand(d){
                     }
                     arr2 = arr2+ '</li>';
 	}
+
 	var str = arr.join('');
 	 $(".poster-list").html(str);
 	 $("#rw").html('<p id = "rw_title">'+inf+'</p>');
 	 $(".msg_ul").html(arr2);
 	 init_card();
 	 init_toolbar();
+
 	 $(".sec_info").mouseover(function () {
 		 //禁止滚动
          var top = $(document).scrollTop();

@@ -61,6 +61,11 @@ public class PuChengSmartCityServiceImpl extends SysBaseService<PuChengSmartCity
     }
 
     @Override
+    public List<Map<String, Object>> getLivingCultureInfoById(String id) {
+        return dao.getLivingCultureInfoById(id);
+    }
+
+    @Override
     public String getPCLivingCultInfo() {
         String retStr = "" ;
         List<Map<String, Object>> retList = dao.getPCLivingCultInfo();

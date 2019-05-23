@@ -33,4 +33,7 @@ public interface IPuChengSmartCityService extends ISysBaseService<PuChengSmartCi
 
     public void pubInfoById(String sysid);
 
+
+    public List<Map<String, Object>> getLivingCultureInfoById (String id);
+
 }

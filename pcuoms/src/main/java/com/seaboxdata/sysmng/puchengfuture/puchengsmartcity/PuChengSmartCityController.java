@@ -22,6 +22,7 @@ package com.seaboxdata.sysmng.puchengfuture.puchengsmartcity;
 
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
+import com.seaboxdata.core.base.model.DataResult;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
 import com.seaboxdata.sysmng.ModuleInfoConstants;
@@ -35,6 +36,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 品牌特色
@@ -86,5 +89,14 @@ public class PuChengSmartCityController extends SysBaseController<PuChengSmartCi
         puChengSmartCityService.pubInfoById(culture_id);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
+    }
+
+
+
+    @RequestMapping(value ="/getLivingCultureInfo")
+    @ResponseBody
+    public DataResult getLivingCultureInfo(@RequestParam String  id) {
+        List<Map<String, Object>> retList = puChengSmartCityService.getLivingCultureInfoById(id);
+        return new DataResult(retList);
     }
 }

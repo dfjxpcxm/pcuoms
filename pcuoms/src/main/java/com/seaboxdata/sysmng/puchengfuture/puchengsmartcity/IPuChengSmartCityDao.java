@@ -21,6 +21,7 @@ package com.seaboxdata.sysmng.puchengfuture.puchengsmartcity;
 
 
 import com.seaboxdata.core.base.ISysBaseDao;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -31,4 +32,6 @@ import java.util.Map;
 public interface IPuChengSmartCityDao<PuChengSmartCityDO> extends ISysBaseDao<PuChengSmartCityDO> {
     public List<Map<String, Object>> getPCLivingCultInfo();
     public void pubInfoById(String sysid);
+
+    public List<Map<String, Object>> getLivingCultureInfoById (@RequestParam String id);
 }
