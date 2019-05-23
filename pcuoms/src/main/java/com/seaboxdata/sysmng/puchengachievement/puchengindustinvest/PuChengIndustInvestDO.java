@@ -35,6 +35,7 @@ public class PuChengIndustInvestDO implements java.io.Serializable {
     private String index_title;
     private String  index_name;
     private String index_content;
+    private String index_unit;
     private String img_path;
     private Integer index_state;
     private Integer pub_state;
@@ -56,6 +57,14 @@ public class PuChengIndustInvestDO implements java.io.Serializable {
 
     public void setIndex_name(String index_name) {
         this.index_name = index_name;
+    }
+
+    public String getIndex_unit() {
+        return index_unit;
+    }
+
+    public void setIndex_unit(String index_unit) {
+        this.index_unit = index_unit;
     }
 
     public String getImg_path() {

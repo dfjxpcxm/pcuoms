@@ -35,12 +35,21 @@ public class PuChengProjectInvestDO implements java.io.Serializable {
     private String index_title;
     private String  index_name;
     private String index_content;
+    private String index_unit;
     private String img_path;
     private Integer index_state;
     private Integer pub_state;
     private Integer order_by;
     private Date cre_time;
     private Date upd_time;
+
+    public String getIndex_unit() {
+        return index_unit;
+    }
+
+    public void setIndex_unit(String index_unit) {
+        this.index_unit = index_unit;
+    }
 
     public Integer getInvest_id() {
         return invest_id;
