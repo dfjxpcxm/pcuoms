@@ -271,16 +271,17 @@ function newstab(){
 	var inf = '';
 	//var ddd = data[0].content.indexOf("<br/>")
 	//data[0].content.subStr(ddd-1,'123456');
+	//alert(JSON.stringify(data));
 	for (var i = 0; i < data.length; i++) {
 		var cen =data[i].content.length>310?('&emsp;&emsp;'+(data[i].content).substring(0, 310)+' .....'):('&emsp;&emsp;'+data[i].content);
 		if (i == 0) {
-			til = til+'<li href="#rw'+i+'" data-toggle="tab" class="menu active"><a href="#">'+data[i].title+'</a></li>';
+			til = til+'<li href="#rw'+i+'" data-toggle="tab" class="menu active menu_l" cli = "'+i+'"><a href="#">'+data[i].title+'</a></li>';
 			imgs = imgs+'<li class = "pic_img"><img src="'+data[i].img_url+'" alt="" /></li>';
 			inf = inf+'<div id="rw'+i+'" class="tab-pane fade in active">'+
             	'<p>'+cen+'</p>'+
 		    '</div>';
 		}else{
-			til = til+'<li href="#rw'+i+'" data-toggle="tab" class="menu"><a href="#">'+data[i].title+'</a></li>';
+			til = til+'<li href="#rw'+i+'" data-toggle="tab" class="menu menu_l" cli = "'+i+'"><a href="#">'+data[i].title+'</a></li>';
 			imgs = imgs+'<li class = "pic_img hide"><img src="'+data[i].img_url+'" alt="" /></li>';
 			inf = inf+'<div id="rw'+i+'" class="tab-pane fade">'+
             	'<p>'+cen+'</p>'+
@@ -302,7 +303,8 @@ function newstab(){
 			nowPic.removeClass("hide");
 	});
 	 $("#info_til li").click(function(){
-		 
+			 $('.ty_li').css('display','none');
+			 $('#ty_li'+$(this).attr('cli')).css('display','');
 	});
 }
 var ind = 0;
@@ -317,7 +319,7 @@ function addInfo(data){
 		if(j == 0){
 			ds = 'block';
 		}
-		var ll = '<div style = "display:'+ds+'">';
+		var ll = '<div id = "ty_li'+j+'" class = "ty_li" style = "display:'+ds+'">';
 		for (var k = 0; k < data[j].length; k++) {
 			var imgs2 = '<div class = "img_all"><div  class = "img_img"><div imgindex = "'+k+'" id="myFocus'+j+''+k+'" class="mF_liuzg"><div class="loading"><span>请稍候...</span></div>'+
 			'<ul class="pic">';
