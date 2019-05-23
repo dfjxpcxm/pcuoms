@@ -58,7 +58,10 @@ public class PuChengHumanGeogServiceImpl extends SysBaseService<PuChengHumanGeog
         return dao;
     }
 
-
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
 
 
     @Override

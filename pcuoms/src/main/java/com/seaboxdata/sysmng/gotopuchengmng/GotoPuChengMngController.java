@@ -20,7 +20,6 @@
 package com.seaboxdata.sysmng.gotopuchengmng;
 
 
-import com.seaboxdata.core.base.BaseController;
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import org.slf4j.Logger;
@@ -29,9 +28,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.seaboxdata.core.base.BaseController;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.seaboxdata.sysmng.gotopuchengmng.GotoPuChengMngDO;
 
 import javax.annotation.Resource;
 import java.util.List;

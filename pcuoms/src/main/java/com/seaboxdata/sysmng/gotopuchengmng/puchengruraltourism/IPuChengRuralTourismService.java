@@ -31,6 +31,6 @@ import java.util.Map;
  */
 public interface IPuChengRuralTourismService extends ISysBaseService<PuChengRuralTourismDO> {
     public String getPuChengRuralTourismInfo();
-
+    public void pubInfoById(String sysid);
 
 }

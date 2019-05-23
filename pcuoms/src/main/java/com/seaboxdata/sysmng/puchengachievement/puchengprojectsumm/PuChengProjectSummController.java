@@ -24,13 +24,15 @@ import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.sysmng.ModuleId;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -67,7 +69,7 @@ public class PuChengProjectSummController extends SysBaseController<PuChengProje
     @Override
     public DataStore save(PuChengProjectSummDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
-        entity.setModule_id(ModuleId.ProjectSumm);
+        entity.setModule_id(ModuleInfoConstants.ProjectSumm);
         if (imgPath.length() > 0)
             entity.setImg_path(imgPath);
 
@@ -76,5 +78,12 @@ public class PuChengProjectSummController extends SysBaseController<PuChengProje
             return ActionMsg;
 
         return ActionMsg;
+    }
+    @RequestMapping(value ="/pubProjectSummInfoById")
+    @ResponseBody
+    public DataStore pubInfoById(@RequestParam String  summary_id) {
+        puChengProjectSummService.pubInfoById(summary_id);
+        DataStore  ds =  new DataStore ();
+        return ds.setOk("操作成功");
     }
 }

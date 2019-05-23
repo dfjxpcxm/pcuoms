@@ -30,7 +30,7 @@ public class PuChengSmartCityDO implements java.io.Serializable {
 
     public PuChengSmartCityDO(){}
 
-    private Integer live_id;
+    private Integer culture_id;
     private Integer module_id;
     private String index_title;
     private String  index_name;
@@ -42,12 +42,12 @@ public class PuChengSmartCityDO implements java.io.Serializable {
     private Date cre_time;
     private Date upd_time;
 
-    public Integer getLive_id() {
-        return live_id;
+    public Integer getCulture_id() {
+        return culture_id;
     }
 
-    public void setLive_id(Integer live_id) {
-        this.live_id = live_id;
+    public void setCulture_id(Integer culture_id) {
+        this.culture_id = culture_id;
     }
 
     public String getIndex_name() {

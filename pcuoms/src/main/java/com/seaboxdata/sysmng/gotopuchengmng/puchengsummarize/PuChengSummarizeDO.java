@@ -36,6 +36,7 @@ public class PuChengSummarizeDO implements java.io.Serializable {
         setIndex_content(u.getIndex_content());
         setIndex_title(u.getIndex_title());
         setIndex_state(u.getIndex_state());
+        setOrder_by(u.getOrder_by());
         setCre_time(u.getCre_time());
         setUpd_time(u.getUpd_time());
     }

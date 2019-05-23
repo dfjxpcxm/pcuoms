@@ -53,7 +53,10 @@ public class PuChengProjectSummServiceImpl extends SysBaseService<PuChengProject
     public ISysBaseDao getDao(){
         return dao;
     }
-
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
     @Override
     public String getPCProjectSummyInfo() {
         String retStr ="";

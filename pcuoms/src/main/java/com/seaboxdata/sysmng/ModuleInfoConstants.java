@@ -1,6 +1,7 @@
 package com.seaboxdata.sysmng;
 
-public class ModuleId {
+public class ModuleInfoConstants {
+    public static final Integer Propagate = 11; //浦城首页
     public static final Integer Summarize = 21; //浦城概述
     public static final Integer HumanGeog = 22; //人文地理
     public static final Integer HistoricCulture = 23; //历史文化

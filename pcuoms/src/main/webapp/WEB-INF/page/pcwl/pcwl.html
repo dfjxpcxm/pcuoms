@@ -131,8 +131,8 @@
 <script type="text/javascript" src="${G.host}/static/js/pcwl/posterTvGrid.js" ></script>
 <script>
     var is = '${is}';
-    var dat = eval('(' + is + ')');
-//    dat = JSON.parse(is);
+//    var dat = eval('(' + is + ')');
+    var dat = JSON.parse(is);
 
 $(document).ready(function(){
     init_culture();

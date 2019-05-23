@@ -24,21 +24,17 @@ import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.core.util.common.DateTime;
-import com.seaboxdata.sysmng.ModuleId;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 乡村旅游
@@ -74,7 +70,7 @@ public class PuChengRuralTourismController extends SysBaseController<PuChengRura
     @Override
     public DataStore save(PuChengRuralTourismDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
-        entity.setModule_id(ModuleId.RuralTourism);
+        entity.setModule_id(ModuleInfoConstants.RuralTourism);
         if (imgPath.length() > 0)
 
             entity.setImg_path(imgPath);
@@ -84,5 +80,14 @@ public class PuChengRuralTourismController extends SysBaseController<PuChengRura
 
         return ActionMsg;
     }
+
+    @RequestMapping(value ="/pubRuralTourismInfoById")
+    @ResponseBody
+    public DataStore pubInfoById(@RequestParam String  tourism_id) {
+        puChenRuralTourismService.pubInfoById(tourism_id);
+        DataStore  ds =  new DataStore ();
+        return ds.setOk("操作成功");
+    }
+
 
 }

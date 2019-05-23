@@ -32,7 +32,7 @@ public interface IPuChengProjectInvestDao<PuChengIndustryOverviewDO> extends ISy
     List<Map<String, Object>> getPCProjectInvestIndexInfo();
 
     List<Map<String, Object>> getPCProjectInvestImgInfo();
-
+    public void pubInfoById(String sysid);
 
 
 }

@@ -11,6 +11,7 @@ import com.seaboxdata.sysmng.mainframemng.propagatemng.IPropagateMngService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustincm.IPuChengIndustIncmService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustinvest.IPuChengIndustInvestService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustsumm.IPuChengIndustSummService;
+import com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve.IPuChengPingTaiAchieveService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectincm.IPuChengProjectIncmService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectinvest.IPuChengProjectInvestService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectsumm.IPuChengProjectSummService;
@@ -73,6 +74,9 @@ public class MainframeController extends SysBaseController {
 
     @Resource(name = "puChengSmartCityService")
     private IPuChengSmartCityService puChengSmartCityService;
+
+    @Resource(name = "puChengPingTaiAchieveService")
+    private IPuChengPingTaiAchieveService puChengPingTaiAchieveService;
 
 
 
@@ -150,6 +154,8 @@ public class MainframeController extends SysBaseController {
         String pi = puChengProjectInvestService.getPCProjectInvestIndexInfo();
         //项目成果投资图片
         String pg = puChengProjectInvestService.getPCProjectInvestImgInfo();
+        //平台成果数据
+        String pa = puChengPingTaiAchieveService.getPCPlatAchieveInfo();
 
         System.out.println("is="+is);
         System.out.println("ps="+ps);
@@ -159,6 +165,7 @@ public class MainframeController extends SysBaseController {
         System.out.println("ig="+ig);
         System.out.println("pi="+pi);
         System.out.println("pg="+pg);
+        System.out.println("pa="+pa);
 
         model.addAttribute("is", is);
         model.addAttribute("ps", ps);
@@ -168,6 +175,7 @@ public class MainframeController extends SysBaseController {
         model.addAttribute("ig", ig);
         model.addAttribute("pi", pi);
         model.addAttribute("pg", pg);
+        model.addAttribute("pa", pa);
         return "page/pccg/pccg";
     }
     

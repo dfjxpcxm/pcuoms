@@ -23,21 +23,17 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize;
 import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
-import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.core.util.common.DateTime;
-import com.seaboxdata.sysmng.ModuleId;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism.PuChengRuralTourismDO;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 浦城概述
@@ -71,7 +67,7 @@ public class PuChengSummarizeController extends SysBaseController<PuChengSummari
 
     @Override
     public DataStore save(PuChengSummarizeDO entity) {
-            entity.setModule_id(ModuleId.Summarize);
+            entity.setModule_id(ModuleInfoConstants.Summarize);
         ActionMsg = getBaseService().save(entity);
         if (ActionMsg.isError())
             return ActionMsg;
@@ -79,5 +75,11 @@ public class PuChengSummarizeController extends SysBaseController<PuChengSummari
         return ActionMsg;
     }
 
-
+    @RequestMapping(value ="/pubSummarizeInfoById")
+    @ResponseBody
+    public DataStore pubInfoById(@RequestParam String  function_id) {
+        puChenSummarizeService.pubInfoById(function_id);
+        DataStore  ds =  new DataStore ();
+        return ds.setOk("操作成功");
+    }
 }

@@ -62,7 +62,7 @@
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
 					   return "<button type='button' class='btn_el' onclick='edit(\""+row.invest_id+"\")'>编辑</button>| "
 							   +"<button type='button' class='btn_el' onclick='pub(\""+row.invest_id+"\",\""+row.index_title+"\")'>发布</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.invest_id+"\",\""+row.index_title+"\")'>删除</button>| "
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.invest_id+"\",\""+row.index_title+"\")'>删除</button>"
 				   }}
 			   ],onPageChange:function(number, size){
                    $("#IDS_PAGESIZE").val(size);
@@ -90,7 +90,7 @@
 				   function(){
 					   $.ajax({
 						   type: "post",
-						   url: quick.serverUrl + '/pubPropagateInfo?propagate_id=' + node,
+						   url: quick.serverUrl + '/pubProjectInvestInfoById?invest_id=' + node,
 						   dataType: "json",
 						   success: function(data){
 							   layer.msg('发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});

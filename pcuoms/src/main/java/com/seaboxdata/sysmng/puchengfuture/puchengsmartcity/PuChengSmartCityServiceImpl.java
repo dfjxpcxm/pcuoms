@@ -42,8 +42,8 @@ public class PuChengSmartCityServiceImpl extends SysBaseService<PuChengSmartCity
     public PuChengSmartCityServiceImpl() {
         BaseTable = "t04_live_culture";
         BaseComment = "t04_live_culture";
-        PrimaryKey = "live_id";
-        NameKey = "live_id";
+        PrimaryKey = "culture_id";
+        NameKey = "culture_id";
     }
 
 
@@ -55,7 +55,10 @@ public class PuChengSmartCityServiceImpl extends SysBaseService<PuChengSmartCity
         return dao;
     }
 
-
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
 
     @Override
     public String getPCLivingCultInfo() {

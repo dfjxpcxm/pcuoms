@@ -33,7 +33,7 @@ public interface IPuChengIndustInvestService extends ISysBaseService<PuChengIndu
 
     public String getPCIndustInvestImgInfo();
 
-
+    public void pubInfoById(String sysid);
 
 
 

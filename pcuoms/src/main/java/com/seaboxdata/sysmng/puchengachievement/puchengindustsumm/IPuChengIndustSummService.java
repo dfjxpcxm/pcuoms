@@ -31,5 +31,5 @@ import java.util.Map;
 public interface IPuChengIndustSummService extends ISysBaseService<PuChengIndustSummDO> {
     public String getPCIndustSummyInfo();
 
-
+    public void pubInfoById(String sysid);
 }

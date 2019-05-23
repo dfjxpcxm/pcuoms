@@ -62,7 +62,10 @@ public class PuChengRuralTourismServiceImpl extends SysBaseService<PuChengRuralT
         return dao;
     }
 
-
+    @Override
+    public void pubInfoById(String sysid) {
+        dao.pubInfoById(sysid);
+    }
 
     public String getPuChengRuralTourismInfo(){
         String retStr = "";

@@ -30,5 +30,5 @@ import java.util.Map;
  */
 public interface IPuChengBrandCharDao<PuChengSummarizeDO> extends ISysBaseDao<PuChengSummarizeDO> {
     public   List<Map<String, Object>> getPuChengBrandCharInfo();
-
+    public void pubInfoById(String sysid);
 }

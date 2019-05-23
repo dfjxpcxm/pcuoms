@@ -31,5 +31,5 @@ import java.util.Map;
 public interface IPuChengRuralTourismDao<PuChengRuralTourismDO> extends ISysBaseDao<PuChengRuralTourismDO> {
 
     public List<Map<String, Object>> getPuChengRuralTourismInfo();
-
+    public void pubInfoById(String sysid);
 }

@@ -31,5 +31,5 @@ import java.util.Map;
 public interface IPuChengHumanGeogService extends ISysBaseService<PuChengHumanGeogDO> {
     public String getPuChengHumanGeogInfo();
 
-
+    public void pubInfoById(String sysid);
 }

@@ -48,9 +48,11 @@
     		  index_title,
     		  index_name,
     		  index_content,
+    		  index_unit,
     		  img_path,
     		  index_state,
     		  pub_state,
+    		  order_by,
     		  cre_time,
     		  upd_time
 		)values(
@@ -59,9 +61,11 @@
 			 #{index_title},
 			 #{index_title},
 			 #{index_content},
+			 #{index_unit},
 			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
+			 #{order_by},
 			 now(),
 			 now()
 			)
@@ -73,14 +77,23 @@
 		   set index_title=#{index_title}
 			  ,index_name=#{index_title}
 			  ,index_content=#{index_content}
+			  ,index_unit=#{index_unit}
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where invest_id = #{invest_id}
 	</update>
-
+	<update id="pubInfoById" parameterType="String">
+		update t03_indust_invest
+		   set index_state=1
+			  ,pub_state=1
+			  ,cre_time=now()
+			  ,upd_time=now()
+		 where invest_id = #{invest_id}
+	</update>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
 		delete from t03_indust_invest where invest_id = #{invest_id};

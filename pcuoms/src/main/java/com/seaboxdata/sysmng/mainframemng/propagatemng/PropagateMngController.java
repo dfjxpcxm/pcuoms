@@ -24,25 +24,17 @@ import com.seaboxdata.core.base.ISysBaseService;
 import com.seaboxdata.core.base.SysBaseController;
 import com.seaboxdata.core.base.model.DataStore;
 import com.seaboxdata.core.util.FileUtil;
-import com.seaboxdata.core.util.common.QCommon;
-import com.seaboxdata.core.util.type.TypeUtil;
+import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import com.seaboxdata.core.util.common.PropertiesUtil;
+
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -103,10 +95,11 @@ public class PropagateMngController extends SysBaseController<PropagateMngDO> {
     @Override
     public DataStore save(PropagateMngDO model) {
         //保存上传图片
+        model.setModule_id(ModuleInfoConstants.Propagate);
         String imgPath = FileUtil.getImgUploadPath(request);
         if (imgPath.length() > 0)
             model.setImg_path(imgPath);
-        ActionMsg = getBaseService().save(model);
+         ActionMsg = getBaseService().save(model);
         if (ActionMsg.isError())
             return ActionMsg;
         return ActionMsg;

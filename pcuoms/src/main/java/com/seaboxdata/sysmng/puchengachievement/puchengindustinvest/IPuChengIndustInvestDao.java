@@ -33,4 +33,6 @@ public interface IPuChengIndustInvestDao<PuChengIndustryOverviewDO> extends ISys
     public List<Map<String, Object>> getPCIndustInvestIndexInfo();
 
     public List<Map<String, Object>> getPCIndustInvestImgInfo();
+
+    public void pubInfoById(String sysid);
 }
