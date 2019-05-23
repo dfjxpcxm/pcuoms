@@ -121,8 +121,7 @@
         $("#pagename").text(sysid?'编辑指标':'新增指标');
         if(sysid){
             $.post(quick.serverUrl + '/getObj?geograph_id=' + sysid + "&i=" + Math.random(), function(data){
-               debugger;
-                setForm(data);
+//                setForm(data);
                 $("#index_title").val(data.index_title);
                 $("#index_content").val(data.index_content);
                 $("#img_path").val(data.img_path);
