@@ -28,7 +28,7 @@
 .ing{display: none}
 .ing_on{display: block}
 .img_img{float:left;width:40%}
-.img_text{width:59%;min-width:56%;float:left;font-size: 15px;color:black;}
+.img_text{width:55%;min-width:53%;float:left;font-size: 15px;color:black;margin-left:30px; }
 .img_text p{padding: 10px;}
 .sec_open{
 	display: block;
