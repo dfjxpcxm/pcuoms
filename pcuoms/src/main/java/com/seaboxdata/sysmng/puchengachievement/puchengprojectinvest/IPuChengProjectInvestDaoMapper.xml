@@ -75,6 +75,7 @@
 		   set index_title=#{index_title}
 			  ,index_name=#{index_title}
 			  ,index_content=#{index_content}
+			  ,index_unit=#{index_unit}
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}

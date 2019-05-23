@@ -61,7 +61,7 @@
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
 					   return "<button type='button' class='btn_el' onclick='edit(\""+row.tourism_id+"\")'>编辑</button>| "
 							   +"<button type='button' class='btn_el' onclick='pub(\""+row.tourism_id+"\",\""+row.index_title+"\")'>发布</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.tourism_id+"\",\""+row.index_title+"\")'>预览</button>";
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.tourism_id+"\",\""+row.index_title+"\")'>删除</button>";
 				   }}
 			   ],onPageChange:function(number, size){
                    $("#IDS_PAGESIZE").val(size);

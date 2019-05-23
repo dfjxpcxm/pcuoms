@@ -62,7 +62,7 @@
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
 					   return "<button type='button' class='btn_el' onclick='edit(\""+row.summary_id+"\")'>编辑</button>| "
 							   +"<button type='button' class='btn_el' onclick='pub(\""+row.summary_id+"\",\""+row.index_title+"\")'>发布</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.summary_id+"\",\""+row.index_title+"\")'>删除</button>| "
+							   +"<button type='button' class='btn_el' onclick='del(\""+row.summary_id+"\",\""+row.index_title+"\")'>删除</button>"
 				   }}
 			   ],onPageChange:function(number, size){
                    $("#IDS_PAGESIZE").val(size);
