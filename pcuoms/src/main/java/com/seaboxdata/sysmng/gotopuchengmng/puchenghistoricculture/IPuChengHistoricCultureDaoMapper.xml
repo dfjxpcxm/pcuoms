@@ -100,9 +100,7 @@
 		<where>
 			<include refid="where" />
 		</where>
-		<if test="_sql_order != null and _sql_order != ''">
-			order by ${_sql_order}
-		</if>
+		order by e.index_title
 	</select>
 
 	<!-- 查询总记录数 -->
@@ -114,13 +112,13 @@
 	</select>
 
 	<select id="getPuChengHistoricCultureInfo" parameterType="map" resultType="map">
-		select CONCAT(module_id,order_by) as id, index_title as title,index_content as content,img_path as img_url from t02_his_cult where index_state=1 and pub_state=1 order by  order_by
+		select CONCAT(module_id,order_by) as id, index_title as title,index_content as content,img_path as img_url from t02_his_cult where index_state=1 and pub_state=1  and order_by !=1  order by  order_by
 	</select>
 
 
 
 	<select id="getPuChengGeographCultureInfo" parameterType="map" resultType="map">
-		select  CONCAT(module_id,order_by) as id,index_title as title,index_content as content,img_path as img_url from t02_cult_geograph where index_state=1 and pub_state=1 order by  order_by
+		select  CONCAT(module_id,order_by) as id,index_title as title,index_content as content,img_path as img_url from t02_cult_geograph where index_state=1 and pub_state=1  and order_by !=1 order by  order_by
 	</select>
 
 

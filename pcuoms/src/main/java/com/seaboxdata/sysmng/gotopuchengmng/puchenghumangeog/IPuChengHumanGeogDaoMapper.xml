@@ -101,9 +101,7 @@
 		<where>
 			<include refid="where" />
 		</where>
-		<if test="_sql_order != null and _sql_order != ''">
-			order by ${_sql_order}
-		</if>
+		order by e.index_title
 	</select>
 
 	<!-- 查询总记录数 -->

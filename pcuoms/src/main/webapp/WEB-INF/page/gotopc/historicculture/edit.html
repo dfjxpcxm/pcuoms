@@ -122,13 +122,14 @@
         $("#pagename").text(sysid?'编辑指标':'新增指标');
         if(sysid){
             $.post(quick.serverUrl + '/getObj?his_id=' + sysid + "&i=" + Math.random(), function(data){
-                setForm(data);
+//                setForm(data);
                 $("#index_title").val(data.index_title);
                 $("#index_content").val(data.index_content);
                 $("#img_path").val(data.img_path);
                 $("#index_state").val(data.index_state);
                 $("#pub_state").val(data.pub_state);
                 $("#order_by").val(data.order_by);
+                $("#his_id").val(data.his_id);
 				if(mode == "browse"){
                     viewRead();
                 }

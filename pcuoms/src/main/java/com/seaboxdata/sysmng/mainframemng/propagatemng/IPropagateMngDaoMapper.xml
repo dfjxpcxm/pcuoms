@@ -94,12 +94,7 @@
 
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
-		update t01_propagate
-		   set index_state=0
-			  ,pub_state=0
-			  ,cre_time=now()
-			  ,upd_time=now()
-		 where propagate_id = #{propagate_id}
+		delete from t01_propagate where propagate_id = #{propagate_id}
 	</delete>
 
 	<!--查询-->
