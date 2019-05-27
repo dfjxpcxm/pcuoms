@@ -719,7 +719,7 @@ document.onkeydown=(e)=>{
   }
 }
 function info_img(ul_id,dats,vs){
-    debugger
+   // debugger
 	var myFocus={
    		 $:function(id){return document.getElementById(id);},
    		 $$:function(tag,obj){return (typeof obj=='object'?obj:this.$(obj)).getElementsByTagName(tag);},
@@ -786,11 +786,10 @@ function info_img(ul_id,dats,vs){
    		  for (var j=0;j<n;j++){
    		   btn[j].j=j;
    		   btn[j].onclick=function info_click(){
-   		       debugger
    			   if(!this.className)
-   				   var cl = ($(this).parent()).parent().attr('id');
+   				  /*  var cl = ($(this).parent()).parent().attr('id');
    			       var cl1 = $('#'+cl).attr('imgindex');
-   			       $("#img_text"+cl1+' p').html(dats[cl1][this.j].content);
+   			       $("#img_text"+cl1+' p').html(dats[cl1][this.j].content); */
    				   run(this.j)
    			   }
    		  }

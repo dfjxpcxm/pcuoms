@@ -165,8 +165,8 @@ function render_culture(d){
                 '<img src="'+d[a].img_url+'" alt="" /> ',
                 '<div class="msg">',
                 '<h3 class="clearfix">',
-                '<span class="left" onclick = "xmore('+a+')"><a class="line">查看详情</a></span>',
-                '<span class="right">'+d[a].createTime+'</span>',
+                '<span class="left" onclick = "getLivingCultureInfo('+d[a].oid+')"><a class="line">查看详情</a></span>',
+                '<span class="right">'+d[a].title+'</span>',
                 '</h3>',
                 '</div>',
                 '</div>',
@@ -178,8 +178,8 @@ function render_culture(d){
                 '<img src="'+d[b].img_url+'" alt="" /> ',
                 '<div class="msg">',
                 '<h3 class="clearfix">',
-                '<span class="left" onclick = "xmore('+b+')"><a class="line">查看详情</a></span>',
-                '<span class="right">'+d[b].createTime+'</span>',
+                '<span class="left" onclick = "getLivingCultureInfo('+d[b].oid+')"><a class="line">查看详情</a></span>',
+                '<span class="right">'+d[b].title+'</span>',
                 '</h3>',
                 '</div>',
                 '</div>',
@@ -192,8 +192,8 @@ function render_culture(d){
 	            '<img src="'+d[i].img_url+'" alt="" /> ',
 	            '<div class="msg">',
 	            '<h3 class="clearfix">',
-	            '<span class="left" onclick = "xmore('+i+')"><a class="line">查看详情</a></span>',
-	            '<span class="right">'+d[i].createTime+'</span>',
+	            '<span class="left" onclick = "getLivingCultureInfo('+d[i].oid+')"><a class="line">查看详情</a></span>',
+	            '<span class="right">'+d[i].title+'</span>',
 	            '</h3>',
 	            '</div>',
 	            '</div>',
@@ -206,18 +206,19 @@ function render_culture(d){
     $("#cultures2").html(str2).dui();
 }
 
-function xmore(d){
+function xmore(data){
 	$('.sec_info').addClass("sec_open");
-	wInfo(das,d)
+	wInfo(data);
 	 $(".s_close").click(function(){
 		 $('.sec_info').removeClass("sec_open");
 		 //addInfo(data2);
 	    });
 }
-function wInfo(dat,i){
-	var str = '<p>'+'&emsp;&emsp;'+dat[i].content+'</p>';
+function wInfo(dat){
+	
+	var str = '<p>'+'&emsp;&emsp;'+dat[0].content+'</p>';
 	$('.centrr_info').html(str);
-	$('.carousel_title').html('<p>'+dat[i].title+'</p>');
+	$('.carousel_title').html('<p>'+dat[0].title+'</p>');
 	var posterTvGrid86804 = new posterTvGrid(
     		'posterTvGrid86804',
     		{className: "posterTvGrid"},
@@ -298,12 +299,14 @@ function init_city(){
     })
 
     function getLivingCultureInfo(oid) {
+    	alert(oid);
         $.ajax({
             type: "post",
             url: "${G.host}/puChengSmartCity/getLivingCultureInfo?id="+oid,
             success: function (rs) {
                 var ds = rs.data;
-                alert(ds)
+                //alert(JSON.stringify(ds));
+                xmore(ds);
             }
         });
     }
