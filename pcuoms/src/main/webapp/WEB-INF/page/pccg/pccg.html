@@ -183,21 +183,22 @@ animation: bounceInLeft_t 0.7s;
            
         </ul>
         <div class="news light animated wow fadeInDown" style="margin-top: 6%;">
-            <div class="col-md-3 center h24 imgbox" style="padding:0;">
-                <img class="imgfit" style="object-position:top;" src="${G.host}/static/upload/201904/zdxm.png" />
-                <div class="imgtext"><h3 style="text-align: center;color:#fff;">重点项目</h3></div>
+            <div class="col-md-12 center h24 imgbox" style="padding:0;">
+               <!--  <img class="imgfit" style="object-position:top;" src="${G.host}/static/upload/201904/zdxm.png" /> -->
+                <div class="imgtext imgtext2"><h3 style="">重点项目</h3></div>
             </div>
-            <div class="col-md-9">
+            <!-- <div class="col-md-9">
                 <div id="rw" class="tab-pane fade in active center" style="height:115px;">
                     <p id = "rw_title">
+                    123445554453
                     </p>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="proj light animated wow fadeInDown clearfix">
             <div class="col-md-6 h24">
                 <div class="map">
-                    <div class="msg center msg_info">
+                    <div class="msg msg_info">
                     </div>
                 </div>
             </div>
@@ -330,12 +331,13 @@ function brand(d){
 		dat = dat2;
 		das = das2;
 	}
+	//alert(JSON.stringify(dat));
 	var arr = [];
 	for (var i = 0; i < dat.length; i++) {
 		//var st = '';
 		var cen = dat[i].content.length>90?(dat[i].content.substring(0, 90)+" ....."):dat[i].content;
 		arr.push(
-				'<li class="list-item">', 
+				'<li class="list-item list'+i+'">', 
                                 '<div class="ibox">',
                                     '<a>',
                                         '<img src="'+dat[i].img_url+'" alt="">',
@@ -358,11 +360,13 @@ function brand(d){
 
 	var str = arr.join('');
 	 $(".poster-list").html(str);
-	 $("#rw").html('<p id = "rw_title">'+inf+'</p>');
+	 $("#rw").html('<p id = "rw_title">'+'&emsp;&emsp;'+inf+'</p>');
 	 $(".msg_ul").html(arr2);
 	 init_card();
 	 init_toolbar();
-
+	 if(dat.length%2 == 0){
+		 $("ul li:last-child").css('display','none'); 
+	 }
 	 $(".sec_info").mouseover(function () {
 		 //禁止滚动
          var top = $(document).scrollTop();
@@ -407,7 +411,7 @@ function brand2(i){
 		arr.push(
 				'<div class = "d_img"><img class = "z_img z_img1"  src="'+dat[i].img_url+'" style = "width:100%;height:100%;"/></div>');
 		arr1.push(
-				'<p>'+dat[i].content+'</p>');
+				'<p>'+'&emsp;&emsp;'+dat[i].content+'</p>');
 	
 	var str = arr.join('');
 	var str1 = arr1.join('');
@@ -525,7 +529,7 @@ function sec_info(data,s){
 	    });
 }
 function putInfo(data,i){
-	$('.carousel_info').html('<div><p>'+data[i].content+'</p></div>');
+	$('.carousel_info').html('<div><p>'+'&emsp;&emsp;'+data[i].content+'</p></div>');
 	$('.carousel_title').html('<p>'+data[i].title+'</p>');
 }
 

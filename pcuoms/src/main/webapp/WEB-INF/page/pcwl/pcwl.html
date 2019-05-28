@@ -299,7 +299,6 @@ function init_city(){
     })
 
     function getLivingCultureInfo(oid) {
-    	alert(oid);
         $.ajax({
             type: "post",
             url: "${G.host}/puChengSmartCity/getLivingCultureInfo?id="+oid,
