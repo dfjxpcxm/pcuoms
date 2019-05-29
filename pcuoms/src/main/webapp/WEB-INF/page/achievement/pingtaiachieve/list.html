@@ -2,6 +2,7 @@
 <html>
   <head>
 	  <#include "/WEB-INF/include/reslist.html" />
+	  <#include "/WEB-INF/include/imgshow.html" />
   </head>
    <script>
 	   //乡村旅游
@@ -29,6 +30,9 @@
 			   toolbar:"#formSearch",
 			   columns: [
 				   {  checkbox: true },
+				   { field: 'imgshow', title: '图片', width: 50,formatter:function(value,row,index){
+						   return "<img id=\""+row.achieve_id+"\" onmouseover='over(\""+row.achieve_id+"\",\""+row.img_path+"\")' onmouseout='ovout(\""+row.achieve_id+"\")' src=\"http://localhost:8888"+row.img_path+"\"style=\"width: 25px;height: 25px;\">";
+					   }},
 				   { field: 'function_name', title: '功能名称', width: 100  },
 				   { field: 'index_title', title: '指标名称', width: 100  },
 				   { field: 'index_name', title: '指标名字', width: 100  },
@@ -81,6 +85,13 @@
            }else{
                _gd["list"].init();
            }
+	   }
+	   function over(id,path) {
+		   $("#bigimg").attr("src","http://localhost:8888"+path);
+		   big.style.display = 'block';
+	   }
+	   function ovout() {
+		   big.style.display = 'none';
 	   }
 	   //发布
 	   function pub(node,name){
