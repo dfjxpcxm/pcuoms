@@ -31,7 +31,7 @@
 			   columns: [
 				   {  checkbox: true },
 				   { field: 'imgshow', title: '图片', width: 50,formatter:function(value,row,index){
-						   return "<img id=\""+row.geograph_id+"\" onmouseover='over(\""+row.geograph_id+"\",\""+row.img_path+"\")' onmouseout='ovout(\""+row.geograph_id+"\")' src=\"http://localhost:8888"+row.img_path+"\"style=\"width: 25px;height: 25px;\">";
+						   return "<img id=\""+row.geograph_id+"\" onmouseover='over(\""+row.geograph_id+"\",\""+row.img_path+"\")' onmouseout='ovout(\""+row.geograph_id+"\")' src=\"${G.hname}"+row.img_path+"\"style=\"width: 25px;height: 25px;\">";
 					   }},
 				   { field: 'function_name', title: '功能名称', width: 100  },
 				   { field: 'index_title', title: '指标名称', width: 100  },
@@ -89,7 +89,7 @@
            }
 	   }
 	   function over(id,path) {
-		   $("#bigimg").attr("src","http://localhost:8888"+path);
+		   $("#bigimg").attr("src","${G.hname}"+path);
 		   big.style.display = 'block';
 	   }
 	   function ovout() {

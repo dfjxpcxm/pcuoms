@@ -17,7 +17,7 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve;
+package com.seaboxdata.sysmng.puchengachievement.puchengplatachieve;
 
 
 import com.seaboxdata.core.base.ISysBaseService;
@@ -27,7 +27,6 @@ import com.seaboxdata.core.util.FileUtil;
 import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.seaboxdata.sysmng.ModuleInfoConstants;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -44,33 +43,33 @@ import javax.annotation.Resource;
  */
 @Controller
 @Scope("prototype")
-@RequestMapping(value = "/puChengPingTaiAchieve")
-public class PuChengPingTaiAchieveController extends SysBaseController<PuChengPingTaiAchieveDO> {
+@RequestMapping(value = "/puChengPlatAchieve")
+public class PuChengPlatAchieveController extends SysBaseController<PuChengPlatAchieveDO> {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource(name = "puChengPingTaiAchieveService")
-    private IPuChengPingTaiAchieveService puChengPingTaiAchieveService;
+    @Resource(name = "puChengPlatAchieveService")
+    private IPuChengPlatAchieveService puChengPlatAchieveService;
 
     @Override
-    public ISysBaseService<PuChengPingTaiAchieveDO> getBaseService() {
-        return puChengPingTaiAchieveService;
+    public ISysBaseService<PuChengPlatAchieveDO> getBaseService() {
+        return puChengPlatAchieveService;
     }
 
     @RequestMapping
     public String list(ModelMap model) {
-        return "page/achievement/pingtaiachieve/list";
+        return "page/achievement/platachieve/list";
     }
 
     @RequestMapping
     public String edit(ModelMap model) {
-        return "page/achievement/pingtaiachieve/edit";
+        return "page/achievement/platachieve/edit";
     }
 
     @Override
-    public DataStore save(PuChengPingTaiAchieveDO entity) {
+    public DataStore save(PuChengPlatAchieveDO entity) {
         String imgPath = FileUtil.getImgUploadPath(request);
-        entity.setModule_id(ModuleInfoConstants.PingTaiAchieve);
+        entity.setModule_id(ModuleInfoConstants.PlatAchieve);
         if (imgPath.length() > 0)
             entity.setImg_path(imgPath);
 
@@ -81,10 +80,10 @@ public class PuChengPingTaiAchieveController extends SysBaseController<PuChengPi
         return ActionMsg;
     }
 
-    @RequestMapping(value ="/pubPingTaiAchieveInfoById")
+    @RequestMapping(value ="/pubplatachieveInfoById")
     @ResponseBody
     public DataStore pubInfoById(@RequestParam String  achieve_id) {
-        puChengPingTaiAchieveService.pubInfoById(achieve_id);
+        puChengPlatAchieveService.pubInfoById(achieve_id);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

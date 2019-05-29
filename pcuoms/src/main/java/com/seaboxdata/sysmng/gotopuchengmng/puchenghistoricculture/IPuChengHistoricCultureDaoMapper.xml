@@ -51,6 +51,7 @@
     		  img_path,
     		  index_state,
     		  pub_state,
+    		  group_id,
     		  order_by,
     		  cre_time,
     		  upd_time
@@ -62,6 +63,7 @@
 			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
+			 #{group_id},
 			 #{order_by},
 			 now(),
 			 now()
@@ -76,6 +78,7 @@
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,group_id=#{group_id}
 			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
@@ -112,13 +115,13 @@
 	</select>
 
 	<select id="getPuChengHistoricCultureInfo" parameterType="map" resultType="map">
-		select CONCAT(module_id,order_by) as id, index_title as title,index_content as content,img_path as img_url from t02_his_cult where index_state=1 and pub_state=1  and order_by !=1  order by   order_by,upd_time
+				select CONCAT(module_id,group_id) as id, index_title as title,index_content as content,img_path as img_url from t02_his_cult where index_state=1 and pub_state=1  and group_id !=1  order by  order_by
 	</select>
 
 
 
 	<select id="getPuChengGeographCultureInfo" parameterType="map" resultType="map">
-		select  CONCAT(module_id,order_by) as id,index_title as title,index_content as content,img_path as img_url from t02_cult_geograph where index_state=1 and pub_state=1  and order_by !=1 order by  order_by,upd_time
+		select  CONCAT(module_id,group_id) as id,index_title as title,index_content as content,img_path as img_url from t02_cult_geograph where index_state=1 and pub_state=1  and group_id !=1 order by  order_by
 	</select>
 
 

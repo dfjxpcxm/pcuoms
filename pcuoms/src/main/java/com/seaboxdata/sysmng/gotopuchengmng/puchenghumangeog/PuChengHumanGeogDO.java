@@ -37,6 +37,7 @@ public class PuChengHumanGeogDO implements java.io.Serializable {
    private String index_content;
    private Integer index_state;
    private Integer pub_state;
+   private Integer group_id;
    private Integer order_by;
    private Date cre_time;
    private Date upd_time;
@@ -119,5 +120,13 @@ public class PuChengHumanGeogDO implements java.io.Serializable {
 
     public void setUpd_time(Date upd_time) {
         this.upd_time = upd_time;
+    }
+
+    public Integer getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(Integer group_id) {
+        this.group_id = group_id;
     }
 }

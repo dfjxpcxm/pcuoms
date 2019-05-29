@@ -38,6 +38,7 @@ public class PuChengHistoricCultureDO implements java.io.Serializable {
    private Integer index_state;
    private Integer pub_state;
    private Integer order_by;
+   private Integer group_id;
    private Date cre_time;
    private Date upd_time;
 
@@ -119,6 +120,14 @@ public class PuChengHistoricCultureDO implements java.io.Serializable {
 
     public void setUpd_time(Date upd_time) {
         this.upd_time = upd_time;
+    }
+
+    public Integer getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(Integer group_id) {
+        this.group_id = group_id;
     }
 }
 

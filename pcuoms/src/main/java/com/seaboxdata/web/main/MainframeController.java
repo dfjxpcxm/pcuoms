@@ -11,7 +11,7 @@ import com.seaboxdata.sysmng.mainframemng.propagatemng.IPropagateMngService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustincm.IPuChengIndustIncmService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustinvest.IPuChengIndustInvestService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustsumm.IPuChengIndustSummService;
-import com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve.IPuChengPingTaiAchieveService;
+import com.seaboxdata.sysmng.puchengachievement.puchengplatachieve.IPuChengPlatAchieveService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectincm.IPuChengProjectIncmService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectinvest.IPuChengProjectInvestService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectsumm.IPuChengProjectSummService;
@@ -75,8 +75,8 @@ public class MainframeController extends SysBaseController {
     @Resource(name = "puChengSmartCityService")
     private IPuChengSmartCityService puChengSmartCityService;
 
-    @Resource(name = "puChengPingTaiAchieveService")
-    private IPuChengPingTaiAchieveService puChengPingTaiAchieveService;
+    @Resource(name = "puChengPlatAchieveService")
+    private IPuChengPlatAchieveService puChengPlatAchieveService;
 
 
 
@@ -155,7 +155,7 @@ public class MainframeController extends SysBaseController {
         //项目成果投资图片
         String pg = puChengProjectInvestService.getPCProjectInvestImgInfo();
         //平台成果数据
-        String pa = puChengPingTaiAchieveService.getPCPlatAchieveInfo();
+        String pa = puChengPlatAchieveService.getPCPlatAchieveInfo();
 
         System.out.println("is="+is);
         System.out.println("ps="+ps);

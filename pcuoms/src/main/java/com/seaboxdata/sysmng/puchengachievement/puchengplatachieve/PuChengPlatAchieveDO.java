@@ -16,7 +16,7 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve;
+package com.seaboxdata.sysmng.puchengachievement.puchengplatachieve;
 
 import java.util.Date;
 
@@ -24,11 +24,11 @@ import java.util.Date;
 /**
  * sys_sign_info数据对象
  */
-public class PuChengPingTaiAchieveDO implements java.io.Serializable {
+public class PuChengPlatAchieveDO implements java.io.Serializable {
 	
     private static final long serialVersionUID = 1L;
 
-    public PuChengPingTaiAchieveDO(){}
+    public PuChengPlatAchieveDO(){}
 
     private Integer achieve_id;
     private Integer module_id;

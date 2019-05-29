@@ -16,7 +16,7 @@
  *          
  * </p>
  */
-package com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve;
+package com.seaboxdata.sysmng.puchengachievement.puchengplatachieve;
 
 
 
@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * 数据访问接口
  */
-public interface IPuChengPingTaiAchieveDao<PuChengPingTaiAchieveDO> extends ISysBaseDao<PuChengPingTaiAchieveDO> {
+public interface IPuChengPlatAchieveDao<PuChengPingTaiAchieveDO> extends ISysBaseDao<PuChengPingTaiAchieveDO> {
 
     public List<Map<String, Object>> getPCPlatAchieveInfo();
 

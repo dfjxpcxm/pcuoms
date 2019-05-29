@@ -16,7 +16,7 @@
  *          
  * </p>
  */
-package com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve;
+package com.seaboxdata.sysmng.puchengachievement.puchengplatachieve;
 
 
 import com.seaboxdata.core.base.ISysBaseService;
@@ -25,7 +25,7 @@ import com.seaboxdata.core.base.ISysBaseService;
 /**
  * 服务接口
  */
-public interface IPuChengPingTaiAchieveService extends ISysBaseService<PuChengPingTaiAchieveDO> {
+public interface IPuChengPlatAchieveService extends ISysBaseService<PuChengPlatAchieveDO> {
     public String getPCPlatAchieveInfo();
 
     public void pubInfoById(String sysid);

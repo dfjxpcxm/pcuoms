@@ -17,7 +17,7 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve;
+package com.seaboxdata.sysmng.puchengachievement.puchengplatachieve;
 
 
 import com.seaboxdata.core.base.ISysBaseDao;
@@ -35,20 +35,20 @@ import java.util.Map;
  * sys_sign_info服务实现类
  */
 @Transactional
-@Service("puChengPingTaiAchieveService")
-public class PuChengPingTaiAchieveServiceImpl extends SysBaseService<PuChengPingTaiAchieveDO> implements IPuChengPingTaiAchieveService {
+@Service("puChengPlatAchieveService")
+public class PuChengPlatAchieveServiceImpl extends SysBaseService<PuChengPlatAchieveDO> implements IPuChengPlatAchieveService {
 
     @Autowired
-    public PuChengPingTaiAchieveServiceImpl() {
-        BaseTable = "t03_pingtai_achieve";
-        BaseComment = "t03_pingtai_achieve";
+    public PuChengPlatAchieveServiceImpl() {
+        BaseTable = "t03_plat_achieve";
+        BaseComment = "t03_plat_achieve";
         PrimaryKey = "achieve_id";
         NameKey = "achieve_id";
     }
 
 
    @Autowired
-    private IPuChengPingTaiAchieveDao<PuChengPingTaiAchieveDO> dao;
+    private IPuChengPlatAchieveDao<PuChengPlatAchieveDO> dao;
 
     @Override
     public ISysBaseDao getDao(){

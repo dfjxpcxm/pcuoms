@@ -47,6 +47,7 @@
     		  img_path,
     		  index_state,
     		  pub_state,
+    		  group_id,
     		  order_by,
     		  cre_time,
     		  upd_time
@@ -58,6 +59,7 @@
 			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
+			 #{group_id},
 			 #{order_by},
 			 now(),
 			 now()
@@ -72,6 +74,7 @@
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,group_id=#{group_id}
 			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
@@ -111,16 +114,25 @@
 
 
 	<select id="getPCLivingCultInfo" parameterType="map" resultType="map">
-			select e.index_title as title,e.img_path as img_url, e.index_content as content, e.order_by as oid from t04_live_culture e
+		<![CDATA[
+	       select e.index_title as title,e.img_path as img_url, e.index_content as content, e.group_id as oid from t04_live_culture e
 			inner join (
-	  			select  order_by,max(culture_id) as culture_id from t04_live_culture GROUP BY order_by
+			 select a.culture_id from  t04_live_culture a INNER JOIN (
+	  			select  group_id, min(order_by) as order_by from t04_live_culture
+					where  index_state=1 and pub_state=1 GROUP BY group_id
+					) b on a.order_by =b.order_by and a.group_id=b.group_id
+					where  a.index_state=1 and a.pub_state=1
 			) a on e.culture_id =a.culture_id
-		where  e.index_state=1 and e.pub_state=1
+			where  e.index_state=1 and e.pub_state=1
+	    ]]>
 	</select>
 
 
 	<select id="getLivingCultureInfoById" parameterType="String" resultType="map">
-		select index_title as title,img_path as img_url, index_content as content  from t04_live_culture
-		where  index_state=1 and pub_state=1 and order_by=#{id}
+		<![CDATA[
+			select index_title as title,img_path as img_url, index_content as content  from t04_live_culture
+			where  index_state=1 and pub_state=1 and group_id=#{id}
+		]]>
 	</select>
+
 </mapper>

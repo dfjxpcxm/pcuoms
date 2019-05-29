@@ -223,12 +223,13 @@ public abstract class SysBaseController<T> {
         } else if (viewName.startsWith("redirect:")) {
             // modelAndView.addAllObjects(_ASSIGN_);
         } else {
-            String url = request.getScheme() + "://" + request.getServerName()
-                    + ":" + request.getServerPort() + request.getContextPath();
+            String hostName = this.getHostName();
+            String url = this.getUrl();
             String actionUrl = urlPathHelper.getLookupPathForRequest(request);
             int idx = actionUrl.lastIndexOf("/");
             actionUrl = actionUrl.substring(0, idx);
             Map<String, Object> G = new HashMap<String, Object>();
+            G.put("hname", hostName);
             G.put("host", url);
             G.put("year", new Date().getYear() + 1900);
             G.put("serverUrl", url + actionUrl);
@@ -527,10 +528,18 @@ public abstract class SysBaseController<T> {
     }
 
     public String getUrl() {
-        String url = request.getScheme() + "://" + request.getServerName()
-                + ":" + request.getServerPort() + request.getContextPath();
+        String hostName = this.getHostName();
+        String url = hostName + request.getContextPath();
         return url;
     }
+
+    public String getHostName() {
+        String hostName = request.getScheme() + "://" + request.getServerName()
+                + ":" + request.getServerPort();
+        return hostName;
+    }
+
+
 
 }
 

@@ -52,17 +52,19 @@
     		  img_path,
     		  index_state,
     		  pub_state,
+    		  group_id
     		  order_by,
     		  cre_time,
     		  upd_time
 		)values(
-			#{geograph_id},
-			#{module_id},
+			 #{geograph_id},
+			 #{module_id},
 			 #{index_title},
 			 #{index_content},
 			 #{img_path},
 			 #{index_state},
 			 #{pub_state},
+			 #{group_id},
 			 #{order_by},
 			 now(),
 			 now()
@@ -77,6 +79,7 @@
 			  ,img_path=#{img_path}
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
+			  ,group_id=#{group_id}
 			  ,order_by=#{order_by}
 			  ,cre_time=now()
 			  ,upd_time=now()
@@ -114,9 +117,9 @@
 
 
 	<select id="getPuChengHumanGeogInfo" parameterType="map" resultType="map">
-		select index_title as title,index_content as content,img_path as img_url,order_by from t02_cult_geograph where index_state=1 and pub_state=1 and order_by =1
+		select index_title as title,index_content as content,img_path as img_url,order_by from t02_cult_geograph where index_state=1 and pub_state=1 and group_id =1
 		union all
-		select index_title as title,index_content as content,img_path as img_url,order_by from t02_his_cult where index_state=1 and pub_state=1 and order_by =1
+		select index_title as title,index_content as content,img_path as img_url,order_by from t02_his_cult where index_state=1 and pub_state=1 and group_id =1
 		order by order_by
 	</select>
 

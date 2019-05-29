@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve.IPuChengPingTaiAchieveDao">
+<mapper namespace="com.seaboxdata.sysmng.puchengachievement.puchengplatachieve.IPuChengPlatAchieveDao">
 	<!--查询条件-->
 	<sql id="where">
 		1=1
@@ -41,8 +41,8 @@
 	</sql>
 
 	<!-- 新增sys_sign_info -->
-	<insert id="insert" parameterType="com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve.PuChengPingTaiAchieveDO">
-		insert into t03_pingtai_achieve (
+	<insert id="insert" parameterType="com.seaboxdata.sysmng.puchengachievement.puchengplatachieve.PuChengPlatAchieveDO">
+		insert into t03_plat_achieve (
 			  achieve_id,
 			  module_id,
     		  index_title,
@@ -70,8 +70,8 @@
 	</insert>
 
 	<!-- 修改app_class -->
-	<update id="update" parameterType="com.seaboxdata.sysmng.puchengachievement.puchengpingtaiachieve.PuChengPingTaiAchieveDO">
-		update t03_pingtai_achieve
+	<update id="update" parameterType="com.seaboxdata.sysmng.puchengachievement.puchengplatachieve.PuChengPlatAchieveDO">
+		update t03_plat_achieve
 		   set index_title=#{index_title}
 			  ,index_name=#{index_name}
 			  ,index_content=#{index_content}
@@ -84,7 +84,7 @@
 		 where achieve_id = #{achieve_id}
 	</update>
 	<update id="pubInfoById" parameterType="String">
-		update t03_pingtai_achieve
+		update t03_plat_achieve
 		   set index_state=1
 			  ,pub_state=1
 			  ,cre_time=now()
@@ -93,12 +93,12 @@
 	</update>
 	<!-- 删除 -->
 	<delete id="delete" parameterType="String">
-		delete from t03_pingtai_achieve where achieve_id = #{achieve_id};
+		delete from t03_plat_achieve where achieve_id = #{achieve_id};
 	</delete>
 
 	<!--查询-->
 	<select id="select" parameterType="map" resultType="map">
-		select e.*,o.function_name from t03_pingtai_achieve e left join t01_function_info o on e.module_id = o.module_id
+		select e.*,o.function_name from t03_plat_achieve e left join t01_function_info o on e.module_id = o.module_id
 		<where>
 			<include refid="where" />
 		</where>
@@ -109,7 +109,7 @@
 
 	<!-- 查询总记录数 -->
 	<select id="count" parameterType="map" resultType="int">
-		select count(*) from t03_pingtai_achieve
+		select count(*) from t03_plat_achieve
 		<where>
 			<include refid="where" />
 		</where>
@@ -117,7 +117,7 @@
 
 
 	<select id="getPCPlatAchieveInfo" parameterType="map" resultType="map">
-		select index_title,index_name,index_content as content,img_path as img_url from t03_pingtai_achieve
+		select index_title,index_name,index_content as content,img_path as img_url from t03_plat_achieve
 		where  index_state=1 and pub_state=1  order by order_by
 	</select>
 </mapper>

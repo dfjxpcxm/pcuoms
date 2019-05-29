@@ -141,6 +141,8 @@
         if(sysid){
             $.post(quick.serverUrl + '/getObj?propagate_id=' + sysid + "&i=" + Math.random(), function(data){
   //              setForm(data);
+
+                $("#module_id").val(data.module_id);
                 $("#module_name").val(data.module_name);
                 $("#index_title").val(data.index_title);
                 $("#index_tag").val(data.index_tag);
@@ -162,7 +164,6 @@
     /*完成*/
     var isdone = true;
     function thingOver(){
-        debugger
         if(!isdone) {
             return false;
         }
