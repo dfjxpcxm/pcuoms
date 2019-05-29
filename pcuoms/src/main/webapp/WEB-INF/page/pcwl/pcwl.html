@@ -304,7 +304,6 @@ function init_city(){
             url: "${G.host}/puChengSmartCity/getLivingCultureInfo?id="+oid,
             success: function (rs) {
                 var ds = rs.data;
-                //alert(JSON.stringify(ds));
                 xmore(ds);
             }
         });
