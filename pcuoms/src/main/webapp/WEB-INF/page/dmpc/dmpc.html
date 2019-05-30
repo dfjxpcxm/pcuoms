@@ -309,13 +309,15 @@ function addInfo(data){
 		}
 		var ll = '<div id = "ty_li'+j+'" class = "ty_li" style = "display:'+ds+'">';
 		for (var k = 0; k < data[j].length; k++) {
-			var imgs2 = '<div class = "img_all"><div  class = "img_img"><div imgindex = "'+k+'" id="myFocus'+j+''+k+'" class="mF_liuzg"><div class="loading"><span>请稍候...</span></div>'+
+			var imgs2 = '<div class = "img_all">'+
+			'<div class = "img_title"><h3>'+data[j][k][0].title+'</h3></div>'+
+			'<div  class = "img_img"><div imgindex = "'+k+'" id="myFocus'+j+''+k+'" class="mF_liuzg"><div class="loading"><span>请稍候...</span></div>'+
 			'<ul class="pic">';
 			var dt = data[j][k];
 			for (var i = 0; i < dt.length; i++) {
 					imgs2 = imgs2+' <li>'+
 			        '<img src="'+dt[i].img_url+'"/>'+
-			        '<span class="txt-bg">'+dt[0].title+'</span>'+
+			        '<span class="txt-bg"></span>'+
 			        '</li>';
 				}
 			 imgs2 = imgs2 + '<ul></div></div><div class = "img_text" id = "img_text'+k+'"><p>'+'&emsp;&emsp;'+data[j][k][0].content+'</p></div></div>'; 

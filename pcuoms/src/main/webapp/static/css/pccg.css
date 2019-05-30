@@ -17,12 +17,15 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .dashboard li{float:left; width:33%;}
 .dashboard .top{height:75px;width:12.5%;display:table-cell;}
 .dashboard .btm{height:50px;line-height: 50px;margin-bottom:0;}
-.news{height:115px;}
+.news{height:24%;}
 
-.proj{height:calc(100vh - 250px);position: relative;margin-top:18px;}
+.proj{height:calc(100vh - 250px);position: relative;margin-top:40px;}
+.btn_l1{border: 1.7px #848080 dashed;height: 48px;margin-bottom: -48px;width: 290px;margin-left: 10px;background-color: rgba(51,122,183,0.1)}
 .proj .map{height:80%;background: url('../img/pccg-map.png') no-repeat;background-size: 100% 100%;}
 .proj .msg{height:100%;justify-content: flex-start;}
-.proj .msg ul{width:70%;padding-left:0;}
+.proj .msg ul{width:90%;padding-left:0;}
+.proj .msg ul li .left{float: left;margin-right: 35px;}
+.proj .msg ul li .right{float: left}
 .proj .msg ul li{width:100%;height:50px;line-height: 50px;}
 .proj .btnrow{width:60%;padding:0 20px;}
 .proj .btnrow button{border-radius: 50px;}
@@ -94,8 +97,9 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .msg_info p{
       animation: bounceInLeft2 0.8s;
       transform:translateY(0px);
-      padding-top: 10px;
       line-height: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
         }
 @keyframes bounceInLeft2 {
             0% {
@@ -118,12 +122,20 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 	border-radius: 2%;
 } 
 .imgtext2{
-	background-color: #62849b;
-	border-radius: 10px;
+	border: 1.8px dashed #A2CEFF;
+	height:50px;
+	width: 80%;
+	margin-left: 35px;
+	margin-top:10%;
 }
 .imgtext2 h3{
-	text-align: center;color:#fff;margin-top: 17px;
+	text-align: center;color:#fff;line-height: 47px;margin-top: 0px;
 }
+.d_img{
+	width: 70%;
+	height: 98%;
+	margin-left: 15%;
+	}
 .s_close{
 	position: absolute;
 	right: 10px;
