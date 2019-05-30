@@ -2,6 +2,8 @@ package com.seaboxdata.web.main;
 
 import com.seaboxdata.core.base.SysBaseController;
 
+import com.seaboxdata.core.util.common.PropertiesUtil;
+import com.seaboxdata.core.util.common.QCommon;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengbrandchar.IPuChengBrandCharService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchenghistoricculture.IPuChengHistoricCultureService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog.IPuChengHumanGeogService;
@@ -188,5 +190,29 @@ public class MainframeController extends SysBaseController {
         model.addAttribute("is", is);
         return "page/pcwl/pcwl";
     }
+
+
+    /**
+     * 登录浦城支撑管理系统
+     */
+    @RequestMapping
+    public String  goPcmssLogin(ModelMap model){
+        String pcmssUrl = PropertiesUtil.getPropery("pcmss.portal.login.url");
+        String url = getLoginUrl(pcmssUrl);
+        return url;
+    }
+
+
+
+    public static String getLoginUrl(String url){
+        String casUrl = PropertiesUtil.getPropery("sso.cas.server.login.url");
+        String retUrl = SystemInfoConstants.SYS_REDIRECT.concat(casUrl).concat(SystemInfoConstants.CAS_SERVICE_PARAM).concat(QCommon.urlEncode(url));
+        return retUrl;
+    }
+
+
+
+
+
    
 }
