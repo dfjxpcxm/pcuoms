@@ -29,20 +29,22 @@
 <body>
     <header class="headerpan clearfix" style="position: absolute;top:0;">
         <div class="header">
-            <a class="logo" href="#">城市运营管理系统</a>
+            <a class="logo" style="color:#999;"  href="#">城市运营管理系统</a>
             <nav class="nav">
                 <ul class="tabl">
-                    <li><a href="${G.host}/mainframe/index">首页</a></li>
-                    <li><a href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
-                    <li><a href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
-                    <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
+                    <li><a style="color:#999;"  href="${G.host}/mainframe/index">首页</a></li>
+                    <li><a style="color:#999;"  href="${G.host}/mainframe/goBeautiful">大美浦城</a></li>
+                    <li><a style="color:#999;"  href="${G.host}/mainframe/goAchievement">浦城成果</a></li>
+                    <li><a style="color:#999;"  href="${G.host}/mainframe/goFuture">浦城未来</a></li>
                     <li><div><button type="button" id ="btnlogin" style="padding: 2px 4px;" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>登录</button></div></li>
                 </ul>
             </nav>
         </div>
     </header>
     <section style="position: relative;" class="sec sec1">
-        <div class="movice"><video src="${G.host}/static/upload/201904/dmpc/test.mp4" type="video/mp4" width="120px" height="90px">抱歉，你的浏览器不支持video标签。。</video><span class="play glyphicon glyphicon-play-circle"></span></div>
+        <div class="movice"><video width="220px" height="125px" controls >
+            <source src="${G.host}/static/upload/201904/dmpc/test.mp4"  type="video/mp4">
+            抱歉，你的浏览器不支持video标签。。</video><!--<span class="play glyphicon glyphicon-play-circle"></span>--></div>
     </section>
     <section class="sec12">
         <ul class="dashboard clearfix">
@@ -238,7 +240,7 @@ var data2 =json;
 $(document).ready(function(){
     $(".cc").countTo();
     newstab();
-    init_play($("video")[0]);
+//    init_play($("video")[0]);
     init_lunbo();
     brand();
     addInfo(data2);

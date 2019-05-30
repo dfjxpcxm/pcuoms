@@ -92,5 +92,10 @@
     <url-pattern>*.jsp</url-pattern>
   </filter-mapping>
   
+  <jsp-config> 
+    <jsp-property-group> 
+        <el-ignored>false</el-ignored> 
+    </jsp-property-group> 
+</jsp-config> 
  
 </web-app>
