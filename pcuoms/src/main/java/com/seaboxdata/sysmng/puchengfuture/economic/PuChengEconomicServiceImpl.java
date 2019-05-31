@@ -60,18 +60,37 @@ public class PuChengEconomicServiceImpl extends SysBaseService<PuChengEconomicDO
         dao.pubInfoById(sysid);
     }
 
-    @Override
-    public List<Map<String, Object>> getLivingCultureInfoById(String id) {
-        return dao.getLivingCultureInfoById(id);
-    }
 
     @Override
-    public String getPCLivingCultInfo() {
+    public String getPCEconomicInfo() {
         String retStr = "" ;
-        List<Map<String, Object>> retList = dao.getPCLivingCultInfo();
+        List<Map<String, Object>> retList = dao.getPCEconomicInfo();
         if(null != retList && !retList.isEmpty()){
-            retStr = JsonUtil.serialize(retList);
+            retStr = getEconomicInfoString(retList);
         }
         return  retStr;
+    }
+
+
+    /*
+     * 返回浦城未来产业经济
+     */
+    public String getEconomicInfoString(List<Map<String,Object>> retList){
+        String titile = "";
+        String content = "";
+        String img = "";
+        StringBuffer sb = new StringBuffer();
+        for(Map<String,Object> mp :retList){
+            titile = mp.get("title").toString();
+            content  = mp.get("content").toString();
+            img  = mp.get("img_url").toString();
+            sb.append(" <li>");
+            sb.append("  <div><img src=\""+img+"\" /></div>");
+            sb.append(" <div><h3>"+titile+"</h3></div>");
+            sb.append(" <div class=\"msg\"><p>"+content+"</p></div>");
+            sb.append(" </li>");
+        }
+        String retStr = sb.toString();
+        return retStr;
     }
 }

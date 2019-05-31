@@ -109,11 +109,13 @@
 		 where economic_id = #{economic_id}
 	</update>
 
-	<select id="getLivingCultureInfoById" parameterType="String" resultType="map">
+	<select id="getPCEconomicInfo" parameterType="map" resultType="map">
 		<![CDATA[
-			select index_title as title,img_path as img_url, index_content as content  from t04_economic
-			where  index_state=1 and pub_state=1
-		]]>
+	       select e.index_title as title, e.img_path as img_url,e.index_content as content from t04_economic e
+			where  e.index_state=1 and e.pub_state=1 order by e.order_by
+	    ]]>
 	</select>
+
+
 
 </mapper>

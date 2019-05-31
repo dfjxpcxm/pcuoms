@@ -15,4 +15,5 @@ public class ModuleInfoConstants {
     public static final Integer IndustInvest = 36; //产业投资
     public static final Integer PlatAchieve = 37; //平台成果
     public static final Integer SmartCity = 41; //智慧城市
+    public static final Integer Economic =  42; //产业经济
 }

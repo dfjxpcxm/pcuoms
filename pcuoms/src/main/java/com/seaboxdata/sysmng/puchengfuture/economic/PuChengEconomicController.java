@@ -93,10 +93,4 @@ public class PuChengEconomicController extends SysBaseController<PuChengEconomic
 
 
 
-    @RequestMapping(value ="/getLivingCultureInfo")
-    @ResponseBody
-    public DataResult getLivingCultureInfo(@RequestParam String  id) {
-        List<Map<String, Object>> retList = puChengEconomicService.getLivingCultureInfoById(id);
-        return new DataResult(retList);
-    }
 }

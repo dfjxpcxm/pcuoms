@@ -17,6 +17,7 @@ import com.seaboxdata.sysmng.puchengachievement.puchengplatachieve.IPuChengPlatA
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectincm.IPuChengProjectIncmService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectinvest.IPuChengProjectInvestService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectsumm.IPuChengProjectSummService;
+import com.seaboxdata.sysmng.puchengfuture.economic.IPuChengEconomicService;
 import com.seaboxdata.sysmng.puchengfuture.puchengsmartcity.IPuChengSmartCityService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -79,6 +80,11 @@ public class MainframeController extends SysBaseController {
 
     @Resource(name = "puChengPlatAchieveService")
     private IPuChengPlatAchieveService puChengPlatAchieveService;
+
+    @Resource(name = "puChengEconomicService")
+    private IPuChengEconomicService puChengEconomicService;
+
+
 
 
 
@@ -187,7 +193,9 @@ public class MainframeController extends SysBaseController {
     @RequestMapping
     public String  goFuture(ModelMap model){
         String is = puChengSmartCityService.getPCLivingCultInfo();
+        String es =  puChengEconomicService.getPCEconomicInfo();
         model.addAttribute("is", is);
+        model.addAttribute("es", es);
         return "page/pcwl/pcwl";
     }
 

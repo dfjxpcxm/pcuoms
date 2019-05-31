@@ -78,21 +78,21 @@
             </div>
             <div>
                 <ul class="newstab">
-                    <li>
+                    <!--<li>
                         <div><img src="${G.host}/static/img/gdp.png" /></div>
                         <div><h3>浦城GDP</h3></div>
-                        <div class="msg"><p>生产总值增长9.0%。第一产业占地区生产总值的比重为28.6%，第二产业为36.0%,第三产业为35.4%。</p></div>
+                        <div class="msg"><p>生产总值增长10%。第一产业占地区生产总值的比重为28.6%，第二产业为34.0%,第三产业为37.4%。</p></div>
                     </li>
                     <li>
                         <div><img src="${G.host}/static/img/eco.png" /></div>
                         <div><h3>内外贸易</h3></div>
-                        <div class="msg"><p>全年社会消费品总额比上年增长8.9%。外贸方面，增长10.6%；外贸出口，增长7.2%。</p></div>
+                        <div class="msg"><p>全年社会消费品总额增长12%。外贸方面，增长10.6%；外贸出口，增长6.0%。</p></div>
                     </li>
                     <li>
                         <div><img src="${G.host}/static/img/sec.png" /></div>
                         <div><h3>社会保障</h3></div>
-                        <div class="msg"><p>居民人均可支配收入，比上年增长9.3%。人均消费支出增长8.9%。城镇居民比上年增长8.7%。</p></div>
-                    </li>
+                        <div class="msg"><p>居民人均可支配收入同比增长8.5%，人均消费支出增长8.3%。城镇居民比上年增长7.7%。</p></div>
+                    </li>-->
                 </ul>
             </div>
         </div>
@@ -133,6 +133,9 @@
     var is = '${is}';
 //    var dat = eval('(' + is + ')');
     var dat = JSON.parse(is);
+
+    var es = '${es}';
+    $(".newstab").html(es);
 
 $(document).ready(function(){
     init_culture();

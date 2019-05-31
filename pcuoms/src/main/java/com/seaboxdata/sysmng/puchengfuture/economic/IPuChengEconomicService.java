@@ -29,11 +29,9 @@ import java.util.Map;
  * 服务接口
  */
 public interface IPuChengEconomicService extends ISysBaseService<PuChengEconomicDO> {
-    public String getPCLivingCultInfo();
+    public String getPCEconomicInfo();
 
     public void pubInfoById(String sysid);
 
-
-    public List<Map<String, Object>> getLivingCultureInfoById(String id);
 
 }
