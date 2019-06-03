@@ -32,7 +32,7 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .proj .card{position: absolute;top:0;right:0;padding:0;}
 .proj .card img{height:60%;}
 .proj .ibox h5 {color:#000;}
-.proj .ibox p{font-size:0.8rem;color:#aaa;padding:2px 10px 2px 10px;}
+.proj .ibox p{font-size:0.8rem;color:#aaa;padding:2px 10px 2px 10px;text-align: justify;}
 .proj .ibox{height:100%;-webkit-box-shadow:2px 7px 15px #333; box-shadow:2px 7px 15px #333;}
 .ibox .xxi{margin-top:-25px;margin-left:70%;cursor: pointer;}
 .ibox .xxi:hover{color:blue;}
@@ -100,6 +100,7 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
       line-height: 30px;
       padding-left: 20px;
       padding-right: 20px;
+      text-align: justify;
         }
 @keyframes bounceInLeft2 {
             0% {
@@ -168,6 +169,7 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
 .carousel_info p{
       animation: infoLeft2 1s;
       transform:translateY(0px);
+      text-align: justify;
         }
 @keyframes infoLeft2 {
             0% {

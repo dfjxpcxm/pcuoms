@@ -117,6 +117,6 @@
 .posterTvGrid .bottomNavButtonON:hover{background:#69aaec;}
 .posterTvGrid .bottomNavLeft{}
 .posterTvGrid .bottomNavRight{}.centrr_info{width:94%;margin-left: 3%;max-height: 41vh;min-height:24vh;}
-.centrr_info p{font-size: 16px;line-height: 25px;color: black;overflow:auto;}
+.centrr_info p{font-size: 16px;line-height: 25px;color: black;overflow:auto;text-align: justify;}
 .carousel_title{margin-top: 9px;}
 .carousel_title p{line-height: 30px;font-size: 22px;text-align: center;font-weight: bold;color: #0f0e0e;}
