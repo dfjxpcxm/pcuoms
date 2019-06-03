@@ -2,22 +2,28 @@
     background: url('../img/dmpc-banner.png') no-repeat;
     background-size:  100% 100%;
 }
-.sec12{position: absolute;top:80%;left:15%;height:60vh;width:70%;margin:0 auto; z-index:1;background:#fff;color:#212233;}
+.sec12{position: absolute;top:80%;left:15%;height:43vh;width:70%;margin:0 auto; z-index:1;background:#fff;color:#212233;}
 .sec3{
     /* background: url('../img/dmpc-bg3.png') no-repeat; */
     background-size: 100% 100%;
     color:#212233;
     height: 16vh;
+    position: absolute;
+    top: 274vh;
 }
 .i_blue a i, .i_blue a span{color:#026aff;}
 .chart{
 	height: 100%;
 	width:46%;
 	float:left;
-	margin-left:1.5%;
+	margin-left:4%;
 	border-radius: 2%; 
-	border: 1px #007aff solid;
+	border: 1px #d1d4d7 solid;
 }
+.stwm{
+	background:#fff;color:#fff;position: absolute;top:211vh;width: 100%;height: 56%;border: 0px red solid;
+}
+.chart_div{width: 90%;height: 100%;margin-top: 2%;margin-left: 5%}
 
 
 .caption1{text-align:center;height:calc(100% - 125px);padding-top:15px;}
@@ -260,6 +266,5 @@
 .picshow .picwrap li{position:absolute;left:0px;top:0px;width:100%;height:100%;}
 .picshow .picwrap li.hide{display:none;}
 .picshow .picwrap li img{width:99%;height:70%;padding-left: 10px;padding-right: 10px;}
-
 
 

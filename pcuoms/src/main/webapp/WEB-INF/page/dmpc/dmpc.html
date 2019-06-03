@@ -212,8 +212,8 @@
 			    <div id = "d_info"></div>
             </div>
         </div>
-        <div class="clearfix" style="position:relative;height:100px;">
-            <div class="aboutus center2">
+         <div class="clearfix" style="position:relative;height:100px;top:4%;">
+            <div class="aboutus center">
                 <div class="col-md-1"></div>
                 <div class="col-md-8">
                     <p>
@@ -381,7 +381,7 @@ function brand(){
 	}
 	var str = arr.join('');
 	 $("#slider_s").html(str);
-	$('.center').slick({
+	$('#slider_s').slick({
         centerMode: true,//中心模式
         centerPadding: '60px',
         slidesToShow: 3,//图片显示个数
@@ -439,10 +439,10 @@ function brand(){
 }
 
 function imgChange(type,va){
-	$('.center').on('beforeChange',function(){
+	$('#slider_s').on('beforeChange',function(){
 		   $('.fg_top').removeClass("b_tl");
 	   });
-	$('.center').on('afterChange',function(){
+	$('#slider_s').on('afterChange',function(){
 		   var asd = '';
 		   if(type == 1){
 			   asd = '#ban_title'+va; 

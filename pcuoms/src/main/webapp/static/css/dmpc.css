@@ -122,7 +122,7 @@
 
 .navbtm{height:50px;text-align:center;background: url('../img/dmpc-navbtm.png') no-repeat;background-size: 100% 100%;}
 .navbtm ul li{float:left;color:#fff;width:11%;line-height:50px;}
-.aboutus{background:#191924;color:#fff;padding-top: 1.5%;}
+.aboutus{background:#191924;color:#fff;}
 .imgfit{display: none;}
 .imgfit1{display: block;} 
 
