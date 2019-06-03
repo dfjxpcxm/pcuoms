@@ -236,7 +236,7 @@ animation: bounceInLeft_t 0.7s;
                     </p>
                 </div>
                 <div class="col-md-3 clearifx">
-                    <div class="center"><a href="http://bszs.conac.cn/sitename?method=show&amp;id=0895EA7FF08B55BAE053012819ACDF52" target="_blank"><img vspace="0" hspace="0" border="0" src="${G.host}/static/img/red.png"></a></div>
+                    <div class="center"><a><img vspace="0" hspace="0" border="0" src="${G.host}/static/img/red.png"></a></div>
                 </div>
             </div>
         </div>
@@ -526,7 +526,7 @@ function putInfo(data,i){
 
 
 $('#btnlogin').click(function(){
-    var targetUrl  = "https://localhost:8443/cas/";
+    var targetUrl  = "${G.host}/mainframe/goPcmssLogin";
     window.location.href = targetUrl;
 })
 

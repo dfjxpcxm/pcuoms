@@ -2,6 +2,8 @@ package com.seaboxdata.web.main;
 
 import com.seaboxdata.core.base.SysBaseController;
 
+import com.seaboxdata.core.util.common.PropertiesUtil;
+import com.seaboxdata.core.util.common.QCommon;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengbrandchar.IPuChengBrandCharService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchenghistoricculture.IPuChengHistoricCultureService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog.IPuChengHumanGeogService;
@@ -15,6 +17,7 @@ import com.seaboxdata.sysmng.puchengachievement.puchengplatachieve.IPuChengPlatA
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectincm.IPuChengProjectIncmService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectinvest.IPuChengProjectInvestService;
 import com.seaboxdata.sysmng.puchengachievement.puchengprojectsumm.IPuChengProjectSummService;
+import com.seaboxdata.sysmng.puchengfuture.economic.IPuChengEconomicService;
 import com.seaboxdata.sysmng.puchengfuture.puchengsmartcity.IPuChengSmartCityService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -77,6 +80,11 @@ public class MainframeController extends SysBaseController {
 
     @Resource(name = "puChengPlatAchieveService")
     private IPuChengPlatAchieveService puChengPlatAchieveService;
+
+    @Resource(name = "puChengEconomicService")
+    private IPuChengEconomicService puChengEconomicService;
+
+
 
 
 
@@ -185,8 +193,34 @@ public class MainframeController extends SysBaseController {
     @RequestMapping
     public String  goFuture(ModelMap model){
         String is = puChengSmartCityService.getPCLivingCultInfo();
+        String es =  puChengEconomicService.getPCEconomicInfo();
         model.addAttribute("is", is);
+        model.addAttribute("es", es);
         return "page/pcwl/pcwl";
     }
+
+
+    /**
+     * 登录浦城支撑管理系统
+     */
+    @RequestMapping
+    public String  goPcmssLogin(ModelMap model){
+        String pcmssUrl = PropertiesUtil.getPropery("pcmss.portal.login.url");
+        String url = getLoginUrl(pcmssUrl);
+        return url;
+    }
+
+
+
+    public static String getLoginUrl(String url){
+        String casUrl = PropertiesUtil.getPropery("sso.cas.server.login.url");
+        String retUrl = SystemInfoConstants.SYS_REDIRECT.concat(casUrl).concat(SystemInfoConstants.CAS_SERVICE_PARAM).concat(QCommon.urlEncode(url));
+        return retUrl;
+    }
+
+
+
+
+
    
 }
