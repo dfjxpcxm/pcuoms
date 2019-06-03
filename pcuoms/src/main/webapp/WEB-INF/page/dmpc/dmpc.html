@@ -129,6 +129,16 @@
 			 <div id = "slider_s" class="slider center slider_s">
 			 </div>			
 		</div>
+		<div id = "features_info" class = "features_info">
+		 <div class="features_top">
+			 <div id = "features_ti"></div>
+			 <i class = "d_close fa fa-times" onclick = "features_close()"  aria-hidden="true" style = "font-size: 26px;"></i>
+		 </div>
+		 <div>
+		 	<div class = "features_img"></div>
+		 	<div class = "features_content"></div>
+		 </div>
+		</div>
 	</section>
     <section class="sec"></section>
     <section class="sec sec3">
@@ -362,8 +372,8 @@ function brand(){
 			st = 'b_titl';
 		}
 		arr.push(
-				'<div id = "slick-sli'+i+'" class = "slick-sli"><img src = "'+dat[i].img_url+'">',
-				'<div id = "fg_top'+i+'" class = "fg_top"><p style = "font-size:1.1em;">'+'&emsp;&emsp;'+dat[i].content+'</p></div>',
+				'<div id = "slick-sli'+i+'" class = "slick-sli" sl-index = "'+i+'"><img class = "slick-img"  src = "'+dat[i].img_url+'">',
+				'<div id = "fg_top'+i+'" class = "fg_top"><p style = "font-size:1.1em;"><a onclick = "features_info('+i+')">查看详情</a></p></div>',
 					'<div id = "ban_title'+i+'" class = "ban_title '+st+'">'+dat[i].title+'</div>',
 				'</div>');
 	}
@@ -393,49 +403,23 @@ function brand(){
         }]
     });
 	
-	var left =  '<svg version="1.1" class = "Capa" id="Capa_21"  x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">'+
+	var left =  '<svg class = "Capa" id="Capa_21"  x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">'+
     '<g>'+
      '<path style="fill: #fff;" d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z">'+
     '</g>'+
    ' </svg>';
-	var right =  '<svg version="1.1" class = "Capa" id="Capa_11" width="40px" height="40px " x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">'+
+	var right =  '<svg  class = "Capa" id="Capa_11" width="40px" height="40px " x="0px" y="0px" viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;" xml:space="preserve">'+
     '<g>'+
     '<path style="fill: #fff;" d="M360.731,229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1,0s-5.3,13.8,0,19.1l215.5,215.5l-215.5,215.5c-5.3,5.3-5.3,13.8,0,19.1c2.6,2.6,6.1,4,9.5,4c3.4,0,6.9-1.3,9.5-4l225.1-225.1C365.931,242.875,365.931,234.275,360.731,229.075z">'+
   ' </g>'+
    '</svg>';
    $('.slick-prev').html(left);
    $('.slick-next').html(right);
-   var capa_id ='';
    $('.Capa').click(function(){
-	   capa_id = $(this).attr('id');
+	  var capa_id = $(this).attr('id');
+	   imgChange('','');
    });
-   $('.center').on('beforeChange',function(){
-	   $('.fg_top').removeClass("b_tl");
-   });
-   $('.center').on('afterChange',function(){
-	   $('.fg_top').removeClass("b_tl");
-	   var a = $('.slick-center').attr('data-slick-index');
-	   var asd = '';
-	   if(capa_id=='Capa_11'){
-		   if(a == -1){
-				 asd = '#ban_title'+(dat.length-1); 
-			   }else{
-				 asd = '#ban_title'+a;  
-			 } 
-		   
-	   }else{
-		   if(a == -1){
-				 asd = '#ban_title'+(dat.length-1);  
-			   }else {
-				 asd = '#ban_title'+a;  
-			   }
-	   }
-	   $('.ban_title').removeClass("b_titl");
-	   $('.ban_title').val("");
-       $(asd).addClass("b_titl");
-       $(asd).val("b_titl");
-
-	});
+  
    $('.slick-sli').mouseover(function(){
 	   var ide =$(this).attr('id');
 	   var s = '#fg_top'+ide.charAt(ide.length-1);
@@ -450,6 +434,40 @@ function brand(){
     }
   );
   
+}
+
+function imgChange(type,va){
+	$('.center').on('beforeChange',function(){
+		   $('.fg_top').removeClass("b_tl");
+	   });
+	$('.center').on('afterChange',function(){
+		   var asd = '';
+		   if(type == 1){
+			   asd = '#ban_title'+va; 
+			   alert(asd+'111');
+		   }else{
+			   var a = $('.slick-center').attr('sl-index');
+			   $('.fg_top').removeClass("b_tl");
+			   asd = '#ban_title'+a;
+		   }
+		   $('.ban_title').removeClass("b_titl");
+		   $('.ban_title').val("");
+	       $(asd).addClass("b_titl");
+	       $(asd).val("b_titl");
+
+		});
+}
+
+function features_info(n){
+	$('#features_info').css('display','block');
+	$('.lunbo1_info').css("display","none");
+	$('#features_ti').html(ds[n].title);
+	$('.features_img').html('<img src = "'+ds[n].img_url+'">');
+	$('.features_content').html('<div><p>'+'&emsp;&emsp;'+ds[n].content+'</p></div>');
+	
+}
+function features_close(){
+	$('#features_info').css('display','none');
 }
 
 var dt = '${ts}';
@@ -479,6 +497,7 @@ function render_lunbo(dat){
 }
 function lunbo1_img(d){
 	$('.lunbo1_info').css("display","");
+	$('#features_info').css('display','none');
 	curpage = d+1;
 	var arr = [];
 	for (var i = 0; i < da.length; i++) {
