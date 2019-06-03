@@ -1,8 +1,10 @@
 $(document).ready(function(){
 	chart1();
 	chart2();
-	chart3('chart3',0.4533);
-	chart3('chart4',0.6922);
+	chart3('chart3',0.4533,0.2345);
+	chart4();
+	chart5();
+	chart6();
 });
 
 $('#btnlogin').click(function(){
@@ -360,13 +362,19 @@ function chart2(){
 	var myChart = echarts.init($('#chart2')[0]);
     myChart.setOption(option);
 }
-function chart3(id,value){
+function chart3(id,value,value1){
 	var data = []
 	data.push(value)
 	data.push(value)
 	data.push(value)
 	data.push(value)
 	data.push(value)
+	var data1 = []
+	data1.push(value1)
+	data1.push(value1)
+	data1.push(value1)
+	data1.push(value1)
+	data1.push(value1)
 	var option = {
 	    title: {
 	        text: '',
@@ -378,7 +386,8 @@ function chart3(id,value){
 	    },
 	    series: [{
 	        type: 'liquidFill',
-	        radius: '80%',
+	        radius: '50%',
+	        center:['30%','50%'],
 	        data: data,
 	        backgroundStyle: {
 	            borderWidth: 5,
@@ -389,13 +398,411 @@ function chart3(id,value){
 	            normal: {
 	                formatter: (value * 100).toFixed(2) + '%',
 	                textStyle: {
-	                    fontSize: 50
+	                    fontSize: 20
+	                }
+	            }
+	        }
+	    },{
+	        type: 'liquidFill',
+	        radius: '50%',
+	        center:['70%','50%'],
+	        data: data1,
+	        backgroundStyle: {
+	            borderWidth: 5,
+	            borderColor: 'rgb(255,0,255,0.9)',
+	            color: 'rgb(255,0,255,0.01)'
+	        },
+	        label: {
+	            normal: {
+	                formatter: (value1 * 100).toFixed(2) + '%',
+	                textStyle: {
+	                    fontSize: 20
 	                }
 	            }
 	        }
 	    }]
 	}
 	var myChart = echarts.init($('#'+id)[0]);
+    myChart.setOption(option);
+}
+function chart4(){
+		option = {
+			    "tooltip": {},
+			    "grid": {
+			    	bottom:'9%',
+			    	left:'5%',
+			    	right:'6%',
+			        "containLabel": true
+			    },
+			    "xAxis": [{
+			        "type": "category",
+			        "data": ["01月", "02月", "03月", "04月", "05月", "06月", "07月", "08月", "09月", "10月", "11月", "12月"],
+			        "axisTick": {
+			            "alignWithLabel": false
+			        },
+			        "nameTextStyle": {
+			            "color": "#82b0ec"
+			        },
+			        "axisLine": {
+			            "lineStyle": {
+			                "color": "#82b0ec"
+			            }
+			        },
+			        "axisLabel": {
+			            "textStyle": {
+			                "color": "#82b0ec"
+			            }
+			        }
+			    }],
+			    "yAxis": [{
+			        "type": "value",
+			        "axisLabel": {
+			            "textStyle": {
+			                "color": "#82b0ec"
+			            },
+			            "formatter": "{value}"
+			        },
+			        "splitLine": {
+			        	show:false,
+			            "lineStyle": {
+			                "color": "#0c2c5a"
+			            }
+			        },
+			        "axisLine": {
+			            "lineStyle": {
+			                "color": "#82b0ec"
+			            }
+			        }
+			    }],
+			    "series": [
+
+
+			        {
+			            // current data
+			            type: 'pictorialBar',
+			            symbol: 'rect',
+			            symbolRepeat: 'fixed',
+			            symbolMargin: '15%',
+			            symbolClip: true,
+			            symbolSize: [15,18],
+			                label: {
+			                    normal: {
+			                        show: false,
+			                        position: 'right',
+			                        offset: [-60, 30],
+			                        textStyle: {
+			                            color: 'darkorange',
+			                            fontSize: 18
+			                        }
+			                    }
+			                },
+			            data: [
+			               {
+			                  "value": 300,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#ff5715"
+			                    }
+			                  },
+			                },
+			                {
+			                  "value": 1220,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#ff9915"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 660,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#ffdb15"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 1670,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#baff15"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 1670,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#46e621"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 1670,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#00df93"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 1670,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#00addf"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 1670,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#1a86ff"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 1670,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#8e49ff"
+			                    }
+			                  }
+			                },
+			                {
+			                  "value": 1670,
+			                  "itemStyle": {
+			                    "normal": {
+			                      "color": "#ff49f9"
+			                    }
+			                  }
+			                },
+			                {
+				                  "value": 1270,
+				                  "itemStyle": {
+				                    "normal": {
+				                      "color": "#ff49f9"
+				                    }
+				                  }
+				                },
+				                {
+					                  "value": 1070,
+					                  "itemStyle": {
+					                    "normal": {
+					                      "color": "#ff49f9"
+					                    }
+					                  }
+					                }],
+			            z: 99999999,
+			            animationEasing: 'elasticOut',
+			            animationDelay: function(dataIndex, params) {
+			                return params.index * 30;
+			            }
+			        }]
+			}
+		var myChart = echarts.init($('#chart4')[0]);
+	    myChart.setOption(option);
+}
+
+function chart5(){
+	var ds = [];
+	for (var i = 0; i < 7; i++) {
+		var dat1 = [];
+		var dat2 = [];
+		for (var j = 0; j < 12; j++) {
+			dat1.push(Math.random()*100);
+			dat2.push(Math.random()*200);
+		}
+		var vt = {
+				 grid: {
+			            top: 80,
+			            bottom: 80
+			        },
+			        tooltip: {
+			            trigger: 'axis'
+			        },
+		        xAxis: {
+		            data: ["1月", "2月", "3月", "4月", '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+		        },
+		        yAxis: {
+		            type: 'value',
+		            name: '单位：亿元'
+		        },
+		        series: [{
+		            name: '2012',
+		            type: 'line',
+		            smooth: true,
+		            stack: '总量',
+		            symbolSize: 4,
+		            hoverAnimation: false,
+		            lineStyle: {
+		                normal: {
+		                    color: '#2ec7c9',
+		                },
+		            },
+		            areaStyle: {
+		                normal: {
+		                    color: '#2ec7c9',
+		                    opacity: 0.3,
+		                },
+		            },
+		            itemStyle: {
+		                normal: {
+		                    areaStyle: {
+		                        type: 'default'
+		                    }
+		                }
+		            },
+		            data: dat1
+		        }, {
+		            name: '2012',
+		            type: 'line',
+		            smooth: true,
+		            stack: '总量',
+		            symbolSize: 4,
+		            hoverAnimation: false,
+		            lineStyle: {
+		                normal: {
+		                    color: '#b6a2de',
+		                },
+		            },
+		            areaStyle: {
+		                normal: {
+		                    color: '#b6a2de',
+		                    opacity: 0.3,
+		                },
+		            },
+		            itemStyle: {
+		                normal: {
+		                    areaStyle: {
+		                        type: 'default'
+		                    }
+		                }
+		            },
+		            data: dat2
+		        }, ]
+		    };
+		ds.push(vt);
+	}
+	option = {
+		    timeline: {
+		        data: [
+		            '2012', '2013', '2014', '2015', '2016', '2017', '2018'
+		        ],
+		        axisType: 'category',
+		        show: true,
+		        autoPlay: true,
+		        playInterval: 3000
+		    },
+		    options: ds
+
+		};
+	var myChart = echarts.init($('#chart5')[0]);
+    myChart.setOption(option);
+}
+
+function chart6(){
+	option = {
+		    color: ['#23cbe5'],
+		    grid: {
+		        left: '10%',
+		        bottom: '14%',
+		        top: '50',
+		        width: '89%'
+		    },
+		    xAxis: {
+		        type: 'category',
+		        data: ['学前教育', '小学', '初中', '中职', '普通高中', '高等教育', '特殊教育'],
+		        axisTick: {
+		            alignWithLabel: true
+		        },
+		        axisLine: {
+		            lineStyle: {
+		                color: '#23cbe5'
+		            }
+		        },
+		        axisLabel: {
+		            formatter: '{value}',
+		            textStyle: {
+		                fontSize: 16
+		            }
+		        }
+		    },
+		    yAxis: {
+		        type: 'value',
+		        axisLine: {
+		            lineStyle: {
+		                color: '#23cbe5'
+		            }
+		        },
+		        axisLabel: {
+		            formatter: '{value}',
+		            textStyle: {
+		                fontSize: 16
+		            }
+		        }
+		    },
+		    series: [
+
+		        {
+		            name: '',
+		            type: 'scatter',
+		            data: [
+		                ["学前教育", 67],
+		                ['小学', 151],
+		                ['初中', 59],
+		                ['中职', 70],
+		                ['普通高中', 102],
+		                ['高等教育', 10],
+		                ['特殊教育', 2]
+		            ],
+		            symbolSize: function(data) {
+		                return Math.sqrt(data[1]) / 0.15;
+		            },
+		            itemStyle: {
+		                normal: {
+		                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+		                        offset: 0,
+		                        color: '#fff'
+		                    }, {
+		                        offset: 0.7,
+		                        color: '#81fffa'
+		                    }, {
+		                        offset: 1,
+		                        color: '#11fff6'
+		                    }], false),
+		                    borderColor: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+		                        offset: 0,
+		                        color: '#fff'
+		                    }, {
+		                        offset: 0.7,
+		                        color: '#81fffa'
+		                    }, {
+		                        offset: 1,
+		                        color: '#11fff6'
+		                    }], false),
+		                    shadowColor: 'rgba255,255,255, 0.5)',
+		                    shadowBlur: 100
+		                }
+		            },
+		            label: {
+		                normal: {
+		                    show: true,
+		                    position: 'top',
+		                    formatter: function(params) {
+		                        return params.value[1]
+		                    },
+		                    color:'black',
+		                    fontSize:16
+		                }
+
+		            }
+		        }
+
+
+		    ]
+		};
+	var myChart = echarts.init($('#chart6')[0]);
     myChart.setOption(option);
 }
 
