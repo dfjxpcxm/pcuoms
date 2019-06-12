@@ -125,7 +125,7 @@
 
 
 	<select id="getPCProjectInvestImgInfo" parameterType="map" resultType="map">
-		select img_path as img_url, index_title as title,
+		select img_path as img_url, index_title as title,index_name as name,
 		 index_content as content from  t03_project_invest   where pub_state=1 and index_state=1
 		 and (index_unit is null or index_unit ='')  order by order_by
 	</select>
