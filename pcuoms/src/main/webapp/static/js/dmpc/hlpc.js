@@ -77,8 +77,32 @@ function chart1(){
 function chart2(){
 	option = {
 		timeline : {
+			tooltip : {
+				formatter: "{b}"
+			},
 			data: [
-				'2010','2011','2012', '2013', '2014', '2015', '2016', '2017', '2018'
+				'2010','2011',{
+					value: '2012',
+					tooltip: {          // 让鼠标悬浮到此项时能够显示 `tooltip`。
+						formatter: '{b}'
+					},
+					symbol: 'diamond',  // 此项的图形的特别设置。
+					symbolSize: 16      // 此项的图形大小的特别设置。
+				}, '2013','2014', {
+					value: '2015',
+					tooltip: {          // 让鼠标悬浮到此项时能够显示 `tooltip`。
+						formatter: '{b}'
+					},
+					symbol: 'diamond',  // 此项的图形的特别设置。
+					symbolSize: 16      // 此项的图形大小的特别设置。
+				}, '2016', '2017', {
+					value: '2018',
+					tooltip: {          // 让鼠标悬浮到此项时能够显示 `tooltip`。
+						formatter: '{b}'
+					},
+					symbol: 'diamond',  // 此项的图形的特别设置。
+					symbolSize: 16      // 此项的图形大小的特别设置。
+				}
 			],
 			axisType: 'category',
 			show: true,
