@@ -1,112 +1,248 @@
 $(document).ready(function(){
 	chart1();
 	chart2();
-	chart3('chart3',0.4533,0.2345);
+//	chart3('chart3',0.4533,0.2345);
+	chart3();
 	chart4();
+
 	chart5();
 	chart6();
+
 });
 
 $('#btnlogin').click(function(){
     var targetUrl  = "${G.host}/mainframe/goPcmssLogin";
     window.location.href = targetUrl;
 })
+
 function chart1(){
 	option = {
-		    tooltip: {
-		    	trigger: 'item',
-		        formatter: function(v){
-		        	//alert(JSON.stringify(v));
-		        	var st = v.name+' : '+v.value;
-		        	return st;
-		        }//"{b}: {c}"
-		    },
-		    xAxis: {
-		        data: ["农业", "工业", "服务业"],
-		        axisTick: {
-		            show: true
-		        },
-		        axisLine: {
-		            show: true
-		        },
-		        axisLabel: {
-		            show: true,
-		            margin:15,
-		            textStyle: {
-		                color: '#070000',
-		                fontSize:14
-		            }
-		        }
-		    },
-		    yAxis: {
-		        splitLine: {
-		            show: false
-		        },
-		        axisTick: {
-		            show: true
-		        },
-		        axisLine: {
-		            show: true
-		        },
-		        axisLabel: {
-		            show: true,
-		            textStyle: {
-		                color: '#070000',
-		                fontSize:14
-		            }
-		        }
-		    },
-		    series: [{
-		        name: '年报上报率3',
-		        type: 'pictorialBar',
-		        symbolSize: [40, 22],
-		        symbolOffset: [0, -10],
-		        z: 12,
-		        itemStyle: {
-		            normal: {
-		                color: '#14b1eb'
-		            }
-		        },
-		        data: [{
-		            value: 100,
-		            symbolPosition: 'end'
-		        }, {
-		            value: 50,
-		            symbolPosition: 'end'
-		        }, {
-		            value: 20,
-		            symbolPosition: 'end'
-		        }]
-		    }, {
-		        name: '年报上报率2',
-		        type: 'pictorialBar',
-		        symbolSize: [40, 22],
-		        symbolOffset: [0, 10],
-		        z: 12,
-		        itemStyle: {
-		            normal: {
-		                color: '#14b1eb'
-		            }
-		        },
-		        data: [100, 50, 20]
-		    }, {
-		        type: 'bar',
-		        itemStyle: {
-		            normal: {
-		                color: '#14b1eb',
-		                opacity: 0.7
-		            }
-		        },
-		        //silent: true,
-		        barWidth: 40,
-		        barGap: '-100%', // Make series be overlap
-		        data: [100, 50, 20]
-		    }]
-		};
+		title: {
+			text: '浦城经济',
+			subtext: '单位：亿元'
+		},
+		tooltip : {
+			trigger: 'axis',
+			formatter: "{a} <br/>{b} : {c}亿",
+			axisPointer: {
+				type: 'cross',
+				label: {
+					backgroundColor: '#6a7985'
+				}
+			}
+		},
+		legend: {
+			data:['地区收入总值','地区生产总值']
+		},
+
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis : [
+			{
+				type : 'category',
+				boundaryGap : false,
+				data : ['2010','2011','2012','2013','2014','2015','2016','2017','2018']
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'地区收入总值',
+				type:'line',
+				stack: '总量',
+				areaStyle: {},
+				data:[64.34,74.84,84.69, 94.91, 106.62, 118.63, 129.25, 148.32, 153.50]
+			},
+			{
+				name:'地区生产总值',
+				type:'line',
+				stack: '总量',
+				areaStyle: {},
+				data:[64.66,75.14,85.20, 95.18, 107.82, 119.06, 134.25, 151.32, 157.54]
+			}
+		]
+	};
 	var myChart = echarts.init($('#chart1')[0]);
     myChart.setOption(option);
 }
+
 function chart2(){
+	option = {
+		timeline : {
+			data: [
+				'2010','2011','2012', '2013', '2014', '2015', '2016', '2017', '2018'
+			],
+			axisType: 'category',
+			show: true,
+			autoPlay: true,
+			playInterval: 3000
+		},
+		options : [
+			{
+				title : {
+					text: 'GDP占比',
+					subtext: '单位：万元'
+				},
+				tooltip : {
+					trigger: 'item',
+					text: 'GDP占比',
+					formatter: "{a} <br/>{b} : {c}万 ({d}%)"
+				},
+				legend: {
+					right: '10px',
+					data:['第一产业','第二产业','第三产业']
+				},
+
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 186710, itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 227239, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
+							{value: 232573, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 214624,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 266983, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
+							{value: 269732, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 237747,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 309285,  itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
+							{value: 302542, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 258987,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 360232,  itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
+							{value: 332569, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 279408,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 420320,  itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
+							{value: 378283, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 313254,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 460400, itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
+							{value: 416903, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 398113,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 487277, itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
+							{value: 457047, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 431911,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 545115, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
+							{value: 536106, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			},
+			{
+				series : [
+					{
+						name:'浦城生产总值',
+						type:'pie',
+						center: ['50%', '45%'],
+						radius: '50%',
+						data:[
+							{value: 338711,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
+							{value: 572528, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
+							{value: 664154, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+						]
+					}
+				]
+			}
+		]
+	};
+	var myChart = echarts.init($('#chart2')[0]);
+	myChart.setOption(option);
+
+}
+function chart20(){
 	var dataStyle = {
 		    normal: {
 		        label: {
@@ -362,70 +498,263 @@ function chart2(){
 	var myChart = echarts.init($('#chart2')[0]);
     myChart.setOption(option);
 }
-function chart3(id,value,value1){
-	var data = []
-	data.push(value)
-	data.push(value)
-	data.push(value)
-	data.push(value)
-	data.push(value)
-	var data1 = []
-	data1.push(value1)
-	data1.push(value1)
-	data1.push(value1)
-	data1.push(value1)
-	data1.push(value1)
-	var option = {
-	    title: {
-	        text: '',
-	        textStyle: {
-	            fontWeight: 'normal',
-	            fontSize: 25,
-	            color: 'rgb(97, 142, 205)'
-	        }
-	    },
-	    series: [{
-	        type: 'liquidFill',
-	        radius: '50%',
-	        center:['30%','50%'],
-	        data: data,
-	        backgroundStyle: {
-	            borderWidth: 5,
-	            borderColor: 'rgb(255,0,255,0.9)',
-	            color: 'rgb(255,0,255,0.01)'
-	        },
-	        label: {
-	            normal: {
-	                formatter: (value * 100).toFixed(2) + '%',
-	                textStyle: {
-	                    fontSize: 20
-	                }
-	            }
-	        }
-	    },{
-	        type: 'liquidFill',
-	        radius: '50%',
-	        center:['70%','50%'],
-	        data: data1,
-	        backgroundStyle: {
-	            borderWidth: 5,
-	            borderColor: 'rgb(255,0,255,0.9)',
-	            color: 'rgb(255,0,255,0.01)'
-	        },
-	        label: {
-	            normal: {
-	                formatter: (value1 * 100).toFixed(2) + '%',
-	                textStyle: {
-	                    fontSize: 20
-	                }
-	            }
-	        }
-	    }]
-	}
-	var myChart = echarts.init($('#'+id)[0]);
-    myChart.setOption(option);
+
+function chart4() {
+	option = {
+		title : {
+			text: '现代绿色农业产值占比',
+//			subtext: '单位：万元'
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c}万元 ({d}%)"
+		},
+		legend: {
+			orient : 'vertical',
+			x : 'left',
+			top :'43px',
+			data:['现代绿色农业产值','生物产业产值','数字信息产业产值','文化创意产业产值','先进制造业产值','农业总产值']
+
+		},
+
+		calculable : false,
+		series : [
+			{
+				name:'现代绿色农业产值占比',
+				type:'pie',
+				selectedMode: 'single',
+				radius : [0, 70],
+				x: '20%',
+				width: '40%',
+				funnelAlign: 'right',
+				max: 1548,
+
+				itemStyle : {
+					normal : {
+						label : {
+							position : 'inner'
+						},
+						labelLine : {
+							show : false
+						}
+					}
+				},
+				data:[
+					{value:21833, name:'现代绿色农业产值'},
+					{value:101426, name:'农业总产值', itemStyle: {normal: {color:'#4abfff'}},selected:true}
+				]
+			},
+			{
+				name:'现代绿色农业产值占比',
+				type:'pie',
+				radius : [100, 140],
+
+				// for funnel
+				x: '60%',
+				width: '35%',
+				funnelAlign: 'left',
+				max: 1048,
+				data:[
+
+					{value:21833, name:'现代绿色农业产值'},
+					{value:11231, itemStyle: {normal: {color:'#71ff97'}},name:'生物产业产值'},
+					{value:3604, itemStyle: {normal: {color:'#ffbf3a'}},name:'数字信息产业产值'},
+					{value:41013, itemStyle: {normal: {color:'#ffae73'}},name:'文化创意产业产值'},
+					{value:2270, itemStyle: {normal: {color:'#faff31'}},name:'先进制造业产值'},
+					{value:101426, itemStyle: {normal: {color:'#4abfff'}},name:'农业总产值'}
+
+				]
+			}
+		]
+	};
+	var myChart = echarts.init($('#chart4')[0]);
+	myChart.setOption(option);
 }
-function chart4(){
+function chart61(val) {
+	option = {
+		tooltip : {
+			formatter: "{a} <br/>{b} : {c}%"
+		},
+
+		series : [
+			{
+				name:'个性化仪表盘',
+				type:'gauge',
+				center : ['50%', '50%'],    // 默认全局居中
+				radius : [0, '75%'],
+				startAngle: 140,
+				endAngle : -140,
+				min: 0,                     // 最小值
+				max: 100,                   // 最大值
+				precision: 0,               // 小数精度，默认为0，无小数点
+				splitNumber: 10,             // 分割段数，默认为5
+				axisLine: {            // 坐标轴线
+					show: true,        // 默认显示，属性show控制显示与否
+					lineStyle: {       // 属性lineStyle控制线条样式
+						color: [[0.2, 'lightgreen'],[0.4, 'orange'],[0.8, 'skyblue'],[1, '#ff4500']],
+						width: 30
+					}
+				},
+				axisTick: {            // 坐标轴小标记
+					show: true,        // 属性show控制显示与否，默认不显示
+					splitNumber: 5,    // 每份split细分多少段
+					length :8,         // 属性length控制线长
+					lineStyle: {       // 属性lineStyle控制线条样式
+						color: '#eee',
+						width: 1,
+						type: 'solid'
+					}
+				},
+				axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
+					show: true,
+					formatter: function(v){
+						switch (v+''){
+							case '10': return '弱';
+							case '30': return '低';
+							case '60': return '中';
+							case '90': return '高';
+							default: return '';
+						}
+					},
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						color: '#333'
+					}
+				},
+				splitLine: {           // 分隔线
+					show: true,        // 默认显示，属性show控制显示与否
+					length :30,         // 属性length控制线长
+					lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+						color: '#eee',
+						width: 2,
+						type: 'solid'
+					}
+				},
+				pointer : {
+					length : '80%',
+					width : 8,
+					color : 'auto'
+				},
+				title : {
+					show : true,
+					offsetCenter: ['-65%', -10],       // x, y，单位px
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						color: '#333',
+						fontSize : 15
+					}
+				},
+				detail : {
+					show : true,
+					backgroundColor: 'rgba(0,0,0,0)',
+					borderWidth: 0,
+					borderColor: '#ccc',
+					width: 100,
+					height: 40,
+					offsetCenter: ['-60%', 10],       // x, y，单位px
+					formatter:'{value}%',
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						color: 'auto',
+						fontSize : 30
+					}
+				},
+				data:[{value: val, name: '仪表盘'}]
+			}
+		]
+	};
+
+	var myChart = echarts.init($('#chart6')[0]);
+	myChart.setOption(option);
+
+}
+
+
+function chart3(){
+	option = {
+		title : {
+			text: '居民人均收入与支出',
+			subtext: '单位：元'
+		},
+		tooltip : {
+			trigger: 'axis',
+			formatter: "{a} <br/>{b}元"
+		},
+		legend: {
+			left: 'right',
+
+			data:[
+				'农民人均可支配收入','城镇居民人均可支配收入','','农民人均生活消费支出','城镇居民人均生活消费支出'
+			]
+		},
+		calculable : true,
+		grid: {y: 70, y2:30, x2:20},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['2014','2015','2016','2017','2018']
+			},
+			{
+				type : 'category',
+				axisLine: {show:false},
+				axisTick: {show:false},
+				axisLabel: {show:false},
+				splitArea: {show:false},
+				splitLine: {show:false},
+				data : ['2014','2015','2016','2017','2018']
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				axisLabel:{formatter:'{value} '}
+			}
+		],
+		series : [
+			{
+				name:'农民人均可支配收入',
+				type:'bar',
+				itemStyle: {normal: {color:'rgba(193,35,43,1)', label:{show:true}}},
+				data:[10451,11287,12134,13260, 14488]
+			},
+			{
+				name:'农民人均生活消费支出',
+				type:'bar',
+				itemStyle: {normal: {color:'rgba(181,195,52,1)', label:{show:true,textStyle:{color:'#27727B'}}}},
+				data:[8157,8744,9286,10113,10806]
+			},
+			{
+				name:'城镇居民人均可支配收入',
+				type:'bar',
+				itemStyle: {normal: {color:'rgba(252,206,16,1)', label:{show:true,textStyle:{color:'#E87C25'}}}},
+				data:[22754,24324,26075,28340,30472]
+			},
+			{
+				name:'城镇居民人均生活消费支出',
+				type:'bar',
+//				xAxisIndex:1,
+				itemStyle: {normal: {color:'rgba(193,35,43,0.5)', label:{show:true,formatter:function(p){return p.value > 0 ? (p.value +'\n'):'';}}}},
+				data:[15825,15803,16720,17321,18676]
+			}
+			/*,
+			{
+				name:'ECharts1 - 2w数据',
+				type:'bar',
+				xAxisIndex:1,
+				itemStyle: {normal: {color:'rgba(181,195,52,0.5)', label:{show:true}}},
+				data:[491,2035,389,955,347]
+			},
+			{
+				name:'ECharts1 - 20w数据',
+				type:'bar',
+				xAxisIndex:1,
+				itemStyle: {normal: {color:'rgba(252,206,16,0.5)', label:{show:true,formatter:function(p){return p.value > 0 ? (p.value +'+'):'';}}}},
+				data:[3000,3000,2817,3000,0]
+			}*/
+		]
+	};
+	var myChart = echarts.init($('#chart3')[0]);
+	myChart.setOption(option);
+
+}
+function chart40(){
 		option = {
 			    "tooltip": {},
 			    "grid": {
@@ -604,7 +933,296 @@ function chart4(){
 	    myChart.setOption(option);
 }
 
-function chart5(){
+function chart51() {
+	option = {
+		title : {
+			text: '某站点用户访问来源',
+			subtext: '纯属虚构',
+			x:'center'
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c} ({d}%)"
+		},
+		legend: {
+			orient : 'vertical',
+			x : 'left',
+			data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+		},
+		calculable : true,
+		series : [
+			{
+				name:'访问来源',
+				type:'pie',
+				radius : '55%',
+				center: ['50%', 225],
+				data:[
+					{value:335, name:'直接访问'},
+					{value:310, name:'邮件营销'},
+					{value:234, name:'联盟广告'},
+					{value:135, name:'视频广告'},
+					{value:1548, name:'搜索引擎'}
+				]
+			}
+		]
+	};
+
+	option2 = {
+		tooltip : {
+			trigger: 'axis',
+			axisPointer : {
+				type: 'shadow'
+			}
+		},
+		legend: {
+			data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+		},
+		toolbox: {
+			show : true,
+			orient : 'vertical',
+			y : 'center',
+			feature : {
+				mark : {show: true},
+				magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
+				restore : {show: true},
+				saveAsImage : {show: true}
+			}
+		},
+		calculable : true,
+		xAxis : [
+			{
+				type : 'category',
+				data : ['周一','周二','周三','周四','周五','周六','周日']
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				splitArea : {show : true}
+			}
+		],
+		grid: {
+			x2:40
+		},
+		series : [
+			{
+				name:'直接访问',
+				type:'bar',
+				stack: '总量',
+				data:[320, 332, 301, 334, 390, 330, 320]
+			},
+			{
+				name:'邮件营销',
+				type:'bar',
+				stack: '总量',
+				data:[120, 132, 101, 134, 90, 230, 210]
+			},
+			{
+				name:'联盟广告',
+				type:'bar',
+				stack: '总量',
+				data:[220, 182, 191, 234, 290, 330, 310]
+			},
+			{
+				name:'视频广告',
+				type:'bar',
+				stack: '总量',
+				data:[150, 232, 201, 154, 190, 330, 410]
+			},
+			{
+				name:'搜索引擎',
+				type:'bar',
+				stack: '总量',
+				data:[820, 932, 901, 934, 1290, 1330, 1320]
+			}
+		]
+	};
+
+	var myChart = echarts.init($('#chart5')[0]);
+	myChart.setOption(option);
+}
+function chart53() {
+	option = {
+		legend: {},
+		tooltip: {
+			trigger: 'axis',
+			showContent: false
+		},
+		dataset: {
+			source: [
+				['product', '2012', '2013', '2014', '2015', '2016', '2017'],
+				['Matcha Latte', 41.1, 30.4, 65.1, 53.3, 83.8, 98.7],
+				['Milk Tea', 86.5, 92.1, 85.7, 83.1, 73.4, 55.1],
+				['Cheese Cocoa', 24.1, 67.2, 79.5, 86.4, 65.2, 82.5],
+				['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
+			]
+		},
+		xAxis: {type: 'category'},
+		yAxis: {gridIndex: 0},
+		grid: {top: '55%'},
+		series: [
+			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
+			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
+			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
+			{type: 'line', smooth: true, seriesLayoutBy: 'row'},
+			{
+				type: 'pie',
+				id: 'pie',
+				radius: '30%',
+				center: ['50%', '25%'],
+				label: {
+					formatter: '{b}: {@2012} ({d}%)'
+				},
+				encode: {
+					itemName: 'product',
+					value: '2012',
+					tooltip: '2012'
+				}
+			}
+		]
+	};
+	var myChart = echarts.init($('#chart5')[0]);
+	myChart.setOption(option);
+
+}
+function chart5() {
+	option = {
+		title : {
+			text: '造林面积与绿色农产品产量'
+		},
+		tooltip : {
+			trigger: 'axis',
+			formatter: '{a} <br/>{b} : {c} 亩'
+		},
+
+		calculable : true,
+		center:['70%','50%'],
+		legend: {
+			orient : 'vertical',
+			x : 'left',
+			top :'43px',
+			data:['完成造林总面积','更新造林面积','','水稻总产量','粮食总产量', '烟叶产量','油料产量','蔬菜产量','水果产量']
+
+		},
+//		xAxis: {type: 'category'},
+		yAxis: {gridIndex: 0},
+		grid: {top: '60%'},
+		xAxis : [
+			{
+				type : 'category',
+				splitLine : {show : false},
+				data : ['2012','2013','2014','2015','2016','2017','2018']
+			}
+		],
+		yAxis : [
+			{
+				type : 'value',
+				position: 'right'
+			}
+		],
+		series : [
+
+			{
+				name:'完成造林总面积',
+				type:'line',
+//				stack: '总量',
+				data:[55248, 58216, 45144, 82317, 46870, 48280, 51280]
+//				data:[ 55.25,58.22,45.15, 82.32, 46.88, 48.28, 51.28]
+			},
+			{
+				name:'更新造林面积',
+				type:'line',
+				center:['70%','50%'],
+//				stack: '总量',
+				data:[84303, 48280, 10415, 10415, 20774, 20330, 33510]
+//				data:[ 84.31,48.28,10.42, 10.42, 20.77, 20.33, 33.51]
+			},
+
+			{
+				name:'绿色农产品产量',
+				type:'pie',
+				tooltip : {
+					trigger: 'item',
+					formatter: '{a} <br/>{b} : {c}吨 ({d}%)'
+				},
+//				center: [120,130],
+				center:['65%','35%'],
+				radius : [0, 50],
+				itemStyle :　{
+					normal : {
+						labelLine : {
+							length : 20
+						}
+					}
+				},
+				data:[
+					{value:228173, name:'水稻总产量'},
+					{value:228173, name:'粮食总产量'},
+					{value:4707, name:'烟叶产量'},
+					{value:9461, name:'油料产量'},
+					{value:236531, name:'蔬菜产量'},
+					{value:27742, name:'水果产量'}
+				]
+			}
+		]
+	};
+
+	var myChart = echarts.init($('#chart5')[0]);
+	myChart.setOption(option);
+
+}
+function chart51() {
+	option = {
+		title: {
+			title:'植树造林总面积',
+			subtext: '亩',
+			textStyle: {
+				fontWeight: 'normal',
+				fontSize: 8,
+				color: 'rgb(97, 142, 205)'
+			}
+		},
+		tooltip : {
+			trigger: 'axis'
+		},
+		legend: {
+			data:['完成植树造林总面积','更新造林面积']
+		},
+
+		calculable : true,
+		xAxis : [
+			{
+				type : 'category',
+				boundaryGap : false,
+				data : ['2012','2013','2014','2015','2016','2017','2018']
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'完成植树造林总面积',
+				type:'line',
+//				stack: '总量',
+				data:[55248, 58216, 45144, 82317, 46870, 48280, 51280]
+			},
+			{
+				name:'更新造林面积',
+				type:'line',
+//				stack: '总量',
+				data:[84303, 48280, 10415, 10415, 20774, 20330, 33510]
+			}
+
+		]
+	};
+	var myChart = echarts.init($('#chart5')[0]);
+	myChart.setOption(option);
+
+}
+function chart51(){
 	var ds = [];
 	for (var i = 0; i < 7; i++) {
 		var dat1 = [];
@@ -701,7 +1319,7 @@ function chart5(){
     myChart.setOption(option);
 }
 
-function chart6(){
+function chart61(){
 	option = {
 		    color: ['#23cbe5'],
 		    grid: {
@@ -807,3 +1425,277 @@ function chart6(){
 }
 
 
+
+function chart62(value,value1){
+	var data = []
+	data.push(value)
+	var data1 = []
+	data1.push(value1)
+
+	var option = {
+		title: {
+			subtext: '空气质量与森林覆盖率',
+			textStyle: {
+				fontWeight: 'normal',
+				fontSize: 8,
+				color: 'rgb(97, 142, 205)'
+			}
+		},
+		series: [{
+			type: 'liquidFill',
+			radius: '50%',
+			center:['30%','50%'],
+			data:[{value: value, name: '仪表盘'}],
+			backgroundStyle: {
+				borderWidth: 5,
+				borderColor: 'rgb(255,0,255,0.9)',
+				color: 'rgb(255,0,255,0.01)'
+			},
+			label: {
+				normal: {
+					formatter: (value * 100).toFixed(2) + '%',
+//					formatter: '{b}\n{a}',//格式化输出 默认是百分比
+					name: '城市优良空气天数比例',
+					textStyle: {
+						fontSize: 20
+					}
+				}
+			}
+		},{
+			type: 'liquidFill',
+			radius: '50%',
+			center:['70%','50%'],
+			data: data1,
+			name: '森林覆盖率',
+			backgroundStyle: {
+				borderWidth: 5,
+				borderColor: 'rgb(255,0,255,0.9)',
+				color: 'rgb(255,0,255,0.01)'
+			},
+			label: {
+				normal: {
+					formatter: (value1 * 100).toFixed(2) + '%',
+					name: '森林覆盖率',
+					textStyle: {
+						fontSize: 20
+					}
+				}
+			}
+		}]
+	}
+	var myChart = echarts.init($('#chart6')[0]);
+	option.series[0].data[0].name="test";
+	myChart.setOption(option);
+}
+
+function chart6() {
+	option = {
+		color : [
+			'rgba(255, 69, 0, 0.5)',
+			'rgba(255, 150, 0, 0.5)',
+			'rgba(255, 200, 0, 0.5)',
+			'rgba(155, 200, 50, 0.5)',
+			'rgba(55, 200, 100, 0.5)'
+		],
+		title : {
+			text: '森林覆盖率与空气质量'
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c}%"
+		},
+
+		legend: {
+			right: '10px',
+			data:['2017','2018']
+		},
+
+		polar : [
+			{
+				indicator : [
+					{ text : '化学需氧量',max:0.7 },
+					{ text : '二氧化硫',max:1.1 },
+					{ text : '甲烷',max:0.5},
+					{ text : '氮氧化物',max:0.7 },
+					{ text : '氨氮',max:1.6 }
+				],
+				center : [405, 180],
+				radius : 100
+			}
+		],
+
+		calculable : false,
+		series : [
+			{
+				name:'污染物排放总量',
+				type:'gauge',
+				center: ['25%','55%'],
+				splitNumber: 10,       // 分割段数，默认为5
+				axisLine: {            // 坐标轴线
+					lineStyle: {       // 属性lineStyle控制线条样式
+						color: [[0.2, '#228b22'],[0.8, '#48b'],[1, '#ff4500']],
+						width: 8
+					}
+				},
+				axisTick: {            // 坐标轴小标记
+					splitNumber: 10,   // 每份split细分多少段
+					length :12,        // 属性length控制线长
+					lineStyle: {       // 属性lineStyle控制线条样式
+						color: 'auto'
+					}
+				},
+				axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						color: 'auto'
+					}
+				},
+				splitLine: {           // 分隔线
+					show: true,        // 默认显示，属性show控制显示与否
+					length :30,         // 属性length控制线长
+					lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+						color: 'auto'
+					}
+				},
+				pointer : {
+					width : 5
+				},
+				title : {
+					show : true,
+					offsetCenter: [0, '-30%'],       // x, y，单位px
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						fontWeight: 'bolder'
+					}
+				},
+				detail : {
+					formatter:'{value}%',
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						color: 'auto',
+						fontWeight: 'bolder'
+					}
+				},
+				data:[{value:75.04, name: '森林覆盖率'}]
+			},
+
+			{
+				name: '污染物排放总量',
+				type: 'radar',
+				itemStyle: {normal: {areaStyle: {type: 'default'}}},
+				data: [
+					{
+						value : [0.61, 1.08, 0.5, 0.61,1.52],
+						name : '2017'
+					},
+					{
+						value : [0.6, 1, 0.4, 0.6,1.5],
+						name : '2018'
+					}
+				]
+				}
+		]
+	};
+	var myChart = echarts.init($('#chart6')[0]);
+	myChart.setOption(option);
+}
+
+
+function chart60() {
+	option = {
+		color : [
+			'rgba(255, 69, 0, 0.5)',
+			'rgba(255, 150, 0, 0.5)',
+			'rgba(255, 200, 0, 0.5)',
+			'rgba(155, 200, 50, 0.5)',
+			'rgba(55, 200, 100, 0.5)'
+		],
+		title : {
+			text: '空气质量与森林覆盖率'
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: "{a} <br/>{b} : {c}%"
+		},
+
+
+
+		polar : [
+			{
+				indicator : [
+					{ text : '化学需氧量',max:0.7 },
+					{ text : '二氧化硫',max:1.1 },
+					{ text : '甲烷',max:0.5},
+					{ text : '氮氧化物',max:0.7 },
+					{ text : '氨氮',max:1.6 }
+				],
+				center : [405, 150],
+				radius : 100
+			}
+		],
+
+		calculable : false,
+		series : [
+			{
+				name:'污染物排放总量',
+				type:'gauge',
+				center: ['25%','55%'],
+				splitNumber: 10,       // 分割段数，默认为5
+				axisLine: {            // 坐标轴线
+					lineStyle: {       // 属性lineStyle控制线条样式
+						color: [[0.2, '#228b22'],[0.8, '#48b'],[1, '#ff4500']],
+						width: 8
+					}
+				},
+				axisTick: {            // 坐标轴小标记
+					splitNumber: 10,   // 每份split细分多少段
+					length :12,        // 属性length控制线长
+					lineStyle: {       // 属性lineStyle控制线条样式
+						color: 'auto'
+					}
+				},
+				axisLabel: {           // 坐标轴文本标签，详见axis.axisLabel
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						color: 'auto'
+					}
+				},
+				splitLine: {           // 分隔线
+					show: true,        // 默认显示，属性show控制显示与否
+					length :30,         // 属性length控制线长
+					lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+						color: 'auto'
+					}
+				},
+				pointer : {
+					width : 5
+				},
+				title : {
+					show : true,
+					offsetCenter: [0, '-30%'],       // x, y，单位px
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						fontWeight: 'bolder'
+					}
+				},
+				detail : {
+					formatter:'{value}%',
+					textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+						color: 'auto',
+						fontWeight: 'bolder'
+					}
+				},
+				data:[{value:75.04, name: '森林覆盖率'}]
+			},
+
+			{
+				name: '污染物排放总量',
+				type: 'radar',
+				itemStyle: {normal: {areaStyle: {type: 'default'}}},
+				data: [
+					{
+						value : [0.6, 1, 0.4, 0.6,1.5],
+						name : '排放总量'
+					}
+				]
+			}
+		]
+	};
+	var myChart = echarts.init($('#chart6')[0]);
+	myChart.setOption(option);
+}
