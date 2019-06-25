@@ -107,7 +107,7 @@ function chart2(){
 			axisType: 'category',
 			show: true,
 			autoPlay: true,
-			playInterval: 3000
+			playInterval: 2000
 		},
 		options : [
 			{
