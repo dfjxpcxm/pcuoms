@@ -3,6 +3,7 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
     background: url('../img/pccg-banner.png') no-repeat;
     background-size: 100% auto;
 }
+
 .sec11{position: absolute;top:calc(100vh - 125px);left:20px;height:350px;width:150px;margin:0 auto; z-index:1;background:#fff;color:#c5c5c5;}
 .sec12{position: absolute;top:400px;left:12.5%;height:100vh;width:75%;margin:0 auto; z-index:1;background:#fff;color:#212233;}
 .sec3{
@@ -10,7 +11,10 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
     background-size: 100% 100%;
     color:#212233;
 }
-
+.sec4{
+    background: url('../img/smart-banner.png') no-repeat;
+    background-size: 100% auto;
+}
 .caption1{text-align:center;height:calc(100% - 125px);padding-top:15px;}
 
 .dashboard{text-align:center;}
@@ -108,7 +112,7 @@ h1,h2,h3,h4,h5,h6{text-align: center;}
                 transform: translateY(-800px);
             } 
 }
-/* ÏêÏ¸  µ¯³ö¿ò¿ªÊ¼ */
+/* ï¿½ï¿½Ï¸  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ */
 .sec_info{
 	position: fixed;
 	height: 88vh;
@@ -255,4 +259,4 @@ item img {
 }
 
 
-/* ÏêÏ¸  µ¯³ö¿ò½áÊø*/
+/* ï¿½ï¿½Ï¸  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/

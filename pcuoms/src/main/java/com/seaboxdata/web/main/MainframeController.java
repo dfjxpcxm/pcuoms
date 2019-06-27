@@ -23,6 +23,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 
@@ -162,8 +163,8 @@ public class MainframeController extends SysBaseController {
         String pi = puChengProjectInvestService.getPCProjectInvestIndexInfo();
         //项目成果投资图片
         String pg = puChengProjectInvestService.getPCProjectInvestImgInfo();
-        //平台成果数据
-        String pa = puChengPlatAchieveService.getPCPlatAchieveInfo();
+
+
 
         System.out.println("is="+is);
         System.out.println("ps="+ps);
@@ -173,7 +174,7 @@ public class MainframeController extends SysBaseController {
         System.out.println("ig="+ig);
         System.out.println("pi="+pi);
         System.out.println("pg="+pg);
-        System.out.println("pa="+pa);
+
 
         model.addAttribute("is", is);
         model.addAttribute("ps", ps);
@@ -183,10 +184,32 @@ public class MainframeController extends SysBaseController {
         model.addAttribute("ig", ig);
         model.addAttribute("pi", pi);
         model.addAttribute("pg", pg);
-        model.addAttribute("pa", pa);
+
         return "page/pccg/pccg";
     }
-    
+
+
+
+    /**
+     * 浦城成果
+     */
+    @RequestMapping
+    public String goSmartCity(ModelMap model,String p){
+        //平台成果数据
+        String pa = puChengPlatAchieveService.getPCPlatAchieveInfo();
+        System.out.println("pa="+pa);
+        String id = DEFAULT_TOOLBAR_ID;
+        if(null == p || "".equals(p)){
+            id = id;
+        }else{
+            id = p;
+        }
+
+        System.out.println("id="+id);
+        model.addAttribute("pa", pa);
+        model.addAttribute("id", id);
+        return "page/smart/smart";
+    }
     /**
      * 浦城未来
      */
@@ -218,6 +241,8 @@ public class MainframeController extends SysBaseController {
         return retUrl;
     }
 
+
+    private final static String DEFAULT_TOOLBAR_ID = "l3" ;
 
 
 
