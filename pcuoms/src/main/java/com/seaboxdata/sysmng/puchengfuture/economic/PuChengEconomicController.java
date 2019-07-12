@@ -85,8 +85,8 @@ public class PuChengEconomicController extends SysBaseController<PuChengEconomic
 
     @RequestMapping(value ="/pubEconomicInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  culture_id) {
-        puChengEconomicService.pubInfoById(culture_id);
+    public DataStore pubInfoById(@RequestParam String  economic_id,@RequestParam String  pub_state) {
+        puChengEconomicService.pubInfoById(economic_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

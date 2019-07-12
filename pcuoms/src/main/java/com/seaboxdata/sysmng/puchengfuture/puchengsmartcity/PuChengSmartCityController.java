@@ -85,8 +85,8 @@ public class PuChengSmartCityController extends SysBaseController<PuChengSmartCi
 
     @RequestMapping(value ="/pubSmartCityInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  culture_id) {
-        puChengSmartCityService.pubInfoById(culture_id);
+    public DataStore pubInfoById(@RequestParam String  culture_id,@RequestParam String  pub_state) {
+        puChengSmartCityService.pubInfoById(culture_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

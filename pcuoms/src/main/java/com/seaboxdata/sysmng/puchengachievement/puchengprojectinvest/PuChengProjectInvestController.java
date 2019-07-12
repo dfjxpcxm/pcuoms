@@ -82,8 +82,8 @@ public class PuChengProjectInvestController extends SysBaseController<PuChengPro
 
     @RequestMapping(value ="/pubProjectInvestInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  invest_id) {
-        puChengProjectInvestService.pubInfoById(invest_id);
+    public DataStore pubInfoById(@RequestParam String  invest_id,@RequestParam String  pub_state) {
+        puChengProjectInvestService.pubInfoById(invest_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

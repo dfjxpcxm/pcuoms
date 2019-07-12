@@ -40,11 +40,11 @@ public interface IPropagateMngDao<GotoPuChengMngDO> extends ISysBaseDao<GotoPuCh
     /*
        发布
      */
-    public void pubPropagateInfoById(String sysid);
+    public void pubPropagateInfoById(Map<String, Object> queryMap);
 
 
     /*
       获取首页宣传信息
      */
-    public List<Map<String,Object>> getMainframePropagateInfo();
+    public List<Map<String,Object>> getMainframePropagateInfo(Map<String, Object> queryMap);
 }

@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,8 +57,11 @@ public class PuChengSmartCityServiceImpl extends SysBaseService<PuChengSmartCity
     }
 
     @Override
-    public void pubInfoById(String sysid) {
-        dao.pubInfoById(sysid);
+    public void pubInfoById(String sysid,String pub_state) {
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("culture_id",sysid);
+        queryMap.put("pub_state",pub_state);
+        dao.pubInfoById(queryMap);
     }
 
     @Override
@@ -66,9 +70,11 @@ public class PuChengSmartCityServiceImpl extends SysBaseService<PuChengSmartCity
     }
 
     @Override
-    public String getPCLivingCultInfo() {
+    public String getPCLivingCultInfo(String flag) {
         String retStr = "" ;
-        List<Map<String, Object>> retList = dao.getPCLivingCultInfo();
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("flag",flag);
+        List<Map<String, Object>> retList = dao.getPCLivingCultInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
             retStr = JsonUtil.serialize(retList);
         }

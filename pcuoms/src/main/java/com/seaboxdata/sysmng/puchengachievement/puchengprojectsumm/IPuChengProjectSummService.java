@@ -21,15 +21,12 @@ package com.seaboxdata.sysmng.puchengachievement.puchengprojectsumm;
 
 import com.seaboxdata.core.base.ISysBaseService;
 
-import java.util.List;
-import java.util.Map;
-
 
 /**
  * 服务接口
  */
 public interface IPuChengProjectSummService extends ISysBaseService<PuChengProjectSummDO> {
-    public String getPCProjectSummyInfo();
-    public void pubInfoById(String sysid);
+    public String getPCProjectSummyInfo(String flag);
+    public void pubInfoById(String sysid,String pub_state);
 
 }

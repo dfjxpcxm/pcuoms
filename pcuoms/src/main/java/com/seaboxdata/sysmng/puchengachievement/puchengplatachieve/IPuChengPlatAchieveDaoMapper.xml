@@ -83,10 +83,10 @@
 			  ,upd_time=now()
 		 where achieve_id = #{achieve_id}
 	</update>
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t03_plat_achieve
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where achieve_id = #{achieve_id}
@@ -118,6 +118,13 @@
 
 	<select id="getPCPlatAchieveInfo" parameterType="map" resultType="map">
 		select index_title,index_name,index_content as content,img_path as img_url from t03_plat_achieve
-		where  index_state=1 and pub_state=1  order by order_by
+		where  1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
+	    order by order_by
 	</select>
 </mapper>

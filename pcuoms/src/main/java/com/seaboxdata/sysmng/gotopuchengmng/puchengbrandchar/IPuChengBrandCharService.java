@@ -20,10 +20,6 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengbrandchar;
 
 
 import com.seaboxdata.core.base.ISysBaseService;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
-
-import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -32,6 +28,6 @@ import java.util.Map;
 public interface IPuChengBrandCharService extends ISysBaseService<PuChengBrandCharDO> {
 
 
-    public String getPuChengBrandCharInfo();
-    public void pubInfoById(String sysid);
+    public String getPuChengBrandCharInfo(String flag);
+    public void pubInfoById(String sysid, String pub_state);
 }

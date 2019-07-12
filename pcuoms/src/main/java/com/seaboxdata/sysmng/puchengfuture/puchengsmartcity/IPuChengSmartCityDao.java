@@ -30,8 +30,8 @@ import java.util.Map;
  * 数据访问接口
  */
 public interface IPuChengSmartCityDao<PuChengSmartCityDO> extends ISysBaseDao<PuChengSmartCityDO> {
-    public List<Map<String, Object>> getPCLivingCultInfo();
-    public void pubInfoById(String sysid);
+    public List<Map<String, Object>> getPCLivingCultInfo(Map<String, Object> queryMap);
+    public void pubInfoById(Map<String, Object> sysid);
 
     public List<Map<String, Object>> getLivingCultureInfoById (@RequestParam String id);
 }

@@ -20,17 +20,13 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism;
 
 
 import com.seaboxdata.core.base.ISysBaseService;
-import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.PuChengSummarizeDO;
-
-import java.util.List;
-import java.util.Map;
 
 
 /**
  * 服务接口
  */
 public interface IPuChengRuralTourismService extends ISysBaseService<PuChengRuralTourismDO> {
-    public String getPuChengRuralTourismInfo();
-    public void pubInfoById(String sysid);
+    public String getPuChengRuralTourismInfo(String flag);
+    public void pubInfoById(String sysid, String pub_state);
 
 }

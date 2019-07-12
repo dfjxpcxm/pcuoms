@@ -84,10 +84,10 @@
 			  ,upd_time=now()
 		 where invest_id = #{invest_id}
 	</update>
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t03_project_invest
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where invest_id = #{invest_id}
@@ -118,7 +118,14 @@
 
 	<select id="getPCProjectInvestIndexInfo" parameterType="map" resultType="map">
 		select index_title as title,
-		 index_content as value,index_unit as unit from  t03_project_invest   where pub_state=1 and index_state=1
+		 index_content as value,index_unit as unit from  t03_project_invest
+		 where  1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
 		  and (img_path is null or img_path ='')
 		 order by order_by
 	</select>
@@ -126,7 +133,14 @@
 
 	<select id="getPCProjectInvestImgInfo" parameterType="map" resultType="map">
 		select img_path as img_url, index_title as title,index_name as name,
-		 index_content as content from  t03_project_invest   where pub_state=1 and index_state=1
+		 index_content as content from  t03_project_invest
+		 where  1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
 		 and (index_unit is null or index_unit ='')  order by order_by
 	</select>
 </mapper>

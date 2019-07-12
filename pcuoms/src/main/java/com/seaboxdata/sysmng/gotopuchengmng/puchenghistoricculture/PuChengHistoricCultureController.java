@@ -81,8 +81,8 @@ public class PuChengHistoricCultureController extends SysBaseController<PuChengH
 
     @RequestMapping(value ="/pubHistoricCultureInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  his_id) {
-        puChenHistoricCultureService.pubInfoById(his_id);
+    public DataStore pubInfoById(@RequestParam String  his_id,@RequestParam String  pub_state) {
+        puChenHistoricCultureService.pubInfoById(his_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

@@ -21,17 +21,14 @@ package com.seaboxdata.sysmng.puchengfuture.economic;
 
 import com.seaboxdata.core.base.ISysBaseService;
 
-import java.util.List;
-import java.util.Map;
-
 
 /**
  * 服务接口
  */
 public interface IPuChengEconomicService extends ISysBaseService<PuChengEconomicDO> {
-    public String getPCEconomicInfo();
+    public String getPCEconomicInfo(String flag);
 
-    public void pubInfoById(String sysid);
+    public void pubInfoById(String sysid,String pub_state);
 
 
 }

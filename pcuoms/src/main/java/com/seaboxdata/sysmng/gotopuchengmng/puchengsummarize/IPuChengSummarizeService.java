@@ -21,20 +21,17 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize;
 
 import com.seaboxdata.core.base.ISysBaseService;
 
-import java.util.List;
-import java.util.Map;
-
 
 /**
  * 服务接口
  */
 public interface IPuChengSummarizeService extends ISysBaseService<PuChengSummarizeDO> {
 
-    public String  getPuChengSummarizeInfo();
+    public String  getPuChengSummarizeInfo(String flag);
 
     /**
      * 发布
      * @param sysid
      */
-    public void pubInfoById(String sysid);
+    public void pubInfoById(String sysid, String pub_state);
 }

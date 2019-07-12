@@ -86,8 +86,8 @@ public class PropagateMngController extends SysBaseController<PropagateMngDO> {
 
     @RequestMapping(value ="/pubPropagateInfo")
     @ResponseBody
-    public DataStore pubPropagateInfo(@RequestParam String  propagate_id) {
-        propagateMngService.pubPropagateInfoById(propagate_id);
+    public DataStore pubPropagateInfo(@RequestParam String  propagate_id,@RequestParam String  pub_state) {
+        propagateMngService.pubPropagateInfoById(propagate_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

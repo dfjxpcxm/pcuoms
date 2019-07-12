@@ -100,20 +100,26 @@
 		</where>
 	</select>
 
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t04_economic
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where economic_id = #{economic_id}
 	</update>
 
 	<select id="getPCEconomicInfo" parameterType="map" resultType="map">
-		<![CDATA[
 	       select e.index_title as title, e.img_path as img_url,e.index_content as content from t04_economic e
-			where  e.index_state=1 and e.pub_state=1 order by e.order_by
-	    ]]>
+			where  1=1
+			<if test="flag != null and flag == pre "><![CDATA[
+			  and e.index_state=1
+			]]></if>
+			<if test="flag == null"><![CDATA[
+			   and  e.pub_state=1 and e.index_state=1
+			]]></if>
+			 order by e.order_by
+
 	</select>
 
 

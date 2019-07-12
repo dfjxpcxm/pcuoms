@@ -76,8 +76,8 @@ public class PuChengIndustIncmController extends SysBaseController<PuChengIndust
     }
     @RequestMapping(value ="/pubIndustIncmInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  imcome_id) {
-        puChengIndustIncmService.pubInfoById(imcome_id);
+    public DataStore pubInfoById(@RequestParam String  imcome_id,@RequestParam String  pub_state) {
+        puChengIndustIncmService.pubInfoById(imcome_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

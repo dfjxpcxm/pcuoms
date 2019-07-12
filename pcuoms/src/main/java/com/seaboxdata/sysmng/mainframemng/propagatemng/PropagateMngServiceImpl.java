@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,14 +66,19 @@ public class PropagateMngServiceImpl extends SysBaseService<PropagateMngDO> impl
     }
 
     @Override
-    public void pubPropagateInfoById(String sysid) {
-        dao.pubPropagateInfoById(sysid);
+    public void pubPropagateInfoById(String sysid,String pub_state) {
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("propagate_id",sysid);
+        queryMap.put("pub_state",pub_state);
+        dao.pubPropagateInfoById(queryMap);
     }
 
     @Override
-    public String getMainframePropagateInfo() {
+    public String getMainframePropagateInfo(String flag) {
         String retStr = "" ;
-        List<Map<String, Object>>  retList  = dao.getMainframePropagateInfo();
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("flag",flag);
+        List<Map<String, Object>>  retList  = dao.getMainframePropagateInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
             retStr = JsonUtil.serialize(retList);
         }

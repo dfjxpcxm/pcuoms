@@ -29,8 +29,8 @@ import java.util.Map;
  * 数据访问接口
  */
 public interface IPuChengHistoricCultureDao<PuChengSummarizeDO> extends ISysBaseDao<PuChengSummarizeDO> {
-    List<Map<String, Object>> getPuChengHistoricCultureInfo();
+    List<Map<String, Object>> getPuChengHistoricCultureInfo(Map<String, Object> queryMap);
 
-    List<Map<String, Object>> getPuChengGeographCultureInfo();
-    public void pubInfoById(String sysid);
+    List<Map<String, Object>> getPuChengGeographCultureInfo(Map<String, Object> queryMap);
+    public void pubInfoById(Map<String, Object> queryMap);
 }

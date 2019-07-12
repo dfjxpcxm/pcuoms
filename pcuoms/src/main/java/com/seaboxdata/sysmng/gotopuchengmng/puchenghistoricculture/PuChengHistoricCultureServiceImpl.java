@@ -22,16 +22,11 @@ package com.seaboxdata.sysmng.gotopuchengmng.puchenghistoricculture;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
-import com.seaboxdata.core.util.common.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 
 /**
@@ -59,16 +54,21 @@ public class PuChengHistoricCultureServiceImpl extends SysBaseService<PuChengHis
     }
 
     @Override
-    public void pubInfoById(String sysid) {
-        dao.pubInfoById(sysid);
+    public void pubInfoById(String sysid, String pub_state) {
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("his_id",sysid);
+        queryMap.put("pub_state",pub_state);
+        dao.pubInfoById(queryMap);
     }
     @Override
-    public String getPuChengHistoricCultureInfo() {
+    public String getPuChengHistoricCultureInfo(String flag) {
         String retStr = "" ;
         String hcStr = "";
         String gcStr = "" ;
-        List<Map<String, Object>> retList = dao.getPuChengHistoricCultureInfo();
-        List<Map<String, Object>> gcList = dao.getPuChengGeographCultureInfo();
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("flag",flag);
+        List<Map<String, Object>> retList = dao.getPuChengHistoricCultureInfo(queryMap);
+        List<Map<String, Object>> gcList = dao.getPuChengGeographCultureInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
             Map<String,List<Map<String, Object>>> dataMap = transDataCollection(retList);
             hcStr = getBeautifullPuChengStrInfo(dataMap);

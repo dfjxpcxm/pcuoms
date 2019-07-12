@@ -81,8 +81,8 @@ public class PuChengProjectSummController extends SysBaseController<PuChengProje
     }
     @RequestMapping(value ="/pubProjectSummInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  summary_id) {
-        puChengProjectSummService.pubInfoById(summary_id);
+    public DataStore pubInfoById(@RequestParam String  summary_id,@RequestParam String  pub_state) {
+        puChengProjectSummService.pubInfoById(summary_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

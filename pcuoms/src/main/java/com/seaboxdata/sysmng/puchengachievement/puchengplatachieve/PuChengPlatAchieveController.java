@@ -80,10 +80,10 @@ public class PuChengPlatAchieveController extends SysBaseController<PuChengPlatA
         return ActionMsg;
     }
 
-    @RequestMapping(value ="/pubplatachieveInfoById")
+    @RequestMapping(value ="/pubPingTaiAchieveInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  achieve_id) {
-        puChengPlatAchieveService.pubInfoById(achieve_id);
+    public DataStore pubInfoById(@RequestParam String  achieve_id,@RequestParam String  pub_state) {
+        puChengPlatAchieveService.pubInfoById(achieve_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

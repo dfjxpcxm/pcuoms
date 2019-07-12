@@ -77,10 +77,10 @@
 			  ,upd_time=now()
 		 where imcome_id = #{imcome_id}
 	</update>
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t03_indust_incm
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where imcome_id = #{imcome_id}
@@ -112,8 +112,15 @@
 
 
 	<select id="getPCIndustIncomeInfo" parameterType="map" resultType="map">
-		select index_title,index_content,index_unit from t03_indust_incm where  index_state=1 and pub_state=1
-		order by  order_by
+		select index_title,index_content,index_unit from t03_indust_incm where   1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
+
+		order by order_by
 	</select>
 
 

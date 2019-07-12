@@ -29,6 +29,6 @@ import java.util.Map;
  * 数据访问接口
  */
 public interface IPuChengProjectIncmDao<PuChengIndustryOverviewDO> extends ISysBaseDao<PuChengIndustryOverviewDO> {
-    public List<Map<String, Object>> getPCProjectIncomeInfo();
-    public void pubInfoById(String sysid);
+    public List<Map<String, Object>> getPCProjectIncomeInfo(Map<String, Object> queryMap);
+    public void pubInfoById(Map<String, Object> sysid);
 }

@@ -29,9 +29,9 @@ import java.util.Map;
  * 服务接口
  */
 public interface IPuChengSmartCityService extends ISysBaseService<PuChengSmartCityDO> {
-    public String getPCLivingCultInfo();
+    public String getPCLivingCultInfo(String flag);
 
-    public void pubInfoById(String sysid);
+    public void pubInfoById(String sysid,String pub_state);
 
 
     public List<Map<String, Object>> getLivingCultureInfoById (String id);

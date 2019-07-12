@@ -68,8 +68,8 @@ public class PuChengBrandCharController extends SysBaseController<PuChengBrandCh
 
     @RequestMapping(value ="/pubBrandCharInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  feature_id) {
-        puChenBrandCharService.pubInfoById(feature_id);
+    public DataStore pubInfoById(@RequestParam String  feature_id,@RequestParam String  pub_state) {
+        puChenBrandCharService.pubInfoById(feature_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

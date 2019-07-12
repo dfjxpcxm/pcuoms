@@ -83,10 +83,10 @@
 			  ,upd_time=now()
 		 where summary_id = #{summary_id}
 	</update>
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t03_project_sumy
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where summary_id = #{summary_id}
@@ -118,6 +118,13 @@
 
 	<select id="getPCProjectSummyInfo" parameterType="map" resultType="map">
 		select index_title,index_name,index_content,img_path from t03_project_sumy
-		where index_state=1 and pub_state=1 and order_by=1
+		where  1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
+	     and order_by=1
 	</select>
 </mapper>

@@ -29,10 +29,10 @@ import java.util.Map;
  * 数据访问接口
  */
 public interface IPuChengProjectInvestDao<PuChengIndustryOverviewDO> extends ISysBaseDao<PuChengIndustryOverviewDO> {
-    List<Map<String, Object>> getPCProjectInvestIndexInfo();
+    List<Map<String, Object>> getPCProjectInvestIndexInfo(Map<String, Object> queryMap);
 
-    List<Map<String, Object>> getPCProjectInvestImgInfo();
-    public void pubInfoById(String sysid);
+    List<Map<String, Object>> getPCProjectInvestImgInfo(Map<String, Object> queryMap);
+    public void pubInfoById(Map<String, Object> sysid);
 
 
 }

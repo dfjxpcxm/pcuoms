@@ -30,7 +30,7 @@ import java.util.Map;
  */
 public interface IPuChengPlatAchieveDao<PuChengPingTaiAchieveDO> extends ISysBaseDao<PuChengPingTaiAchieveDO> {
 
-    public List<Map<String, Object>> getPCPlatAchieveInfo();
+    public List<Map<String, Object>> getPCPlatAchieveInfo(Map<String, Object> queryMap);
 
-    public void pubInfoById(String sysid);
+    public void pubInfoById(Map<String, Object> sysid);
 }

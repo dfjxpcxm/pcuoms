@@ -84,10 +84,10 @@
 			  ,upd_time=now()
 		 where his_id = #{his_id}
 	</update>
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t02_his_cult
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where his_id = #{his_id}
@@ -115,13 +115,31 @@
 	</select>
 
 	<select id="getPuChengHistoricCultureInfo" parameterType="map" resultType="map">
-				select CONCAT(module_id,group_id) as id, index_title as title,index_content as content,img_path as img_url from t02_his_cult where index_state=1 and pub_state=1  and group_id !=1  order by  order_by
+		select CONCAT(module_id,group_id) as id, index_title as title,index_content as content,img_path as img_url from t02_his_cult
+		where 1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
+
+		order by order_by
 	</select>
 
 
 
 	<select id="getPuChengGeographCultureInfo" parameterType="map" resultType="map">
-		select  CONCAT(module_id,group_id) as id,index_title as title,index_content as content,img_path as img_url from t02_cult_geograph where index_state=1 and pub_state=1  and group_id !=1 order by  order_by
+		select  CONCAT(module_id,group_id) as id,index_title as title,index_content as content,img_path as img_url from t02_cult_geograph
+		where 1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
+
+		order by order_by
 	</select>
 
 

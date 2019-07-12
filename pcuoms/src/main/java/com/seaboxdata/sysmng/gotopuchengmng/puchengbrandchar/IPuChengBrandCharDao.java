@@ -29,6 +29,6 @@ import java.util.Map;
  * 数据访问接口
  */
 public interface IPuChengBrandCharDao<PuChengSummarizeDO> extends ISysBaseDao<PuChengSummarizeDO> {
-    public   List<Map<String, Object>> getPuChengBrandCharInfo();
-    public void pubInfoById(String sysid);
+    public   List<Map<String, Object>> getPuChengBrandCharInfo(Map<String, Object> queryMap);
+    public void pubInfoById(Map<String, Object> querymap);
 }

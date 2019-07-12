@@ -68,12 +68,19 @@
 						   }
 					   }
 				   },
-
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
-					   return "<button type='button' class='btn_el' onclick='edit(\""+row.summary_id+"\")'>编辑</button>| "
-							   +"<button type='button' class='btn_el' onclick='pub(\""+row.summary_id+"\",\""+row.index_title+"\")'>发布</button>| "
-							   +"<button type='button' class='btn_el' onclick='del(\""+row.summary_id+"\",\""+row.index_title+"\")'>删除</button>";
-				   }}
+						   var str="";
+						   if (row.pub_state == 1) {
+							   str = "<button type='button' class='btn_el' onclick='pub(\""+row.summary_id+"\",\""+row.index_title+"\",0)'>取消发布</button>| "
+						   } else if (row.pub_state == 0) {
+							   str = "<button type='button' class='btn_el' onclick='pub(\""+row.summary_id+"\",\""+row.index_title+"\",1)'>发布</button>| "
+						   }
+						   return "<button type='button' class='btn_el' onclick='edit(\""+row.summary_id+"\")'>编辑</button>| "
+								   +str
+								   +"<button type='button' class='btn_el' onclick='del(\""+row.summary_id+"\",\""+row.index_title+"\")'>删除</button>";
+
+					   }}
+
 			   ],onPageChange:function(number, size){
                    $("#IDS_PAGESIZE").val(size);
                    $("#IDS_PAGENUM").val(number);
@@ -100,25 +107,49 @@
 		   big.style.display = 'none';
 	   }
 	   //发布
-	   function pub(node,name){
-		   layer.confirm(
-				   "确认将发布【"+name+"】吗？<br/>",
-				   {icon:3,title:"发布记录",skin: 'layer-ext-moon'},
-				   function(){
-					   $.ajax({
-						   type: "post",
-						   url: quick.serverUrl + '/pubIndustSummInfoById?summary_id=' + node,
-						   dataType: "json",
-						   success: function(data){
-							   layer.msg('发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
-							   _gd["list"].refresh();
-						   },
-						   error:function(err){
-							   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
-						   }
-					   });
-				   }
-		   );
+	   function pub(node,name,pub){
+		   var str = '/pubIndustSummInfoById?summary_id=' + node + '&pub_state='+pub;
+		   if (pub == 0){
+			   layer.confirm(
+					   "确认将取消发布【"+name+"】吗？<br/>",
+					   {icon:3,title:"发布记录",skin: 'layer-ext-moon'},
+					   function(){
+						   $.ajax({
+							   type: "post",
+							   url: quick.serverUrl + str,
+							   dataType: "json",
+							   success: function(data){
+								   layer.msg('取消发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
+								   _gd["list"].refresh();
+							   },
+							   error:function(err){
+								   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
+							   }
+						   });
+					   }
+			   );
+		   }
+		   if (pub == 1) {
+			   layer.confirm(
+					   "确认将发布【"+name+"】吗？<br/>",
+					   {icon:3,title:"发布记录",skin: 'layer-ext-moon'},
+					   function(){
+						   $.ajax({
+							   type: "post",
+							   url: quick.serverUrl + str,
+							   dataType: "json",
+							   success: function(data){
+								   layer.msg('发布记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
+								   _gd["list"].refresh();
+							   },
+							   error:function(err){
+								   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
+							   }
+						   });
+					   }
+			   );
+		   }
+
 	   }
     //删除记录
     function del(node,name){
@@ -192,7 +223,7 @@
 		window.location.href="${G.host}/gotoPuChengMng/list";
 	}
    function prevw(){
-	   var targetUrl = "${G.host}/mainframe/goAchievement";
+	   var targetUrl = "${G.host}/mainframe/goAchievement?flag=pre";
 	   window.open(targetUrl,'_blank');
    }
   </script>

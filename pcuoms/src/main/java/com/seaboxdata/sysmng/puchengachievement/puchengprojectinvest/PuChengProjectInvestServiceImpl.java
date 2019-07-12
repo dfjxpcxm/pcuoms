@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,13 +57,18 @@ public class PuChengProjectInvestServiceImpl extends SysBaseService<PuChengProje
     }
 
     @Override
-    public void pubInfoById(String sysid) {
-        dao.pubInfoById(sysid);
+    public void pubInfoById(String sysid,String pub_state) {
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("invest_id",sysid);
+        queryMap.put("pub_state",pub_state);
+        dao.pubInfoById(queryMap);
     }
     @Override
-    public String getPCProjectInvestIndexInfo() {
+    public String getPCProjectInvestIndexInfo(String flag) {
         String retStr = "" ;
-        List<Map<String, Object>> retList = dao.getPCProjectInvestIndexInfo();
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("flag",flag);
+        List<Map<String, Object>> retList = dao.getPCProjectInvestIndexInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
             retStr = JsonUtil.serialize(retList);
         }
@@ -71,9 +77,11 @@ public class PuChengProjectInvestServiceImpl extends SysBaseService<PuChengProje
 
 
     @Override
-    public String getPCProjectInvestImgInfo() {
+    public String getPCProjectInvestImgInfo(String flag) {
         String retStr = "" ;
-        List<Map<String, Object>> retList = dao.getPCProjectInvestImgInfo();
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("flag",flag);
+        List<Map<String, Object>> retList = dao.getPCProjectInvestImgInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
             retStr = JsonUtil.serialize(retList);
         }

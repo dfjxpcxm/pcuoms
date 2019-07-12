@@ -104,13 +104,23 @@
 
 	<select id="getPuChengSummarizeInfo" parameterType="map" resultType="map">
 		select index_title,index_content,index_unit from t02_basic_facts
-		where pub_state=1 and index_state=1 order by order_by
+		where 1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
+
+		 order by order_by
+
+
 	</select>
 
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t02_basic_facts
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where function_id = #{function_id}

@@ -77,8 +77,8 @@ public class PuChengSummarizeController extends SysBaseController<PuChengSummari
 
     @RequestMapping(value ="/pubSummarizeInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  function_id) {
-        puChenSummarizeService.pubInfoById(function_id);
+    public DataStore pubInfoById(@RequestParam String  function_id,@RequestParam String  pub_state) {
+        puChenSummarizeService.pubInfoById(function_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

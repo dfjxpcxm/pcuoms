@@ -81,10 +81,10 @@
 			  ,upd_time=now()
 		 where feature_id = #{feature_id}
 	</update>
-	<update id="pubInfoById" parameterType="String">
+	<update id="pubInfoById" parameterType="map">
 		update t02_brand_feature
 		   set index_state=1
-			  ,pub_state=1
+			  ,pub_state=#{pub_state}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where feature_id = #{feature_id}
@@ -114,6 +114,15 @@
 	</select>
 
 	<select id="getPuChengBrandCharInfo" parameterType="map" resultType="map">
-		select index_title as title,index_content as content,img_path as img_url from t02_brand_feature where index_state=1 and pub_state=1 order by order_by
+		select index_title as title,index_content as content,img_path as img_url from t02_brand_feature
+		where 1=1
+		<if test="flag != null and flag == pre "><![CDATA[
+	      and index_state=1
+		]]></if>
+		<if test="flag == null"><![CDATA[
+	       and  pub_state=1 and index_state=1
+	    ]]></if>
+
+		order by order_by
 	</select>
 </mapper>

@@ -26,6 +26,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -55,12 +56,19 @@ public class PuChengIndustSummServiceImpl extends SysBaseService<PuChengIndustSu
     }
 
     @Override
-    public void pubInfoById(String sysid) {dao.pubInfoById(sysid);}
+    public void pubInfoById(String sysid,String pub_state) {
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("summary_id",sysid);
+        queryMap.put("pub_state",pub_state);
+        dao.pubInfoById(queryMap);
+    }
 
     @Override
-    public String getPCIndustSummyInfo() {
+    public String getPCIndustSummyInfo(String flag) {
         String retStr ="";
-        List<Map<String, Object>> retList = dao.getPCIndustSummyInfo();
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("flag",flag);
+        List<Map<String, Object>> retList = dao.getPCIndustSummyInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
             retStr = getPCIndustSummyInfoString(retList);
         }

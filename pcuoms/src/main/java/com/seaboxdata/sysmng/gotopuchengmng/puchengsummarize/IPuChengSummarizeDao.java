@@ -30,9 +30,9 @@ import java.util.Map;
  */
 public interface IPuChengSummarizeDao<PuChengSummarizeDO> extends ISysBaseDao<PuChengSummarizeDO> {
 
-    public List<Map<String,Object>> getPuChengSummarizeInfo();
+    public List<Map<String,Object>> getPuChengSummarizeInfo(Map<String, Object> queryMap);
     /*
-           发布
+      发布
          */
-    public void pubInfoById(String sysid);
+    public void pubInfoById(Map<String, Object> queryMap);
 }

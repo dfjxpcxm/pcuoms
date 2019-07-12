@@ -29,6 +29,6 @@ import java.util.Map;
  * 数据访问接口
  */
 public interface IPuChengHumanGeogDao<PuChengHumanGeogDO> extends ISysBaseDao<PuChengHumanGeogDO> {
-    public List<Map<String, Object>> getPuChengHumanGeogInfo();
-    public void pubInfoById(String sysid);
+    public List<Map<String, Object>> getPuChengHumanGeogInfo(Map<String, Object> queryMap);
+    public void pubInfoById(Map<String, Object> queryMap);
 }

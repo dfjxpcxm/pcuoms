@@ -30,6 +30,6 @@ import java.util.Map;
  */
 public interface IPuChengRuralTourismDao<PuChengRuralTourismDO> extends ISysBaseDao<PuChengRuralTourismDO> {
 
-    public List<Map<String, Object>> getPuChengRuralTourismInfo();
-    public void pubInfoById(String sysid);
+    public List<Map<String, Object>> getPuChengRuralTourismInfo(Map<String, Object> queryMap);
+    public void pubInfoById(Map<String, Object> queryMap);
 }

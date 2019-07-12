@@ -38,13 +38,13 @@ public interface IPropagateMngService extends ISysBaseService<PropagateMngDO> {
     /*
        发布
      */
-    public void pubPropagateInfoById(String sysid);
+    public void pubPropagateInfoById(String sysid,String pub_state);
 
 
     /*
       获取首页宣传信息
      */
-    public String  getMainframePropagateInfo();
+    public String  getMainframePropagateInfo(String flag);
 
 
 

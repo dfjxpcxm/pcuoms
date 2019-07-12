@@ -21,19 +21,16 @@ package com.seaboxdata.sysmng.puchengachievement.puchengprojectinvest;
 
 import com.seaboxdata.core.base.ISysBaseService;
 
-import java.util.List;
-import java.util.Map;
-
 
 /**
  * 服务接口
  */
 public interface IPuChengProjectInvestService extends ISysBaseService<PuChengProjectInvestDO> {
-    public String getPCProjectInvestIndexInfo();
+    public String getPCProjectInvestIndexInfo(String flag);
 
 
-    public String getPCProjectInvestImgInfo();
+    public String getPCProjectInvestImgInfo(String flag);
 
-    public void pubInfoById(String sysid);
+    public void pubInfoById(String sysid,String pub_state);
 
 }

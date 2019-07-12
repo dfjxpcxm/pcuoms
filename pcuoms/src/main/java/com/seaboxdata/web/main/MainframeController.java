@@ -95,7 +95,8 @@ public class MainframeController extends SysBaseController {
      */
     @RequestMapping
     public String index(ModelMap model){
-        String jsonStr = propagateMngService.getMainframePropagateInfo();
+        String flag=request.getParameter("flag");
+        String jsonStr = propagateMngService.getMainframePropagateInfo(flag);
         System.out.println("jsonStr="+jsonStr);
         model.addAttribute("data", jsonStr);
         return "page/home/index";
@@ -106,17 +107,18 @@ public class MainframeController extends SysBaseController {
      */
     @RequestMapping
     public String goBeautiful(ModelMap model){
+        String flag=request.getParameter("flag");
         //概述
-        String sumStr = puChengSummarizeService.getPuChengSummarizeInfo();
+        String sumStr = puChengSummarizeService.getPuChengSummarizeInfo(flag);
         //文人地理
-        String gesStr = puChengHumanGeogService.getPuChengHumanGeogInfo();
+        String gesStr = puChengHumanGeogService.getPuChengHumanGeogInfo(flag);
         //历史文化
-        String hisStr = puChenHistoricCultureService.getPuChengHistoricCultureInfo();
+        String hisStr = puChenHistoricCultureService.getPuChengHistoricCultureInfo(flag);
 
         //品牌特色
-        String jsonStr = puChengBrandCharService.getPuChengBrandCharInfo();
+        String jsonStr = puChengBrandCharService.getPuChengBrandCharInfo(flag);
         //乡村旅游
-        String touralStr = puChengRuralTourismService.getPuChengRuralTourismInfo();
+        String touralStr = puChengRuralTourismService.getPuChengRuralTourismInfo(flag);
 
         System.out.println("sumStr="+sumStr);
         System.out.println("bsonStr="+jsonStr);
@@ -147,22 +149,23 @@ public class MainframeController extends SysBaseController {
      */
     @RequestMapping
     public String goAchievement(ModelMap model){
+        String flag=request.getParameter("flag");
         //产业成果指标
-        String is = puChengIndustIncmService.getPCIndustIncomeInfo();
+        String is = puChengIndustIncmService.getPCIndustIncomeInfo(flag);
         //项目成果指标
-        String ps = puChengProjectIncmService.getPCProjectIncomeInfo();
+        String ps = puChengProjectIncmService.getPCProjectIncomeInfo(flag);
         //产业成果概述
-        String iy = puChengIndustSummService.getPCIndustSummyInfo();
+        String iy = puChengIndustSummService.getPCIndustSummyInfo(flag);
         //项目成果概述
-        String py = puChengProjectSummService.getPCProjectSummyInfo();
+        String py = puChengProjectSummService.getPCProjectSummyInfo(flag);
         //产业成果投资指标
-        String ii =  puChengIndustInvestService.getPCIndustInvestIndexInfo();
+        String ii =  puChengIndustInvestService.getPCIndustInvestIndexInfo(flag);
         //产业成果投资图片
-        String ig = puChengIndustInvestService.getPCIndustInvestImgInfo();
+        String ig = puChengIndustInvestService.getPCIndustInvestImgInfo(flag);
         //项目成果投资指标
-        String pi = puChengProjectInvestService.getPCProjectInvestIndexInfo();
+        String pi = puChengProjectInvestService.getPCProjectInvestIndexInfo(flag);
         //项目成果投资图片
-        String pg = puChengProjectInvestService.getPCProjectInvestImgInfo();
+        String pg = puChengProjectInvestService.getPCProjectInvestImgInfo(flag);
 
 
 
@@ -196,7 +199,8 @@ public class MainframeController extends SysBaseController {
     @RequestMapping
     public String goSmartCity(ModelMap model,String p){
         //平台成果数据
-        String pa = puChengPlatAchieveService.getPCPlatAchieveInfo();
+        String flag=request.getParameter("flag");
+        String pa = puChengPlatAchieveService.getPCPlatAchieveInfo(flag);
         System.out.println("pa="+pa);
         String id = DEFAULT_TOOLBAR_ID;
         if(null == p || "".equals(p)){
@@ -215,8 +219,9 @@ public class MainframeController extends SysBaseController {
      */
     @RequestMapping
     public String  goFuture(ModelMap model){
-        String is = puChengSmartCityService.getPCLivingCultInfo();
-        String es =  puChengEconomicService.getPCEconomicInfo();
+        String flag=request.getParameter("flag");
+        String is = puChengSmartCityService.getPCLivingCultInfo(flag);
+        String es =  puChengEconomicService.getPCEconomicInfo(flag);
         model.addAttribute("is", is);
         model.addAttribute("es", es);
         return "page/pcwl/pcwl";

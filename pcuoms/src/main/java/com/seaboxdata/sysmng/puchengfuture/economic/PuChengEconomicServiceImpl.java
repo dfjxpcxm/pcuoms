@@ -22,11 +22,11 @@ package com.seaboxdata.sysmng.puchengfuture.economic;
 
 import com.seaboxdata.core.base.ISysBaseDao;
 import com.seaboxdata.core.base.SysBaseService;
-import com.seaboxdata.core.util.common.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,15 +56,20 @@ public class PuChengEconomicServiceImpl extends SysBaseService<PuChengEconomicDO
     }
 
     @Override
-    public void pubInfoById(String sysid) {
-        dao.pubInfoById(sysid);
+    public void pubInfoById(String sysid,String pub_state) {
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("economic_id",sysid);
+        queryMap.put("pub_state",pub_state);
+        dao.pubInfoById(queryMap);
     }
 
 
     @Override
-    public String getPCEconomicInfo() {
+    public String getPCEconomicInfo(String flag) {
         String retStr = "" ;
-        List<Map<String, Object>> retList = dao.getPCEconomicInfo();
+        Map<String, Object> queryMap = new HashMap<>();
+        queryMap.put("flag",flag);
+        List<Map<String, Object>> retList = dao.getPCEconomicInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
             retStr = getEconomicInfoString(retList);
         }

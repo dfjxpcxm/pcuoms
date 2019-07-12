@@ -80,8 +80,8 @@ public class PuChengHumanGeogController extends SysBaseController<PuChengHumanGe
     }
     @RequestMapping(value ="/pubHumanGeogInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  geograph_id) {
-        puChenHumanGeogService.pubInfoById(geograph_id);
+    public DataStore pubInfoById(@RequestParam String  geograph_id,@RequestParam String  pub_state) {
+        puChenHumanGeogService.pubInfoById(geograph_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

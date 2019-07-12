@@ -77,8 +77,8 @@ public class PuChengProjectIncmController extends SysBaseController<PuChengProje
 
     @RequestMapping(value ="/pubProjectIncmInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  imcome_id) {
-        puChengProjectIncmService.pubInfoById(imcome_id);
+    public DataStore pubInfoById(@RequestParam String  imcome_id,@RequestParam String  pub_state) {
+        puChengProjectIncmService.pubInfoById(imcome_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }

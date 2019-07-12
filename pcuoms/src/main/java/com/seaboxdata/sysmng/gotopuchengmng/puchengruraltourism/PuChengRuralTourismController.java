@@ -83,8 +83,8 @@ public class PuChengRuralTourismController extends SysBaseController<PuChengRura
 
     @RequestMapping(value ="/pubRuralTourismInfoById")
     @ResponseBody
-    public DataStore pubInfoById(@RequestParam String  tourism_id) {
-        puChenRuralTourismService.pubInfoById(tourism_id);
+    public DataStore pubInfoById(@RequestParam String  tourism_id,@RequestParam String  pub_state) {
+        puChenRuralTourismService.pubInfoById(tourism_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }
