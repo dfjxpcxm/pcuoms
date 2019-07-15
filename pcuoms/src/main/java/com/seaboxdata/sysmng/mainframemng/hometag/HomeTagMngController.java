@@ -17,7 +17,7 @@
  *
  * </p>
  */
-package com.seaboxdata.sysmng.mainframemng.propagatemng;
+package com.seaboxdata.sysmng.mainframemng.hometag;
 
 
 import com.seaboxdata.core.base.ISysBaseService;
@@ -45,50 +45,45 @@ import java.util.Map;
  */
 @Controller
 @Scope("prototype")
-@RequestMapping(value = "/propagateMng")
-public class PropagateMngController extends SysBaseController<PropagateMngDO> {
+@RequestMapping(value = "/homeTagMng")
+public class HomeTagMngController extends SysBaseController<HomeTagMngDO> {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Resource(name = "propagateMngService")
-    private IPropagateMngService propagateMngService;
+    @Resource(name = "homeTagMngService")
+    private IHomeTagMngService homeTagMngService;
 
     @Override
-    public ISysBaseService<PropagateMngDO> getBaseService() {
-        return propagateMngService;
+    public ISysBaseService<HomeTagMngDO> getBaseService() {
+        return homeTagMngService;
     }
 
     @RequestMapping
     public String list(ModelMap model) {
-        return "page/propagate/list";
+        return "page/hometag/list";
     }
 
     @RequestMapping
     public String edit(ModelMap model) {
-        return "page/propagate/edit";
+        return "page/hometag/edit";
     }
 
     @RequestMapping(value ="/getModuleInfo")
     @ResponseBody
     public List<Map<String,Object>> getApp(){
-        return propagateMngService.getModuleInfo();
+        return homeTagMngService.getModuleInfo();
     }
 
-    @RequestMapping(value ="/pubPropagateInfo")
+    @RequestMapping(value ="/pubHomeTagInfo")
     @ResponseBody
-    public DataStore pubPropagateInfo(@RequestParam String  propagate_id,@RequestParam String  pub_state) {
-        propagateMngService.pubPropagateInfoById(propagate_id,pub_state);
+    public DataStore pubHomeTagInfo(@RequestParam String  tag_id,@RequestParam String  pub_state) {
+        homeTagMngService.pubHomeTagInfoById(tag_id,pub_state);
         DataStore  ds =  new DataStore ();
         return ds.setOk("操作成功");
     }
 
     @Override
-    public DataStore save(PropagateMngDO model) {
-        //保存上传图片
-        model.setModule_id(ModuleInfoConstants.Propagate);
-        String imgPath = FileUtil.getImgUploadPath(request);
-        if (imgPath.length() > 0)
-            model.setImg_path(imgPath);
+    public DataStore save(HomeTagMngDO model) {
          ActionMsg = getBaseService().save(model);
         if (ActionMsg.isError())
             return ActionMsg;

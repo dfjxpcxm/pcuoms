@@ -2,10 +2,9 @@
 <html>
   <head>
 	  <#include "/WEB-INF/include/reslist.html" />
-	  <#include "/WEB-INF/include/imgshow.html" />
   </head>
    <script>
-	   //乡村旅游
+	   var mid=$.request.queryString["mid"];
        var pageNum=1;
        var pageSize=10;
        var queryParm = '';
@@ -16,27 +15,18 @@
            var RFlag=$.request.queryString["RFlag"];
 		   quick.serverUrl = "${G.serverUrl}";
 		   quick.editUrl = "${G.editUrl}";
-		   quick.objName = "";
-		   quick.idField = "";
-           
+
 		   $("#list").bootstrapTable("destroy");
 		   _gd["list"]=new BGrid("#list");
 		   _gd["list"].config({
 			   url:quick.serverUrl+"/getList?i=" + Math.random(),
-			   idField: quick.idField,
-			   sortName: quick.idField,
                cache:false,
 			   height: $(document.body).height()-50,
 			   toolbar:"#formSearch",
 			   columns: [
 				   {  checkbox: true },
-				   { field: 'imgshow', title: '图片', width: 50,formatter:function(value,row,index){
-						   return "<img id=\""+row.his_id+"\" onmouseover='over(\""+row.his_id+"\",\""+row.img_path+"\")' onmouseout='ovout(\""+row.his_id+"\")' src=\"${G.hname}"+row.img_path+"\"style=\"width: 25px;height: 25px;\">";
-					   }},
 				   { field: 'function_name', title: '功能名称', width: 100  },
-				   { field: 'index_title', title: '指标名称', width: 100  },
-				   { field: 'index_content', title: '指标内容', width: 100  },
-				   { field: 'img_path', title: '图片路径', width: 100  },
+				   { field: 'tag_content', title: '指标内容', width: 100  },
 				   { field: 'index_state', title: '指标状态', width: 100 ,
 		   				  formatter: function (value, row, index) {
 							  if (value == 1) {
@@ -61,16 +51,17 @@
 						   }
 					   }
 				   },
+
 				   { field: 'CZ',  title: '操作',width: 150, formatter:function(value,row,index){
 						   var str="";
 						   if (row.pub_state == 1) {
-							   str = "<button type='button' class='btn_el' onclick='pub(\""+row.his_id+"\",\""+row.index_title+"\",0)'>取消发布</button>| "
+							   str = "<button type='button' class='btn_el' onclick='pub(\""+row.tag_id+"\",\""+row.function_name+"\",0)'>取消发布</button>| "
 						   } else if (row.pub_state == 0) {
-							   str = "<button type='button' class='btn_el' onclick='pub(\""+row.his_id+"\",\""+row.index_title+"\",1)'>发布</button>| "
+							   str = "<button type='button' class='btn_el' onclick='pub(\""+row.tag_id+"\",\""+row.function_name+"\",1)'>发布</button>| "
 						   }
-						   return "<button type='button' class='btn_el' onclick='edit(\""+row.his_id+"\")'>编辑</button>| "
+						   return "<button type='button' class='btn_el' onclick='edit(\""+row.tag_id+"\")'>编辑</button>| "
 								   +str
-								   +"<button type='button' class='btn_el' onclick='del(\""+row.his_id+"\",\""+row.index_title+"\")'>删除</button>";
+								   +"<button type='button' class='btn_el' onclick='del(\""+row.tag_id+"\",\""+row.function_name+"\")'>删除</button>";
 
 					   }}
 
@@ -92,17 +83,32 @@
                _gd["list"].init();
            }
 	   }
-	   function over(id,path) {
-		   $("#bigimg").attr("src","${G.hname}"+path);
-		   big.style.display = 'block';
-	   }
-	   function ovout() {
-		   big.style.display = 'none';
-	   }
+
+    //删除记录
+    function del(node,name){
+       layer.confirm(
+		   "确认将删除【"+name+"】吗？<br/>删除后，所有关联数据将一并删除，且删除后不可恢复",
+		   {icon:3,title:"删除记录",skin: 'layer-ext-moon'},
+		   function(){
+			   $.ajax({
+				   type: "post",
+				   url: quick.serverUrl + '/delete?tag_id=' + node,
+				   dataType: "json",
+				   success: function(data){
+					   layer.msg('删除记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
+                       _gd["list"].refresh();
+				   },
+				   error:function(err){
+					   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
+				   }
+			   });
+		   }
+       );
+    }
 
 	   //发布
 	   function pub(node,name,pub){
-		   var str = '/pubHistoricCultureInfoById?his_id=' + node + '&pub_state='+pub;
+		   var str = '/pubHomeTagInfo?tag_id=' + node + '&pub_state='+pub;
 		   if (pub == 0){
 			   layer.confirm(
 					   "确认将取消发布【"+name+"】吗？<br/>",
@@ -146,34 +152,14 @@
 
 	   }
 
-    //删除记录
-    function del(node,name){
-       layer.confirm(
-		   "确认将删除【"+name+"】吗？<br/>删除后，所有关联数据将一并删除，且删除后不可恢复",
-		   {icon:3,title:"删除记录",skin: 'layer-ext-moon'},
-		   function(){
-			   $.ajax({
-				   type: "post",
-				   url: quick.serverUrl + '/delete?his_id=' + node,
-				   dataType: "json",
-				   data:{ID:node},
-				   success: function(data){
-					   layer.msg('删除记录成功', {icon:1,time: 1000,skin: 'layer-ext-moon'});
-                       _gd["list"].refresh();
-				   },
-				   error:function(err){
-					   layer.msg("结果异常",{icon:1,time: 1000,skin: 'layer-ext-moon'});
-				   }
-			   });
-		   }
-       );
-    }
 
+
+
+    
 	//查看详细信息
 	function edit(id){
-	   	//debugger;
         navAppend("编辑集成系统");/*获取父页面元素并动态赋值父页面title*/
-	    window.location.href=quick.editUrl + "?his_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
+	    window.location.href=quick.editUrl + "?tag_id="+id + getDetailParm();//跳转到另一个页面，并且还在当前框架
 	}
 	function add(){
 		menuGoto(quick.editUrl);
@@ -182,7 +168,7 @@
 	function goDetail(obj){
 		var value = $(obj).attr("id");
 		navAppend("详情信息");/*获取父页面元素并动态赋值父页面title*/
-		window.location.href=quick.editUrl + "?mode=browse&module_id="+id + getDetailParm();
+		window.location.href=quick.editUrl + "?mode=browse&tag_id="+id + getDetailParm();
 	}
     function query(){
        _gd['list'].refresh();
@@ -214,13 +200,13 @@
 		var s= queryParm + "&IpageNum="+pageNum+"&IpageSize="+pageSize;
 		return s;
 	}
-   function prevw(){
-	   var targetUrl = "${G.host}/mainframe/goBeautiful?flag=pre";
-	   window.open(targetUrl,'_blank');
-   }
-	function cancel(){
-		window.location.href="${G.host}/gotoPuChengMng/list";
-	}
+ function prevw(){
+	 var targetUrl = "${G.host}/mainframe/index?flag=pre";
+	 window.open(targetUrl,'_blank');
+ }
+function cancel(){
+   window.location.href="${G.host}/gotoPuChengMng/list";
+}
   </script>
   <body class="gray-bg">
   <div class="wrapper wrapper-content wrapper-content-x animated fadeInRight">
@@ -231,8 +217,8 @@
 					  <div class="panel-mar">
 							  <form id="formSearch" class="form-inline">
                                   <div class="form-group" style="padding: 0px;width:180px;">
-									  <input maxlength="20" id="index_title" name="index_title" class="input-sm form-control"
-											 type="text" placeholder="指标名称"/>
+									  <input maxlength="20" id="module_name" name="module_name" class="input-sm form-control"
+											 type="text" placeholder="模块名称"/>
 								  </div>
 
 								  <span class="input-group-btn" style="display:inline-block;"><button class="btn btn-primary " type="button" onclick="query();"> 查询</button> </span>
