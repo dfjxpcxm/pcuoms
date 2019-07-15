@@ -2,10 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/main.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/pcwl.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/pcwl.css">
+     <link rel="stylesheet" type="text/css" href="${G.host}/static/lib/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/font-awesome/css/font-awesome.min.css">
 </head>
 <body>
     <header class="headerpan clearfix" style="position: absolute;top:0;">
@@ -13,18 +15,30 @@
             <a class="logo" href="#">城市运营管理系统</a>
             <nav class="nav">
                 <ul class="tabl">
-                    <li><a href="${host}/mainframe/index">首页</a></li>
-                    <li><a href="${host}/mainframe/goBeautiful">大美浦城</a></li>
-                    <li><a href="${host}/mainframe/goAchievement">浦城成果</a></li>
-                    <li><a href="${host}/mainframe/goFuture">浦城未来</a></li>
-                    <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
+                    <li><a href="${G.host}/mainframe/index">首页</a></li>
+                    <li><a href="${G.host}/mainframe/goBeautiful">浦城现状</a></li>
+                    <li><a href="${G.host}/mainframe/goSmartCity">智慧城市</a></li>
+                    <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
+                    <li><div><button type="button" id ="btnlogin" style="padding: 2px 4px;" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>登录</button></div></li>
                 </ul>
             </nav>
         </div>
     </header>
+  <!--  <section style="position: relative;" class="sec sec1">
+
+    </section>-->
     <section class="sec sec1">
-        <section class="caption1"></section>
-        <div class="caption2 light animated wow fadeInDown clearfix" style="width:85%;margin:0 auto;">
+        <section class="caption1">
+            <div class="movice" style="padding-top:12.3%;padding-left:83.5%;"><video width="220px" height="125px" controls >
+                <source src="${G.host}/static/upload/201904/dmpc/test.mp4"  type="video/mp4">
+                抱歉，你的浏览器不支持video标签。。</video></div>
+        </section>
+
+       
+    </section>
+    <section class="sec sec2">
+        <section class="caption3 light animated wow fadeInDown">
+         <div class="caption23 light animated wow fadeInDown clearfix" style="width:85%;margin:0 auto;">
             <div>
                 <h2>民生文化</h2>
                 <h4>culture</h4>
@@ -33,13 +47,15 @@
                 <ul class="cultures clearfix">
                 </ul>
             </div>
+            <div>
+                <ul id = "cultures2" class="cultures clearfix cultures2">
+                </ul>
+            </div>
             <div class="right" style="padding:20px 15px 0 0;">
-                <a class="gray">查看更多 ></a>
+                <a id= "gray1" class="gray" onclick = "cultureMore();">查看更多 ></a>
             </div>
         </div>
-    </section>
-    <section class="sec sec2">
-        <section class="caption3 light animated wow fadeInDown">
+        <!--<div class = "cap31">
             <div class="title">
                 <h3>智慧城市</h3>
                 <h5 class="gray">city</h5>
@@ -47,20 +63,21 @@
             <div class="caption31 center">
                 <div class="city">
                     <div class="earth"></div>
-                    <div class="line1" style="top:-2vh;left:13vw;background-image:url('${host}/static/img/智慧政务.png')"><span>智慧政务</span></div>
-                    <div class="line1" style="top:7vh;left:12.5vw;background-image:url('${host}/static/img/智慧交通.png')"><span>智慧交通</span></div>
-                    <div class="line1" style="top:16vh;left:10vw;background-image:url('${host}/static/img/智慧环保.png')"><span>智慧环保</span></div>
-                    <div class="line1" style="top:27.5vh;left:10vw;background-image:url('${host}/static/img/智慧食安.png')"><span>智慧食安</span></div>
-                    <div class="line1" style="top:41vh;left:12.5vw;background-image:url('${host}/static/img/智慧法律.png')"><span>智慧法律</span></div>
-                    <div class="line1" style="top:53vh;left:12.5vw;background-image:url('${host}/static/img/智慧口岸.png')"><span>智慧口岸</span></div>
-                    <div class="line2" style="top:-2vh;left:47vw;background-image:url('${host}/static/img/智慧生活.png')"><span>智慧生活</span></div>
-                    <div class="line2" style="top:7vh;left:51.1vw;background-image:url('${host}/static/img/智慧教育.png')"><span>智慧教育</span></div>
-                    <div class="line2" style="top:16vh;left:52vw;background-image:url('${host}/static/img/智慧医疗.png')"><span>智慧医疗</span></div>
-                    <div class="line2" style="top:27.5vh;left:51vw;background-image:url('${host}/static/img/智慧养老.png')"><span>智慧养老</span></div>
-                    <div class="line2" style="top:41vh;left:50vw;background-image:url('${host}/static/img/智慧社区.png')"><span>智慧社区</span></div>
-                    <div class="line2" style="top:53vh;left:48vw;background-image:url('${host}/static/img/智慧城市云.png')"><span>智慧城市云</span></div>
+                    <div class="line1" style="top:-2vh;left:13vw;background-image:url('${G.host}/static/img/智慧政务.png')"><span>智慧政务</span></div>
+                    <div class="line1" style="top:7vh;left:12.5vw;background-image:url('${G.host}/static/img/智慧交通.png')"><span>智慧交通</span></div>
+                    <div class="line1" style="top:16vh;left:10vw;background-image:url('${G.host}/static/img/智慧环保.png')"><span>智慧环保</span></div>
+                    <div class="line1" style="top:27.5vh;left:10vw;background-image:url('${G.host}/static/img/智慧食安.png')"><span>智慧食安</span></div>
+                    <div class="line1" style="top:41vh;left:12.5vw;background-image:url('${G.host}/static/img/智慧法律.png')"><span>智慧法律</span></div>
+                    <div class="line1" style="top:53vh;left:12.5vw;background-image:url('${G.host}/static/img/智慧口岸.png')"><span>智慧口岸</span></div>
+                    <div class="line2" style="top:-2vh;left:47vw;background-image:url('${G.host}/static/img/智慧生活.png')"><span>智慧生活</span></div>
+                    <div class="line2" style="top:7vh;left:51.1vw;background-image:url('${G.host}/static/img/智慧教育.png')"><span>智慧教育</span></div>
+                    <div class="line2" style="top:16vh;left:52vw;background-image:url('${G.host}/static/img/智慧医疗.png')"><span>智慧医疗</span></div>
+                    <div class="line2" style="top:27.5vh;left:51vw;background-image:url('${G.host}/static/img/智慧养老.png')"><span>智慧养老</span></div>
+                    <div class="line2" style="top:41vh;left:50vw;background-image:url('${G.host}/static/img/智慧社区.png')"><span>智慧社区</span></div>
+                    <div class="line2" style="top:53vh;left:48vw;background-image:url('${G.host}/static/img/智慧城市云.png')"><span>智慧城市云</span></div>
                 </div>
             </div>
+           </div> -->
         </section>
         <div class="caption4 light animated wow fadeInDown clearfix">
             <div style="padding:0 0 0 25px">
@@ -69,21 +86,21 @@
             </div>
             <div>
                 <ul class="newstab">
-                    <li>
-                        <div><img src="${host}/static/img/gdp.png" /></div>
+                    <!--<li>
+                        <div><img src="${G.host}/static/img/gdp.png" /></div>
                         <div><h3>浦城GDP</h3></div>
-                        <div class="msg"><p>生产总值增长9.0%。第一产业占地区生产总值的比重为28.6%，第二产业为36.0%,第三产业为35.4%。</p></div>
+                        <div class="msg"><p>生产总值增长10%。第一产业占地区生产总值的比重为28.6%，第二产业为34.0%,第三产业为37.4%。</p></div>
                     </li>
                     <li>
-                        <div><img src="${host}/static/img/eco.png" /></div>
+                        <div><img src="${G.host}/static/img/eco.png" /></div>
                         <div><h3>内外贸易</h3></div>
-                        <div class="msg"><p>全年社会消费品总额比上年增长8.9%。外贸方面，增长10.6%；外贸出口，增长7.2%。</p></div>
+                        <div class="msg"><p>全年社会消费品总额增长12%。外贸方面，增长10.6%；外贸出口，增长6.0%。</p></div>
                     </li>
                     <li>
-                        <div><img src="${host}/static/img/sec.png" /></div>
+                        <div><img src="${G.host}/static/img/sec.png" /></div>
                         <div><h3>社会保障</h3></div>
-                        <div class="msg"><p>居民人均可支配收入，比上年增长9.3%。人均消费支出增长8.9%。城镇居民比上年增长8.7%。</p></div>
-                    </li>
+                        <div class="msg"><p>居民人均可支配收入同比增长8.5%，人均消费支出增长8.3%。城镇居民比上年增长7.7%。</p></div>
+                    </li>-->
                 </ul>
             </div>
         </div>
@@ -99,47 +116,136 @@
                     </p>
                 </div>
                 <div class="col-md-3 clearifx">
-                    <div class="center"><a href="http://bszs.conac.cn/sitename?method=show&amp;id=0895EA7FF08B55BAE053012819ACDF52" target="_blank"><img vspace="0" hspace="0" border="0" src="${host}/static/img/red.png"></a></div>
+                    <div class="center"><a><img vspace="0" hspace="0" border="0" src="${G.host}/static/img/red.png"></a></div>
                 </div>
             </div>
         </div>
     </section>
+     <section class="sec_info">
+     	<div class="">
+     		<div class = "carousel_title"></div><i class = "s_close fa fa-times"  aria-hidden="true" style="font-size: 38px;"></i>
+     	</div>
+	    <div class="info_img">
+	    	 <center class = "centrr_img"><div id="posterTvGrid86804"></div></center>
+	    	 <div class = "centrr_info"></div>
+	    </div>
+    </section>
 </body>
 </html>
-<script type="text/javascript" src="${host}/static/lib/jquery.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/bootstrap.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/domi.app.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/jquery.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/bootstrap.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/domi.app.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/js/pcwl/posterTvGrid.js" ></script>
 <script>
+    var is = '${is}';
+//    var dat = eval('(' + is + ')');
+    var dat = JSON.parse(is);
+
+    var es = '${es}';
+    $(".newstab").html(es);
+
 $(document).ready(function(){
     init_culture();
     init_city();
 });
 function init_culture(){
-    var dat = [
-        {img_url:'${host}/static/upload/201904/民生文化1.png',createTime:'2019-04-22',title:'民生文化1'},
-        {img_url:'${host}/static/upload/201904/民生文化2.png',createTime:'2019-04-22',title:'民生文化2'},
-        {img_url:'${host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化3'},
-        {img_url:'${host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化4'}
-    ];
+/*    var dat = [
+        {img_url:'${G.host}/static/upload/201904/民生文化1.png',createTime:'2019-04-22',title:'民生文化1'},
+        {img_url:'${G.host}/static/upload/201904/民生文化2.png',createTime:'2019-04-22',title:'民生文化2'},
+        {img_url:'${G.host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化3'},
+        {img_url:'${G.host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化4'},
+        {img_url:'${G.host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化5'},
+        {img_url:'${G.host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化6'},
+        {img_url:'${G.host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化3'},
+        {img_url:'${G.host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化4'},
+        {img_url:'${G.host}/static/upload/201904/民生文化3.png',createTime:'2019-04-22',title:'民生文化5'},
+        {img_url:'${G.host}/static/upload/201904/民生文化4.png',createTime:'2019-04-22',title:'民生文化6'}
+    ];*/
     render_culture(dat);
 }
+var das = [];
 function render_culture(d){
+	das = d;
     var arr = [];
-    for (var i = 0; i < d.length; i++) {
-        arr.push('<li>',
-            ' <div dui="navtip" class="d-navtip">',
-            '<img src="'+d[i].img_url+'" alt="" /> ',
-            '<div class="msg">',
-            '<h3 class="clearfix">',
-            '<span class="left"><a class="line">查看详情</a></span>',
-            '<span class="right">'+d[i].createTime+'</span>',
-            '</h3>',
-            '</div>',
-            '</div>',
-            ' </li>');
-    }
+    var arr2 = [];
+    if (d.length>4) {
+    	for (var a = 0; a < 4; a++) {
+            arr.push('<li>',
+                ' <div dui="navtip" class="d-navtip">',
+                '<img src="'+d[a].img_url+'" alt="" /> ',
+                '<div class="msg">',
+                '<h3 class="clearfix">',
+                '<span class="left" onclick = "getLivingCultureInfo('+d[a].oid+')"><a class="line">查看详情</a></span>',
+                '<span class="right">'+d[a].title+'</span>',
+                '</h3>',
+                '</div>',
+                '</div>',
+                ' </li>');
+        }
+    	for (var b = 4; b < d.length; b++) {
+            arr2.push('<li>',
+                ' <div dui="navtip" class="d-navtip">',
+                '<img src="'+d[b].img_url+'" alt="" /> ',
+                '<div class="msg">',
+                '<h3 class="clearfix">',
+                '<span class="left" onclick = "getLivingCultureInfo('+d[b].oid+')"><a class="line">查看详情</a></span>',
+                '<span class="right">'+d[b].title+'</span>',
+                '</h3>',
+                '</div>',
+                '</div>',
+                ' </li>');
+        }
+	}else{
+		for (var i = 0; i < d.length; i++) {
+	        arr.push('<li>',
+	            ' <div dui="navtip" class="d-navtip">',
+	            '<img src="'+d[i].img_url+'" alt="" /> ',
+	            '<div class="msg">',
+	            '<h3 class="clearfix">',
+	            '<span class="left" onclick = "getLivingCultureInfo('+d[i].oid+')"><a class="line">查看详情</a></span>',
+	            '<span class="right">'+d[i].title+'</span>',
+	            '</h3>',
+	            '</div>',
+	            '</div>',
+	            ' </li>');
+	    }	
+	}
     var  str = arr.join('');
+    var  str2 = arr2.join('');
     $(".cultures").html(str).dui();
+    $("#cultures2").html(str2).dui();
+}
+
+function xmore(data){
+	$('.sec_info').addClass("sec_open");
+	wInfo(data);
+	 $(".s_close").click(function(){
+		 $('.sec_info').removeClass("sec_open");
+		 //addInfo(data2);
+	    });
+}
+function wInfo(dat){
+	
+	var str = '<p>'+'&emsp;&emsp;'+dat[0].content+'</p>';
+	$('.centrr_info').html(str);
+	$('.carousel_title').html('<p>'+dat[0].title+'</p>');
+	var posterTvGrid86804 = new posterTvGrid(
+    		'posterTvGrid86804',
+    		{className: "posterTvGrid"},
+    		dat
+    		);
+}
+
+function cultureMore(){
+	var id = $('#cultures2').attr('class').split(" ");
+	if(id[2] == 'cultures2'){
+		$("#gray1").html("收起");
+		$("#cultures2").removeClass("cultures2");
+	}else{
+		$("#gray1").html("查看详情");
+		$("#cultures2").addClass("cultures2");
+	}
 }
 
 function init_city(){
@@ -197,4 +303,20 @@ function init_city(){
     o[0].setImg = setImg;
     o[0].setActive = setActive;
 }
+
+    $('#btnlogin').click(function(){
+        var targetUrl  = "${G.host}/mainframe/goPcmssLogin";
+        window.location.href = targetUrl;
+    })
+
+    function getLivingCultureInfo(oid) {
+        $.ajax({
+            type: "post",
+            url: "${G.host}/puChengSmartCity/getLivingCultureInfo?id="+oid,
+            success: function (rs) {
+                var ds = rs.data;
+                xmore(ds);
+            }
+        });
+    }
 </script>
