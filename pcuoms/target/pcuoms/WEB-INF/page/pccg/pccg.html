@@ -2,10 +2,61 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/main.css">
-    <link rel="stylesheet" type="text/css" href="${host}/static/css/pccg.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/pccg.css">
+     <link rel="stylesheet" type="text/css" href="${G.host}/static/lib/perfect-scrollbar/css/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="${G.host}/static/css/font-awesome/css/font-awesome.min.css">
+    <style type="text/css">
+.card_bo img{
+	 animation: bounceInLeft1 0.8s;
+      transform:translateY(0px);
+}  
+@keyframes bounceInLeft1 {
+            0% {
+                opacity: 1;
+                transform: translateY(800px);
+            } 
+        }
+.ibox{
+ 	animation: bounceInLeft 0.8s  cubic-bezier(0.215, 0.610, 0.355, 1.000)
+  }  
+   @keyframes bounceInLeft {
+            0% {
+                opacity: 0;
+                transform: translate3d(800px, 0, 0);
+            }
+
+            100% {
+                transform: none;
+            }
+            }
+ .msg_ul li{
+ 	animation: bounceInLeft3 0.8s  cubic-bezier(0.215, 0.610, 0.355, 1.000)
+  }  
+   @keyframes bounceInLeft3 {
+            0% {
+                opacity: 0;
+                transform: translate3d(-800px, 0, 0);
+            }
+
+            100% {
+                transform: none;
+            }
+            }
+#rw_title{
+animation: bounceInLeft_t 0.7s;
+      transform:translateY(0px);
+      text-align: justify;
+}  
+@keyframes bounceInLeft_t {
+            0% {
+                opacity: 1;
+                transform: translateY(-200px);
+            } 
+        }                     
+    </style>
 </head>
 <body>
     <header class="headerpan clearfix" style="position: absolute;top:0;">
@@ -13,69 +64,69 @@
             <a class="logo" href="#">城市运营管理系统</a>
             <nav class="nav">
                 <ul class="tabl">
-                    <li><a href="${host}/mainframe/index">首页</a></li>
-                    <li><a href="${host}/mainframe/goBeautiful">大美浦城</a></li>
-                    <li><a href="${host}/mainframe/goAchievement">浦城成果</a></li>
-                    <li><a href="${host}/mainframe/goFuture">浦城未来</a></li>
-                    <li><div><button type="button" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>&emsp;登录</button></div></li>
+                    <li><a href="${G.host}/mainframe/index">首页</a></li>
+                    <li><a href="${G.host}/mainframe/goBeautiful">浦城现状</a></li>
+                    <li><a href="${G.host}/mainframe/goSmartCity">智慧城市</a></li>
+                    <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
+                    <li><div><button type="button" id ="btnlogin" style="padding: 2px 4px;" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>登录</button></div></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <section style="position: relative;" class="sec sec1">
+    <section style="position: relative;" class="sec sec4">
         
     </section>
     <section class="sec11 light animated wow fadeInDown">
         <div class="toolbar">
             <ul>
-                <li>
+                <li id = "l1">
                     <a>
-                        <i class="di di-muluxiangmu"></i>
-                        <span>重点项目</span>
+                        <i class="di di-muluxiangmu i_blue"></i>
+                        <span class = "i_blue">重点项目</span>
                     </a>
                 </li>
-                <li>
+                <li id = "l2">
                     <a>
                         <i class="di di-chanyetupu"></i>
                         <span>重点产业</span>
                     </a>
                 </li>
-                <li>
+               <!-- <li id = "l3">
                     <a>
                         <i class="di di-zhihuitiaodu"></i>
                         <span>指挥中心</span>
                     </a>
                 </li>
-                <li>
+                <li id = "l4">
                     <a>
                         <i class="di di-chaojidanao"></i>
                         <span>超级大脑</span>
                     </a>
                 </li>
-                <li>
+                <li id = "l5">
                     <a>
                         <i class="di di-jiedian"></i>
                         <span>数字农村</span>
                     </a>
                 </li>
-                <li>
+                <li id = "l6">
                     <a>
                         <i class="di di-zhihui"></i>
                         <span>智慧城管</span>
                     </a>
                 </li>
-                <li>
+                <li id = "l7">
                     <a>
                         <i class="di di-fuwu"></i>
                         <span>便民服务</span>
                     </a>
-                </li>
+                </li>-->
             </ul>
         </div>
     </section>
-    <section class="sec12">
+    <section class="sec12 scc1">
         <ul class="dashboard clearfix">
-            <li>
+            <!--<li>
                 <div>
                     <p class="btm">产业增长值</p>
                     <p class="top"><span class="blue font5 cc">431911</span><span class="blue font1">万元</span></p>
@@ -92,90 +143,83 @@
                     <p class="btm">旅游总收入</p>
                     <p class="top"><span class="blue font5 cc">31.69</span><span class="blue font1">亿元</span></p>
                 </div>
-            </li>
+            </li>-->
         </ul>
         <div class="news light animated wow fadeInDown">
             <div class="col-md-3 center h24 imgbox" style="padding:0;">
-                <img class="imgfit" style="object-position:top;" src="${host}/static/upload/201904/zdxm.png" />
+                <img class="imgfit" style="object-position:top;" src="${G.host}/static/upload/201904/achievement/zdxm.png" />
                 <div class="imgtext"><h3 style="text-align: center;color:#fff;">重点项目</h3></div>
             </div>
             <div class="col-md-9">
                 <div id="rw" class="tab-pane fade in active center" style="height:115px;">
-                    <p>
-                        项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。
-                    </p>
                 </div>
             </div>
         </div>
         <div class="proj light animated wow fadeInDown clearfix">
-            <div class="col-md-8 h24">
+            <div class="col-md-6 h24">
                 <div class="map">
                     
                     <div class="msg center">
-                        <ul>
-                            <li>
-                                <div class="left">包装重点建设项目<span class="blue">（102）个</span></div>
-                                <div class="right">关注度高的大项目<span class="blue">（31）个</span></div>
-                            </li>
-                            <li>
-                                <div class="left">总投资<span class="blue">（254.8）亿元</span></div>
-                                <div class="right">重点建设项目完成投资<span class="blue">（107.75）亿元</span></div>
-                            </li>
-                            <li><div>市级重点项目完成投资<span class="blue">（43.05）亿元</span></div></li>
+                        <ul class = "msg_ul">
                         </ul>
                     </div>
-                    <div class="btnrow">
+                   <!--  <div class="btnrow">
                         <button type="button" class="btn btn-primary btn-lg btn-block">查看更多项目</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="col-md-6 card">
                     <div class='poster-main carousel'>
                         <div class='poster-btn poster-prev-btn center'><span class="glyphicon glyphicon-menu-left"></span></div>
                         <ul class='poster-list'>
-                            <li class="list-item"> 
-                                <div class="ibox">
-                                    <a>
-                                        <img src="${host}/static/upload/201904/p01.png" alt="">
-                                        <h5 class="b">五馆一中心</h5>
-                                        <p>
-                                            位于浦城县南环路体育场内，<br/>
-                                            总建筑面积8181.16平方
-                                        </p>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="ibox">
-                                    <a>
-                                        <img src="${host}/static/upload/201904/p02.png" alt="">
-                                        <h5 class="b">上浦高速项目</h5>
-                                        <p>
-                                            江西上饶至浦城高速公路上饶段纳入<br/>
-                                            全省高速公路网<br/>
-                                            路线总长50.405公里，总占地6078.1亩<br/>
-                                            均为新增建设用地。
-                                        </p>
-                                    </a>
-                                    
-                                </div>
-                            </li>
-                            <li class="list-item">
-                                <div class="ibox">
-                                    <a>
-                                        <img src="${host}/static/upload/201904/p03.png" alt="">
-                                        <h5 class="b">最大光伏发电+农业模式项目</h5>
-                                        <p>
-                                            该项目总投资约15亿元
-                                        </p>
-                                    </a>
-                                </div>
-                            </li>
+                            
                         </ul>
                         <div class='poster-btn poster-next-btn center'><span class="glyphicon glyphicon-menu-right"></span></div>
                     </div>
             </div>
+    </section>
+    
+     <section class="sec12 scc2 scs">
+       <!--  <ul class="dashboard1 clearfix">
+           
+        </ul> -->
+    <!--    <div class="news light animated wow fadeInDown" style="margin-top: 2%;border-bottom: 1.9px dashed #848080">
+            <div class="col-md-2 center h24 imgbox" style="padding:0;">
+                <div class="imgtext imgtext2"><h3 style="color: #212233"></h3></div>
+            </div>
+            <div class="col-md-10 center h24 msg_info"">
+            
+            </div>
         </div>
+        <div class="proj light animated wow fadeInDown clearfix">
+            <div class="col-md-12 card card_bo">
+            </div>
+        </div>-->
+         <div class="btnrow" style="width:30%;margin-left: 35%;margin-top: 60px;">
+            	
+            <button type="button" class="btn btn-lg btn-block btn_l1"></button>
+           	<button type="button" class="btn btn-primary btn-lg btn-block btn_l2" style="width:294px;">进入系统</button>
+          </div>
+    </section>
+     <section class="sec_info">
+     	<div class="">
+     		<div class = "carousel_title"></div><i class = "s_close fa fa-times"  aria-hidden="true" style="font-size: 38px;"></i>
+     	</div>
+	    <div class="info_img">
+	    	<div id="carousel">
+				<div id="container" tcc-rotation="0">
+				</div>
+				
+				<nav class="tc-btn-container">
+					<div class="tc tc-next"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+					<div class="tc tc-prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+				</nav>
+				
+			</div>
+			<div class = "carousel_info">
+			
+			</div>
+	    </div>
     </section>
     
     <section class="sec">
@@ -193,31 +237,185 @@
                     </p>
                 </div>
                 <div class="col-md-3 clearifx">
-                    <div class="center"><a href="http://bszs.conac.cn/sitename?method=show&amp;id=0895EA7FF08B55BAE053012819ACDF52" target="_blank"><img vspace="0" hspace="0" border="0" src="${host}/static/img/red.png"></a></div>
+                    <div class="center"><a><img vspace="0" hspace="0" border="0" src="${G.host}/static/img/red.png"></a></div>
                 </div>
             </div>
         </div>
     </section>
 </body>
 </html>
-<script type="text/javascript" src="${host}/static/lib/jquery.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/bootstrap.min.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/domi.app.js" ></script>
-<script type="text/javascript" src="${host}/static/lib/plugin/carousel.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/jquery.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/bootstrap.min.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/domi.app.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/plugin/carousel.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/jquery.mousewheel.js" ></script>
+<script type="text/javascript" src="${G.host}/static/lib/perfect-scrollbar/js/perfect-scrollbar.min.js" ></script>
 <script>
 var _h = $(window).height();
+
+var is = '${is}';
+//var ps = '${ps}';
+//alert(ps);
+var ps ='<li> <div>  <p class="btm">总投资金额</p>  <p class="top"><span class="blue font5 cc">385.6</span><span class="blue font1">亿元</span></p> </div> </li> <li> <div>  <p class="btm">总投资项目</p>  <p class="top"><span class="blue font5 cc">193</span><span class="blue font1">项</span></p> </div> </li> <li> <div>  <p class="btm">省市重点项目</p>  <p class="top"><span class="blue font5 cc">28</span><span class="blue font1">项</span></p> </div> </li>';
+$(".dashboard").html(ps);
+
+
+var iy = '${iy}';
+var inf2 = iy;
+//var inf2 = JSON.parse(iy);
+
+
+var py = '${py}';
+var inf1 = py;
+//var inf1 = JSON.parse(py);
+
+
+var ii = '${ii}';
+ii = JSON.parse(ii);
+var das2 =ii;
+var ig = '${ig}';
+ig = JSON.parse(ig);
+var dat2 =ig;
+
+
+var pi = '${pi}';
+pi = JSON.parse(pi);
+var das1 =pi;
+
+var pg = '${pg}';
+
+pg = JSON.parse(pg);
+
+var dat1 =pg;
+
+
 $(document).ready(function(){
     $(".cc").countTo({sec:1500,ts:100});
-    init_card();
-    init_toolbar();
+    brand(1);
+    //init_lunbo();
 });
+var dat = [];
+function brand(d){
+/*	var inf1 = '&emsp;&emsp;项目建设牵动发展全局。近年来，我县持续抓住“项目为纲”目标不动摇，大力开展重大项目攻坚活动，千方百计引项目，创新举措攻项目，引力推进了一批大项目、好项目开工建设。这些项目涉及产业发展、基础设施、民生保障、社会事业等领域，充分体现了项目投资的社会导向发展需求，充分体现了项目攻坚和招商引资的成效。';
+	var inf2 = '&emsp;&emsp;食品加工、轻纺轻工、生物制药三大产业继续在浦城县经济持续、快速发展中领跑,发挥着重要的主导和支撑作用。';
+	var dat1 = [{img_url:'${G.host}/static/upload/201904/p01.png',title:'五馆一中心',content:'&emsp;&emsp; 位于浦城县南环路体育场内，总建筑面积8181.16平方'},
+	           {img_url:'${G.host}/static/upload/201904/p02.png',title:'上浦高速项目',content:'&emsp;&emsp;江西上饶至浦城高速公路上饶段纳入全省高速公路网路线总长50.405公里，总占地6078.1亩均为新增建设用地。'},
+	           {img_url:'${G.host}/static/upload/201904/g3.jpg',title:'最大光伏发电+农业模式项目',content:'&emsp;&emsp;该项目总投资约15亿元'}
+	           ];
+	var dat2 = [{img_url:'${G.host}/static/upload/zdcy/spjg.png',title:'食品加工',content:'&emsp;&emsp; 食品加工产业园规划用地2000亩。产业园内包括食品加工、交易、卫生检疫等区域。拟重点引进灵芝、丹桂、薏米、山茶油、包酒、系列保健品、肉类提取物等研发、加工、生产企业入驻。'},
+	           {img_url:'${G.host}/static/upload/zdcy/qfqg.png',title:'轻纺轻工',content:'&emsp;&emsp;新型轻纺轻工在美丽浦城荣华山脚下的轻纺专业园发展已成集聚效益。'},
+	           {img_url:'${G.host}/static/upload/zdcy/swzy.png',title:'生物制药',content:'&emsp;&emsp;浦城县人民政府与 蒙正公司签约的项目为总投资约22亿元。'}
+	           ];
+	var das1 = [{title:'包装重点建设项目',value:'102',unit:'个'},
+	           {title:'关注度高的大项目',value:'31',unit:'个'},
+	           {title:'总投资',value:'254.8',unit:'亿元'},
+	           {title:'重点建设项目完成投资',value:'107.75',unit:'亿元'},
+	           {title:'市级重点项目完成投资',value:'43.05',unit:'亿元'}
+	           ];
+	var das2 = [{title:'规上工业企业累计产值',value:'106.1',unit:'亿元'},
+	           {title:'同比增长',value:'17.4',unit:'%'},
+	           {title:'规上工业增加值',value:'29.7',unit:'亿元'},
+	           {title:'三大主导产业工业总产值',value:'83.4',unit:'亿元'},
+	           {title:'同比增长',value:'29.8',unit:'%'},
+	           {title:'占规模工业总产值',value:'78.6',unit:'%'}
+	           ];*/
+	var inf = inf1;
+	dat = dat1;
+	var das = das1;
+	if(d == 2){
+		inf = inf2;
+		dat = dat2;
+		das = das2;
+	}
+	//alert(JSON.stringify(dat));
+	var arr = [];
+	for (var i = 0; i < dat.length; i++) {
+		//var st = '';
+		var cen = dat[i].name.length>90?(dat[i].name.substring(0, 90)+" ....."):dat[i].name;
+		arr.push(
+				'<li class="list-item list'+i+'">', 
+                                '<div class="ibox">',
+                                    '<a>',
+                                        '<img src="'+dat[i].img_url+'" alt="">',
+                                        '<h5 class="b">'+dat[i].title+'</h5>',
+                                        '<p>'+cen+'</p>',
+                                    '</a>',
+                                    '<div class = "xxi" onclick = "xmore('+i+')">查看详情</div>',
+                                '</div>',
+                            '</li>');
+	}
+
+	var arr2 = '';
+	for (var j = 0; j < Math.ceil(das.length/2); j++) {
+		arr2 = arr2+'<li>'+
+                    '<div class="left">'+das[j*2].title+'<span class="blue">（'+das[j*2].value+'）'+das[j*2].unit+'</span></div>';
+                    if(j*2+1<=das.length-1){
+                    	arr2 = arr2+ '<div class="right">'+das[j*2+1].title+'<span class="blue">（'+das[j*2+1].value+'）'+das[j*2+1].unit+'</span></div>';
+                    }
+                    arr2 = arr2+ '</li>';
+	}
+
+	var str = arr.join('');
+	 $(".poster-list").html(str);
+	 $("#rw").html('<p id = "rw_title">'+'&emsp;&emsp;'+inf+'</p>');
+	 $(".msg_ul").html(arr2);
+	 init_card();
+	 init_toolbar();
+	 if(dat.length%2 == 0){
+		 $("ul li:last-child").css('display','none'); 
+	 }
+	 $(".sec_info").mouseover(function () {
+		 //禁止滚动
+         var top = $(document).scrollTop();
+         $(document).on('scroll.unable',function (e) {
+             $(document).scrollTop(top);
+         })
+     }).mouseout(function () {
+         //移除恢复滚动
+         $(document).unbind("scroll.unable");
+     });
+}	
+
+function xmore(d){
+	$('.sec_info').addClass("sec_open");
+	//$("#info_til").html(til);
+	 sec_info(dat,dat.length,d);
+	 $(".s_close").click(function(){
+		 $('.sec_info').removeClass("sec_open");
+		 //addInfo(data2);
+	    });
+}
+
+
+
+
 function init_toolbar(){
     var li = $(".toolbar li");
     li.click(function(){
         var t = $(this);
+        var s = '#'+this.id+' a i';
+        var s1 = '#'+this.id+' a span';
         li.removeClass("active");
         t.addClass("active");
         $(".news .imgtext h3").text(t.text());
+        $('.toolbar ul li a i').removeClass("i_blue");
+        $('.toolbar ul li a span').removeClass("i_blue");
+        $(s).addClass("i_blue");
+        $(s1).addClass("i_blue");
+        $('.sec12').removeClass("scs");
+        if(this.id == 'l2'||this.id == 'l1'){
+        	$('.scc2').addClass("scs");
+        }else{
+        	$('.scc1').addClass("scs");
+        }
+        if(this.id == 'l2'){
+            $(".dashboard").html(is);
+        	brand(2);
+        }else if(this.id == 'l1'){
+            $(".dashboard").html(ps);
+        	brand(1);
+        }
+
     })
 }
 function init_card(){
@@ -235,4 +433,84 @@ function init_card(){
     };
     Carousel.init($('.carousel'),opt);
 }
+function sec_info(data,s,d){
+	var str = "";
+	var v = 0;
+    var dr = "";
+    var dv = d;
+	for (var i = 0; i < data.length; i++) {
+	    if(d == i){
+            dr = '<item item-img = "'+i+'"><img height="130px" width = "200px" src="'+data[i].img_url+'"></item>';
+        }else{
+            str = str + '<item item-img = "'+i+'"><img height="130px" width = "200px" src="'+data[i].img_url+'"></item>';
+        }
+	}
+    str = dr + str;
+	$('#container').html(str);
+	putInfo(data,v,dv);
+	  var crotation;
+	    var rotateto = 0;
+	    var itemCount = $('item').length; // count of items in corousel
+	    var tcItemInitialRotation = 360/itemCount;
+	    var tcZDistance =  200+(s>4?(s-4):s)*23;
+	    
+	    $('item').each( function(index) {
+	                   
+	        $(this).css({
+	            'transform' : 'rotateY('+( tcItemInitialRotation * index )+'deg) translateZ('+tcZDistance+'px)'
+	        }).attr('tc-rotation', ( tcItemInitialRotation * index ) );
+
+	    });
+	    $('.tc').css('display','');
+	    if (data.length<2) {
+			$('.tc').css('display','none');
+		}
+	    
+	    function tcRotate(tcdeg){
+	        $('#container').css({
+	            'transform'         : 'rotateY('+ tcdeg +'deg)',
+	            '-ms-transform'     : 'rotateY('+ tcdeg +'deg)',
+	            '-webkit-transform' : 'rotateY('+ tcdeg +'deg)'
+	        });
+	    }
+	    $('item').on('click', function(){
+	        crotation = $('#container').attr('tcc-rotation');
+	        var rotation = $(this).attr('tc-rotation');
+	        rotateto = crotation - rotation;
+	        tcRotate(rotateto);
+	        crotation = rotateto;
+	        v =$(this).attr('item-img');
+            putInfo(data,v,'z')
+	    });
+	    
+	    $('.tc-next').on('click', function(){
+	    	v = (v*1 + 1)<(data.length)?(v*1 + 1):0;
+	        rotateto -= tcItemInitialRotation;
+	        tcRotate(rotateto);
+            putInfo(data,v,'z')
+	    });
+	    $('.tc-prev').on('click', function(){
+	    	v = (v*1 - 1)<0?(data.length-1):(v*1 - 1);
+	        rotateto += tcItemInitialRotation;
+	        tcRotate(rotateto);
+	        putInfo(data,v,'z')
+	    });
+}
+function putInfo(data,i,d){
+    if(d == 'z'){
+        $('.carousel_info').html('<div><p>'+'&emsp;&emsp;'+data[i].content.replace(/s47/g,"/")+'</p></div>');
+        $('.carousel_title').html('<p>'+data[i].title+'</p>');
+    }else{
+        $('.carousel_info').html('<div><p>'+'&emsp;&emsp;'+data[d].content.replace(/s47/g,"/")+'</p></div>');
+        $('.carousel_title').html('<p>'+data[d].title+'</p>');
+    }
+
+}
+
+
+$('#btnlogin').click(function(){
+    var targetUrl  = "${G.host}/mainframe/goPcmssLogin";
+    window.location.href = targetUrl;
+})
+
 </script>
