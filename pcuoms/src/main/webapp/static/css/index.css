@@ -83,20 +83,19 @@ transform: translateX(4px) translateY(2px) rotate(-45deg);
 .slider-nav li a{cursor: pointer;}
 .slider-nav li a div{display: inline-block;}
 .slider-nav li a .tag{display: none;padding-left:5px;}
-.slider-nav li a .line{height:2px;width:25px;background: #fff;line-height: 1px;transition:width 0.3s linear;}
+.slider-nav li a .line{height:2px;width:15px;background: #fff;line-height: 1px;transition:width 0.3s linear;}
 .slider-nav li.active a{color:#026aff;}
 .slider-nav li.active a .tag,.slider-nav li a:hover .tag{display:inline;}
-.slider-nav li.active a .line,.slider-nav li a:hover .line{width:40px;background:#026aff;}
+.slider-nav li.active a .line,.slider-nav li a:hover .line{width:30px;background:#026aff;}
 .slider-inner{height:100%;}
 .slider-inner .item{position: relative;height:100%;}
 .slider-img {display: table;text-align:center;height:100%;}
 .slider-img img{display: table-cell;vertical-align: middle;width:100%;height:90%;padding-top:20px;}
-/*.slider-content{height:90%;text-align:left;}*/
-.slider-content{height:90%;text-align:justify;}
+.slider-content{height:90%;text-align:left;}
 .slider-content .head{height:40%;text-align: right;font-size:2rem;color:#d7e7ff;}
-.slider-content .body{height:63%;}
+.slider-content .body{height:35%;}
 .slider-content .foot{height:25%;}
-.slider-content .foot p{color:gray;cursor:pointer;}
+.slider-content .foot a{color:gray;}
 .slider-title{position: absolute;font-size:3rem;left:42%;top:15%;color:#5899ff;}
 
 .caption3{height:60vh;}
@@ -126,54 +125,3 @@ transform: translateX(4px) translateY(2px) rotate(-45deg);
 .navform a{font-size:1.2rem;color:#aaa;}
 .navform a span{padding-left:20px;}
 .navform ul li{text-align: right;height:30px;line-height: 30px;}
-
-
-
-
-
- .s_title{
-            animation: bounceInLeft 1s  cubic-bezier(0.215, 0.610, 0.355, 1.000)
-        }
-        .slider-content{
-            animation: bounceInLeft 1.2s  cubic-bezier(0.215, 0.610, 0.355, 1.000)
-        }
-        .z_img1{
-            animation: bounceInLeft1 1s;
-            transform:translateY(0px);
-        }
-        .z_img2{
-            animation: bounceInLeft2 1s;
-            transform:translateY(0px);
-        }
-        @keyframes bounceInLeft1 {
-            0% {
-                opacity: 1;
-                transform: translateY(800px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
-        @keyframes bounceInLeft2 {
-            0% {
-                opacity: 1;
-                transform: translateY(-800px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0px);
-            }
-        }
-        @keyframes bounceInLeft {
-            0% {
-                opacity: 0;
-                transform: translate3d(5000px, 0, 0);
-            }
-
-            100% {
-                transform: none;
-            }
-        }

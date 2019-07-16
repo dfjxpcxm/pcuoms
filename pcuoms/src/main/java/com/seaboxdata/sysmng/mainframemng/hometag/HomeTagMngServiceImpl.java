@@ -30,6 +30,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -80,8 +81,28 @@ public class HomeTagMngServiceImpl extends SysBaseService<HomeTagMngDO> implemen
         queryMap.put("flag",flag);
         List<Map<String, Object>>  retList  = dao.getMainframeHomeTagInfo(queryMap);
         if(null != retList && !retList.isEmpty()){
-            retStr = JsonUtil.serialize(retList);
+            retStr = this.getMainframeHomeTagStrInfo(retList);
         }
         return  retStr;
+    }
+
+
+
+
+    /*
+     * 返回主页标签内容
+     *
+     *  <a class="tags" target="_blank" href="#">福建北大门</a>
+     *  <a class="tags" target="_blank"   href="#">中国丹桂之乡</a>
+     */
+    public String getMainframeHomeTagStrInfo(List<Map<String,Object>> retList){
+        String content = "";
+        StringBuffer sb = new StringBuffer();
+        for(Map<String,Object> mp :retList){
+            content = mp.get("tag_content").toString();
+            sb.append("  <a class=\"tags\" target=\"_blank\"  href=\"#\">"+content+"</a>");
+        }
+        String retStr = sb.toString();
+        return retStr;
     }
 }

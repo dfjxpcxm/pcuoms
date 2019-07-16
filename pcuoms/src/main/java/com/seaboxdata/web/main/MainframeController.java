@@ -9,6 +9,7 @@ import com.seaboxdata.sysmng.gotopuchengmng.puchenghistoricculture.IPuChengHisto
 import com.seaboxdata.sysmng.gotopuchengmng.puchenghumangeog.IPuChengHumanGeogService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengruraltourism.IPuChengRuralTourismService;
 import com.seaboxdata.sysmng.gotopuchengmng.puchengsummarize.IPuChengSummarizeService;
+import com.seaboxdata.sysmng.mainframemng.hometag.IHomeTagMngService;
 import com.seaboxdata.sysmng.mainframemng.propagatemng.IPropagateMngService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustincm.IPuChengIndustIncmService;
 import com.seaboxdata.sysmng.puchengachievement.puchengindustinvest.IPuChengIndustInvestService;
@@ -34,6 +35,9 @@ import javax.annotation.Resource;
 @Scope("prototype")
 @RequestMapping(value = "/mainframe")
 public class MainframeController extends SysBaseController {
+
+    @Resource(name = "homeTagMngService")
+    private IHomeTagMngService homeTagMngService;
 
     @Resource(name = "propagateMngService")
     private IPropagateMngService propagateMngService;
@@ -95,9 +99,12 @@ public class MainframeController extends SysBaseController {
      */
     @RequestMapping
     public String index(ModelMap model){
-        String flag=request.getParameter("flag");
+        String flag = request.getParameter("flag");
+        String tags = homeTagMngService.getMainframeHomeTagInfo(flag);
         String jsonStr = propagateMngService.getMainframePropagateInfo(flag);
+        System.out.println("tags="+tags);
         System.out.println("jsonStr="+jsonStr);
+        model.addAttribute("tg", tags);
         model.addAttribute("data", jsonStr);
         return "page/home/index";
     }

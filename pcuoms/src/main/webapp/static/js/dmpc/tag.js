@@ -236,7 +236,7 @@ function sineCosine( a, b, c)
 	sc = Math.sin(c * dtr);
 	cc = Math.cos(c * dtr);
 }*/
-var tagEle = "querySelectorAll" in document ? document.querySelectorAll(".tag") : getClass("tag"),
+var tagEle = "querySelectorAll" in document ? document.querySelectorAll(".tags") : getClass("tags"),
 	paper = "querySelectorAll" in document ? document.querySelector(".tagBall") : getClass("tagBall")[0];
 RADIUS =300,
 	fallLength = 500,
