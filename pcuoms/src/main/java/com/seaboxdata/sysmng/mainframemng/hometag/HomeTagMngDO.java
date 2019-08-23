@@ -50,6 +50,9 @@ public class HomeTagMngDO implements java.io.Serializable {
      *内容
      */
     private String tag_content;
+
+
+    private String tag_style;
     /**
      *状态
      */
@@ -140,4 +143,11 @@ public class HomeTagMngDO implements java.io.Serializable {
         this.order_by = order_by;
     }
 
+    public String getTag_style() {
+        return tag_style;
+    }
+
+    public void setTag_style(String tag_style) {
+        this.tag_style = tag_style;
+    }
 }

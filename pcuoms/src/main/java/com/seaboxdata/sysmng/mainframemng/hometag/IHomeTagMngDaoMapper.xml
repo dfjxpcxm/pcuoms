@@ -46,6 +46,7 @@
 		insert into t01_home_tag (
 			 module_id,
 			 tag_content,
+			 tag_style,
 			 index_state,
 			 pub_state,
 			 order_by,
@@ -54,6 +55,7 @@
 		)values(
 			 #{module_id},
 			 #{tag_content},
+			 #{tag_style},
 			 #{index_state},
 			 #{pub_state},
 			 #{order_by},
@@ -70,6 +72,7 @@
 			  ,index_state=#{index_state}
 			  ,pub_state=#{pub_state}
 			  ,order_by=#{order_by}
+			  ,tag_style=#{tag_style}
 			  ,cre_time=now()
 			  ,upd_time=now()
 		 where tag_id = #{tag_id}
@@ -114,7 +117,11 @@
 	</update>
 
 	<select id="getMainframeHomeTagInfo" parameterType="map" resultType="map">
-		select * from t01_home_tag   where 1=1
+		select tag_id,module_id,tag_content,
+		case when tag_style is null then 'null'
+		else tag_style end
+		as tag_style,
+		index_state,pub_state,order_by,cre_time,upd_time from t01_home_tag   where 1=1
 		<if test="flag != null and flag == pre "><![CDATA[
 	      and index_state=1
 		]]></if>

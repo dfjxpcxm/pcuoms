@@ -118,24 +118,22 @@
 
 	<select id="getPuChengHumanGeogInfo" parameterType="map" resultType="map">
 		select index_title as title,index_content as content,img_path as img_url,order_by from t02_cult_geograph
-		where 1=1
+		where group_id=1
 		<if test="flag != null and flag == pre "><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[
 	       and  pub_state=1 and index_state=1
 	    ]]></if>
-
 		union all
 		select index_title as title,index_content as content,img_path as img_url,order_by from t02_his_cult
-		where 1=1
+		where group_id =1
 		<if test="flag != null and flag == pre "><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[
 	       and  pub_state=1 and index_state=1
 	    ]]></if>
-
 		order by order_by
 	</select>
 

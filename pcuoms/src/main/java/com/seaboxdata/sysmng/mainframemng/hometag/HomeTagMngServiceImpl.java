@@ -92,17 +92,26 @@ public class HomeTagMngServiceImpl extends SysBaseService<HomeTagMngDO> implemen
     /*
      * 返回主页标签内容
      *
-     *  <a class="tags" target="_blank" href="#">福建北大门</a>
+     *  <a class="tags" target="_blank" style="color:#d35745;" href="#">福建北大门</a>
      *  <a class="tags" target="_blank"   href="#">中国丹桂之乡</a>
      */
     public String getMainframeHomeTagStrInfo(List<Map<String,Object>> retList){
         String content = "";
+        String style = "";
         StringBuffer sb = new StringBuffer();
         for(Map<String,Object> mp :retList){
             content = mp.get("tag_content").toString();
-            sb.append("  <a class=\"tags\" target=\"_blank\"  href=\"#\">"+content+"</a>");
+            style = mp.get("tag_style").toString();
+            if("null".equals(style)){
+                sb.append("  <a class=\"tags\" target=\"_blank\"  href=\"#\">"+content+"</a>");
+            }else{
+                sb.append("  <a class=\"tags\" target=\"_blank\" "+style+"  href=\"#\">"+content+"</a>");
+            }
+
+
         }
         String retStr = sb.toString();
+        System.out.printf(""+retStr);
         return retStr;
     }
 }
