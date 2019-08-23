@@ -2,6 +2,7 @@ package com.seaboxdata.core.util;
 
 import com.seaboxdata.core.util.common.PropertiesUtil;
 import com.seaboxdata.core.util.common.QCommon;
+import com.seaboxdata.core.util.common.SysCommon;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -68,7 +69,11 @@ public class FileUtil {
         MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
         //创建文件夹
  //       String baseDir = PropertiesUtil.getPropery("file.dir");
-        String baseDir  = request.getSession().getServletContext().getRealPath("/static/upload/");
+
+
+
+       // String baseDir  = request.getSession().getServletContext().getRealPath("/static/upload/");
+        String baseDir  = SysCommon.getFilePath();
         File dirPath = new File(baseDir + SRC_UPLOAD_PATH);
 
         if (!dirPath.exists()) {
