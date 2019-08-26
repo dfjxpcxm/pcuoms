@@ -68,14 +68,9 @@ public class FileUtil {
         //将request变成多部分request
         MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
         //创建文件夹
- //       String baseDir = PropertiesUtil.getPropery("file.dir");
-
-
-
-       // String baseDir  = request.getSession().getServletContext().getRealPath("/static/upload/");
-        String baseDir  = SysCommon.getFilePath();
+     //   String baseDir  = request.getSession().getServletContext().getRealPath("/static/upload/");
+        String baseDir = SysCommon.getFilePath();
         File dirPath = new File(baseDir + SRC_UPLOAD_PATH);
-
         if (!dirPath.exists()) {
             dirPath.mkdirs();
         }
@@ -91,7 +86,7 @@ public class FileUtil {
                     String oldname = file.getOriginalFilename();
                     String suffix = oldname.indexOf(".") != -1 ? oldname.substring(oldname.lastIndexOf(".")) : "";
                     String fname = QCommon.getUUID() + suffix;
-///                    String fname = oldname;
+//                    String fname = oldname;
                     File uploadFile = new File(dirPath + File.separator + fname);
                     FileCopyUtils.copy(file.getBytes(), uploadFile);
                     String url = TARGE_UPLOAD_PATH + fname;
@@ -106,9 +101,6 @@ public class FileUtil {
     }
 
 
-
-
-//    private final static String TARGE_UPLOAD_PATH = "upload/files/pc/";
     private final static String TARGE_UPLOAD_PATH = "/pcuoms/static/upload/201904/";
 
     private final static String SRC_UPLOAD_PATH = "/201904/";
