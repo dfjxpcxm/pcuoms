@@ -112,7 +112,7 @@
 	<select id="getPCEconomicInfo" parameterType="map" resultType="map">
 	       select e.index_title as title, e.img_path as img_url,e.index_content as content from t04_economic e
 			where  1=1
-			<if test="flag != null and flag == pre "><![CDATA[
+			<if test="flag != null"><![CDATA[
 			  and e.index_state=1
 			]]></if>
 			<if test="flag == null"><![CDATA[

@@ -124,7 +124,7 @@
 	<select id="getMainframePropagateInfo" parameterType="map" resultType="map">
 		select img_path as img_url, index_tag as tag,index_title as title,
 		 index_content as content from  t01_propagate   where 1=1
-		<if test="flag != null and flag == pre "><![CDATA[
+		<if test="flag != null"><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[

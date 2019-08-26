@@ -124,7 +124,7 @@
 					where  a.index_state=1 and a.pub_state=1
 			) a on e.culture_id =a.culture_id
 			where  1=1
-			<if test="flag != null and flag == pre ">
+			<if test="flag != null">
 				<![CDATA[
 				  and e.index_state=1
 				]]></if>

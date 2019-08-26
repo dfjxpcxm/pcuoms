@@ -105,7 +105,7 @@
 	<select id="getPuChengSummarizeInfo" parameterType="map" resultType="map">
 		select index_title,index_content,index_unit from t02_basic_facts
 		where 1=1
-		<if test="flag != null and flag == pre "><![CDATA[
+		<if test="flag != null"><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[

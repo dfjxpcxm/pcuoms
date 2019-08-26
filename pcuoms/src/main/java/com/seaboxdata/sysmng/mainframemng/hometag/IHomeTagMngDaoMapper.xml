@@ -122,7 +122,7 @@
 		else tag_style end
 		as tag_style,
 		index_state,pub_state,order_by,cre_time,upd_time from t01_home_tag   where 1=1
-		<if test="flag != null and flag == pre "><![CDATA[
+		<if test="flag != null"><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[

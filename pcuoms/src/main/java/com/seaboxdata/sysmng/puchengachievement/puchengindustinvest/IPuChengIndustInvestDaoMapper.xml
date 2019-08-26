@@ -122,7 +122,7 @@
 	<select id="getPCIndustInvestIndexInfo" parameterType="map" resultType="map">
 		select index_title as title,
 		 index_content as value,index_unit as unit from  t03_indust_invest   where 1=1
-		<if test="flag != null and flag == pre "><![CDATA[
+		<if test="flag != null"><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[
@@ -133,8 +133,8 @@
 
 	<select id="getPCIndustInvestImgInfo" parameterType="map" resultType="map">
 		select img_path as img_url, index_title as title,index_name as name,
-		 index_content as content from  t03_indust_invest   where 1=1
-		<if test="flag != null and flag == pre "><![CDATA[
+		 index_content as content from  t03_indust_invest  where 1=1
+		<if test="flag != null"><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[

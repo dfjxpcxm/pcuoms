@@ -132,7 +132,7 @@
 	<select id="getPuChengGeographCultureInfo" parameterType="map" resultType="map">
 		select  CONCAT(module_id,group_id) as id,index_title as title,index_content as content,img_path as img_url from t02_cult_geograph
 		where 1=1
-		<if test="flag != null and flag == pre "><![CDATA[
+		<if test="flag != null"><![CDATA[
 	      and index_state=1
 		]]></if>
 		<if test="flag == null"><![CDATA[
