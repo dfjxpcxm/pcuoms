@@ -25,7 +25,7 @@
         <property name="locations">
             <list>
                 <value>classpath:/properties/jdbc.properties</value>
-<!--                <value>classpath:/properties/config.properties</value>-->
+                <value>classpath:/properties/config.properties</value>
             </list>
         </property>
     </bean>
@@ -38,7 +38,7 @@
         <property name="password" value="${jdbc.password}" />
 
         <property name="initialSize" value="5" />
-        <property name="maxActive" value="100" />
+        <property name="maxActive" value="10" />
         <property name="minIdle" value="10" />
         <property name="maxWait" value="60000" />
         <property name="validationQuery" value="SELECT 'x'" />
@@ -50,8 +50,6 @@
         <property name="removeAbandoned" value="true" />
         <property name="removeAbandonedTimeout" value="1800" />
         <property name="logAbandoned" value="true" />
-        <!-- 开启Druid的监控统计功能 -->
-        <property name="filters" value="stat" />
     </bean>
     
     
