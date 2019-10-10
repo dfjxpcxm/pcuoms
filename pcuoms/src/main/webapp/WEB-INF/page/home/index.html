@@ -442,48 +442,70 @@ function render_lunbo(d) {
         $(this).siblings().removeClass("active");
         $(this).addClass("active");
     });
+    var obj_lis = $(".slider-nav li");
+    var obj_lisL = obj_lis.length;
+    var indexL = 0;
+   //  var t1=window.setInterval(refreshCount,5000);
+    // var liname=$(".slider-nav li data-slide-to");
+     function refreshCount() {
+         indexL++;
+         // indexL%=lengthL;
+        obj_lis.eq(indexL).click();
+        // obj_lis.eq(indexL).addClass('active').siblings().removeClass("active");
+         if(indexL == obj_lisL){
+             indexL = -1;
+         }
+    }
+    //鼠标移入移出时触发or取消定时器
+    $(".slider-img").mouseover(function () {
+                clearInterval(t1);
+             }).mouseout(function () {
+                t1 = window.setInterval(refreshCount, 5000)
+             });
+    //alert(lengthL);
+    //clearInterval(intervalId);
     //鼠标滚轮事件
-    $('.slider-img').mousewheel(function(event, delta) {
-        //鼠标移入禁止滚动条
-        $(".slider-img").mouseover(function () {
-            var top = $(document).scrollTop();
-            $(document).on('scroll.unable',function (e) {
-                $(document).scrollTop(top);
-            })
-        }).mouseout(function () {
-            //移除恢复滚动
-            $(document).unbind("scroll.unable");
-        });
-
-        var cla = ".item0";
-        var lis = ".li0";
-        for (var j = 0; j < d.length; j++) {
-            var id = ".item"+j;
-            if($(id).attr("class").split(" ")[3] == 'active'){
-                if(delta<0){
-                    $(".z_img").removeClass("z_img1");
-                    $(".z_img").addClass("z_img2");
-                    if(j<d.length-1){
-                        cla = ".item"+(j+1);
-                        lis = ".li"+(j+1);
-                    }
-                }else{
-                	$(".z_img").removeClass("z_img2");
-                	$(".z_img").addClass("z_img1");
-                    if(j>0){
-                        cla = ".item"+(j-1);
-                        lis = ".li"+(j-1);
-                    } else{
-                        cla = ".item"+(d.length-1);
-                        lis = ".li"+(d.length-1);
-                    }
-                }
-            }
-        }
-        $(".lis").siblings().removeClass("active");
-        $(cla).addClass("active");
-        $(lis).addClass("active");
-        });
+    // $('.slider-img').mousewheel(function(event, delta) {
+    //     //鼠标移入禁止滚动条
+    //     $(".slider-img").mouseover(function () {
+    //         var top = $(document).scrollTop();
+    //         $(document).on('scroll.unable',function (e) {
+    //             $(document).scrollTop(top);
+    //         })
+    //     }).mouseout(function () {
+    //         //移除恢复滚动
+    //         $(document).unbind("scroll.unable");
+    //     });
+    //
+    //     var cla = ".item0";
+    //     var lis = ".li0";
+    //     for (var j = 0; j < d.length; j++) {
+    //         var id = ".item"+j;
+    //         if($(id).attr("class").split(" ")[3] == 'active'){
+    //             if(delta<0){
+    //                 $(".z_img").removeClass("z_img1");
+    //                 $(".z_img").addClass("z_img2");
+    //                 if(j<d.length-1){
+    //                     cla = ".item"+(j+1);
+    //                     lis = ".li"+(j+1);
+    //                 }
+    //             }else{
+    //             	$(".z_img").removeClass("z_img2");
+    //             	$(".z_img").addClass("z_img1");
+    //                 if(j>0){
+    //                     cla = ".item"+(j-1);
+    //                     lis = ".li"+(j-1);
+    //                 } else{
+    //                     cla = ".item"+(d.length-1);
+    //                     lis = ".li"+(d.length-1);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     $(".lis").siblings().removeClass("active");
+    //     $(cla).addClass("active");
+    //     $(lis).addClass("active");
+    //     });
 }
 
 function get_lunbo1(d){
@@ -507,11 +529,11 @@ function get_lunbo1(d){
             '<img class = "z_img z_img1" style = "height:330px;width:460px;"  src="'+d[i].img_url+'" />',
             '</div>',
             '<div class="col-md-6 slider-content">',
-            '<div class="head"><span class="font20">'+cnt+'</span>/<span class="font14">4</span></div>',
+            '<div class="head"><span class="font20">'+cnt+'</span>/<span class="font20">'+d.length+'</span></div>',
             '<div class="body tx'+i+'"><p>'+tx+'</p></div>',
             '<div class="foot foot'+i+' mo" style = "display:'+dis+'"><p onclick="more('+i+')">------查看更多</p></div>',
             '</div>',
-            '<div class="slider-title"><div class = "s_title">'+d[i].title+'</div></div>',
+            '<div class="slider-title" style="left: 55%;"><div class = "s_title">'+d[i].title+'</div></div>',
             '</div>');
     }
     var  str = arr.join('');
@@ -568,8 +590,8 @@ function init_menu(){
     RADIUS =300,
         fallLength = 500,
         tags=[],
-        angleX = Math.PI/500,
-        angleY = Math.PI/500,
+        angleX = Math.PI/1500,//原先是500
+        angleY = Math.PI/1500,//原先是500
         CX = paper.offsetWidth/2,
         CY = paper.offsetHeight/2,
         EX = paper.offsetLeft + document.body.scrollLeft + document.documentElement.scrollLeft,
@@ -627,16 +649,16 @@ function init_menu(){
             var y = event.clientY - EY - CY;
             // angleY = -x* (Math.sqrt(Math.pow(x , 2) + Math.pow(y , 2)) > RADIUS/4 ? 0.0002 : 0.0001);
             // angleX = -y* (Math.sqrt(Math.pow(x , 2) + Math.pow(y , 2)) > RADIUS/4 ? 0.0002 : 0.0001);
-            angleY = x*0.0001;
-            angleX = y*0.0001;
+            angleY = x * 0.0001;
+            angleX = y * 0.0001;
         });
     }
     else {
         paper.attachEvent("onmousemove" , function(event){
             var x = event.clientX - EX - CX;
             var y = event.clientY - EY - CY;
-            angleY = x*0.0001;
-            angleX = y*0.0001;
+            angleY = x * 0.0001;
+            angleX = y * 0.0001;
         });
     }
 
