@@ -68,7 +68,7 @@ animation: bounceInLeft_t 0.7s;
                     <li><a href="${G.host}/mainframe/goBeautiful">浦城现状</a></li>
                     <li><a href="${G.host}/mainframe/goSmartCity">智慧城市</a></li>
                     <li><a href="${G.host}/mainframe/goFuture">浦城未来</a></li>
-                    <li><div><button type="button" id ="btnlogin" style="padding: 2px 4px;" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>登录</button></div></li>
+                    <li><div><button type="button" id ="btnlin" style="padding: 2px 4px;" class="btn btn-default btnlogin"><span class="glyphicon glyphicon-user"></span>登录</button></div></li>
                 </ul>
             </nav>
         </div>
@@ -167,7 +167,7 @@ animation: bounceInLeft_t 0.7s;
          <div class="btnrow" style="width:30%;margin-left: 35%;margin-top: 60px;">
             	
             <button type="button" class="btn btn-lg btn-block btn_l1"></button>
-           	<button type="button" class="btn btn-primary btn-lg btn-block btn_l2" style="width:294px;">进入系统</button>
+           	<button type="button" id ="btnlon" class="btn btn-primary btn-lg btn-block btn_l2" style="width:294px;">进入系统</button>
           </div>
     </section>
     <!-- <section class="sec_info">
@@ -226,7 +226,6 @@ var _h = $(window).height();
 
 
 $(document).ready(function(){
-    debugger
     $(".cc").countTo({sec:1500,ts:100});
     init_card();
     init_toolbar();
@@ -293,6 +292,8 @@ function init_toolbar(){
         $(s).addClass("i_blue");
         $(s1).addClass("i_blue");
         $('.sec12').removeClass("scs");
+        id = this.id;
+        alert("id="+id)
 
          if(this.id == 'l4'){
         	brand2(1);
@@ -309,7 +310,6 @@ function init_toolbar(){
 function toolbars(id,text) {
     var s = '#'+id+' a i';
     var s1 = '#'+id+' a span';
-    debugger;
 
 //    li.removeClass("active");
 //    t.addClass("active");
@@ -425,8 +425,14 @@ function putInfo(data,i,d){
 }
 
 
-$('#btnlogin').click(function(){
-    var targetUrl  = "${G.host}/mainframe/goPcmssLogin";
+$('#btnlin').click(function(){
+    var targetUrl  = "${G.host}/mainframe/goPcmssLogin?id=l4";
+    window.location.href = targetUrl;
+})
+
+
+$('#btnlon').click(function(){
+    var targetUrl  = "${G.host}/mainframe/goPcmssLogin?id="+id;
     window.location.href = targetUrl;
 })
 

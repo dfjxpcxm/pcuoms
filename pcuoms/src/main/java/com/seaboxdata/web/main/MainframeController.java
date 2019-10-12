@@ -102,8 +102,8 @@ public class MainframeController extends SysBaseController {
         String flag = request.getParameter("flag");
         String tags = homeTagMngService.getMainframeHomeTagInfo(flag);
         String jsonStr = propagateMngService.getMainframePropagateInfo(flag);
-        System.out.println("tags="+tags);
-        System.out.println("jsonStr="+jsonStr);
+/*        System.out.println("tags="+tags);
+        System.out.println("jsonStr="+jsonStr);*/
         model.addAttribute("tg", tags);
         model.addAttribute("data", jsonStr);
         return "page/home/index";
@@ -127,11 +127,11 @@ public class MainframeController extends SysBaseController {
         //乡村旅游
         String touralStr = puChengRuralTourismService.getPuChengRuralTourismInfo(flag);
 
-        System.out.println("sumStr="+sumStr);
+     /*   System.out.println("sumStr="+sumStr);
         System.out.println("bsonStr="+jsonStr);
         System.out.println("touralStr="+touralStr);
         System.out.println("gesStr="+gesStr);
-        System.out.println("hisStr="+hisStr);
+        System.out.println("hisStr="+hisStr);*/
         model.addAttribute("ss", sumStr);
         model.addAttribute("data", jsonStr);
         model.addAttribute("ts", touralStr);
@@ -174,16 +174,14 @@ public class MainframeController extends SysBaseController {
         //项目成果投资图片
         String pg = puChengProjectInvestService.getPCProjectInvestImgInfo(flag);
 
-
-
-        System.out.println("is="+is);
+/*        System.out.println("is="+is);
         System.out.println("ps="+ps);
         System.out.println("iy="+iy);
         System.out.println("py="+py);
         System.out.println("ii="+ii);
         System.out.println("ig="+ig);
         System.out.println("pi="+pi);
-        System.out.println("pg="+pg);
+        System.out.println("pg="+pg);*/
 
 
         model.addAttribute("is", is);
@@ -208,17 +206,10 @@ public class MainframeController extends SysBaseController {
         //平台成果数据
         String flag=request.getParameter("flag");
         String pa = puChengPlatAchieveService.getPCPlatAchieveInfo(flag);
-        System.out.println("pa="+pa);
-        String id = DEFAULT_TOOLBAR_ID;
-        if(null == p || "".equals(p)){
-            id = id;
-        }else{
-            id = p;
-        }
+/*        System.out.println("pa="+pa);*/
 
-        System.out.println("id="+id);
         model.addAttribute("pa", pa);
-        model.addAttribute("id", id);
+        model.addAttribute("id", DEFAULT_TOOLBAR_ID);
         return "page/smart/smart";
     }
     /**
@@ -240,9 +231,27 @@ public class MainframeController extends SysBaseController {
      */
     @RequestMapping
     public String  goPcmssLogin(ModelMap model){
-        String pcmssUrl = PropertiesUtil.getPropery("pcmss.portal.login.url");
-        String url = getLoginUrl(pcmssUrl);
+        String id = request.getParameter("id");
+        String sysUrl = getAppSysLoginUrl(id);
+        String url = getLoginUrl(sysUrl);
         return url;
+    }
+
+
+    public static String getAppSysLoginUrl(String id){
+        String url  = "" ;
+        if(null == id || "".equals(id) || DEFAULT_TOOLBAR_ID.equals(id) ||id ==DEFAULT_TOOLBAR_ID) {
+            url = PropertiesUtil.getPropery("pcmss.portal.login.url");
+        }else if(COUNTRYSIDE_TOOLBAR_ID.equals(id) ||id ==COUNTRYSIDE_TOOLBAR_ID){
+            url = PropertiesUtil.getPropery("countryside.portal.login.url");
+        }else if(CITY_MANAGEMENT_TOOLBAR_ID.equals(id) ||id ==CITY_MANAGEMENT_TOOLBAR_ID){
+            url = PropertiesUtil.getPropery("citymng.portal.login.url");
+
+        }else if(CONVENIENCE_TOOLBAR_ID.equals(id) ||id ==CONVENIENCE_TOOLBAR_ID){
+            url = PropertiesUtil.getPropery("convenience.portal.login.url");
+        }
+        return  url;
+
     }
 
 
@@ -254,7 +263,17 @@ public class MainframeController extends SysBaseController {
     }
 
 
-    private final static String DEFAULT_TOOLBAR_ID = "l3" ;
+    //超级大脑
+    private final static String DEFAULT_TOOLBAR_ID = "l4" ;
+    //数字农村
+    private final static String COUNTRYSIDE_TOOLBAR_ID = "l5" ;
+    //智慧城管
+    private final static String CITY_MANAGEMENT_TOOLBAR_ID = "l6" ;
+    //便民服务
+    private final static String CONVENIENCE_TOOLBAR_ID = "l7" ;
+
+
+
 
 
 
