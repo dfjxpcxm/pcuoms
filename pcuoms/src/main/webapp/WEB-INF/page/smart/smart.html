@@ -91,12 +91,12 @@ animation: bounceInLeft_t 0.7s;
                         <span>重点产业</span>
                     </a>
                 </li>-->
-                <li id = "l3">
+             <!--   <li id = "l3">
                     <a>
                         <i class="di di-zhihuitiaodu"></i>
                         <span>指挥中心</span>
                     </a>
-                </li>
+                </li>-->
                 <li id = "l4">
                     <a>
                         <i class="di di-chaojidanao"></i>
@@ -230,10 +230,8 @@ $(document).ready(function(){
     $(".cc").countTo({sec:1500,ts:100});
     init_card();
     init_toolbar();
-    if(id == null || id.length ==0 || id =='l3'){
-        toolbars('l3','指挥中心');
-    }else if(id =='l3'){
-        toolbars('l3','指挥中心');
+    if(id == null || id.length ==0 || id =='l4'){
+        toolbars('l4','超级大脑');
     } else if(id =='l4'){
         toolbars('l4','超级大脑');
     }else if(id =='l5'){
@@ -296,9 +294,7 @@ function init_toolbar(){
         $(s1).addClass("i_blue");
         $('.sec12').removeClass("scs");
 
-        if(this.id == 'l3'){
-        	brand2(0);
-        }else if(this.id == 'l4'){
+         if(this.id == 'l4'){
         	brand2(1);
         }else if(this.id == 'l5'){
         	brand2(2);
@@ -313,6 +309,7 @@ function init_toolbar(){
 function toolbars(id,text) {
     var s = '#'+id+' a i';
     var s1 = '#'+id+' a span';
+    debugger;
 
 //    li.removeClass("active");
 //    t.addClass("active");
@@ -326,9 +323,7 @@ function toolbars(id,text) {
     $(s1).addClass("i_blue");
     $('.sec12').removeClass("scs");
 
-    if(id == 'l3'){
-        brand2(0);
-    }else if(id == 'l4'){
+     if(id == 'l4'){
         brand2(1);
     }else if(id == 'l5'){
         brand2(2);
@@ -336,7 +331,7 @@ function toolbars(id,text) {
         brand2(3);
     }else if(id == 'l7'){
         brand2(4);
-    }'l4'
+    }
 }
 
 
