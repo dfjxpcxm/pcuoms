@@ -131,4 +131,8 @@
 
 		order by order_by
 	</select>
+
+	<select id="getColor" resultType="com.seaboxdata.sysmng.mainframemng.hometag.HomeTagMngDO">
+		select s.* from t01_home_tag s where s.tag_id = 38
+	</select>
 </mapper>

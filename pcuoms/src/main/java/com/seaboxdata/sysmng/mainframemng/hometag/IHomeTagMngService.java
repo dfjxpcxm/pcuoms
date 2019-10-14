@@ -45,7 +45,9 @@ public interface IHomeTagMngService extends ISysBaseService<HomeTagMngDO> {
       获取首页宣传信息
      */
     public String  getMainframeHomeTagInfo(String flag);
-
-
+    /*
+    获取首页标签颜色
+     */
+    public HomeTagMngDO getColor();
 
 }

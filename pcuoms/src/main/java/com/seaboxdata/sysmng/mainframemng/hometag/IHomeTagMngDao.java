@@ -47,4 +47,9 @@ public interface IHomeTagMngDao<GotoPuChengMngDO> extends ISysBaseDao<GotoPuChen
       获取首页宣传信息
      */
     public List<Map<String,Object>> getMainframeHomeTagInfo(Map<String, Object> queryMap);
+
+    /*
+        获取首页标签颜色
+     */
+    public HomeTagMngDO getColor();
 }

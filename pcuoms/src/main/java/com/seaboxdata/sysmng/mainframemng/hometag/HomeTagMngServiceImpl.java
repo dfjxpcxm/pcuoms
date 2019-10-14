@@ -86,7 +86,10 @@ public class HomeTagMngServiceImpl extends SysBaseService<HomeTagMngDO> implemen
         return  retStr;
     }
 
-
+    @Override
+    public HomeTagMngDO getColor() {
+        return dao.getColor();
+    }
 
 
     /*

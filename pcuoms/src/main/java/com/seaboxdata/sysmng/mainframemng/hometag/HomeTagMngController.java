@@ -90,4 +90,15 @@ public class HomeTagMngController extends SysBaseController<HomeTagMngDO> {
         return ActionMsg;
     }
 
+    /**
+     * 获取首页标签颜色
+     * @return
+     */
+    @RequestMapping(value = "getColor")
+    @ResponseBody
+    public HomeTagMngDO getColor(){
+        System.out.println(homeTagMngService.getColor());
+        return homeTagMngService.getColor();
+    }
+
 }

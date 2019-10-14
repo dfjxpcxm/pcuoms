@@ -445,7 +445,7 @@ function render_lunbo(d) {
     var obj_lis = $(".slider-nav li");
     var obj_lisL = obj_lis.length;
     var indexL = 0;
-   //  var t1=window.setInterval(refreshCount,5000);
+     var t1=window.setInterval(refreshCount,3000);
     // var liname=$(".slider-nav li data-slide-to");
      function refreshCount() {
          indexL++;
@@ -460,7 +460,7 @@ function render_lunbo(d) {
     $(".slider-img").mouseover(function () {
                 clearInterval(t1);
              }).mouseout(function () {
-                t1 = window.setInterval(refreshCount, 5000)
+                t1 = window.setInterval(refreshCount, 3000)
              });
     //alert(lengthL);
     //clearInterval(intervalId);
@@ -609,6 +609,7 @@ function init_menu(){
         return classEle;
     }
 
+
     function innit(){
         for(var i=0;i<tagEle.length;i++){
             var a , b;
@@ -621,7 +622,7 @@ function init_menu(){
             var y = RADIUS * Math.sin(a) * Math.sin(b);
             var z = RADIUS * Math.cos(a);
             var t = new tag(tagEle[i] , x , y , z);
- //           tagEle[i].style.color = "rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
+            //tagEle[i].style.color = "rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
             tags.push(t);
             t.move();
         }
@@ -639,10 +640,15 @@ function init_menu(){
             rotateY();
             tags.forEach(function(){
                 this.move();
-            })
-        } , 17)
-    }
+            });
 
+        } , 17);
+        setInterval(function() {
+            tags.forEach(function () {
+                this.moveColor();
+            })
+        },5000)
+    }
     if("addEventListener" in window){
         paper.addEventListener("mousemove" , function(event){
             var x = event.clientX - EX - CX;
@@ -696,17 +702,59 @@ function init_menu(){
         move:function(){
             var scale = fallLength/(fallLength-this.z);
             var alpha = (this.z+RADIUS)/(2*RADIUS);
-            this.ele.style.fontSize = 15 * scale + "px";
+            this.ele.style.fontSize = 17 * scale + "px";
             this.ele.style.opacity = alpha+0.5;
-            this.ele.style.filter = "alpha(opacity = "+(alpha+0.5)*100+")";
+            this.ele.style.filter = "alpha(opacity = "+(alpha+0.7)*100+")";
             this.ele.style.zIndex = parseInt(scale*100);
             this.ele.style.left = this.x + CX - this.ele.offsetWidth/2 +"px";
             this.ele.style.top = this.y + CY - this.ele.offsetHeight/2 +"px";
+
+        },
+        moveColor:function () {
+            this.ele.style.color = getRandomColor();//"rgb("+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+","+parseInt(Math.random()*255)+")";
         }
-    }
+    };
     innit();
     animate();
+    getColor();
 
 }
+    var StyleColor ;
+    function getColor() {
+        $.ajax({
+            type: "get",
+            url: '${G.host}/homeTagMng/getColor',
+            success: function (msg) {
+                console.log(msg.tag_style);
+                if(msg.index_state == 1){
+                    StyleColor = msg.tag_style.split(",");
+                }
+            }
 
+        });
+    }
+    function getRandomInt(min,max){
+        return Math.floor(Math.random()*(max-min+1))+min;
+    }
+    function getRandomColor(){
+        debugger;
+        var  cnt = getRandomInt(1,StyleColor.length);
+        var col =StyleColor[cnt];
+
+        //白色：
+        // if(cnt ==1){
+        //     col = "rgb(255,243,20)";
+        // } else if(cnt ==2){
+        //     col = "rgb(6,255,235)";
+        // }else if(cnt ==3){
+        //     col = "rgb(255,246,248)";
+        // }else if(cnt ==4){
+        //     col ="rgb(255,106,9)";
+        // }else if(cnt ==5){
+        //     col ="rgb(255,54,59)";
+        // }
+
+        //#ecaf7c,#e72f7f5,,,,,,
+        return col;
+    }
 </script>
