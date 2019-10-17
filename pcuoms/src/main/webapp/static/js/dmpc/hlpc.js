@@ -132,9 +132,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 186710, itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 227239, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
-							{value: 232573, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 186710, itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 227239, itemStyle: {normal: {color:'#ffbc8a'}}, name:'第二产业'},
+							{value: 232573, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -147,9 +147,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 214624,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 266983, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
-							{value: 269732, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 214624,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 266983, itemStyle: {normal: {color:'#ffbc8a'}}, name:'第二产业'},
+							{value: 269732, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -162,9 +162,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 237747,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 309285,  itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
-							{value: 302542, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 237747,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 309285,  itemStyle: {normal: {color:'#ffbc8a'}},name:'第二产业'},
+							{value: 302542, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -177,9 +177,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 258987,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 360232,  itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
-							{value: 332569, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 258987,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 360232,  itemStyle: {normal: {color:'#ffbc8a'}},name:'第二产业'},
+							{value: 332569, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -192,9 +192,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 279408,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 420320,  itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
-							{value: 378283, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 279408,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 420320,  itemStyle: {normal: {color:'#ffbc8a'}},name:'第二产业'},
+							{value: 378283, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -208,9 +208,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 313254,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 460400, itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
-							{value: 416903, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 313254,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 460400, itemStyle: {normal: {color:'#ffbc8a'}},name:'第二产业'},
+							{value: 416903, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -223,9 +223,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 398113,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 487277, itemStyle: {normal: {color:'#ffae73'}},name:'第二产业'},
-							{value: 457047, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 398113,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 487277, itemStyle: {normal: {color:'#ffbc8a'}},name:'第二产业'},
+							{value: 457047, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -238,9 +238,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 431911,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 545115, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
-							{value: 536106, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 431911,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 545115, itemStyle: {normal: {color:'#ffbc8a'}}, name:'第二产业'},
+							{value: 536106, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -253,9 +253,9 @@ function chart2(){
 						center: ['50%', '45%'],
 						radius: '50%',
 						data:[
-							{value: 338711,  itemStyle: {normal: {color:'#8563ff'}}, name:'第一产业'},
-							{value: 572528, itemStyle: {normal: {color:'#ffae73'}}, name:'第二产业'},
-							{value: 664154, itemStyle: {normal: {color:'#5eff4b'}},name:'第三产业'}
+							{value: 338711,  itemStyle: {normal: {color:'#adcfbf'}}, name:'第一产业'},
+							{value: 572528, itemStyle: {normal: {color:'#ffbc8a'}}, name:'第二产业'},
+							{value: 664154, itemStyle: {normal: {color:'#82accf'}},name:'第三产业'}
 						]
 					}
 				]
@@ -536,9 +536,8 @@ function chart4() {
 		legend: {
 			orient : 'vertical',
 			x : 'left',
-			top :'43px',
-			data:['现代绿色农业产值','生物产业产值','数字信息产业产值','文化创意产业产值','先进制造业产值','农业总产值']
-
+			top :'50px',
+			data:['现代绿色农业产值','先进制造业产值','数字信息产业产值','文化创意产业产值','生物产业产值']
 		},
 
 		calculable : false,
@@ -547,9 +546,9 @@ function chart4() {
 				name:'现代绿色农业产值占比',
 				type:'pie',
 				selectedMode: 'single',
-				radius : [0, 70],
-				x: '20%',
-				width: '40%',
+				radius : [0, 60],
+				x: '30%',
+				width: '30%',
 				funnelAlign: 'right',
 				max: 1548,
 
@@ -564,28 +563,31 @@ function chart4() {
 					}
 				},
 				data:[
-					{value:21833, name:'现代绿色农业产值'},
-					{value:101426, name:'农业总产值', itemStyle: {normal: {color:'#4abfff'}},selected:true}
+					{value:21833, name:'现代绿色农业产值',itemStyle: {normal: {color:'#5fcf9f'}}},
+//					{value:101426, name:'农业总产值', itemStyle: {normal: {color:'#4abfff'}},selected:true}
+					{value:41013, name:'文化创意产业产值', itemStyle: {normal: {color:'#aecfc4'}},selected:true}
 				]
 			},
 			{
 				name:'现代绿色农业产值占比',
 				type:'pie',
-				radius : [100, 140],
+				radius : [90, 130],
 
 				// for funnel
-				x: '60%',
+				x: '70%',
 				width: '35%',
-				funnelAlign: 'left',
+				funnelAlign: 'center',
 				max: 1048,
 				data:[
 
-					{value:21833, name:'现代绿色农业产值'},
-					{value:11231, itemStyle: {normal: {color:'#71ff97'}},name:'生物产业产值'},
+					{value:21833, itemStyle: {normal: {color:'#5fcf9f'}},name:'现代绿色农业产值'},
+					{value:2270, itemStyle: {normal: {color:'#cfba4d'}},name:'先进制造业产值'},
+
 					{value:3604, itemStyle: {normal: {color:'#ffbf3a'}},name:'数字信息产业产值'},
-					{value:41013, itemStyle: {normal: {color:'#ffae73'}},name:'文化创意产业产值'},
-					{value:2270, itemStyle: {normal: {color:'#faff31'}},name:'先进制造业产值'},
-					{value:101426, itemStyle: {normal: {color:'#4abfff'}},name:'农业总产值'}
+					{value:41013, itemStyle: {normal: {color:'#aecfc4'}},name:'文化创意产业产值'},
+					{value:11231, itemStyle: {normal: {color:'#71ff97'}},name:'生物产业产值'}
+
+//					{value:101426, itemStyle: {normal: {color:'#cfb32f'}},name:'农业总产值'}
 
 				]
 			}
@@ -698,8 +700,12 @@ function chart3(){
 			subtext: '单位：元'
 		},
 		tooltip : {
+//			trigger: 'axis',
+//			formatter: "{a} <br/>{b}元"
+
 			trigger: 'axis',
-			formatter: "{a} <br/>{b}元"
+			formatter: "{a} <br/>{b} : {c}元"
+
 		},
 		legend: {
 			left: 'right',
@@ -725,6 +731,7 @@ function chart3(){
 				data : ['2014','2015','2016','2017','2018']
 			}
 		],
+//		yAxis: {},
 		yAxis : [
 			{
 				type : 'value',
@@ -747,7 +754,7 @@ function chart3(){
 			{
 				name:'城镇居民人均可支配收入',
 				type:'bar',
-				itemStyle: {normal: {color:'rgba(252,206,16,1)', label:{show:true,textStyle:{color:'#E87C25'}}}},
+				itemStyle: {normal: {color:'#27727B', label:{show:true}}},
 				data:[22754,24324,26075,28340,30472]
 			},
 			{
@@ -1604,14 +1611,40 @@ function chart6() {
 				name: '污染物排放总量',
 				type: 'radar',
 				itemStyle: {normal: {areaStyle: {type: 'default'}}},
+/*				itemStyle: {normal: {areaStyle: {
+							color: ['#a933cf', '#228b22','#ffbc8a','#c64cff','#ffbc8a','#cfa816'],
+							shadowColor: 'rgba(0, 0, 0, 0.3)',
+							shadowBlur: 10
+						}}},*/
+
+
 				data: [
 					{
 						value : [0.61, 1.08, 0.5, 0.61,1.52],
-						name : '2017'
+						name : '2017',
+						itemStyle: {
+							normal: {
+								color: '#d2d2ff',
+								lineStyle: {
+									width: 1,
+									color: '#d2d2ff',
+								},
+							},
+						},
+
 					},
 					{
 						value : [0.6, 1, 0.4, 0.6,1.5],
-						name : '2018'
+						name : '2018',
+						itemStyle: {
+							normal: {
+								color: '#bbcccf',
+								lineStyle: {
+									width: 1,
+									color: '#bbcccf'
+								},
+							},
+						},
 					}
 				]
 				}
